@@ -17,3 +17,6 @@ MonoBehaviour:
   Damage: 1
   Defense: 0
   MoveSpeed: 1
+  MoveSpeed: 2
+  AttackDistance: 1
+  AttackSpeed: 0

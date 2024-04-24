@@ -25,4 +25,12 @@ public class MonsterData : ScriptableObject
     [SerializeField]
     private int MoveSpeed;
     public int moveSpeed { get { return MoveSpeed; } }
+
+    [SerializeField]
+    private float AttackDistance;
+    public float attackDistance { get { return AttackDistance; } }
+
+    [SerializeField]
+    private float AttackSpeed;
+    public float attackSpeed { get { return AttackSpeed; } }
 }
