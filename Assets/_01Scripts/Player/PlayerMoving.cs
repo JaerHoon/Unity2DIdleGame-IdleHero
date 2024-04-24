@@ -42,6 +42,10 @@ public class PlayerMoving : MonoBehaviour
             anim.SetTrigger("run");
             transform.localScale = new Vector3(-scaleX, scaleY, scaleZ); // 반대방향 바라보게 하기 위함
         }
+        else
+        {
+            anim.SetTrigger("idle");
+        }
         
        
     }
