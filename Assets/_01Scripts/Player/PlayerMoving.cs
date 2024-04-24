@@ -40,7 +40,7 @@ public class PlayerMoving : MonoBehaviour
         else if(joy.Horizontal < 0)
         {
             anim.SetTrigger("run");
-            transform.localScale = new Vector3(-scaleX, scaleY, scaleZ); // 반대방향 바라보게 하기 위해서 설정
+            transform.localScale = new Vector3(-scaleX, scaleY, scaleZ); // 반대방향 바라보게 하기 위함
         }
         
        
