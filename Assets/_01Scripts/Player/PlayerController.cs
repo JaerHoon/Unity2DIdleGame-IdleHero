@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public VariableJoystick joy;
 
-    float axisValueHorizontal; 
+    float axisValueHorizontal;
     float axisValueVertical;
 
     float scaleX;
@@ -22,19 +22,19 @@ public class PlayerController : MonoBehaviour
 
     
     public Animator anim;
-    
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
-        
 
         scaleX = transform.localScale.x;
         scaleY = transform.localScale.y;
         scaleZ = transform.localScale.z;
-      
+
 
     }
 
@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
     void PlayerAnim()
     {
+        axisValueHorizontal = joy.Horizontal;
+        axisValueVertical = joy.Vertical;
+
         if (axisValueVertical == 0)// y축 이동이 없을 때
         {
             if (axisValueHorizontal > 0.0f)
@@ -80,8 +83,8 @@ public class PlayerController : MonoBehaviour
     
     void PlayerMove()
     {
-        axisValueHorizontal = Input.GetAxis("Horizontal");
-        axisValueVertical = Input.GetAxis("Vertical");
+        axisValueHorizontal = joy.Horizontal;
+        axisValueVertical = joy.Vertical;
         if (Mathf.Abs(axisValueHorizontal) > 0 && Mathf.Abs(axisValueVertical) > 0) // 대각 이동속도 감소
         {
             X_Speed = Speed * Time.deltaTime * axisValueHorizontal * 0.7f;
