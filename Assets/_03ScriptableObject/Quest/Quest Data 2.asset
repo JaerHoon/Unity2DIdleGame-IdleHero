@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f284a08affbf794458495a52ed69ee1b, type: 3}
+  m_Name: Quest Data 2
+  m_EditorClassIdentifier: 
+  questName: "\uBC29\uC5B4\uB825\uC6B8 Lv.5\uAE4C\uC9C0 \uAC15\uD654\uD558\uC138\uC694."
+  numberOfGoal: 5
+  currentNumber: 0
+  rewordAmount: 200
