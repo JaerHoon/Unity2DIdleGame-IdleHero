@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SkillButton : MonoBehaviour
 {
-    public PlayerAttack player;
+    /*public PlayerAttack player;
     public Skill_ScriptableObject skill;
 
     public Image imgCool;
@@ -40,7 +40,7 @@ public class SkillButton : MonoBehaviour
 
             yield return null;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

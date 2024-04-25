@@ -41,7 +41,8 @@ public class BabyDragon : RecyclableMonster
 
     void Start()
     {
-        playerPositionTest = GameObject.Find("PlayerTest").transform;
+        playerPositionTest = GameObject.Find("Player").transform;
+        gameObject.tag = "monster";
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
