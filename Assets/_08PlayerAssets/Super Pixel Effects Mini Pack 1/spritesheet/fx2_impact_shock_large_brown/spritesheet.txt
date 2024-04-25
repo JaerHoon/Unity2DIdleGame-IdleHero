@@ -1,0 +1,7 @@
+fx2_impact_shock_large_brown/frame0000.png = 0 0 140 50
+fx2_impact_shock_large_brown/frame0001.png = 140 0 140 50
+fx2_impact_shock_large_brown/frame0002.png = 280 0 140 50
+fx2_impact_shock_large_brown/frame0003.png = 420 0 140 50
+fx2_impact_shock_large_brown/frame0004.png = 560 0 140 50
+fx2_impact_shock_large_brown/frame0005.png = 700 0 140 50
+fx2_impact_shock_large_brown/frame0006.png = 840 0 140 50
