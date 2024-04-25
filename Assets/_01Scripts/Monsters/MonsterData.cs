@@ -12,7 +12,7 @@ public class MonsterData : ScriptableObject
 
     [SerializeField]
     private int Hp;
-    public int hp { get { return hp; } }
+    public int hp { get { return Hp; } }
 
     [SerializeField]
     private int Damage;
@@ -23,6 +23,18 @@ public class MonsterData : ScriptableObject
     public int defense { get { return Defense; } }
 
     [SerializeField]
-    private int MoveSpeed;
-    public int moveSpeed { get { return MoveSpeed; } }
+    private float MoveSpeed;
+    public float moveSpeed { get { return MoveSpeed; } }
+
+    [SerializeField]
+    private float AttackDistance;
+    public float attackDistance { get { return AttackDistance; } }
+
+    [SerializeField]
+    private float AttackSpeed;
+    public float attackSpeed { get { return AttackSpeed; } }
+
+    [SerializeField]
+    private float AttackMotionSpeed;
+    public float attackMotionSpeed { get { return AttackMotionSpeed; } }
 }

@@ -9,11 +9,12 @@ public class ItemManager : MonoBehaviour
     [SerializeField]
     List<Item_ScriptableObject> item_ScriptableObject = new List<Item_ScriptableObject>();
     [SerializeField]
-    List<Sprite> backgrounds { get; }
+    List<Sprite> backgrounds = new List<Sprite>();
     [SerializeField]
-    List<Sprite> slots { get; }
+    List<Sprite> slots = new List<Sprite>();
 
-    public List<Item> itemData = new List<Item>();
+    public List<Item> items = new List<Item>();
+    public List<Item> gainedItems = new List<Item>();
 
     
     private void Awake()
@@ -66,7 +67,7 @@ public class ItemManager : MonoBehaviour
             item.Setting(backgrounds[0], slots[0]);
             item.ItemLv = 1;
             item.isGained = false;
-            itemData.Add(item);
+            items.Add(item);
             for (int a = 0; a < 4; a++)
             {
                 Item item2 = new Item();
@@ -81,7 +82,25 @@ public class ItemManager : MonoBehaviour
                 item2.Setting(backgrounds[a + 1], slots[a + 1]);
                 item2.ItemLv = 1;
                 item2.isGained = false;
-                itemData.Add(item2);
+                items.Add(item2);
+            }
+        }
+    }
+
+    public void GetItem(int itemnum)
+    {
+        gainedItems.Add(items[itemnum]);
+        items.RemoveAt(itemnum);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            for(int i=0; i < items.Count; i++)
+            {
+                print(items[i].itemData.itemname+ "/" + items[i].itemGrade);
+                
             }
         }
     }
