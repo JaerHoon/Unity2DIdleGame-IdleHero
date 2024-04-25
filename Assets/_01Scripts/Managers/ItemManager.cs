@@ -93,7 +93,9 @@ public class ItemManager : MonoBehaviour
         items.RemoveAt(itemnum);
     }
 
-    private void Update()
+
+    // 디버그용 함수
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -103,5 +105,5 @@ public class ItemManager : MonoBehaviour
                 
             }
         }
-    }
+    }*/
 }

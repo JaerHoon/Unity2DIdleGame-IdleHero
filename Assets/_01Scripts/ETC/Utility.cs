@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Utility : MonoBehaviour
 {
+    //중복없는 정수 난수 생성
     public static int[] RandomCreate(int count, int RangeMin, int RangeMax)
     {
         int[] nums = new int[count];
