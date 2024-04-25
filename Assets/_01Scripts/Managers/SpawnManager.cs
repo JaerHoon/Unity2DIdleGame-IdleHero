@@ -23,16 +23,20 @@ public class SpawnManager : MonoBehaviour
     //===============몬스터 프리팹 선언===================
     [SerializeField]
     BabyDragon babyDragonPrefab;
+    [SerializeField]
+    Slime slimePrefab;
 
 
 
 
     //===============팩토리 선언=======================
     MonsterFactory babyDragonFactory; 
+    MonsterFactory slimeFactory; 
     
     void Start()
     {
         babyDragonFactory = new MonsterFactory(babyDragonPrefab,5);//몬스터 팩토리에 드래곤 인스턴스 생성
+        slimeFactory = new MonsterFactory(slimePrefab, 5);//몬스터 팩토리에 드래곤 인스턴스 생성
     }
 
    
@@ -43,6 +47,12 @@ public class SpawnManager : MonoBehaviour
             RecyclableMonster babyDragon = babyDragonFactory.GetMonster();
             babyDragon.Activate(spawnPoint[0].position);
             
+        }
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            RecyclableMonster slime = slimeFactory.GetMonster();
+            slime.Activate(spawnPoint[1].position);
+
         }
     }
 }

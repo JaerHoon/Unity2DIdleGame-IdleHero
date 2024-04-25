@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BabyDragon : RecyclableMonster
+public class Slime : RecyclableMonster
 {
     // Start is called before the first frame update
 
     public Transform playerPositionTest;
     [SerializeField]
-    MonsterData drangonData;
+    MonsterData slimeData;
     //==================선언=========================
     [SerializeField]
     string monName;
@@ -20,7 +19,7 @@ public class BabyDragon : RecyclableMonster
     [SerializeField]
     int defense;
     [SerializeField]
-    int moveSpeed;
+    float moveSpeed;
     [SerializeField]
     float attackDistance;
     [SerializeField]
@@ -30,37 +29,37 @@ public class BabyDragon : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = drangonData.name;
-        hp = drangonData.hp;
-        damage = drangonData.damage;
-        defense = drangonData.defense;
-        moveSpeed = drangonData.moveSpeed;
-        attackDistance = drangonData.attackDistance;
-        attackSpeed = drangonData.attackSpeed;
-        attackMotionSpeed = drangonData.attackMotionSpeed;
+        monName = slimeData.name;
+        hp = slimeData.hp;
+        damage = slimeData.damage;
+        defense = slimeData.defense;
+        moveSpeed = slimeData.moveSpeed;
+        attackDistance = slimeData.attackDistance;
+        attackSpeed = slimeData.attackSpeed;
+        attackMotionSpeed = slimeData.attackMotionSpeed;
     }
 
     void Start()
     {
-       
+        playerPositionTest = GameObject.Find("PlayerTest").transform;
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
-        if(hp <= 0)
+        if (hp <= 0)
         {
             MonDeath();//몬스터 죽음 이벤트
             isDead = true;
         }
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
         LookPlayer(playerPositionTest.position);
-        MonsterState(playerPositionTest.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
-        UpdateState(playerPositionTest.position, drangonData.moveSpeed);
+        MonsterState(playerPositionTest.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
+        UpdateState(playerPositionTest.position, slimeData.moveSpeed);
     }
 }

@@ -23,8 +23,8 @@ public class MonsterData : ScriptableObject
     public int defense { get { return Defense; } }
 
     [SerializeField]
-    private int MoveSpeed;
-    public int moveSpeed { get { return MoveSpeed; } }
+    private float MoveSpeed;
+    public float moveSpeed { get { return MoveSpeed; } }
 
     [SerializeField]
     private float AttackDistance;

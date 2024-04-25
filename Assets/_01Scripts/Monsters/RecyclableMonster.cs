@@ -135,7 +135,7 @@ public class RecyclableMonster : MonoBehaviour
         isAttacking = false;
     }
 
-    public virtual void UpdateState(Vector3 playerPos, int moveSpeed)
+    public virtual void UpdateState(Vector3 playerPos, float moveSpeed)
     {
         switch (state)
         {
@@ -164,7 +164,7 @@ public class RecyclableMonster : MonoBehaviour
     {
 
     }
-    public virtual void TraceState(Vector3 playerPos, int moveSpeed)
+    public virtual void TraceState(Vector3 playerPos, float moveSpeed)
     {
         MonsterMovement(playerPos, moveSpeed);
     }
@@ -181,7 +181,7 @@ public class RecyclableMonster : MonoBehaviour
 
     }
 
-    public virtual void MonsterMovement(Vector3 playerPos, int moveSpeed)//몬스터 이동
+    public virtual void MonsterMovement(Vector3 playerPos, float moveSpeed)//몬스터 이동
     {
         Vector3 dir = (playerPos - transform.position).normalized;
         transform.position += dir * moveSpeed * Time.deltaTime;
