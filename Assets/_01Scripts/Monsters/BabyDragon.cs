@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BabyDragon : MonsterRecycle
+
 public class BabyDragon : RecyclableMonster
 {
     // Start is called before the first frame update
