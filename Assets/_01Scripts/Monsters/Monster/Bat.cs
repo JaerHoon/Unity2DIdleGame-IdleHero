@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bat : RecyclableMonster
 {
-    public Transform playerPositionTest;
+    public Transform playerPosition;
     [SerializeField]
     MonsterData batData;
     //==================선언=========================
@@ -39,7 +39,8 @@ public class Bat : RecyclableMonster
 
     void Start()
     {
-        playerPositionTest = GameObject.Find("PlayerTest").transform;
+        playerPosition = GameObject.FindWithTag("Player").transform;
+        gameObject.tag = "monster";
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -56,8 +57,8 @@ public class Bat : RecyclableMonster
     // Update is called once per frame
     void Update()
     {
-        LookPlayer(playerPositionTest.position);
-        MonsterState(playerPositionTest.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
-        UpdateState(playerPositionTest.position, batData.moveSpeed);
+        LookPlayer(playerPosition.position);
+        MonsterState(playerPosition.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
+        UpdateState(playerPosition.position, batData.moveSpeed);
     }
 }

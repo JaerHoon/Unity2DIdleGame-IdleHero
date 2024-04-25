@@ -27,6 +27,8 @@ public class SpawnManager : MonoBehaviour
     Slime slimePrefab;
     [SerializeField]
     Bat batPrefab;
+    [SerializeField]
+    Spider spiderPrefab;
 
 
 
@@ -34,12 +36,14 @@ public class SpawnManager : MonoBehaviour
     MonsterFactory babyDragonFactory; 
     MonsterFactory slimeFactory; 
     MonsterFactory batFactory; 
+    MonsterFactory spiderFactory; 
     
     void Start()
     {
         babyDragonFactory = new MonsterFactory(babyDragonPrefab,5);//몬스터 팩토리에 드래곤 인스턴스 생성
         slimeFactory = new MonsterFactory(slimePrefab, 5);//몬스터 팩토리에 슬라임 인스턴스 생성
         batFactory = new MonsterFactory(batPrefab, 5);//몬스터 팩토리에 뱃 인스턴스 생성
+        spiderFactory = new MonsterFactory(spiderPrefab, 5);//몬스터 팩토리에 스파이더 인스턴스 생성
     }
 
    
@@ -61,6 +65,12 @@ public class SpawnManager : MonoBehaviour
         {
             RecyclableMonster bat = batFactory.GetMonster();
             bat.Activate(spawnPoint[2].position);
+
+        }
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            RecyclableMonster spider = spiderFactory.GetMonster();
+            spider.Activate(spawnPoint[3].position);
 
         }
     }

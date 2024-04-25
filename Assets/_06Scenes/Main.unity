@@ -311,6 +311,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 613195879}
+  - {fileID: 2016715443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -823,7 +824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1217171059}
   m_Layer: 0
-  m_Name: PlayerPosition
+  m_Name: PlayerTest
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1058,6 @@ Transform:
   m_Father: {fileID: 1024161046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1583443893
-
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1235,6 +1235,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+--- !u!224 &2016715443 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+  m_PrefabInstance: {fileID: 2016715442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2022098438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,13 +1319,10 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1256647290}
   - {fileID: 519420032}
   - {fileID: 1024161046}
   - {fileID: 346243456}
   - {fileID: 1326703801}
-  - {fileID: 1733352543}
-  - {fileID: 238177338}
   - {fileID: 1037804031}
   - {fileID: 398463791}
   - {fileID: 367952982}

@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BabyDragon : RecyclableMonster
+public class Spider : RecyclableMonster
 {
-
     public Transform playerPosition;
     [SerializeField]
-    MonsterData drangonData;
+    MonsterData spiderData;
     //==================선언=========================
     [SerializeField]
     string monName;
@@ -29,14 +27,14 @@ public class BabyDragon : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = drangonData.name;
-        hp = drangonData.hp;
-        damage = drangonData.damage;
-        defense = drangonData.defense;
-        moveSpeed = drangonData.moveSpeed;
-        attackDistance = drangonData.attackDistance;
-        attackSpeed = drangonData.attackSpeed;
-        attackMotionSpeed = drangonData.attackMotionSpeed;
+        monName = spiderData.name;
+        hp = spiderData.hp;
+        damage = spiderData.damage;
+        defense = spiderData.defense;
+        moveSpeed = spiderData.moveSpeed;
+        attackDistance = spiderData.attackDistance;
+        attackSpeed = spiderData.attackSpeed;
+        attackMotionSpeed = spiderData.attackMotionSpeed;
     }
 
     void Start()
@@ -48,19 +46,19 @@ public class BabyDragon : RecyclableMonster
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
-        if(hp <= 0)
+        if (hp <= 0)
         {
             MonDeath();//몬스터 죽음 이벤트
             isDead = true;
         }
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
         LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
-        UpdateState(playerPosition.position, drangonData.moveSpeed);
+        MonsterState(playerPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
+        UpdateState(playerPosition.position, spiderData.moveSpeed);
     }
 }

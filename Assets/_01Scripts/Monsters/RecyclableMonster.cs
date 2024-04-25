@@ -6,6 +6,7 @@ using System;
 public class RecyclableMonster : MonoBehaviour
 {
     protected enum STATE { IDEL, TRACE, ATTACK,DAMAGED, DIE }
+    //트리거 0 : idle, 1 : walk, 2 : attack, 3 : hurt, 4 : dead, 5 : dragonfall
     //================선언=============================
     protected Vector3 targetPosition;//플레이어의 위치
     protected bool isDead = false;
@@ -19,7 +20,6 @@ public class RecyclableMonster : MonoBehaviour
 
     //================이벤트==========================
     public Action MonDeath;
-    public event Action MonAttack;
 
 
     //================================================
