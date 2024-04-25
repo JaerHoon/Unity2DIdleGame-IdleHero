@@ -11,8 +11,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     List<Quest_ScriptableObject> questsData = new List<Quest_ScriptableObject>();
     [SerializeField]
-    GameObject questPanel;
-    Button questpanel_BTn;
+    GameObject questPanel;//퀘스트 UI 페널
+    Button questpanel_BTn;//퀘스트 버튼 컴포넌트
 
     [SerializeField]
     Image rewordImgae; //보석 이미지
