@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f284a08affbf794458495a52ed69ee1b, type: 3}
-  m_Name: Quest Data 2
+  m_Name: Quest Data 5
   m_EditorClassIdentifier: 
-  questName: "\uBC29\uC5B4\uB825\uC6B8 Lv.5\uAE4C\uC9C0 \uAC15\uD654\uD558\uC138\uC694."
-  numberOfGoal: 5
+  questName: "\uC7A5\uBE44\uAC15\uD654\uB97C 1\uD68C \uC2E4\uD589\uD558\uC138\uC694."
+  numberOfGoal: 1
   currentNumber: 0
   rewordAmount: 300
