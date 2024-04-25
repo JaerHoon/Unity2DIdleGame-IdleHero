@@ -27,7 +27,7 @@ public class Spider : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = spiderData.name;
+        monName = spiderData.monsterName;
         hp = spiderData.hp;
         damage = spiderData.damage;
         defense = spiderData.defense;

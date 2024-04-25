@@ -28,7 +28,7 @@ public class Slime : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = slimeData.name;
+        monName = slimeData.monsterName;
         hp = slimeData.hp;
         damage = slimeData.damage;
         defense = slimeData.defense;

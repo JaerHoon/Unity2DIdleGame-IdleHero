@@ -27,7 +27,7 @@ public class Bat : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = batData.name;
+        monName = batData.monsterName;
         hp = batData.hp;
         damage = batData.damage;
         defense = batData.defense;

@@ -27,9 +27,12 @@ public class BabyDragon : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    Animator anim;
+
+
     private void OnEnable()//활성화 시 초기화
     {
-        monName = drangonData.name;
+        monName = drangonData.monsterName;
         hp = drangonData.hp;
         damage = drangonData.damage;
         defense = drangonData.defense;
@@ -42,6 +45,7 @@ public class BabyDragon : RecyclableMonster
     void Start()
     {
         playerPosition = GameObject.FindWithTag("Player").transform;
+        anim = GetComponent<Animator>();
         gameObject.tag = "monster";
     }
 
@@ -54,11 +58,39 @@ public class BabyDragon : RecyclableMonster
             isDead = true;
         }
     }
-    
 
+    //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
+    public override void AttackState()
+    {
+        base.AttackState();
+        anim.SetInteger("STATE", 2);
+    }
+    public override void IdleState()
+    {
+        base.IdleState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void TraceState(Vector3 playerPos, float moveSpeed)
+    {
+        base.TraceState(playerPos, moveSpeed);
+        anim.SetInteger("STATE", 0);
+    }
+    public override void DamagedState()
+    {
+        base.DamagedState();
+        anim.SetInteger("STATE", 3);
+    }
+    public override void DieState()
+    {
+        base.DieState();
+        anim.SetInteger("STATE", 4);
+    }
+
+    //=====================================
     // Update is called once per frame
     void Update()
     {
+        
         LookPlayer(playerPosition.position);
         MonsterState(playerPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
         UpdateState(playerPosition.position, drangonData.moveSpeed);

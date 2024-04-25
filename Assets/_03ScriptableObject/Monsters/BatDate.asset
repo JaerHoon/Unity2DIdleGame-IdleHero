@@ -18,5 +18,5 @@ MonoBehaviour:
   Defense: 1
   MoveSpeed: 1.5
   AttackDistance: 0.3
-  AttackSpeed: 1
-  AttackMotionSpeed: 0.5
+  AttackSpeed: 3
+  AttackMotionSpeed: 1
