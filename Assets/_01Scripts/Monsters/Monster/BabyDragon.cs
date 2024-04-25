@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BabyDragon : RecyclableMonster
 {
-    // Start is called before the first frame update
 
     public Transform playerPositionTest;
     [SerializeField]
@@ -42,7 +41,7 @@ public class BabyDragon : RecyclableMonster
 
     void Start()
     {
-       
+        playerPositionTest = GameObject.Find("PlayerTest").transform;
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수

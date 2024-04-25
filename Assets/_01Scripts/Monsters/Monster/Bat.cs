@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : RecyclableMonster
+public class Bat : RecyclableMonster
 {
-
     public Transform playerPositionTest;
     [SerializeField]
-    MonsterData slimeData;
+    MonsterData batData;
     //==================선언=========================
     [SerializeField]
     string monName;
@@ -28,14 +27,14 @@ public class Slime : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = slimeData.name;
-        hp = slimeData.hp;
-        damage = slimeData.damage;
-        defense = slimeData.defense;
-        moveSpeed = slimeData.moveSpeed;
-        attackDistance = slimeData.attackDistance;
-        attackSpeed = slimeData.attackSpeed;
-        attackMotionSpeed = slimeData.attackMotionSpeed;
+        monName = batData.name;
+        hp = batData.hp;
+        damage = batData.damage;
+        defense = batData.defense;
+        moveSpeed = batData.moveSpeed;
+        attackDistance = batData.attackDistance;
+        attackSpeed = batData.attackSpeed;
+        attackMotionSpeed = batData.attackMotionSpeed;
     }
 
     void Start()
@@ -58,7 +57,7 @@ public class Slime : RecyclableMonster
     void Update()
     {
         LookPlayer(playerPositionTest.position);
-        MonsterState(playerPositionTest.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
-        UpdateState(playerPositionTest.position, slimeData.moveSpeed);
+        MonsterState(playerPositionTest.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
+        UpdateState(playerPositionTest.position, batData.moveSpeed);
     }
 }
