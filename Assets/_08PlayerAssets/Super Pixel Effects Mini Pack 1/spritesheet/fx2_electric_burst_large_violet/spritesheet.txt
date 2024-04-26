@@ -1,0 +1,16 @@
+fx2_electric_burst_large_violet/frame0000.png = 0 0 72 72
+fx2_electric_burst_large_violet/frame0001.png = 72 0 72 72
+fx2_electric_burst_large_violet/frame0002.png = 144 0 72 72
+fx2_electric_burst_large_violet/frame0003.png = 216 0 72 72
+fx2_electric_burst_large_violet/frame0004.png = 288 0 72 72
+fx2_electric_burst_large_violet/frame0005.png = 360 0 72 72
+fx2_electric_burst_large_violet/frame0006.png = 432 0 72 72
+fx2_electric_burst_large_violet/frame0007.png = 504 0 72 72
+fx2_electric_burst_large_violet/frame0008.png = 576 0 72 72
+fx2_electric_burst_large_violet/frame0009.png = 648 0 72 72
+fx2_electric_burst_large_violet/frame0010.png = 720 0 72 72
+fx2_electric_burst_large_violet/frame0011.png = 792 0 72 72
+fx2_electric_burst_large_violet/frame0012.png = 864 0 72 72
+fx2_electric_burst_large_violet/frame0013.png = 936 0 72 72
+fx2_electric_burst_large_violet/frame0014.png = 1008 0 72 72
+fx2_electric_burst_large_violet/frame0015.png = 1080 0 72 72
