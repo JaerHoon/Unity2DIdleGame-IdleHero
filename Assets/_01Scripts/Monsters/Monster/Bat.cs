@@ -6,7 +6,7 @@ public class Bat : RecyclableMonster
 {
     [SerializeField]
     MonsterData batData;
-    //==================¼±¾ğ=========================
+    //==================ì„ ì–¸=========================
     [SerializeField]
     string monName;
     [SerializeField]
@@ -24,7 +24,7 @@ public class Bat : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    private void OnEnable()//È°¼ºÈ­ ½Ã ÃÊ±âÈ­
+    private void OnEnable()//í™œì„±í™” ì‹œ ì´ˆê¸°í™”
     {
         monName = batData.monsterName;
         hp = batData.hp;
@@ -41,12 +41,12 @@ public class Bat : RecyclableMonster
         gameObject.tag = "monster";
     }
 
-    public void OnMonDamaged(int PlayerDamage)//ÇÃ·¹ÀÌ¾îÀÇ °ø°İ ÀÌº¥Æ®¸¦ ¹ŞÀ» ÇÔ¼ö
+    public void OnMonDamaged(int PlayerDamage)//í”Œë ˆì´ì–´ì˜ ê³µê²© ì´ë²¤íŠ¸ë¥¼ ë°›ì„ í•¨ìˆ˜
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            Destroyed?.Invoke(this);//¸ó½ºÅÍ Á×À½ ÀÌº¥Æ®
+            Destroyed?.Invoke(this);//ëª¬ìŠ¤í„° ì£½ìŒ ì´ë²¤íŠ¸
             isDead = true;
         }
     }

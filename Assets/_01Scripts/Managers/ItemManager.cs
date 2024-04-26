@@ -99,7 +99,7 @@ public class ItemManager : MonoBehaviour
         {
             for(int i=0; i < items.Count; i++)
             {
-                print(items[i].itemData.itemname+ "/" + items[i].itemGrade);
+                //print(items[i].itemData.itemname+ "/" + items[i].itemGrade);
                 
             }
         }

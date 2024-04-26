@@ -8,7 +8,7 @@ public class BabyDragon : RecyclableMonster
 
     [SerializeField]
     MonsterData drangonData;
-    //==================¼±¾ğ=========================
+    //==================ì„ ì–¸=========================
     [SerializeField]
     string monName;
     [SerializeField]
@@ -29,11 +29,11 @@ public class BabyDragon : RecyclableMonster
     Animator anim;
 
     [SerializeField]
-    FireBall fireBallPrefab;//ÆÄÀÌ¾î º¼ ÇÁ¸®ÆÕ
+    FireBall fireBallPrefab;//íŒŒì´ì–´ ë³¼ í”„ë¦¬íŒ¹
 
-    MonsterFactory fireBallFactory;//ÆÄÀÌ¾î º¼ ÆåÅä¸®
+    MonsterFactory fireBallFactory;//íŒŒì´ì–´ ë³¼ í™í† ë¦¬
 
-    private void OnEnable()//È°¼ºÈ­ ½Ã ÃÊ±âÈ­
+    private void OnEnable()//í™œì„±í™” ì‹œ ì´ˆê¸°í™”
     {
         monName = drangonData.monsterName;
         hp = drangonData.hp;
@@ -49,21 +49,20 @@ public class BabyDragon : RecyclableMonster
     {
         anim = GetComponent<Animator>();
         gameObject.tag = "monster";
-        fireBallFactory = new MonsterFactory(fireBallPrefab, 2);//¸ó½ºÅÍ ÆÑÅä¸®¿¡ ½ºÆÄÀÌ´õ ÀÎ½ºÅÏ½º »ı¼º
     }
 
-    public void OnMonDamaged(int PlayerDamage)//ÇÃ·¹ÀÌ¾îÀÇ °ø°İ ÀÌº¥Æ®¸¦ ¹ŞÀ» ÇÔ¼ö
+    public void OnMonDamaged(int PlayerDamage)//í”Œë ˆì´ì–´ì˜ ê³µê²© ì´ë²¤íŠ¸ë¥¼ ë°›ì„ í•¨ìˆ˜
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
         if(hp <= 0)
         {
-            Destroyed?.Invoke(this);//¸ó½ºÅÍ Á×À½ ÀÌº¥Æ®
+            Destroyed?.Invoke(this);//ëª¬ìŠ¤í„° ì£½ìŒ ì´ë²¤íŠ¸
             isDead = true;
 
         }
     }
 
-    //===============¸ó½ºÅÍ »óÅÂ¿¡ µû¸¥ ¾Ö´Ï¸ŞÀÌÅÍ ÆÄ¶ó¹ÌÅÍ °ª º¯°æ==============
+    //===============ëª¬ìŠ¤í„° ìƒíƒœì— ë”°ë¥¸ ì• ë‹ˆë©”ì´í„° íŒŒë¼ë¯¸í„° ê°’ ë³€ê²½==============
     public override void AttackState()
     {
         base.AttackState();
