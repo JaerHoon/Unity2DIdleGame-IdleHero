@@ -2031,11 +2031,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653020cf7bebaf54ca48bd21258c7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPanel: {fileID: 1908579078}
-  summonsPanel: {fileID: 1787874370}
-  buttonPanel: {fileID: 1002398540}
-  summonsEffect: {fileID: 1673099121}
-  gridLayout: {fileID: 1787874371}
+  boxPanel: {fileID: 0}
+  summonsPanel: {fileID: 0}
+  buttonPanel: {fileID: 0}
+  summonsEffect: {fileID: 0}
+  gridLayout: {fileID: 0}
   itemSlots:
   - {fileID: 135717093}
   - {fileID: 1553398342}
@@ -4317,11 +4317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653020cf7bebaf54ca48bd21258c7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPanel: {fileID: 940932053}
-  summonsPanel: {fileID: 54560576}
-  buttonPanel: {fileID: 378480667}
-  summonsEffect: {fileID: 1860706298}
-  gridLayout: {fileID: 54560578}
+  boxPanel: {fileID: 0}
+  summonsPanel: {fileID: 0}
+  buttonPanel: {fileID: 0}
+  summonsEffect: {fileID: 0}
+  gridLayout: {fileID: 0}
   itemSlots:
   - {fileID: 1816028868}
   - {fileID: 459298659}
@@ -13351,7 +13351,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5181038388e0844d9c174859511073e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPositionTest: {fileID: 1217171059}
+  drangonData: {fileID: 0}
+  monName: 
+  hp: 0
+  damage: 0
+  defense: 0
+  moveSpeed: 0
+  attackDistance: 0
+  attackSpeed: 0
+  attackMotionSpeed: 0
+  fireballPrefab: {fileID: 0}
 --- !u!4 &1256647290
 Transform:
   m_ObjectHideFlags: 0
@@ -15973,7 +15982,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5181038388e0844d9c174859511073e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPositionTest: {fileID: 1217171059}
+  drangonData: {fileID: 0}
+  monName: 
+  hp: 0
+  damage: 0
+  defense: 0
+  moveSpeed: 0
+  attackDistance: 0
+  attackSpeed: 0
+  attackMotionSpeed: 0
+  fireballPrefab: {fileID: 0}
 --- !u!1 &1482898880
 GameObject:
   m_ObjectHideFlags: 0
@@ -21931,8 +21949,8 @@ MonoBehaviour:
   - {fileID: 462314657, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
   - {fileID: 1618718822, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
   - {fileID: -160808029, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
-  defaultBackGround: {fileID: -962716782, guid: 207bdb6c4bf558e43b301c5b912d6ced, type: 3}
-  defaultSlot: {fileID: 359742592, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
+  defaultBackGround: {fileID: 0}
+  defaultSlot: {fileID: 0}
 --- !u!1 &2029642275
 GameObject:
   m_ObjectHideFlags: 0
