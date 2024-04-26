@@ -49,7 +49,7 @@ public class Slime : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            MonDeath();//몬스터 죽음 이벤트
+            Destroyed?.Invoke(this);//몬스터 죽음 이벤트
             isDead = true;
         }
     }

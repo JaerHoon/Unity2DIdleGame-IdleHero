@@ -22,6 +22,7 @@ public class RecyclableMonster : MonoBehaviour
 
     //================¿Ã∫•∆Æ==========================
     public Action MonDeath;
+    public Action<RecyclableMonster> Destroyed;
 
 
     //================================================

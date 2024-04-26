@@ -29,6 +29,10 @@ public class BabyDragon : RecyclableMonster
 
     Animator anim;
 
+    [SerializeField]
+    FireBall fireBallPrefab;//파이어 볼 프리팹
+
+    MonsterFactory fireBallFactory;//파이어 볼 펙토리
 
     private void OnEnable()//활성화 시 초기화
     {
@@ -47,6 +51,7 @@ public class BabyDragon : RecyclableMonster
         playerPosition = GameObject.FindWithTag("Player").transform;
         anim = GetComponent<Animator>();
         gameObject.tag = "monster";
+        fireBallFactory = new MonsterFactory(fireBallPrefab, 2);//몬스터 팩토리에 스파이더 인스턴스 생성
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -54,8 +59,9 @@ public class BabyDragon : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if(hp <= 0)
         {
-            MonDeath();//몬스터 죽음 이벤트
+            Destroyed?.Invoke(this);//몬스터 죽음 이벤트
             isDead = true;
+
         }
     }
 
@@ -86,6 +92,20 @@ public class BabyDragon : RecyclableMonster
         anim.SetInteger("STATE", 4);
     }
 
+    public void OnFireBallLaunched()
+    {
+        RecyclableMonster fireBall = fireBallFactory.GetMonster();
+        fireBall.Activate(GetComponentsInChildren<Transform>()[2].position);
+        fireBall.Destroyed += OnFireBallDestoryed;
+    }
+
+    void OnFireBallDestoryed(RecyclableMonster usedFireBall)
+    {
+        usedFireBall.Destroyed -= OnFireBallDestoryed;
+        fireBallFactory.MonsterRestore(usedFireBall);
+    }
+
+   
     //=====================================
     // Update is called once per frame
     void Update()
