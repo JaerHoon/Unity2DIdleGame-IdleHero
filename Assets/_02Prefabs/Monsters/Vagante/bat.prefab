@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372ab883ea6f96148bdfde925f7acdd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 0}
   batData: {fileID: 11400000, guid: 52b22ecfb66342e4d90a438c60dd6ab7, type: 2}
   monName: 
   hp: 0

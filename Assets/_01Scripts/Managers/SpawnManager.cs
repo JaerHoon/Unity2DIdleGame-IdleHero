@@ -29,6 +29,7 @@ public class SpawnManager : MonoBehaviour
     Bat batPrefab;
     [SerializeField]
     Spider spiderPrefab;
+    
 
 
 
@@ -44,6 +45,7 @@ public class SpawnManager : MonoBehaviour
         slimeFactory = new MonsterFactory(slimePrefab, 5);//몬스터 팩토리에 슬라임 인스턴스 생성
         batFactory = new MonsterFactory(batPrefab, 5);//몬스터 팩토리에 뱃 인스턴스 생성
         spiderFactory = new MonsterFactory(spiderPrefab, 5);//몬스터 팩토리에 스파이더 인스턴스 생성
+        
     }
     
     void OnBabyDragonDestroyed(RecyclableMonster usedBabyDragon)
@@ -93,6 +95,9 @@ public class SpawnManager : MonoBehaviour
             spider.Activate(spawnPoint[3].position);
             spider.Destroyed += OnSpiderDestroyed;
 
+           
+
         }
+
     }
 }
