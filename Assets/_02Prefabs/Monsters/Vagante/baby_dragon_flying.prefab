@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2913556675064907122}
   - component: {fileID: 7295543275768236646}
   - component: {fileID: 7159071499394999637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: baby_dragon_flying
   m_TagString: monster
   m_Icon: {fileID: 0}
