@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : RecyclableMonster
+public class Spider : RecyclableMonster
 {
-
     public Transform playerPosition;
     [SerializeField]
-    MonsterData slimeData;
+    MonsterData spiderData;
     //==================선언=========================
     [SerializeField]
     string monName;
@@ -28,14 +27,14 @@ public class Slime : RecyclableMonster
 
     private void OnEnable()//활성화 시 초기화
     {
-        monName = slimeData.monsterName;
-        hp = slimeData.hp;
-        damage = slimeData.damage;
-        defense = slimeData.defense;
-        moveSpeed = slimeData.moveSpeed;
-        attackDistance = slimeData.attackDistance;
-        attackSpeed = slimeData.attackSpeed;
-        attackMotionSpeed = slimeData.attackMotionSpeed;
+        monName = spiderData.monsterName;
+        hp = spiderData.hp;
+        damage = spiderData.damage;
+        defense = spiderData.defense;
+        moveSpeed = spiderData.moveSpeed;
+        attackDistance = spiderData.attackDistance;
+        attackSpeed = spiderData.attackSpeed;
+        attackMotionSpeed = spiderData.attackMotionSpeed;
     }
 
     void Start()
@@ -59,7 +58,7 @@ public class Slime : RecyclableMonster
     void Update()
     {
         LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
-        UpdateState(playerPosition.position, slimeData.moveSpeed);
+        MonsterState(playerPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
+        UpdateState(playerPosition.position, spiderData.moveSpeed);
     }
 }
