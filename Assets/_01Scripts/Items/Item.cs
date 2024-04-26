@@ -8,10 +8,6 @@ public class Item
     int itemLV;
     int MaxLv=20;
 
-    public Sprite backGround;
-    public Sprite slot;
-
-
     public int ItemLv
     {
         get
@@ -20,7 +16,7 @@ public class Item
         }
         set
         {
-            if(value > MaxLv)
+            if (value > MaxLv)
             {
                 itemLV = MaxLv;
             }
@@ -30,12 +26,15 @@ public class Item
             }
         }
     }
-   
+
+
+    public Sprite backGround;
+    public Sprite slot;
     public enum ItemGrade { Nomal, Rare, Unique, Epic, Legend }
     public ItemGrade itemGrade;
+    
 
-    public bool isGained = false;
-
+   
 
     public void Setting(Sprite background, Sprite slot)
     {
@@ -46,24 +45,13 @@ public class Item
 
     int CalItempow()
     {
-        int num=0;
-        int itempow;
-
-        switch (itemGrade)
-        {
-            case ItemGrade.Nomal: num = 1;break;
-            case ItemGrade.Rare: num = 2; break;
-            case ItemGrade.Unique: num = 3; break;
-            case ItemGrade.Epic: num = 4; break;
-            case ItemGrade.Legend: num = 5; break;
-        }
-
-        itempow = itemData.itemPow * num;
+        int num= (int)itemGrade+1;
+        int itempow = itemData.itemPow * num;
 
         return itempow;
     }
 
-
+    
     public int Cal_LevelupPow()// 레벨 업당 올라가는 스탯의 양 계산
     {
         int pow;
@@ -77,7 +65,6 @@ public class Item
             //레벨이 2이상일때 계산
         }
        
-
         return pow;
     }
 
