@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2913556675064907122}
   - component: {fileID: 7295543275768236646}
   - component: {fileID: 7159071499394999637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: baby_dragon_flying
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,9 +166,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.21
 --- !u!50 &7159071499394999637
 Rigidbody2D:
   serializedVersion: 4

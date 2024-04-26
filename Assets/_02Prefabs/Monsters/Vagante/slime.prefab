@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1939756771428218167}
   - component: {fileID: 5410580194537569724}
   - component: {fileID: 9021356388147712970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: slime
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.01, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.08
 --- !u!50 &9021356388147712970
 Rigidbody2D:
   serializedVersion: 4

@@ -13,11 +13,12 @@ public class PlayerMoving : MonoBehaviour
     float scaleZ;
     public int speed;
 
+    PlayerAttack playerattack;
     private void Start()
     {
         
         anim = GetComponent<Animator>();
-
+        playerattack = GetComponent<PlayerAttack>();
         scaleX = transform.localScale.x;
         scaleY = transform.localScale.y;
         scaleZ = transform.localScale.z;
@@ -34,16 +35,19 @@ public class PlayerMoving : MonoBehaviour
 
         if (joy.Horizontal >0)
         {
+            playerattack.isMove = true;
             anim.SetTrigger("run"); // 캐릭터 이동 애니메이션
             transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
         }
         else if(joy.Horizontal < 0)
         {
+            playerattack.isMove = true;
             anim.SetTrigger("run");
             transform.localScale = new Vector3(-scaleX, scaleY, scaleZ); // 반대방향 바라보게 하기 위함
         }
         else
         {
+            playerattack.isMove = false;
             anim.SetTrigger("idle");
         }
         

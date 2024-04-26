@@ -8,7 +8,7 @@ public class Slime : RecyclableMonster
     public Transform playerPosition;
     [SerializeField]
     MonsterData slimeData;
-    //==================¼±¾ğ=========================
+    //==================ì„ ì–¸=========================
     [SerializeField]
     string monName;
     [SerializeField]
@@ -26,7 +26,7 @@ public class Slime : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    private void OnEnable()//È°¼ºÈ­ ½Ã ÃÊ±âÈ­
+    private void OnEnable()//í™œì„±í™” ì‹œ ì´ˆê¸°í™”
     {
         monName = slimeData.monsterName;
         hp = slimeData.hp;
@@ -40,16 +40,15 @@ public class Slime : RecyclableMonster
 
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
-        gameObject.tag = "monster";
+        playerPositionTest = GameObject.Find("Player").transform;
     }
 
-    public void OnMonDamaged(int PlayerDamage)//ÇÃ·¹ÀÌ¾îÀÇ °ø°İ ÀÌº¥Æ®¸¦ ¹ŞÀ» ÇÔ¼ö
+    public void OnMonDamaged(int PlayerDamage)//í”Œë ˆì´ì–´ì˜ ê³µê²© ì´ë²¤íŠ¸ë¥¼ ë°›ì„ í•¨ìˆ˜
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            Destroyed?.Invoke(this);//¸ó½ºÅÍ Á×À½ ÀÌº¥Æ®
+            Destroyed?.Invoke(this);//ëª¬ìŠ¤í„° ì£½ìŒ ì´ë²¤íŠ¸
             isDead = true;
         }
     }
