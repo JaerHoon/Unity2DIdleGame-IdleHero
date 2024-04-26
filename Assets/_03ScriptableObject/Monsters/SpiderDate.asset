@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35a4478b2b1f69e438b2c9d5123f5bd2, type: 3}
-  m_Name: BatDate
+  m_Name: SpiderDate
   m_EditorClassIdentifier: 
-  MonsterName: Bat
-  Hp: 8
-  Damage: 2
-  Defense: 1
-  MoveSpeed: 1.5
+  MonsterName: Spider
+  Hp: 20
+  Damage: 5
+  Defense: 2
+  MoveSpeed: 1.7
   AttackDistance: 0.3
-  AttackSpeed: 3
-  AttackMotionSpeed: 1
+  AttackSpeed: 0.8
+  AttackMotionSpeed: 0.5

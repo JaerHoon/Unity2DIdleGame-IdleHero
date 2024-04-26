@@ -6,6 +6,7 @@ using System;
 public class RecyclableMonster : MonoBehaviour
 {
     protected enum STATE { IDEL, TRACE, ATTACK,DAMAGED, DIE }
+    //트리거 0 : idle, 1 : walk, 2 : attack, 3 : hurt, 4 : dead, 5 : dragonfall
     //================선언=============================
     protected Vector3 targetPosition;//플레이어의 위치
     protected bool isDead = false;
@@ -14,12 +15,14 @@ public class RecyclableMonster : MonoBehaviour
     protected bool isAttacking = false;
     protected bool isDamaged = false;
     protected float lastAttackTime = 0;
+    protected float DamagedTime = 0.3f;
     protected STATE state { get; set; }
+    
 
 
     //================이벤트==========================
     public Action MonDeath;
-    public event Action MonAttack;
+    public Action<RecyclableMonster> Destroyed;
 
 
     //================================================
@@ -30,6 +33,7 @@ public class RecyclableMonster : MonoBehaviour
     void Start()
     {
         Vector3 targetPosition = Vector3.zero;//플레이어 위치 초기화
+        
     }
 
     // Update is called once per frame
@@ -113,6 +117,8 @@ public class RecyclableMonster : MonoBehaviour
         }
     }
 
+    
+
 
     public virtual int MonDamaged(int MonHp,int MonDef,int PlayerDamage)//몬스터 피격 함수 계산 후 Hp 배출
     {
@@ -120,6 +126,11 @@ public class RecyclableMonster : MonoBehaviour
         return MonHp - (PlayerDamage >= MonDef ? PlayerDamage - MonDef : 0);
     }
 
+    IEnumerator DelayDamaged(float DamagedTime)
+    {
+        yield return new WaitForSeconds(DamagedTime);
+        isDamaged = false;
+    }
 
     IEnumerator DelayAttack(float attackSpeed)//공격 딜레이 코루틴
     {

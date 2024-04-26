@@ -6,10 +6,10 @@ using UnityEngine;
 public class BabyDragon : RecyclableMonster
 {
 
-    public Transform playerPositionTest;
+    public Transform playerPosition;
     [SerializeField]
     MonsterData drangonData;
-    //==================¼±¾ğ=========================
+    //==================ì„ ì–¸=========================
     [SerializeField]
     string monName;
     [SerializeField]
@@ -27,9 +27,16 @@ public class BabyDragon : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    private void OnEnable()//È°¼ºÈ­ ½Ã ÃÊ±âÈ­
+    Animator anim;
+
+    [SerializeField]
+    FireBall fireBallPrefab;//íŒŒì´ì–´ ë³¼ í”„ë¦¬íŒ¹
+
+    MonsterFactory fireBallFactory;//íŒŒì´ì–´ ë³¼ í™í† ë¦¬
+
+    private void OnEnable()//í™œì„±í™” ì‹œ ì´ˆê¸°í™”
     {
-        monName = drangonData.name;
+        monName = drangonData.monsterName;
         hp = drangonData.hp;
         damage = drangonData.damage;
         defense = drangonData.defense;
@@ -45,22 +52,65 @@ public class BabyDragon : RecyclableMonster
         gameObject.tag = "monster";
     }
 
-    public void OnMonDamaged(int PlayerDamage)//ÇÃ·¹ÀÌ¾îÀÇ °ø°İ ÀÌº¥Æ®¸¦ ¹ŞÀ» ÇÔ¼ö
+    public void OnMonDamaged(int PlayerDamage)//í”Œë ˆì´ì–´ì˜ ê³µê²© ì´ë²¤íŠ¸ë¥¼ ë°›ì„ í•¨ìˆ˜
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
         if(hp <= 0)
         {
-            MonDeath();//¸ó½ºÅÍ Á×À½ ÀÌº¥Æ®
+            Destroyed?.Invoke(this);//ëª¬ìŠ¤í„° ì£½ìŒ ì´ë²¤íŠ¸
             isDead = true;
+
         }
     }
-    
 
+    //===============ëª¬ìŠ¤í„° ìƒíƒœì— ë”°ë¥¸ ì• ë‹ˆë©”ì´í„° íŒŒë¼ë¯¸í„° ê°’ ë³€ê²½==============
+    public override void AttackState()
+    {
+        base.AttackState();
+        anim.SetInteger("STATE", 2);
+    }
+    public override void IdleState()
+    {
+        base.IdleState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void TraceState(Vector3 playerPos, float moveSpeed)
+    {
+        base.TraceState(playerPos, moveSpeed);
+        anim.SetInteger("STATE", 0);
+    }
+    public override void DamagedState()
+    {
+        base.DamagedState();
+        anim.SetInteger("STATE", 3);
+    }
+    public override void DieState()
+    {
+        base.DieState();
+        anim.SetInteger("STATE", 4);
+    }
+
+    public void OnFireBallLaunched()
+    {
+        RecyclableMonster fireBall = fireBallFactory.GetMonster();
+        fireBall.Activate(GetComponentsInChildren<Transform>()[2].position);
+        fireBall.Destroyed += OnFireBallDestoryed;
+    }
+
+    void OnFireBallDestoryed(RecyclableMonster usedFireBall)
+    {
+        usedFireBall.Destroyed -= OnFireBallDestoryed;
+        fireBallFactory.MonsterRestore(usedFireBall);
+    }
+
+   
+    //=====================================
     // Update is called once per frame
     void Update()
     {
-        LookPlayer(playerPositionTest.position);
-        MonsterState(playerPositionTest.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
-        UpdateState(playerPositionTest.position, drangonData.moveSpeed);
+        
+        LookPlayer(playerPosition.position);
+        MonsterState(playerPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
+        UpdateState(playerPosition.position, drangonData.moveSpeed);
     }
 }
