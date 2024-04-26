@@ -103,9 +103,9 @@ public class PlayerAttack : MonoBehaviour
             }
 
             minDisMon = null;
-            distance = 10000;
-            
-           
+            distance = float.MaxValue;
+
+
 
 
         }
