@@ -19,6 +19,8 @@ public class ItemSummon : MonoBehaviour
     [SerializeField]
     List<ItemSlot> itemSlots = new List<ItemSlot>();
 
+    bool IsSummoning;
+
     private void OnEnable()
     {
         boxPanel.SetActive(true);
@@ -34,6 +36,7 @@ public class ItemSummon : MonoBehaviour
 
     void ReSetting()
     {
+        
         gridLayout.enabled = true;
         itemSlots[0].transform.localScale = new Vector3(1, 1, 1);
 
@@ -43,18 +46,22 @@ public class ItemSummon : MonoBehaviour
         }
     }
 
-    public void OnClick1()
+    public void OnClick(int num)
     {
-        ReSetting();
-        StartCoroutine(SummonsItem(1));
+        if (!IsSummoning)
+        {
+            IsSummoning = true;
+            ReSetting();
+            StartCoroutine(SummonsItem(num));
+        }
+        else
+        {
+            return;
+        }
+        
     }
 
-    public void OnClick10()
-    {
-        ReSetting();
-        StartCoroutine(SummonsItem(10));
-    }
-
+  
     IEnumerator SummonsItem(int num)
     {
         summonsPanel.SetActive(false);
@@ -89,5 +96,6 @@ public class ItemSummon : MonoBehaviour
         }
 
         StopAllCoroutines();
+        IsSummoning = false;
     }
 }

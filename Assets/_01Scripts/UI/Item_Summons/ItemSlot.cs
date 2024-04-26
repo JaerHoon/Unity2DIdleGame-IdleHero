@@ -12,13 +12,33 @@ public class ItemSlot : MonoBehaviour
     Image backGround;
     [SerializeField]
     Image slot;
-   // [SerializeField]
-    //TextMeshProUGUI itemName;
+    [SerializeField]
+    TextMeshProUGUI itemName;
+    [SerializeField]
+    TextMeshProUGUI levelText;
+    
+  
 
     public void Setting(Item item)
     {
-        itemIcon.sprite = item.itemData.icon;
-        backGround.sprite = item.backGround;
-        slot.sprite = item.slot;
+        if (ItemManager.instance == null) return;
+        if(item == null)
+        {
+            itemIcon.sprite = ItemManager.instance.defaultBackGround;
+            backGround.sprite = ItemManager.instance.defaultBackGround;
+            slot.sprite = ItemManager.instance.defaultSlot;
+            if (itemName != null) itemName.text = null;
+            if (levelText != null) levelText.text = null;
+        }
+        else
+        {
+            itemIcon.sprite = item.itemData.icon;
+            backGround.sprite = item.backGround;
+            slot.sprite = item.slot;
+            if (itemName != null) itemName.text = item.itemData.itemname;
+            if (levelText != null) levelText.text = string.Format("Lv.{0}", item.ItemLv);
+        }
+
+        
     }
 }
