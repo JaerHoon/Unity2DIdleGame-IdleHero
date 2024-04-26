@@ -8,7 +8,7 @@ public class RecyclableMonster : MonoBehaviour
     protected enum STATE { IDEL, TRACE, ATTACK,DAMAGED, DIE }
     //트리거 0 : idle, 1 : walk, 2 : attack, 3 : hurt, 4 : dead, 5 : dragonfall
     //================선언=============================
-    protected Vector3 targetPosition;//플레이어의 위치
+    protected Transform targetPosition;//플레이어의 위치
     protected bool isDead = false;
     protected bool isActivated = false;
     protected bool isCanAttack = true;
@@ -27,12 +27,16 @@ public class RecyclableMonster : MonoBehaviour
 
     //================================================
 
+    private void Awake()
+    {
+        targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 targetPosition = Vector3.zero;//플레이어 위치 초기화
+        
         
     }
 

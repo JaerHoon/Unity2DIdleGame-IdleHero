@@ -6,7 +6,6 @@ using UnityEngine;
 public class BabyDragon : RecyclableMonster
 {
 
-    public Transform playerPosition;
     [SerializeField]
     MonsterData drangonData;
     //==================선언=========================
@@ -48,7 +47,7 @@ public class BabyDragon : RecyclableMonster
 
     void Start()
     {
-        playerPositionTest = GameObject.Find("Player").transform;
+        anim = GetComponent<Animator>();
         gameObject.tag = "monster";
     }
 
@@ -109,8 +108,8 @@ public class BabyDragon : RecyclableMonster
     void Update()
     {
         
-        LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
-        UpdateState(playerPosition.position, drangonData.moveSpeed);
+        LookPlayer(targetPosition.position);
+        MonsterState(targetPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
+        UpdateState(targetPosition.position, drangonData.moveSpeed);
     }
 }
