@@ -29,9 +29,9 @@ public class BabyDragon : RecyclableMonster
     Animator anim;
 
     [SerializeField]
-    FireBall fireBallPrefab;//파이어 볼 프리팹
+    FireBall fireballPrefab;//파이어 볼 프리팹
 
-    MonsterFactory fireBallFactory;//파이어 볼 펙토리
+    MonsterFactory fireBallFactory; //파이어 볼 펙토리
 
     private void OnEnable()//활성화 시 초기화
     {
@@ -47,6 +47,7 @@ public class BabyDragon : RecyclableMonster
 
     void Start()
     {
+        fireBallFactory = new MonsterFactory(fireballPrefab, 2);
         anim = GetComponent<Animator>();
         gameObject.tag = "monster";
     }
@@ -92,7 +93,7 @@ public class BabyDragon : RecyclableMonster
     public void OnFireBallLaunched()
     {
         RecyclableMonster fireBall = fireBallFactory.GetMonster();
-        fireBall.Activate(GetComponentsInChildren<Transform>()[2].position);
+        fireBall.Activate(GetComponentsInChildren<Transform>()[2].transform.position);
         fireBall.Destroyed += OnFireBallDestoryed;
     }
 

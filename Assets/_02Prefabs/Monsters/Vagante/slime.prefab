@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa7a5f7182ddc043a47711dbc7e0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 0}
   slimeData: {fileID: 11400000, guid: b46a9f1fd2bb04542b7ddc72142ab2f1, type: 2}
   monName: 
   hp: 0
