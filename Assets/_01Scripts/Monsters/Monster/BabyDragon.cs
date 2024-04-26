@@ -6,7 +6,6 @@ using UnityEngine;
 public class BabyDragon : RecyclableMonster
 {
 
-    public Transform playerPosition;
     [SerializeField]
     MonsterData drangonData;
     //==================선언=========================
@@ -48,7 +47,6 @@ public class BabyDragon : RecyclableMonster
 
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
         anim = GetComponent<Animator>();
         gameObject.tag = "monster";
         fireBallFactory = new MonsterFactory(fireBallPrefab, 2);//몬스터 팩토리에 스파이더 인스턴스 생성
@@ -111,8 +109,8 @@ public class BabyDragon : RecyclableMonster
     void Update()
     {
         
-        LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
-        UpdateState(playerPosition.position, drangonData.moveSpeed);
+        LookPlayer(targetPosition.position);
+        MonsterState(targetPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
+        UpdateState(targetPosition.position, drangonData.moveSpeed);
     }
 }

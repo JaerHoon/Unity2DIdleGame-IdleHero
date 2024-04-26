@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Spider : RecyclableMonster
 {
-    public Transform playerPosition;
     [SerializeField]
     MonsterData spiderData;
     //==================¼±¾ð=========================
@@ -39,7 +38,6 @@ public class Spider : RecyclableMonster
 
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
         gameObject.tag = "monster";
     }
 
@@ -57,8 +55,8 @@ public class Spider : RecyclableMonster
     // Update is called once per frame
     void Update()
     {
-        LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
-        UpdateState(playerPosition.position, spiderData.moveSpeed);
+        LookPlayer(targetPosition.position);
+        MonsterState(targetPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
+        UpdateState(targetPosition.position, spiderData.moveSpeed);
     }
 }

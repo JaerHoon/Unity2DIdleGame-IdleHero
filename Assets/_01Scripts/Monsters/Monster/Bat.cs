@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bat : RecyclableMonster
 {
-    public Transform playerPosition;
     [SerializeField]
     MonsterData batData;
     //==================¼±¾ð=========================
@@ -39,7 +38,6 @@ public class Bat : RecyclableMonster
 
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
         gameObject.tag = "monster";
     }
 
@@ -57,8 +55,8 @@ public class Bat : RecyclableMonster
     // Update is called once per frame
     void Update()
     {
-        LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
-        UpdateState(playerPosition.position, batData.moveSpeed);
+        LookPlayer(targetPosition.position);
+        MonsterState(targetPosition.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
+        UpdateState(targetPosition.position, batData.moveSpeed);
     }
 }

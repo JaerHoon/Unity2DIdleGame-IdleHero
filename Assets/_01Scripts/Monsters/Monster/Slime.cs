@@ -5,7 +5,6 @@ using UnityEngine;
 public class Slime : RecyclableMonster
 {
 
-    public Transform playerPosition;
     [SerializeField]
     MonsterData slimeData;
     //==================¼±¾ð=========================
@@ -40,7 +39,6 @@ public class Slime : RecyclableMonster
 
     void Start()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
         gameObject.tag = "monster";
     }
 
@@ -58,8 +56,8 @@ public class Slime : RecyclableMonster
     // Update is called once per frame
     void Update()
     {
-        LookPlayer(playerPosition.position);
-        MonsterState(playerPosition.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
-        UpdateState(playerPosition.position, slimeData.moveSpeed);
+        LookPlayer(targetPosition.position);
+        MonsterState(targetPosition.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
+        UpdateState(targetPosition.position, slimeData.moveSpeed);
     }
 }
