@@ -4317,11 +4317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653020cf7bebaf54ca48bd21258c7559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxPanel: {fileID: 0}
-  summonsPanel: {fileID: 0}
-  buttonPanel: {fileID: 0}
-  summonsEffect: {fileID: 0}
-  gridLayout: {fileID: 0}
+  boxPanel: {fileID: 940932053}
+  summonsPanel: {fileID: 54560576}
+  buttonPanel: {fileID: 378480667}
+  summonsEffect: {fileID: 1860706298}
+  gridLayout: {fileID: 54560578}
   itemSlots:
   - {fileID: 1816028868}
   - {fileID: 459298659}
@@ -12812,7 +12812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -816.69995, y: 142.9}
+  m_AnchoredPosition: {x: -816.7, y: 142.9}
   m_SizeDelta: {x: -1633.4, y: -935.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1189436712
