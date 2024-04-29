@@ -38,7 +38,7 @@ public class RecyclableMonster : MonoBehaviour
 
     protected void Init()
     {
-        print("몬스터 초기화");
+       
         isDead = false;
         isActivated = false;
         isCanAttack = true;
