@@ -4,15 +4,52 @@ using UnityEngine;
 
 public class Iteminfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject infoPanel;
+    [SerializeField]
+    ItemSlot itemInfoSlot;
+    [SerializeField]
+    GameObject changeItempPanel;
+    [SerializeField]
+    ItemSlot equiopedItemSlot;
+    [SerializeField]
+    ItemSlot thisItemSlot;
+
+    [SerializeField]
+    GameObject enhancementPanel;
+    [SerializeField]
+    EnhancementItemSlot enhancementSlot;
+
+    public Item equipeditem;
+    Item item;
+
+    public void Setting(Item item)
     {
-        
+        changeItempPanel.SetActive(false);
+        enhancementPanel.SetActive(false);
+        this.item = item;
+        itemInfoSlot.Setting(item);
+        infoPanel.SetActive(true); 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EquipButton()
     {
-        
+        equiopedItemSlot.Setting(equipeditem);
+        thisItemSlot.Setting(item);
+        changeItempPanel.SetActive(true);
+        infoPanel.SetActive(false);
+    }
+
+    public void EnhancementButton()
+    {
+        enhancementSlot.Setting(item);
+        enhancementSlot.Settingother(item);
+        enhancementPanel.SetActive(true);
+        infoPanel.SetActive(false);
+    }
+
+    public void Cancel()
+    {
+        this.gameObject.SetActive(false);
     }
 }

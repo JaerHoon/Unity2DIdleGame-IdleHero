@@ -6,7 +6,7 @@ public class Item
 {
     public Item_ScriptableObject itemData;
     int itemLV;
-    int MaxLv=20;
+    int MaxLv=10;
 
     public int ItemLv
     {
@@ -52,16 +52,16 @@ public class Item
     }
 
     
-    public int Cal_LevelupPow()// 레벨 업당 올라가는 스탯의 양 계산
+    public int Cal_LevelupPow(int Lv)// 레벨 업당 올라가는 스탯의 양 계산
     {
         int pow;
-        if(itemLV <= 1)//레벨이 1일때 계산
+        if(Lv <= 1)//레벨이 1일때 계산
         {
-            pow = CalItempow() *  itemLV;
+            pow = CalItempow() *  Lv;
         }
         else
         {
-            pow = CalItempow() * itemData.LvUP_Rate * itemLV;
+            pow = CalItempow() * itemData.LvUP_Rate * Lv;
             //레벨이 2이상일때 계산
         }
        
