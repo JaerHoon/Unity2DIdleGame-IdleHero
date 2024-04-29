@@ -14,10 +14,12 @@ public class RecyclableMonster : MonoBehaviour
     protected bool isCanAttack = true;
     protected bool isAttacking = false;
     protected bool isDamaged = false;
+    protected bool isTrace = true;
     protected float lastAttackTime = 0;
     protected float DamagedTime = 0.3f;
     protected STATE state { get; set; }
-    
+
+    protected Animator anim;
 
 
     //================이벤트==========================
@@ -37,7 +39,8 @@ public class RecyclableMonster : MonoBehaviour
     void Start()
     {
         
-        
+        gameObject.tag = "monster";
+
     }
 
     // Update is called once per frame
@@ -98,6 +101,7 @@ public class RecyclableMonster : MonoBehaviour
                             state = STATE.ATTACK;//공격 상태
                             StartCoroutine(DelayAttack(attackSpeed));//공격속도 시간 후 공격가능
                             StartCoroutine(DelayAttackMotion(motionSpeed));//공격속도 시간 후 공격가능
+                            isTrace = false;//공격후 움직임 제한
                             isAttacking = true;//공격중
                             isCanAttack = false;//이미 공격 중이므로 공격 불가
                         }
@@ -106,10 +110,12 @@ public class RecyclableMonster : MonoBehaviour
                             state = STATE.IDEL;
                         }
                     }
-                    else if (distance > attackDistance)
+                    else if (distance > attackDistance && isTrace)
                     {
                         state = STATE.TRACE;
                     }
+                    else
+                        state = STATE.IDEL;
                 }
                 else
                     state = STATE.ATTACK;
@@ -139,6 +145,7 @@ public class RecyclableMonster : MonoBehaviour
     IEnumerator DelayAttack(float attackSpeed)//공격 딜레이 코루틴
     {
         yield return new WaitForSeconds(attackSpeed);
+        isTrace = true;
         isCanAttack = true;
         
     }
