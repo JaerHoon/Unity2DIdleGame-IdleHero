@@ -24,6 +24,12 @@ public class Spider : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    bool istargetDetected = true;
+    
+
+   
+    public float spiderAttackMovementSpeed = 5.0f;
+
     private void OnEnable()//활성화 시 초기화
     {
         monName = spiderData.monsterName;
@@ -39,6 +45,7 @@ public class Spider : RecyclableMonster
     void Start()
     {
         gameObject.tag = "monster";
+        anim = GetComponent<Animator>();
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -49,6 +56,57 @@ public class Spider : RecyclableMonster
             Destroyed?.Invoke(this);//몬스터 죽음 이벤트
             isDead = true;
         }
+    }
+
+    //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
+   
+    public override void AttackState()
+    {
+        base.AttackState();
+        if(istargetDetected)
+        {
+            istargetDetected = false;
+            ReDetected();
+            StartCoroutine(ReDetectedDelay(spiderData.attackMotionSpeed));
+        }
+       
+        anim.SetInteger("STATE", 2);
+        transform.position = Vector2.Lerp(transform.position, Ppos + dir* 1.5f, Time.deltaTime * spiderAttackMovementSpeed);
+    }
+    Vector3 Ppos = Vector3.zero;
+    Vector3 dir = Vector3.zero;
+    void ReDetected()
+    {
+        Ppos = targetPosition.position;
+        dir = (targetPosition.position - transform.position).normalized;
+
+
+    }
+
+    IEnumerator ReDetectedDelay(float time)//공격 전 딜레이 함수
+    {
+        yield return new WaitForSeconds(time);
+        istargetDetected = true;
+    }
+    public override void IdleState()
+    {
+        base.IdleState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void TraceState(Vector3 playerPos, float moveSpeed)
+    {
+        base.TraceState(playerPos, moveSpeed);
+        anim.SetInteger("STATE", 1);
+    }
+    public override void DamagedState()
+    {
+        base.DamagedState();
+        anim.SetInteger("STATE", 3);
+    }
+    public override void DieState()
+    {
+        base.DieState();
+        anim.SetInteger("STATE", 4);
     }
 
 
