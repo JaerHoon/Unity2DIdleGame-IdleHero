@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerAttack : MonoBehaviour
 {
     Transform playerTr; // 플레이어 위치
     public Transform pos; // 공격 인식할 위치
-    public Transform DownPos;
     Animator anim;
     Rigidbody2D rb;
     Transform minDisMon;
@@ -14,9 +13,11 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask layermask;
     float range = 1.0f;
     int monsterLayer;
-    
+
+    public Action<int> monattack;
 
     float attackDistance = 3.0f;
+    int attackDamage = 5;
     public bool isAttack = false;
     public bool isMove;
 
@@ -26,6 +27,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     Vector2 boxSize;
+
+    
     void Start()
     {
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -42,6 +45,8 @@ public class PlayerAttack : MonoBehaviour
         scaleZ = transform.localScale.z;
 
     }
+
+
     public void IsMonsterAttack()
     {
         //Vector2 plusPos = new Vector2(pos.position.x + 1.3f, pos.position.y + 1.3f);
@@ -54,6 +59,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 isAttack = true;
                 attackAnim();
+                monattack?.Invoke(attackDamage);
             }
             
         }
@@ -70,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireCube(pos.position, boxSize);
     }
 
-
+ 
     public void IsMonsterRecognition()
     {
         Collider2D[] RecognitionArea = Physics2D.OverlapCircleAll(playerTr.position, range, layermask, -100.0f,100.0f);
@@ -127,6 +133,8 @@ public class PlayerAttack : MonoBehaviour
     {
        
         IsMonsterRecognition();
+
+        
 
     }
 
