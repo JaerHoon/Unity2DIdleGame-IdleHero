@@ -40,6 +40,7 @@ public class Spider : RecyclableMonster
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
+        Init();//부모에서 초기화
     }
 
     void Start()
@@ -72,15 +73,15 @@ public class Spider : RecyclableMonster
        
         anim.SetInteger("STATE", 2);
         transform.position = Vector2.Lerp(transform.position, Ppos + dir* 1.5f, Time.deltaTime * spiderAttackMovementSpeed);
+        //transform.position = Utility.EaseInQuint(transform.position, Ppos + dir * 1.5f, Time.deltaTime* spiderAttackMovementSpeed);//플레이어 방향으로 점프
+         
     }
-    Vector3 Ppos = Vector3.zero;
-    Vector3 dir = Vector3.zero;
+    Vector3 Ppos = Vector3.zero;//일시적 플레이어 위치 저장
+    Vector3 dir = Vector3.zero;//일시적 플레이어 방향 저장
     void ReDetected()
     {
-        Ppos = targetPosition.position;
-        dir = (targetPosition.position - transform.position).normalized;
-
-
+        Ppos = targetPosition.position;//위치 등록
+        dir = (targetPosition.position - transform.position).normalized;//방향 등록
     }
 
     IEnumerator ReDetectedDelay(float time)//공격 전 딜레이 함수

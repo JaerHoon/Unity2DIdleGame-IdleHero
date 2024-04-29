@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7153849464163997826}
   - component: {fileID: 4354347230654557925}
   - component: {fileID: 4100502021773078091}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: bat
   m_TagString: monster
   m_Icon: {fileID: 0}
@@ -296,6 +296,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.045017578

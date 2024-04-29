@@ -25,6 +25,8 @@ public class RecyclableMonster : MonoBehaviour
     //================이벤트==========================
     public Action MonDeath;
     public Action<RecyclableMonster> Destroyed;
+    public Action<RecyclableMonster> ClearDestroyed;
+    public Action<RecyclableMonster> FireBallDestroyed;
 
 
     //================================================
@@ -34,7 +36,20 @@ public class RecyclableMonster : MonoBehaviour
         targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
     }
 
-
+    protected void Init()
+    {
+        print("몬스터 초기화");
+        isDead = false;
+        isActivated = false;
+        isCanAttack = true;
+        isAttacking = false;
+        isDamaged = false;
+        isTrace = true;
+        lastAttackTime = 0;
+        DamagedTime = 0.3f;
+        targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
+        state = STATE.TRACE;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +62,11 @@ public class RecyclableMonster : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void OnStageClearMonDestroy()
+    {
+        ClearDestroyed?.Invoke(this);
     }
 
     //몬스터 생성 위치 설정
