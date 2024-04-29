@@ -20,6 +20,9 @@ public class Inventroy : MonoBehaviour
     [SerializeField]
     Sprite choiceButtonImage;
 
+    [SerializeField]
+    GameObject itemInfoPanel;
+
 
     private void OnEnable()
     {
@@ -50,7 +53,8 @@ public class Inventroy : MonoBehaviour
     {
         List<Item> item = new List<Item>();
         int eVaues = Enum.GetValues(typeof(Item_ScriptableObject.ItemType)).Length;
-       
+
+        if (ItemManager.instance == null) return;
         var gainitem = ItemManager.instance.gainedItems
                       .Where(n => n.itemData.itemType == (Item_ScriptableObject.ItemType)num)
                       .OrderBy(n => n.itemGrade)
