@@ -38,7 +38,5 @@ public class ItemSlot : MonoBehaviour
             if (itemName != null) itemName.text = item.itemData.itemname;
             if (levelText != null) levelText.text = string.Format("Lv.{0}", item.ItemLv);
         }
-
-        
     }
 }
