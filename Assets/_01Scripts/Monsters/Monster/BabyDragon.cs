@@ -26,7 +26,7 @@ public class BabyDragon : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    Animator anim;
+    
 
     [SerializeField]
     FireBall fireballPrefab;//파이어 볼 프리팹
@@ -49,7 +49,6 @@ public class BabyDragon : RecyclableMonster
     {
         fireBallFactory = new MonsterFactory(fireballPrefab, 2);
         anim = GetComponent<Animator>();
-        gameObject.tag = "monster";
     }
 
     public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
