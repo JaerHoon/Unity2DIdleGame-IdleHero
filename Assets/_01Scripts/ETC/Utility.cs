@@ -34,4 +34,21 @@ public class Utility : MonoBehaviour
         return nums; // 8.nums 라는 배열을 반환합니다.  
 
     }
+
+    public static Vector3 EaseInOutCubic(Vector3 start, Vector3 end, float value)//easing 움직임 조절 함수
+    {
+        value /= .5f;
+        end -= start;
+        if (value < 1) return end * 0.5f * value * value * value + start;
+        value -= 2;
+        return end * 0.5f * (value * value * value + 2) + start;
+    }
+
+    public static Vector3 EaseInQuint(Vector3 start, Vector3 end, float value)//easing 움직임 조절 함수
+    {
+        end -= start;
+        return end * value * value * value * value * value + start;
+    }
+
+
 }

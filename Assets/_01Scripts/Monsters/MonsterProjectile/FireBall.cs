@@ -30,14 +30,14 @@ public class FireBall : RecyclableMonster
     {
         if(collision.CompareTag("Player"))
         {
-            Destroyed?.Invoke(this);
+            FireBallDestroyed?.Invoke(this);
         }
     }
 
     private void OnBecameInvisible()//화면 밖으로 나갈 시
     {
         isActivated = false;
-        Destroyed?.Invoke(this);//비활성화 이벤트 발생
+        FireBallDestroyed?.Invoke(this);//비활성화 이벤트 발생
     }
 
     // Update is called once per frame

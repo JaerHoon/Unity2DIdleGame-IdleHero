@@ -34,6 +34,7 @@ public class Bat : RecyclableMonster
         attackDistance = batData.attackDistance;
         attackSpeed = batData.attackSpeed;
         attackMotionSpeed = batData.attackMotionSpeed;
+        Init();//부모에서 초기화
     }
 
     void Start()
