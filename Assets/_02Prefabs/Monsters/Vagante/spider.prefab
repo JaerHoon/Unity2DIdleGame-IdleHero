@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 7762458086474623310}
   - component: {fileID: 1318033744238233926}
   - component: {fileID: 2487234827583149090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spider
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

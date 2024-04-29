@@ -7,6 +7,6 @@ public class Skill_ScriptableObject : ScriptableObject
     public float damage;
     public float coolTime;
 
-    public string animationName;
+    public GameObject skillPrefab;
     public Sprite icon;
 }

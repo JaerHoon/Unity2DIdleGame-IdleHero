@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skill Data
   m_EditorClassIdentifier: 
   damage: 20
-  coolTime: 5
-  animationName: Explosion
-  icon: {fileID: 21300000, guid: 082fcc7dec8d82047a830d1589756e83, type: 3}
+  coolTime: 3
+  skillPrefab: {fileID: 537165625556540832, guid: f4e2340f07a4729468bda3f423193b0a, type: 3}
+  icon: {fileID: 21300000, guid: 2e90e2c5b616b9046874972bd8a3a4a6, type: 3}
