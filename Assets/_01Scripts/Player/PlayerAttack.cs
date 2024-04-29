@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask layermask;
     float range = 1.0f;
     int monsterLayer;
+    int flymonsterLayer;
 
     public Action<int> monattack;
 
@@ -38,7 +39,9 @@ public class PlayerAttack : MonoBehaviour
         anim = GetComponent<Animator>();
 
         monsterLayer = LayerMask.NameToLayer("monster");
-        layermask = 1 << monsterLayer;
+        flymonsterLayer = LayerMask.NameToLayer("flymonster");
+
+        layermask = 1 << monsterLayer | 1 << flymonsterLayer;
 
         scaleX = transform.localScale.x;
         scaleY = transform.localScale.y;
