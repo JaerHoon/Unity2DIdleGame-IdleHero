@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
-  m_Name: Skill Data
+  m_Name: Skill Data_Wind
   m_EditorClassIdentifier: 
   damage: 20
-  coolTime: 3
-  Destroyskill: 0.5
-  skillname: "\uC5B4\uC2A4\uD018\uC774\uD06C"
+  coolTime: 8
+  Destroyskill: 1.5
+  skillname: Wind
   skillinfo: 
-  skillPrefab: {fileID: 537165625556540832, guid: f4e2340f07a4729468bda3f423193b0a, type: 3}
-  icon: {fileID: 21300000, guid: 2e90e2c5b616b9046874972bd8a3a4a6, type: 3}
+  skillPrefab: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
+  icon: {fileID: 21300000, guid: 0baec4da0dbc2b34890084ac36fa1d5e, type: 3}
