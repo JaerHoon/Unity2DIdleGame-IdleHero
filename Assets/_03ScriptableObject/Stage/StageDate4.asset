@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a4478b2b1f69e438b2c9d5123f5bd2, type: 3}
-  m_Name: SpiderDate
+  m_Script: {fileID: 11500000, guid: 3d57f42fe6ac118489d02ccb8269fd2d, type: 3}
+  m_Name: StageDate4
   m_EditorClassIdentifier: 
-  MonsterName: Spider
-  Hp: 20
-  Damage: 5
-  Defense: 2
-  MoveSpeed: 1.7
-  AttackDistance: 3.5
-  AttackSpeed: 2
-  AttackMotionSpeed: 0.395
+  StageNum: 4
+  SlimeNum: 40
+  BatNum: 25
+  SpiderNum: 15
+  BabyDragonNum: 3
+  CurrentStageNum: 0

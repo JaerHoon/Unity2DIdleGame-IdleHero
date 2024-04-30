@@ -35,6 +35,7 @@ public class Slime : RecyclableMonster
         attackDistance = slimeData.attackDistance;
         attackSpeed = slimeData.attackSpeed;
         attackMotionSpeed = slimeData.attackMotionSpeed;
+        Init();//부모에서 초기화
     }
 
     void Start()

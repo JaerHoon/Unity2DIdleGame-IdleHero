@@ -43,6 +43,7 @@ public class BabyDragon : RecyclableMonster
         attackDistance = drangonData.attackDistance;
         attackSpeed = drangonData.attackSpeed;
         attackMotionSpeed = drangonData.attackMotionSpeed;
+        Init();//부모에서 초기화
     }
 
     void Start()
@@ -61,6 +62,8 @@ public class BabyDragon : RecyclableMonster
 
         }
     }
+
+    
 
     //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
     public override void AttackState()
@@ -93,12 +96,12 @@ public class BabyDragon : RecyclableMonster
     {
         RecyclableMonster fireBall = fireBallFactory.GetMonster();
         fireBall.Activate(GetComponentsInChildren<Transform>()[2].transform.position);
-        fireBall.Destroyed += OnFireBallDestoryed;
+        fireBall.FireBallDestroyed += OnFireBallDestoryed;
     }
 
     void OnFireBallDestoryed(RecyclableMonster usedFireBall)
     {
-        usedFireBall.Destroyed -= OnFireBallDestoryed;
+        usedFireBall.FireBallDestroyed -= OnFireBallDestoryed;
         fireBallFactory.MonsterRestore(usedFireBall);
     }
 
