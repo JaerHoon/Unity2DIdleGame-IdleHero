@@ -50,6 +50,11 @@ public class Bat : RecyclableMonster
             Destroyed?.Invoke(this);//몬스터 죽음 이벤트
             isDead = true;
         }
+        else
+        {
+            isDamaged = true;
+            DelayDamaged(0.5f);
+        }
     }
 
 

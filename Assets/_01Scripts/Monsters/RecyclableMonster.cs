@@ -152,11 +152,11 @@ public class RecyclableMonster : MonoBehaviour
 
     public virtual int MonDamaged(int MonHp,int MonDef,int PlayerDamage)//몬스터 피격 함수 계산 후 Hp 배출
     {
-        isDamaged = true;
+        
         return MonHp - (PlayerDamage >= MonDef ? PlayerDamage - MonDef : 0);
     }
 
-    IEnumerator DelayDamaged(float DamagedTime)
+    public virtual IEnumerator DelayDamaged(float DamagedTime)
     {
         yield return new WaitForSeconds(DamagedTime);
         isDamaged = false;
