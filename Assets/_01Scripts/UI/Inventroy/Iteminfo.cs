@@ -20,6 +20,9 @@ public class Iteminfo : MonoBehaviour
     [SerializeField]
     EnhancementItemSlot enhancementSlot;
 
+    [SerializeField]
+    EquipItem equipItem;
+
     public Item equipeditem;
     Item item;
 
@@ -34,10 +37,25 @@ public class Iteminfo : MonoBehaviour
 
     public void EquipButton()
     {
+        equipeditem = equipItem.OutEquipItem(item.itemData.itemType);
+          
         equiopedItemSlot.Setting(equipeditem);
         thisItemSlot.Setting(item);
         changeItempPanel.SetActive(true);
         infoPanel.SetActive(false);
+    }
+
+    public void OnEquip()
+    {
+        equipItem.EquipItems(item);
+        changeItempPanel.SetActive(false);
+        infoPanel.SetActive(true);
+    }
+
+    public void CancelEquip()
+    {
+        changeItempPanel.SetActive(false);
+        infoPanel.SetActive(true);
     }
 
     public void EnhancementButton()
