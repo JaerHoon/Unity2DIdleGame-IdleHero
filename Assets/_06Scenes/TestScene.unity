@@ -3603,6 +3603,7 @@ MonoBehaviour:
   - {fileID: -160808029, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
   defaultBackGround: {fileID: 0}
   defaultSlot: {fileID: 0}
+  equipDefaultItem: []
 --- !u!1 &2075726617
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,13 +3860,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 944872837461447700, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
       propertyPath: m_Name
       value: Wind
       objectReference: {fileID: 0}
     - target: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5480955442389420852, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4046,5 +4051,4 @@ SceneRoots:
   - {fileID: 1028695268161290661}
   - {fileID: 9109631075934303709}
   - {fileID: 9111908222743462667}
-  - {fileID: 819167587}
   - {fileID: 8398922663226220004}
