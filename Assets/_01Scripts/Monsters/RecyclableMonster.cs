@@ -147,8 +147,8 @@ public class RecyclableMonster : MonoBehaviour
         }
     }
 
-    
 
+    public virtual void OnMonDamaged(int PlayerDamage) { }
 
     public virtual int MonDamaged(int MonHp,int MonDef,int PlayerDamage)//몬스터 피격 함수 계산 후 Hp 배출
     {
