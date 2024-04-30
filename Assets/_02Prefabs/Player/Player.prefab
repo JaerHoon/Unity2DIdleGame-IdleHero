@@ -25,12 +25,93 @@ Transform:
   m_GameObject: {fileID: 2956102017156297383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.131, y: -0.021, z: 0}
+  m_LocalPosition: {x: 0.266, y: 0.038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2471518395216972071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5798345903717147434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095121328599161170}
+  - component: {fileID: 1585577548835341368}
+  - component: {fileID: 4995362144030847830}
+  - component: {fileID: 6424591343782408016}
+  m_Layer: 0
+  m_Name: UsedSkills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095121328599161170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798345903717147434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2471518395216972071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585577548835341368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798345903717147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbe8dcde7998e7479b228f6bf01630e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
+  skilsPos: {fileID: 3433424004473814051}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+--- !u!114 &4995362144030847830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798345903717147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64d2492002b46345b4a5517118aa96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tornado: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+--- !u!114 &6424591343782408016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798345903717147434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2500a8f1c56f5854fb76621748e3ecfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wind: {fileID: 11400000, guid: 4e52e1a9850676148823c2d5f27c9be0, type: 2}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+  rotateSpeed: 30
 --- !u!1 &7291320416238701225
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,8 +127,6 @@ GameObject:
   - component: {fileID: 8722203233820724082}
   - component: {fileID: 4612551716319086873}
   - component: {fileID: 6743512792399575996}
-  - component: {fileID: 4028545854238234639}
-  - component: {fileID: 2864379572888339521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -70,6 +149,7 @@ Transform:
   m_Children:
   - {fileID: 3433424004473814051}
   - {fileID: 8360695002146916745}
+  - {fileID: 2095121328599161170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3}
 --- !u!50 &6358807280295968619
@@ -250,37 +330,6 @@ MonoBehaviour:
   isAttack: 0
   isMove: 0
   boxSize: {x: 0.67, y: 2.66}
---- !u!114 &4028545854238234639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7291320416238701225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dbe8dcde7998e7479b228f6bf01630e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
-  skilsPos: {fileID: 3433424004473814051}
-  skillimage: {fileID: 0}
-  skillCoolTimeGauge: {fileID: 0}
---- !u!114 &2864379572888339521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7291320416238701225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c64d2492002b46345b4a5517118aa96f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tornado: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
-  skillimage: {fileID: 0}
-  skillCoolTimeGauge: {fileID: 0}
 --- !u!1 &9048656709838775242
 GameObject:
   m_ObjectHideFlags: 0

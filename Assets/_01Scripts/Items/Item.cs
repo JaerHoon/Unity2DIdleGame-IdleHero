@@ -61,7 +61,7 @@ public class Item
         }
         else
         {
-            pow = CalItempow() * itemData.LvUP_Rate/2 * Lv;
+            pow = CalItempow() * itemData.LvUP_Rate * Lv;
             //레벨이 2이상일때 계산
         }
        
