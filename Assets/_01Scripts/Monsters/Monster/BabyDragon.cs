@@ -64,7 +64,7 @@ public class BabyDragon : RecyclableMonster
         else
         {
             isDamaged = true;
-            StartCoroutine(DelayDamaged(0.5f));
+            StartCoroutine(DelayDamaged(0.4f));
         }
     }
 
@@ -94,7 +94,7 @@ public class BabyDragon : RecyclableMonster
     public override void DieState()
     {
         base.DieState();
-        anim.SetInteger("STATE", 4);
+        anim.SetInteger("STATE", 5);
     }
 
     public void OnFireBallLaunched()

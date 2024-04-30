@@ -41,6 +41,7 @@ public class Slime : RecyclableMonster
     void Start()
     {
         gameObject.tag = "monster";
+        anim = GetComponent<Animator>();
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -48,14 +49,54 @@ public class Slime : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            Destroyed?.Invoke(this);//몬스터 죽음 이벤트
+            
             isDead = true;
+            StartCoroutine(DelayDeath());
         }
         else
         {
             isDamaged = true;
-            StartCoroutine(DelayDamaged(0.5f));
+            StartCoroutine(DelayDamaged(0.7f));
         }
+    }
+
+    IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보
+    {
+        yield return new WaitForSeconds(1f);
+        Destroyed?.Invoke(this);//몬스터 죽음 이벤트
+    }
+
+    //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
+    public override void AttackState()
+    {
+        base.AttackState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void IdleState()
+    {
+        base.IdleState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void TraceState(Vector3 playerPos, float moveSpeed)
+    {
+        base.TraceState(playerPos, moveSpeed);
+        anim.SetInteger("STATE", 1);
+    }
+    public override void DamagedState()
+    {
+        base.DamagedState();
+        anim.SetInteger("STATE", 3);
+    }
+    public override void DieState()
+    {
+        base.DieState();
+        if (!isOnceDieState)
+        {
+            
+            anim.SetInteger("STATE", 4);
+            isOnceDieState = true;
+        }
+        
     }
 
 
