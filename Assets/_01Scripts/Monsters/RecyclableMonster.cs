@@ -149,11 +149,8 @@ public class RecyclableMonster : MonoBehaviour
         }
         else
         {
-            if (!isOnceDieState)
-            {
-                state = STATE.DIE;
-                isOnceDieState = true;
-            }
+
+            state = STATE.DIE;
         }
     }
 

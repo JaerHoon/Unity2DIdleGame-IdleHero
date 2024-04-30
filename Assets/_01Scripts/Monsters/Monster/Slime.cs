@@ -25,6 +25,9 @@ public class Slime : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    Renderer MyRenderer;
+    Collider2D Mycollider2D;
+
     private void OnEnable()//활성화 시 초기화
     {
         monName = slimeData.monsterName;
@@ -35,6 +38,8 @@ public class Slime : RecyclableMonster
         attackDistance = slimeData.attackDistance;
         attackSpeed = slimeData.attackSpeed;
         attackMotionSpeed = slimeData.attackMotionSpeed;
+        if (MyRenderer != null) SetAlpa();
+        if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
     }
 
@@ -42,6 +47,8 @@ public class Slime : RecyclableMonster
     {
         gameObject.tag = "monster";
         anim = GetComponent<Animator>();
+        MyRenderer = gameObject.GetComponent<Renderer>();
+        Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -49,7 +56,7 @@ public class Slime : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            
+            Mycollider2D.enabled = false;
             isDead = true;
             StartCoroutine(DelayDeath());
         }
@@ -90,15 +97,30 @@ public class Slime : RecyclableMonster
     public override void DieState()
     {
         base.DieState();
-        if (!isOnceDieState)
-        {
-            
-            anim.SetInteger("STATE", 4);
-            isOnceDieState = true;
-        }
-        
+        anim.SetInteger("STATE", 4);
+        StartCoroutine(FadeOut());
     }
 
+    IEnumerator FadeOut()
+    {
+        float f = 1;
+        while (f > 0)
+        {
+            f -= 0.1f;
+            Color ColorAlhpa = MyRenderer.material.color;
+            ColorAlhpa.a = f;
+            MyRenderer.material.color = ColorAlhpa;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    void SetAlpa()
+    {
+        float f = 1;
+        Color ColorAlhpa = MyRenderer.material.color;
+        ColorAlhpa.a = f;
+        MyRenderer.material.color = ColorAlhpa;
+    }
 
     // Update is called once per frame
     void Update()
