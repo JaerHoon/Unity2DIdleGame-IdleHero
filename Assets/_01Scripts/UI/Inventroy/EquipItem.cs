@@ -22,6 +22,9 @@ public class EquipItem : MonoBehaviour
 
     public Item OutEquipItem(Item_ScriptableObject.ItemType itemType)
     {
-        return equipmentSlots[(int)itemType].Equipitem;
+        Item equitment = (equipmentSlots[(int)itemType].Equipitem != null)? 
+                         equipmentSlots[(int)itemType].Equipitem : null;
+       
+        return equitment;
     }
 }
