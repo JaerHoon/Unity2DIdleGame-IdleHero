@@ -6,6 +6,7 @@ TagManager:
   tags:
   - monster
   - PlayerFoot
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

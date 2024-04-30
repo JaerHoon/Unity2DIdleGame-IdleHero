@@ -21,12 +21,13 @@ public class Inventroy : MonoBehaviour
     Sprite choiceButtonImage;
 
     [SerializeField]
-    GameObject itemInfoPanel;
+    Iteminfo iteminfo;
 
 
     private void OnEnable()
     {
         OnClick(0);
+        iteminfo.gameObject.SetActive(false);
         //ReSetting();
     }
 
@@ -92,6 +93,12 @@ public class Inventroy : MonoBehaviour
 
 
         ReSetting(num);
+    }
+
+    public void OninfoPanel(Item item)
+    {  
+        iteminfo.Setting(item);
+        iteminfo.gameObject.SetActive(true);
     }
 
 }
