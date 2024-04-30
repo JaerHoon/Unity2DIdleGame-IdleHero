@@ -147,6 +147,18 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void OnDamagedAllMonster()
+    {
+        //foreach (var monster in monsterStore)
+        //{
+        //    monster.OnMonDamaged(3);
+        //}
+        for (int i = monsterStore.Count - 1; i >= 0; i--)
+        {
+            monsterStore[i].OnMonDamaged(3);
+        }
+    }
+
     void Update()
     {
 

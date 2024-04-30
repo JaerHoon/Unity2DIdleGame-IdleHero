@@ -25,6 +25,7 @@ public class Spider : RecyclableMonster
     float attackMotionSpeed;
 
     bool istargetDetected = true;
+
     
 
    
@@ -49,8 +50,9 @@ public class Spider : RecyclableMonster
         anim = GetComponent<Animator>();
     }
 
-    public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
+    public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
+        
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
@@ -60,7 +62,7 @@ public class Spider : RecyclableMonster
         else
         {
             isDamaged = true;
-            DelayDamaged(0.5f);
+            StartCoroutine(DelayDamaged(0.5f));
         }
     }
 
@@ -122,5 +124,7 @@ public class Spider : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
         UpdateState(targetPosition.position, spiderData.moveSpeed);
+
+        
     }
 }

@@ -52,7 +52,7 @@ public class BabyDragon : RecyclableMonster
         anim = GetComponent<Animator>();
     }
 
-    public void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
+    public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
         if(hp <= 0)
@@ -64,7 +64,7 @@ public class BabyDragon : RecyclableMonster
         else
         {
             isDamaged = true;
-            DelayDamaged(0.5f);
+            StartCoroutine(DelayDamaged(0.5f));
         }
     }
 
