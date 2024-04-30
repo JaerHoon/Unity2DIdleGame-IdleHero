@@ -6,9 +6,9 @@ using System;
 public class RecyclableMonster : MonoBehaviour
 {
     protected enum STATE { IDEL, TRACE, ATTACK,DAMAGED, DIE }
-    //Æ®¸®°Å 0 : idle, 1 : walk, 2 : attack, 3 : hurt, 4 : dead, 5 : dragonfall
-    //================¼±¾ğ=============================
-    protected Transform targetPosition;//ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡
+    //íŠ¸ë¦¬ê±° 0 : idle, 1 : walk, 2 : attack, 3 : hurt, 4 : dead, 5 : dragonfall
+    //================ì„ ì–¸=============================
+    protected Transform targetPosition;//í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜
     protected bool isDead = false;
     protected bool isActivated = false;
     protected bool isCanAttack = true;
@@ -22,7 +22,7 @@ public class RecyclableMonster : MonoBehaviour
     protected Animator anim;
 
 
-    //================ÀÌº¥Æ®==========================
+    //================ì´ë²¤íŠ¸==========================
     public Action MonDeath;
     public Action<RecyclableMonster> Destroyed;
     public Action<RecyclableMonster> ClearDestroyed;
@@ -38,7 +38,7 @@ public class RecyclableMonster : MonoBehaviour
 
     protected void Init()
     {
-       
+        
         isDead = false;
         isActivated = false;
         isCanAttack = true;
@@ -69,25 +69,25 @@ public class RecyclableMonster : MonoBehaviour
         ClearDestroyed?.Invoke(this);
     }
 
-    //¸ó½ºÅÍ »ı¼º À§Ä¡ ¼³Á¤
+    //ëª¬ìŠ¤í„° ìƒì„± ìœ„ì¹˜ ì„¤ì •
     public virtual void Activate(Vector3 spawnPos)
     {
-        isActivated = true;//È°¼º ÇÃ·¡±× Âü
-        transform.position = spawnPos;//½ºÆù Æ÷ÀÎÆ®·Î À§Ä¡ ÀüÈ¯
+        isActivated = true;//í™œì„± í”Œë˜ê·¸ ì°¸
+        transform.position = spawnPos;//ìŠ¤í° í¬ì¸íŠ¸ë¡œ ìœ„ì¹˜ ì „í™˜
     }
 
-    //ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâÀ¸·Î yÃà È¸Àü
+    //í”Œë ˆì´ì–´ì˜ ë°©í–¥ìœ¼ë¡œ yì¶• íšŒì „
     public virtual void LookPlayer(Vector3 playerPos)
     {
 
-        if (playerPos.x >= transform.position.x)//ÇÃ·¹ÀÌ¾î°¡ ¸ó½ºÅÍº¸´Ù ¿À¸¥ÂÊ¿¡ ÀÖÀ¸¸é
+        if (playerPos.x >= transform.position.x)//í”Œë ˆì´ì–´ê°€ ëª¬ìŠ¤í„°ë³´ë‹¤ ì˜¤ë¥¸ìª½ì— ìˆìœ¼ë©´
         {
-            if (transform.rotation.y == 180)//y°ªÀÌ 180ÀÏ¶§ ¿À¸¥ÂÊÀ» º¸´Â ¸ó½ºÅÍÀÇ °æ¿ì
+            if (transform.rotation.y == 180)//yê°’ì´ 180ì¼ë•Œ ì˜¤ë¥¸ìª½ì„ ë³´ëŠ” ëª¬ìŠ¤í„°ì˜ ê²½ìš°
                 transform.rotation = Quaternion.Euler(transform.rotation.x, 180.0f, transform.rotation.z);
-            else//y°ªÀÌ 0ÀÏ¶§ ¿À¸¥ÂÊÀ» º¸´Â ¸ó½ºÅÍÀÇ °æ¿ì
+            else//yê°’ì´ 0ì¼ë•Œ ì˜¤ë¥¸ìª½ì„ ë³´ëŠ” ëª¬ìŠ¤í„°ì˜ ê²½ìš°
                 transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
         }
-        else//ÇÃ·¹ÀÌ¾î°¡ ¸ó½ºÅÍº¸´Ù ¿ŞÂÊ¿¡ ÀÖÀ¸¸é
+        else//í”Œë ˆì´ì–´ê°€ ëª¬ìŠ¤í„°ë³´ë‹¤ ì™¼ìª½ì— ìˆìœ¼ë©´
         {
             if (transform.rotation.y == 180)
                 transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
@@ -100,7 +100,7 @@ public class RecyclableMonster : MonoBehaviour
     }
 
 
-    //¸ó½ºÅÍ »çÁ¤°Å¸®±îÁö ÀÌµ¿ ÇÔ¼ö
+    //ëª¬ìŠ¤í„° ì‚¬ì •ê±°ë¦¬ê¹Œì§€ ì´ë™ í•¨ìˆ˜
     public virtual void MonsterState(Vector3 playerPos, float attackDistance, float attackSpeed, float motionSpeed)
     {
         
@@ -108,24 +108,24 @@ public class RecyclableMonster : MonoBehaviour
 
         
 
-        if (!isDead)//Á×Áö ¾Ê¾Ò´Ù¸é
+        if (!isDead)//ì£½ì§€ ì•Šì•˜ë‹¤ë©´
         {
-            if (!isDamaged)//°ø°İÀ» ¹ŞÀº »óÅÂ°¡ ¾Æ´Ï¶ó¸é
+            if (!isDamaged)//ê³µê²©ì„ ë°›ì€ ìƒíƒœê°€ ì•„ë‹ˆë¼ë©´
             {
-                if (!isAttacking)//°ø°İÁßÀÌ ¾Æ´Ï¸é
+                if (!isAttacking)//ê³µê²©ì¤‘ì´ ì•„ë‹ˆë©´
                 {
-                    if (distance <= attackDistance)//»çÁ¤°Å¸®º¸´Ù °¡±õ´Ù¸é
+                    if (distance <= attackDistance)//ì‚¬ì •ê±°ë¦¬ë³´ë‹¤ ê°€ê¹ë‹¤ë©´
                     {
-                        if (isCanAttack)//°ø°İ °¡´É »óÅÂ¶ó¸é
+                        if (isCanAttack)//ê³µê²© ê°€ëŠ¥ ìƒíƒœë¼ë©´
                         {
-                            state = STATE.ATTACK;//°ø°İ »óÅÂ
-                            StartCoroutine(DelayAttack(attackSpeed));//°ø°İ¼Óµµ ½Ã°£ ÈÄ °ø°İ°¡´É
-                            StartCoroutine(DelayAttackMotion(motionSpeed));//°ø°İ¼Óµµ ½Ã°£ ÈÄ °ø°İ°¡´É
-                            isTrace = false;//°ø°İÈÄ ¿òÁ÷ÀÓ Á¦ÇÑ
-                            isAttacking = true;//°ø°İÁß
-                            isCanAttack = false;//ÀÌ¹Ì °ø°İ ÁßÀÌ¹Ç·Î °ø°İ ºÒ°¡
+                            state = STATE.ATTACK;//ê³µê²© ìƒíƒœ
+                            StartCoroutine(DelayAttack(attackSpeed));//ê³µê²©ì†ë„ ì‹œê°„ í›„ ê³µê²©ê°€ëŠ¥
+                            StartCoroutine(DelayAttackMotion(motionSpeed));//ê³µê²©ì†ë„ ì‹œê°„ í›„ ê³µê²©ê°€ëŠ¥
+                            isTrace = false;//ê³µê²©í›„ ì›€ì§ì„ ì œí•œ
+                            isAttacking = true;//ê³µê²©ì¤‘
+                            isCanAttack = false;//ì´ë¯¸ ê³µê²© ì¤‘ì´ë¯€ë¡œ ê³µê²© ë¶ˆê°€
                         }
-                        else//°ø°İ °¡´É »óÅÂ°¡ ¾Æ´Ï¶ó¸é
+                        else//ê³µê²© ê°€ëŠ¥ ìƒíƒœê°€ ì•„ë‹ˆë¼ë©´
                         {
                             state = STATE.IDEL;
                         }
@@ -150,7 +150,7 @@ public class RecyclableMonster : MonoBehaviour
     
 
 
-    public virtual int MonDamaged(int MonHp,int MonDef,int PlayerDamage)//¸ó½ºÅÍ ÇÇ°İ ÇÔ¼ö °è»ê ÈÄ Hp ¹èÃâ
+    public virtual int MonDamaged(int MonHp,int MonDef,int PlayerDamage)//ëª¬ìŠ¤í„° í”¼ê²© í•¨ìˆ˜ ê³„ì‚° í›„ Hp ë°°ì¶œ
     {
         isDamaged = true;
         return MonHp - (PlayerDamage >= MonDef ? PlayerDamage - MonDef : 0);
@@ -162,7 +162,7 @@ public class RecyclableMonster : MonoBehaviour
         isDamaged = false;
     }
 
-    IEnumerator DelayAttack(float attackSpeed)//°ø°İ µô·¹ÀÌ ÄÚ·çÆ¾
+    IEnumerator DelayAttack(float attackSpeed)//ê³µê²© ë”œë ˆì´ ì½”ë£¨í‹´
     {
         yield return new WaitForSeconds(attackSpeed);
         isTrace = true;
@@ -170,7 +170,7 @@ public class RecyclableMonster : MonoBehaviour
         
     }
 
-    IEnumerator DelayAttackMotion(float Motion)//°ø°İ µô·¹ÀÌ ÄÚ·çÆ¾
+    IEnumerator DelayAttackMotion(float Motion)//ê³µê²© ë”œë ˆì´ ì½”ë£¨í‹´
     {
         yield return new WaitForSeconds(Motion);
         
@@ -223,7 +223,7 @@ public class RecyclableMonster : MonoBehaviour
 
     }
 
-    public virtual void MonsterMovement(Vector3 playerPos, float moveSpeed)//¸ó½ºÅÍ ÀÌµ¿
+    public virtual void MonsterMovement(Vector3 playerPos, float moveSpeed)//ëª¬ìŠ¤í„° ì´ë™
     {
         Vector3 dir = (playerPos - transform.position).normalized;
         transform.position += dir * moveSpeed * Time.deltaTime;
