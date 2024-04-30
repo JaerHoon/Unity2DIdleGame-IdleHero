@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class EnhancementItemSlot : ItemSlot
+public class EnhancementItemSlot : Slots
 {
     [SerializeField]
     TextMeshProUGUI afterItemLV;
