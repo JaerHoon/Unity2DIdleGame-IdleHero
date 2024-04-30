@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 8722203233820724082}
   - component: {fileID: 4612551716319086873}
   - component: {fileID: 6743512792399575996}
+  - component: {fileID: 4028545854238234639}
+  - component: {fileID: 2864379572888339521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -242,13 +244,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {fileID: 3433424004473814051}
-  DownPos: {fileID: 0}
   layermask:
     serializedVersion: 2
     m_Bits: 64
   isAttack: 0
   isMove: 0
   boxSize: {x: 0.67, y: 2.66}
+--- !u!114 &4028545854238234639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291320416238701225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbe8dcde7998e7479b228f6bf01630e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
+  skilsPos: {fileID: 3433424004473814051}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+--- !u!114 &2864379572888339521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291320416238701225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64d2492002b46345b4a5517118aa96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tornado: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
 --- !u!1 &9048656709838775242
 GameObject:
   m_ObjectHideFlags: 0
