@@ -155,7 +155,7 @@ public class SpawnManager : MonoBehaviour
         //}
         for (int i = monsterStore.Count - 1; i >= 0; i--)
         {
-            monsterStore[i].OnMonDamaged(3);
+            monsterStore[i].OnMonDamaged(20);
         }
     }
 
