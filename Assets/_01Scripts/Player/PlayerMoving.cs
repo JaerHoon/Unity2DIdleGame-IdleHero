@@ -50,6 +50,7 @@ public class PlayerMoving : MonoBehaviour
             playerattack.isMove = false;
             anim.SetTrigger("idle");
         }
+
         
        
     }
