@@ -7,19 +7,19 @@ using TMPro;
 public class ItemSlot : MonoBehaviour
 {
     [SerializeField]
-    protected Image itemIcon;
+    Image itemIcon;
     [SerializeField]
-    protected Image backGround;
+    Image backGround;
     [SerializeField]
-    protected Image frame;
+    Image frame;
     [SerializeField]
-    protected TextMeshProUGUI itemName;
+    TextMeshProUGUI itemName;
     [SerializeField]
-    protected TextMeshProUGUI levelText;
+    TextMeshProUGUI levelText;
     [SerializeField]
-    protected TextMeshProUGUI itemGrade;
+    TextMeshProUGUI itemGrade;
     [SerializeField]
-    protected TextMeshProUGUI itemPow;
+    TextMeshProUGUI itemPow;
 
     public Item item;
   
