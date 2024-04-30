@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   coolTime: 5
+  skillname: "\uD1A0\uB124\uC774\uB3C4"
+  skillinfo: 
   skillPrefab: {fileID: 8421651076618741459, guid: bd3aed16ceabcb24b9db40e66890ce0b, type: 3}
   icon: {fileID: 21300000, guid: d9d1c98331fea37458800741e5157a1b, type: 3}
