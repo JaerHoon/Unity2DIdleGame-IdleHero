@@ -40,6 +40,7 @@ public class Bat : RecyclableMonster
     void Start()
     {
         gameObject.tag = "monster";
+        anim = GetComponent<Animator>();
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -57,6 +58,33 @@ public class Bat : RecyclableMonster
         }
     }
 
+    //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
+    public override void AttackState()
+    {
+        base.AttackState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void IdleState()
+    {
+        base.IdleState();
+        anim.SetInteger("STATE", 0);
+    }
+    public override void TraceState(Vector3 playerPos, float moveSpeed)
+    {
+        base.TraceState(playerPos, moveSpeed);
+        anim.SetInteger("STATE", 0);
+    }
+    public override void DamagedState()
+    {
+        base.DamagedState();
+        print("박쥐 피격");
+        anim.SetInteger("STATE", 3);
+    }
+    public override void DieState()
+    {
+        base.DieState();
+        anim.SetInteger("STATE", 4);
+    }
 
     // Update is called once per frame
     void Update()
