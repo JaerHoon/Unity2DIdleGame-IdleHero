@@ -16,7 +16,9 @@ public class ItemManager : MonoBehaviour
 
    
     public Sprite defaultBackGround; // 빈슬롯 백그라운드
-    public Sprite defaultSlot; 
+    public Sprite defaultSlot;
+
+    public List<Sprite> defaultItemIcon = new List<Sprite>();
 
     public List<Item> items = new List<Item>(); // 생성된 아이템 객체를 담을 리스트
     public List<Item> gainedItems = new List<Item>(); // 플레이어가 얻은 아이템 객체를 담을 리스트
