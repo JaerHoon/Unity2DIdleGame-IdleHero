@@ -49,15 +49,13 @@ public class Iteminfo : MonoBehaviour
     {
         equipItem.EquipItems(item);
         changeItempPanel.SetActive(false);
-        infoPanel.SetActive(false);
-        this.gameObject.SetActive(false);
+        infoPanel.SetActive(true);
     }
 
     public void CancelEquip()
     {
         changeItempPanel.SetActive(false);
-        infoPanel.SetActive(false);
-        this.gameObject.SetActive(false);
+        infoPanel.SetActive(true);
     }
 
     public void EnhancementButton()
