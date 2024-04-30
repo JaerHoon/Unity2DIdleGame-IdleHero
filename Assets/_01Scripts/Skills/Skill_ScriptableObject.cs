@@ -6,6 +6,7 @@ public class Skill_ScriptableObject : ScriptableObject
 {
     public float damage;
     public float coolTime;
+    public float Destroyskill;
     public string skillname;
     public string skillinfo;
     public GameObject skillPrefab;

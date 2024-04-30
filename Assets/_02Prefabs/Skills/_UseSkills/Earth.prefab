@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5751861701127651828}
   - component: {fileID: 3501874267194984377}
   - component: {fileID: 8829372247541692675}
-  - component: {fileID: 3059169396566449082}
+  - component: {fileID: 1597177731241720335}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3059169396566449082
+--- !u!114 &1597177731241720335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537165625556540832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d408439ec615349bc5d6aced3031f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9690716d6f86795468c81571e936a321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroy: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
