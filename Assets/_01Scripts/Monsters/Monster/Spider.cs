@@ -57,6 +57,11 @@ public class Spider : RecyclableMonster
             Destroyed?.Invoke(this);//몬스터 죽음 이벤트
             isDead = true;
         }
+        else
+        {
+            isDamaged = true;
+            DelayDamaged(0.5f);
+        }
     }
 
     //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============

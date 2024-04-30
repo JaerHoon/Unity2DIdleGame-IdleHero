@@ -61,6 +61,11 @@ public class BabyDragon : RecyclableMonster
             isDead = true;
 
         }
+        else
+        {
+            isDamaged = true;
+            DelayDamaged(0.5f);
+        }
     }
 
     
