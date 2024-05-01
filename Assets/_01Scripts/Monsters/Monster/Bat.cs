@@ -25,7 +25,6 @@ public class Bat : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    Test batTest;
 
     private void OnEnable()//활성화 시 초기화
     {
@@ -49,7 +48,6 @@ public class Bat : RecyclableMonster
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
-        batTest = gameObject.GetComponentInChildren<Test>();
         DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
     }
 
