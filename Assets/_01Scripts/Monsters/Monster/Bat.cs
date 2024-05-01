@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Bat : RecyclableMonster
 {
@@ -24,6 +25,8 @@ public class Bat : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    Test batTest;
+
     private void OnEnable()//활성화 시 초기화
     {
         monName = batData.monsterName;
@@ -36,6 +39,7 @@ public class Bat : RecyclableMonster
         attackMotionSpeed = batData.attackMotionSpeed;
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
+        transform.GetChild(0).localPosition = new Vector2(0,- 0.16f);
         Init();//부모에서 초기화
     }
 
@@ -45,6 +49,8 @@ public class Bat : RecyclableMonster
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
+        batTest = gameObject.GetComponentInChildren<Test>();
+        DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -95,13 +101,16 @@ public class Bat : RecyclableMonster
     {
         base.DieState();
         anim.SetInteger("STATE", 4);
-        Fall();
+        if(!isOnceDieState)
+            Fall();
     }
 
     void Fall()
     {
-        float posY = Utility.EaseInBounce(transform.position.y, transform.position.y - 1.0f, 3.0f * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, posY, transform.position.z);
+        isOnceDieState = true;
+        transform.DOMoveY(transform.position.y - 0.4f, 1f).SetEase(Ease.OutBounce);
+        transform.GetChild(0).DOMoveY(transform.position.y - 0.65f,1).SetEase(Ease.OutBounce);
+        //batTest.UpShadow();
     }
 
     IEnumerator FadeOut()
