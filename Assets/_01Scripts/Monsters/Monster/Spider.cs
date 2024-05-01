@@ -28,7 +28,7 @@ public class Spider : RecyclableMonster
 
     
 
-   
+
     public float spiderAttackMovementSpeed = 5.0f;
 
     private void OnEnable()//활성화 시 초기화
@@ -41,6 +41,8 @@ public class Spider : RecyclableMonster
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
+        if (MyRenderer != null) SetAlpa();
+        if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
     }
 
@@ -48,6 +50,8 @@ public class Spider : RecyclableMonster
     {
         gameObject.tag = "monster";
         anim = GetComponent<Animator>();
+        MyRenderer = gameObject.GetComponent<Renderer>();
+        Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -56,8 +60,9 @@ public class Spider : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            Destroyed?.Invoke(this);//몬스터 죽음 이벤트
+            Mycollider2D.enabled = false;
             isDead = true;
+            StartCoroutine(DelayDeath());
         }
         else
         {
@@ -66,8 +71,14 @@ public class Spider : RecyclableMonster
         }
     }
 
+    IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보
+    {
+        yield return new WaitForSeconds(1f);
+        Destroyed?.Invoke(this);//몬스터 죽음 이벤트
+    }
+
     //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
-   
+
     public override void AttackState()
     {
         base.AttackState();
@@ -115,8 +126,29 @@ public class Spider : RecyclableMonster
     {
         base.DieState();
         anim.SetInteger("STATE", 4);
+        StartCoroutine(FadeOut());
     }
 
+    IEnumerator FadeOut()
+    {
+        float f = 1;
+        while (f > 0)
+        {
+            f -= 0.1f;
+            Color ColorAlhpa = MyRenderer.material.color;
+            ColorAlhpa.a = f;
+            MyRenderer.material.color = ColorAlhpa;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    void SetAlpa()
+    {
+        float f = 1;
+        Color ColorAlhpa = MyRenderer.material.color;
+        ColorAlhpa.a = f;
+        MyRenderer.material.color = ColorAlhpa;
+    }
 
     // Update is called once per frame
     void Update()

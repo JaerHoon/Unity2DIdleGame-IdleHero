@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Bat : RecyclableMonster
 {
@@ -24,6 +25,8 @@ public class Bat : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    Test batTest;
+
     private void OnEnable()//활성화 시 초기화
     {
         monName = batData.monsterName;
@@ -34,6 +37,9 @@ public class Bat : RecyclableMonster
         attackDistance = batData.attackDistance;
         attackSpeed = batData.attackSpeed;
         attackMotionSpeed = batData.attackMotionSpeed;
+        if (MyRenderer != null) SetAlpa();
+        if (Mycollider2D != null) Mycollider2D.enabled = true;
+        transform.GetChild(0).localPosition = new Vector2(0,- 0.16f);
         Init();//부모에서 초기화
     }
 
@@ -41,6 +47,10 @@ public class Bat : RecyclableMonster
     {
         gameObject.tag = "monster";
         anim = GetComponent<Animator>();
+        MyRenderer = gameObject.GetComponent<Renderer>();
+        Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
+        batTest = gameObject.GetComponentInChildren<Test>();
+        DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -48,14 +58,21 @@ public class Bat : RecyclableMonster
         hp = MonDamaged(hp, defense, PlayerDamage);
         if (hp <= 0)
         {
-            Destroyed?.Invoke(this);//몬스터 죽음 이벤트
+            Mycollider2D.enabled = false;
             isDead = true;
+            StartCoroutine(DelayDeath());
         }
         else
         {
             isDamaged = true;
             StartCoroutine(DelayDamaged(0.5f));
         }
+    }
+
+    IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보
+    {
+        yield return new WaitForSeconds(1f);
+        Destroyed?.Invoke(this);//몬스터 죽음 이벤트
     }
 
     //===============몬스터 상태에 따른 애니메이터 파라미터 값 변경==============
@@ -84,7 +101,39 @@ public class Bat : RecyclableMonster
     {
         base.DieState();
         anim.SetInteger("STATE", 4);
+        if(!isOnceDieState)
+            Fall();
     }
+
+    void Fall()
+    {
+        isOnceDieState = true;
+        transform.DOMoveY(transform.position.y - 0.4f, 1f).SetEase(Ease.OutBounce);
+        transform.GetChild(0).DOMoveY(transform.position.y - 0.65f,1).SetEase(Ease.OutBounce);
+        //batTest.UpShadow();
+    }
+
+    IEnumerator FadeOut()
+    {
+        float f = 1;
+        while (f > 0)
+        {
+            f -= 0.1f;
+            Color ColorAlhpa = MyRenderer.material.color;
+            ColorAlhpa.a = f;
+            MyRenderer.material.color = ColorAlhpa;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    void SetAlpa()
+    {
+        float f = 1;
+        Color ColorAlhpa = MyRenderer.material.color;
+        ColorAlhpa.a = f;
+        MyRenderer.material.color = ColorAlhpa;
+    }
+
 
     // Update is called once per frame
     void Update()

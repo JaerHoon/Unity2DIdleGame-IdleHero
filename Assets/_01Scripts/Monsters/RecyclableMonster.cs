@@ -21,7 +21,8 @@ public class RecyclableMonster : MonoBehaviour
     protected STATE state { get; set; }
 
     protected Animator anim;
-
+    protected Renderer MyRenderer;
+    protected Collider2D Mycollider2D;
 
     //================이벤트==========================
     public Action MonDeath;

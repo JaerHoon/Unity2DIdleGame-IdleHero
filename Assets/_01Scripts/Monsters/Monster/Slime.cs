@@ -25,8 +25,6 @@ public class Slime : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
-    Renderer MyRenderer;
-    Collider2D Mycollider2D;
 
     private void OnEnable()//활성화 시 초기화
     {
