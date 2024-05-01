@@ -16,6 +16,7 @@ public class RecyclableMonster : MonoBehaviour
     protected bool isDamaged = false;
     protected bool isTrace = true;
     protected bool isOnceDieState = false;
+    protected bool isShake = false;
     protected float lastAttackTime = 0;
     protected float DamagedTime = 0.3f;
     protected STATE state { get; set; }
@@ -48,6 +49,7 @@ public class RecyclableMonster : MonoBehaviour
         isDamaged = false;
         isTrace = true;
         isOnceDieState = false;
+        isShake = false;
         lastAttackTime = 0;
         DamagedTime = 0.3f;
         targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
