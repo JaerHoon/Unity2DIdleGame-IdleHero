@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 public class Skill_Wind : MonoBehaviour
 {
     [SerializeField]
@@ -64,7 +65,8 @@ public class Skill_Wind : MonoBehaviour
             // 자연스럽게 대각선으로 발사되는 스킬을 만들기 위해 Vector2 배열값에 위에서 선언한 angles 배열을 할당한다.
             // ↖↗
             // ↙↘  <= 이런모양으로 발사되게 만들기 위해서 각도를 설정.
-            wind.transform.rotation = Quaternion.Euler(0, 0, angles[i]); 
+            wind.transform.rotation = Quaternion.Euler(0, 0, angles[i]);
+            
                                                                          
             
             

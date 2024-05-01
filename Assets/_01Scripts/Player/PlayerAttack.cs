@@ -9,10 +9,9 @@ public class PlayerAttack : MonoBehaviour
     Animator anim;
     Transform minDisMon;
 
-    public LayerMask layermask;
+    
     float range = 1.0f;
-    int monsterLayer;
-    int flymonsterLayer;
+    
 
     public Action<int> monattack;
 
@@ -27,7 +26,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     Vector2 boxSize;
 
-    
+    public LayerMask layermask;
+    int monsterLayer;
+    int flymonsterLayer;
     void Start()
     {
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -62,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
             
         }
       
-    }
+    } 
 
     private void OnDrawGizmos()
     {
