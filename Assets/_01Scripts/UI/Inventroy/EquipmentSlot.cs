@@ -19,6 +19,7 @@ public class EquipmentSlot : Slots
 
     void NullSetting()
     {
+        if (ItemManager.instance== null) return;
         itemIcon.sprite = ItemManager.instance.defaultItemIcon[(int)slotType];
         itemIcon.color = Color.black;
         backGround.sprite = ItemManager.instance.defaultBackGround;
@@ -45,10 +46,5 @@ public class EquipmentSlot : Slots
         }
     }
 
-    public Item GetItem()
-    {
-        return equitedItem;
-    }
-    
     
 }

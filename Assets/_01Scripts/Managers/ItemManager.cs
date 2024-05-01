@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.Events;
 
 public class ItemManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class ItemManager : MonoBehaviour
     public List<Item> items = new List<Item>(); // 생성된 아이템 객체를 담을 리스트
     public List<Item> gainedItems = new List<Item>(); // 플레이어가 얻은 아이템 객체를 담을 리스트
 
+    public Item[] equipments = new Item[6];
+
+    public UnityEvent<Item> ChangeEqument;
     
     private void Awake()
     {
@@ -79,17 +83,11 @@ public class ItemManager : MonoBehaviour
         items.RemoveAt(itemnum); // items 리스트에서 제거
     }
 
-   /* private void Update()
+    public void OnEquipItem(Item item)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                print(i +"/"+items[i].itemData.koreanName+"/"+ items[i].itemGrade);
-            }
-            
-        }
-    }*/
+        equipments[(int)item.itemData.itemType] = item;
+        ChangeEqument?.Invoke(item);
+    }
 
-
+   
 }
