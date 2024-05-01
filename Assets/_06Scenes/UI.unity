@@ -32659,7 +32659,13 @@ MonoBehaviour:
   - {fileID: -160808029, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
   defaultBackGround: {fileID: -962716782, guid: 207bdb6c4bf558e43b301c5b912d6ced, type: 3}
   defaultSlot: {fileID: 850369495, guid: 9eaf49556772f9d42b78a593a6d8bcab, type: 3}
-  defaultItemIcon: []
+  defaultItemIcon:
+  - {fileID: -1779007717, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  - {fileID: -1291917948, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  - {fileID: -1752712647, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  - {fileID: -974246594, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  - {fileID: 923883566, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  - {fileID: -354314792, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
 --- !u!1 &2032015375
 GameObject:
   m_ObjectHideFlags: 0

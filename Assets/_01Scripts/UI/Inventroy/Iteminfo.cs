@@ -34,10 +34,23 @@ public class Iteminfo : MonoBehaviour
 
     public void EquipButton()
     {
-        equiopedItemSlot.Setting(equipeditem);
+        Item equipment = ItemManager.instance.equipments[(int)item.itemData.itemType];
+        equiopedItemSlot.Setting(equipment);
         thisItemSlot.Setting(item);
         changeItempPanel.SetActive(true);
         infoPanel.SetActive(false);
+    }
+
+    public void OnEquip()
+    {
+        ItemManager.instance.OnEquipItem(item);
+        changeItempPanel.SetActive(false);
+        this.gameObject.SetActive(false);
+    }
+    
+    public void CancelEquip()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void EnhancementButton()
