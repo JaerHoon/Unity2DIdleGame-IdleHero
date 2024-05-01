@@ -3940,6 +3940,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2956102017156297383, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: m_Name
+      value: AttackPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433424004473814051, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 4612551716319086873, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: joy
       value: 
@@ -3960,6 +3968,18 @@ PrefabInstance:
       propertyPath: skillCoolTimeGauge
       value: 
       objectReference: {fileID: 791608737}
+    - target: {fileID: 6743512792399575996, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: playerTr
+      value: 
+      objectReference: {fileID: 1028695268161290662}
+    - target: {fileID: 6743512792399575996, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: boxSize.x
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743512792399575996, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: boxSize.y
+      value: 2.11
+      objectReference: {fileID: 0}
     - target: {fileID: 7291320416238701225, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3972,6 +3992,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1163805054}
   m_SourcePrefab: {fileID: 100100000, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+--- !u!4 &1028695268161290662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+  m_PrefabInstance: {fileID: 1028695268161290661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
