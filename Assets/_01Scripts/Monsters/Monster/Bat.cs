@@ -63,13 +63,13 @@ public class Bat : RecyclableMonster
         else
         {
             isDamaged = true;
-            StartCoroutine(DelayDamaged(0.5f));
+            StartCoroutine(DelayDamaged(0.25f));
         }
     }
 
     IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         Destroyed?.Invoke(this);//몬스터 죽음 이벤트
     }
 
@@ -92,9 +92,15 @@ public class Bat : RecyclableMonster
     public override void DamagedState()
     {
         base.DamagedState();
-        print("박쥐 피격");
         anim.SetInteger("STATE", 3);
+        if (!isShake)
+        {
+            transform.DOShakePosition(0.3f, 0.1f, 90, 180, false, false);
+            isShake = true;
+            Invoke("DelayShake", 0.31f);
+        }
     }
+    void DelayShake() { isShake = false; }
     public override void DieState()
     {
         base.DieState();
@@ -108,15 +114,16 @@ public class Bat : RecyclableMonster
         isOnceDieState = true;
         transform.DOMoveY(transform.position.y - 0.4f, 1f).SetEase(Ease.OutBounce);
         transform.GetChild(0).DOMoveY(transform.position.y - 0.65f,1).SetEase(Ease.OutBounce);
-        //batTest.UpShadow();
+        StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeOut()
     {
+        yield return new WaitForSeconds(0.7f);
         float f = 1;
         while (f > 0)
         {
-            f -= 0.1f;
+            f -= 0.07f;
             Color ColorAlhpa = MyRenderer.material.color;
             ColorAlhpa.a = f;
             MyRenderer.material.color = ColorAlhpa;

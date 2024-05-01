@@ -71,7 +71,7 @@ public class BabyDragon : RecyclableMonster
         else
         {
             isDamaged = true;
-            StartCoroutine(DelayDamaged(0.8f));
+            StartCoroutine(DelayDamaged(0.25f));
         }
     }
 
@@ -98,11 +98,20 @@ public class BabyDragon : RecyclableMonster
         base.TraceState(playerPos, moveSpeed);
         anim.SetInteger("STATE", 0);
     }
+    
     public override void DamagedState()
     {
         base.DamagedState();
         anim.SetInteger("STATE", 3);
+        if (!isShake)
+        {
+            transform.DOShakePosition(0.3f,0.1f,90,180,false,false);
+            isShake = true;
+            Invoke("DelayShake", 0.31f);
+        }
     }
+    void DelayShake() { isShake = false; }
+
     public override void DieState()
     {
         base.DieState();

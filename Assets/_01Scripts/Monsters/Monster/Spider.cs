@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Spider : RecyclableMonster
 {
@@ -52,6 +53,7 @@ public class Spider : RecyclableMonster
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
+        DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -67,7 +69,7 @@ public class Spider : RecyclableMonster
         else
         {
             isDamaged = true;
-            StartCoroutine(DelayDamaged(0.5f));
+            StartCoroutine(DelayDamaged(0.25f));
         }
     }
 
@@ -121,7 +123,15 @@ public class Spider : RecyclableMonster
     {
         base.DamagedState();
         anim.SetInteger("STATE", 3);
+        if (!isShake)
+        {
+            transform.DOShakePosition(0.3f, 0.1f, 90, 180, false, false);
+            isShake = true;
+            Invoke("DelayShake", 0.31f);
+        }
     }
+    void DelayShake() { isShake = false; }
+
     public override void DieState()
     {
         base.DieState();

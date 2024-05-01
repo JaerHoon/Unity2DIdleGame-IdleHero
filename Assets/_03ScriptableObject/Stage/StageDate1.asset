@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StageDate1
   m_EditorClassIdentifier: 
   StageNum: 1
-  SlimeNum: 0
-  BatNum: 0
-  SpiderNum: 0
-  BabyDragonNum: 30
+  SlimeNum: 10
+  BatNum: 10
+  SpiderNum: 10
+  BabyDragonNum: 10
   CurrentStageNum: 0

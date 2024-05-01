@@ -147,7 +147,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void OnDamagedAllMonster()
+    public void OnDamagedAllMonster(int Damage)
     {
         //foreach (var monster in monsterStore)
         //{
@@ -155,7 +155,7 @@ public class SpawnManager : MonoBehaviour
         //}
         for (int i = monsterStore.Count - 1; i >= 0; i--)
         {
-            monsterStore[i].OnMonDamaged(100);
+            monsterStore[i].OnMonDamaged(Damage);
         }
     }
 

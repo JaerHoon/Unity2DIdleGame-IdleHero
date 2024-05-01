@@ -77,7 +77,12 @@ public class StageManager : MonoBehaviour
 
     public void OnStageMonsterDamaged()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
     {
-        SpawnManager.instance.OnDamagedAllMonster();
+        SpawnManager.instance.OnDamagedAllMonster(1);
+    }
+
+    public void OnStageMonsterAllDie()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
+    {
+        SpawnManager.instance.OnDamagedAllMonster(300);
     }
 
     public void OnChangeStage(int num)
