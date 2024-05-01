@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class EnhancementItemSlot : Slots
 {
+    int a;
     [SerializeField]
     TextMeshProUGUI afterItemLV;
     [SerializeField]
