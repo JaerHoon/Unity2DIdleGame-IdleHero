@@ -16,5 +16,5 @@ MonoBehaviour:
   itemname: Kite Shield
   koreanName: "\uCE74\uC774\uD2B8\uC2E4\uB4DC"
   icon: {fileID: 104283731, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
-  itemPow: 1
+  itemPow: 2
   LvUP_Rate: 2

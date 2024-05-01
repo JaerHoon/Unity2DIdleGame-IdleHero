@@ -20,7 +20,7 @@ public class Iteminfo : MonoBehaviour
     [SerializeField]
     EnhancementItemSlot enhancementSlot;
 
-    public Item equipeditem;
+   
     Item item;
 
     public void Setting(Item item)
@@ -48,10 +48,7 @@ public class Iteminfo : MonoBehaviour
         this.gameObject.SetActive(false);
     }
     
-    public void CancelEquip()
-    {
-        this.gameObject.SetActive(false);
-    }
+  
 
     public void EnhancementButton()
     {
@@ -59,6 +56,18 @@ public class Iteminfo : MonoBehaviour
         enhancementSlot.Settingother(item);
         enhancementPanel.SetActive(true);
         infoPanel.SetActive(false);
+    }
+
+    public void OnEnhancement()
+    {
+        //금화가 있다면 충분하다면 추가요
+        if (enhancementSlot.Cal_enhancement(item))
+        {
+            item.ItemLv++;
+            ItemManager.instance.ChangeEqument.Invoke();
+            this.gameObject.SetActive(false);
+        }
+       
     }
 
     public void Cancel()
