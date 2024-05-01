@@ -42,6 +42,7 @@ public class Spider : RecyclableMonster
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
+        collRange = 0.3f;
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
@@ -93,7 +94,7 @@ public class Spider : RecyclableMonster
        
         anim.SetInteger("STATE", 2);
         transform.position = Vector2.Lerp(transform.position, Ppos + dir* 1.5f, Time.deltaTime * spiderAttackMovementSpeed);
-        //transform.position = Utility.EaseInQuint(transform.position, Ppos + dir * 1.5f, Time.deltaTime* spiderAttackMovementSpeed);//플레이어 방향으로 점프
+        
          
     }
     Vector3 Ppos = Vector3.zero;//일시적 플레이어 위치 저장
@@ -158,6 +159,25 @@ public class Spider : RecyclableMonster
         Color ColorAlhpa = MyRenderer.material.color;
         ColorAlhpa.a = f;
         MyRenderer.material.color = ColorAlhpa;
+    }
+
+    void AttackPlayer()//플레이어 공격 이벤트 발생 함수
+    {
+        if(isAttacking)//몬스터가 공격 중
+        {
+            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.1f, collRange, layermask, -100.0f, 100.0f);
+            if(recognitionPlayer != null)
+            {
+                PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
+            }
+        }
+    }
+
+    private void OnDrawGizmos()//공갹 충돌 범위 기지모
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position +Vector3.up*-0.1f, collRange);
+
     }
 
     // Update is called once per frame
