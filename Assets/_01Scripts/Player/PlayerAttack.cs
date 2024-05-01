@@ -4,10 +4,9 @@ using UnityEngine;
 using System;
 public class PlayerAttack : MonoBehaviour
 {
-    Transform playerTr; // 플레이어 위치
+    public Transform playerTr; // 플레이어 위치
     public Transform pos; // 공격 인식할 위치
     Animator anim;
-    Rigidbody2D rb;
     Transform minDisMon;
 
     public LayerMask layermask;
@@ -17,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
 
     public Action<int> monattack;
 
-    float attackDistance = 3.0f;
     int attackDamage = 5;
     public bool isAttack = false;
     public bool isMove;
@@ -33,9 +31,6 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        //monsterTr = GameObject.FindWithTag("monster").GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
-        //pos = GameObject.Find("pos").GetComponentInChildren<Transform>();
         anim = GetComponent<Animator>();
 
         monsterLayer = LayerMask.NameToLayer("monster");
@@ -111,8 +106,8 @@ public class PlayerAttack : MonoBehaviour
                 
             }
 
-            minDisMon = null;
-            distance = float.MaxValue;
+            minDisMon = null; // minDisMon을 null로 만들어서 가까운 몬스터를 계속 인식하도록 하기 위함.
+            //distance = float.MaxValue;
 
 
 
