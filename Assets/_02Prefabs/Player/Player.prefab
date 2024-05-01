@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 8722203233820724082}
   - component: {fileID: 4612551716319086873}
   - component: {fileID: 6743512792399575996}
-  - component: {fileID: 6383642347419250740}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -330,21 +329,6 @@ MonoBehaviour:
   isAttack: 0
   isMove: 0
   boxSize: {x: 0.67, y: 2.66}
---- !u!114 &6383642347419250740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7291320416238701225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2500a8f1c56f5854fb76621748e3ecfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Wind: {fileID: 11400000, guid: 4e52e1a9850676148823c2d5f27c9be0, type: 2}
-  skillimage: {fileID: 0}
-  skillCoolTimeGauge: {fileID: 0}
 --- !u!1 &9048656709838775242
 GameObject:
   m_ObjectHideFlags: 0
