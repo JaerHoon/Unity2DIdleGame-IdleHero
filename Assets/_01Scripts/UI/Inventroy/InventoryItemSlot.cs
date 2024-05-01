@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryItemSlot : ItemSlot
+public class InventoryItemSlot : Slots
 {
     [SerializeField]
     Inventroy inventroy;

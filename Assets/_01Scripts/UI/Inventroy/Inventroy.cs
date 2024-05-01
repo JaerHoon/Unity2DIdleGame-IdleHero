@@ -9,7 +9,7 @@ public class Inventroy : MonoBehaviour
 {
     
     [SerializeField]
-    List<ItemSlot> itemSlots = new List<ItemSlot>();
+    List<Slots> itemSlots = new List<Slots>();
     [SerializeField]
     List<Image> buttonIcons = new List<Image>();
     [SerializeField]
