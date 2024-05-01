@@ -165,10 +165,12 @@ public class Spider : RecyclableMonster
     {
         if(isAttacking)//몬스터가 공격 중
         {
-            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.1f, collRange, layermask, -100.0f, 100.0f);
+            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.1f, 10f, layermask, -100.0f, 100.0f);
+            if (recognitionPlayer != null) print(recognitionPlayer);
             if(recognitionPlayer != null)
             {
                 PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
+                print("거미가 플레이어 공격 중");
             }
         }
     }
@@ -176,7 +178,7 @@ public class Spider : RecyclableMonster
     private void OnDrawGizmos()//공갹 충돌 범위 기지모
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position +Vector3.up*-0.1f, collRange);
+        Gizmos.DrawWireSphere(transform.position +Vector3.up*-0.1f, 10f);
 
     }
 
@@ -186,7 +188,8 @@ public class Spider : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
         UpdateState(targetPosition.position, spiderData.moveSpeed);
+        AttackPlayer();
 
-        
+
     }
 }
