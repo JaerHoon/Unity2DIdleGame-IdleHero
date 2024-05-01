@@ -12,22 +12,22 @@ public class EquipmentItem : MonoBehaviour
 
     private void OnEnable()
     {
-        ItemManager.instance?.ChangeEqument.AddListener(EquipItem);
+        ItemManager.instance?.ChangeEqument.AddListener(ResetEquipSLot);
 
-        for(int i=0; i < equipmentSlots.Count; i++)
+        ResetEquipSLot();
+    }
+
+    public void ResetEquipSLot()
+    {
+        for (int i = 0; i < equipmentSlots.Count; i++)
         {
             equipmentSlots[i].EquipItem(ItemManager.instance?.equipments[i]);
         }
     }
 
-    public void EquipItem(Item item)
-    {
-        equipmentSlots[(int)item.itemData.itemType].EquipItem(item);
-    }
-
     private void OnDisable()
     {
-        ItemManager.instance.ChangeEqument.RemoveListener(EquipItem);
+        ItemManager.instance.ChangeEqument.RemoveListener(ResetEquipSLot);
     }
 
 

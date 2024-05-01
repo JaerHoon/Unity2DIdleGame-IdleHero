@@ -26,7 +26,7 @@ public class ItemManager : MonoBehaviour
 
     public Item[] equipments = new Item[6];
 
-    public UnityEvent<Item> ChangeEqument;
+    public UnityEvent ChangeEqument;
     
     private void Awake()
     {
@@ -86,7 +86,7 @@ public class ItemManager : MonoBehaviour
     public void OnEquipItem(Item item)
     {
         equipments[(int)item.itemData.itemType] = item;
-        ChangeEqument?.Invoke(item);
+        ChangeEqument?.Invoke();
     }
 
    

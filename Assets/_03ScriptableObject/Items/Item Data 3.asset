@@ -16,5 +16,5 @@ MonoBehaviour:
   itemname: Round Shield
   koreanName: "\uB77C\uC6B4\uB4DC\uC2E4\uB4DC"
   icon: {fileID: -1112182027, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
-  itemPow: 2
+  itemPow: 1
   LvUP_Rate: 2
