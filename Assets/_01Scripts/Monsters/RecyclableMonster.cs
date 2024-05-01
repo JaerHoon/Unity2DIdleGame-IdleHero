@@ -19,7 +19,10 @@ public class RecyclableMonster : MonoBehaviour
     protected bool isShake = false;
     protected float lastAttackTime = 0;
     protected float DamagedTime = 0.3f;
+    protected float collRange = 1f;
     protected STATE state { get; set; }
+    protected LayerMask layermask;
+    protected int playerLayer;
 
     protected Animator anim;
     protected Renderer MyRenderer;
@@ -30,6 +33,7 @@ public class RecyclableMonster : MonoBehaviour
     public Action<RecyclableMonster> Destroyed;
     public Action<RecyclableMonster> ClearDestroyed;
     public Action<RecyclableMonster> FireBallDestroyed;
+    public Action<int> PlayerAttack;
 
 
     //================================================
@@ -58,9 +62,9 @@ public class RecyclableMonster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerLayer = LayerMask.NameToLayer("player");
         gameObject.tag = "monster";
-
+        layermask = 1 << playerLayer;
     }
 
     // Update is called once per frame
