@@ -89,5 +89,31 @@ public class ItemManager : MonoBehaviour
         ChangeEqument?.Invoke();
     }
 
+    public int GetItemPow(int stat)
+    {
+        int status = 0;
+
+        switch (stat)
+        {
+            case 0://HP Çï¸ä, ½Å¹ß
+                status = equipments[2].Cal_LevelupPow(equipments[2].ItemLv)
+                    + equipments[4].Cal_LevelupPow(equipments[4].ItemLv);
+                break;
+            case 1:
+                status = equipments[0].Cal_LevelupPow(equipments[0].ItemLv);
+                break;
+            case 2:
+                status = equipments[1].Cal_LevelupPow(equipments[1].ItemLv)
+                        + equipments[3].Cal_LevelupPow(equipments[3].ItemLv);
+                break;
+
+            case 3:
+                status = equipments[5].Cal_LevelupPow(equipments[5].ItemLv);
+                break;
+        }
+
+        return status;
+        
+    }
    
 }

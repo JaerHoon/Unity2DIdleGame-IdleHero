@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Item_ScriptableObject : ScriptableObject
 {
-    public enum ItemType { Weapon, Shield, Helmet, Armor, Shoes, Accessories}
+    public enum ItemType { Weapon, Shield, Helmet, Armor, Shoes, Accessories }
     public ItemType itemType;
+    public enum StatUPType{ Health, Attack, Defence, CrtRate }
+    public StatUPType statUPType;
 
     public string itemname;
     public string koreanName;
