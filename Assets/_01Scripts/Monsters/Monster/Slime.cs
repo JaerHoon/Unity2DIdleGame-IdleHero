@@ -36,9 +36,11 @@ public class Slime : RecyclableMonster
         attackDistance = slimeData.attackDistance;
         attackSpeed = slimeData.attackSpeed;
         attackMotionSpeed = slimeData.attackMotionSpeed;
+        
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
+        StartCoroutine(AttackPlayer());//공격 함수 업데이트 0.2초 마다
     }
 
     void Start()
@@ -47,6 +49,7 @@ public class Slime : RecyclableMonster
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
+        collRange = 0.35f;
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -56,6 +59,7 @@ public class Slime : RecyclableMonster
         {
             Mycollider2D.enabled = false;
             isDead = true;
+            MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
             StartCoroutine(DelayDeath());
         }
         else
@@ -120,11 +124,33 @@ public class Slime : RecyclableMonster
         MyRenderer.material.color = ColorAlhpa;
     }
 
+    IEnumerator AttackPlayer()//플레이어 공격 이벤트 발생 함수
+    {
+        while (!isDead)
+        {
+            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.05f, collRange, layermask, -100.0f, 100.0f);
+            if (recognitionPlayer != null)
+            {
+                PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private void OnDrawGizmos()//공갹 충돌 범위 기지모
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * -0.05f, collRange);
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, slimeData.attackDistance, slimeData.attackSpeed, slimeData.attackMotionSpeed);
         UpdateState(targetPosition.position, slimeData.moveSpeed);
+        
     }
 }

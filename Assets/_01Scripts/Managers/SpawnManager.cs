@@ -59,6 +59,7 @@ public class SpawnManager : MonoBehaviour
         
         usedMonster.Destroyed -= OnMonsterDestroyed;
         usedMonster.ClearDestroyed -= OnMonsterDestroyed;
+        usedMonster.PlayerAttack -= playerDamaged.OnPlayerDamaged;
         int monsterIndex = monsterStore.IndexOf(usedMonster);//리스트의 인덱스 값 추출
         monsterStore.RemoveAt(monsterIndex);
         //monsterFactory.MonsterRestore(usedMonster);
@@ -125,6 +126,7 @@ public class SpawnManager : MonoBehaviour
             monster.Destroyed += OnMonsterDestroyed;
             monster.ClearDestroyed += OnMonsterDestroyed;
             monster.PlayerAttack += playerDamaged.OnPlayerDamaged;
+            monster.MonDeath += OnSpawnCoin;
             monsterStore.Add(monster);//몬스터 제거하기 위해 담아두는 리스트
 
 
@@ -135,6 +137,12 @@ public class SpawnManager : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void OnSpawnCoin(RecyclableMonster UsedMonster)
+    {
+        UsedMonster.MonDeath -= OnSpawnCoin;
+        print("Coin생성");
     }
 
     public void OnDestroyAllMonster()

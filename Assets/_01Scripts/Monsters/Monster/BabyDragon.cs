@@ -65,8 +65,8 @@ public class BabyDragon : RecyclableMonster
         {
             Mycollider2D.enabled = false;
             isDead = true;
+            MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
             StartCoroutine(DelayDeath());
-
         }
         else
         {
@@ -163,6 +163,8 @@ public class BabyDragon : RecyclableMonster
         RecyclableMonster fireBall = fireBallFactory.GetMonster();
         fireBall.Activate(GetComponentsInChildren<Transform>()[2].transform.position);
         fireBall.FireBallDestroyed += OnFireBallDestoryed;
+        FireBall fb = fireBall as FireBall;
+        fb.SetDamage(drangonData.damage);
     }
 
     void OnFireBallDestoryed(RecyclableMonster usedFireBall)

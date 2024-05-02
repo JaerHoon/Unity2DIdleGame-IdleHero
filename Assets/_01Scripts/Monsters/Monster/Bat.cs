@@ -40,6 +40,7 @@ public class Bat : RecyclableMonster
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0,- 0.16f);
         Init();//부모에서 초기화
+        StartCoroutine(AttackPlayer());//공격 함수 업데이트 0.2초 마다
     }
 
     void Start()
@@ -49,6 +50,7 @@ public class Bat : RecyclableMonster
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
         DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
+        collRange = 0.25f;
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -58,6 +60,7 @@ public class Bat : RecyclableMonster
         {
             Mycollider2D.enabled = false;
             isDead = true;
+            MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
             StartCoroutine(DelayDeath());
         }
         else
@@ -137,6 +140,26 @@ public class Bat : RecyclableMonster
         Color ColorAlhpa = MyRenderer.material.color;
         ColorAlhpa.a = f;
         MyRenderer.material.color = ColorAlhpa;
+    }
+
+    IEnumerator AttackPlayer()//플레이어 공격 이벤트 발생 함수
+    {
+        while (!isDead)
+        {
+            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position, collRange, layermask, -100.0f, 100.0f);
+            if (recognitionPlayer != null)
+            {
+                PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private void OnDrawGizmos()//공갹 충돌 범위 기지모
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, collRange);
+
     }
 
 

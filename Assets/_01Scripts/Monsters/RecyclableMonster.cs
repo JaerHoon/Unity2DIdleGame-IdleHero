@@ -29,10 +29,11 @@ public class RecyclableMonster : MonoBehaviour
     protected Collider2D Mycollider2D;
 
     //================이벤트==========================
-    public Action MonDeath;
+    public Action<RecyclableMonster> MonDeath;
     public Action<RecyclableMonster> Destroyed;
     public Action<RecyclableMonster> ClearDestroyed;
     public Action<RecyclableMonster> FireBallDestroyed;
+    public Action<int> FireBallAttackCollPlayer;
     public Action<int> PlayerAttack;
 
 
@@ -58,20 +59,11 @@ public class RecyclableMonster : MonoBehaviour
         DamagedTime = 0.3f;
         targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
         state = STATE.TRACE;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
         playerLayer = LayerMask.NameToLayer("player");
         gameObject.tag = "monster";
         layermask = 1 << playerLayer;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 
     public void OnStageClearMonDestroy()
     {
