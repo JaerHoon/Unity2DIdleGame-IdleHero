@@ -3789,6 +3789,10 @@ MonoBehaviour:
   - {fileID: 675304239}
   - {fileID: 1109511825}
   iteminfo: {fileID: 926539345}
+  hP_Text: {fileID: 1564383276}
+  aTK_Text: {fileID: 1959070709}
+  dFN_Text: {fileID: 784976070}
+  crtRate_Text: {fileID: 1782270541}
 --- !u!1 &202069111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4821,7 +4825,7 @@ GameObject:
   - component: {fileID: 261313555}
   - component: {fileID: 261313554}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ATK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5284,7 +5288,7 @@ GameObject:
   - component: {fileID: 292057837}
   - component: {fileID: 292057836}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: DFN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18950,7 +18954,7 @@ GameObject:
   - component: {fileID: 1058895903}
   - component: {fileID: 1058895902}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Equip_StausPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20807,7 +20811,7 @@ GameObject:
   - component: {fileID: 1174894802}
   - component: {fileID: 1174894801}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30068,7 +30072,7 @@ GameObject:
   - component: {fileID: 1695550218}
   - component: {fileID: 1695550217}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: CrtRate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

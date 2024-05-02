@@ -30,8 +30,8 @@ public class EquipmentItem : MonoBehaviour
 
     private void OnEnable()
     {
-        ItemManager.instance?.ChangeEqument.AddListener(ResetEquipSLot);
-
+        itemManager.ChangeEqument.AddListener(ResetEquipSLot);
+        itemManager.ChangeEqument.AddListener(StatusSetting);
         ResetEquipSLot();
         StatusSetting();
     }
@@ -50,7 +50,6 @@ public class EquipmentItem : MonoBehaviour
         crtRate_Text.text = String.Format("{0} (+{1})",
             statusManager.GetStatus(StatusManager.playerCrtRate),
             itemManager.GetItemPow(StatusManager.playerCrtRate));
-
     }
 
     public void ResetEquipSLot()

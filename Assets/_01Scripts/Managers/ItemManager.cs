@@ -96,19 +96,19 @@ public class ItemManager : MonoBehaviour
         switch (stat)
         {
             case 0://HP Çï¸ä, ½Å¹ß
-                status = equipments[2].Cal_LevelupPow(equipments[2].ItemLv)
-                    + equipments[4].Cal_LevelupPow(equipments[4].ItemLv);
+                status = equipments[2]?.Cal_LevelupPow(equipments[2].ItemLv) ?? 0
+                    + equipments[4]?.Cal_LevelupPow(equipments[4].ItemLv) ?? 0;
                 break;
             case 1:
-                status = equipments[0].Cal_LevelupPow(equipments[0].ItemLv);
+                status = equipments[0]?.Cal_LevelupPow(equipments[0].ItemLv) ?? 0;
                 break;
             case 2:
-                status = equipments[1].Cal_LevelupPow(equipments[1].ItemLv)
-                        + equipments[3].Cal_LevelupPow(equipments[3].ItemLv);
+                status = equipments[1]?.Cal_LevelupPow(equipments[1].ItemLv) ?? 0
+                        + equipments[3]?.Cal_LevelupPow(equipments[3].ItemLv) ?? 0;
                 break;
 
             case 3:
-                status = equipments[5].Cal_LevelupPow(equipments[5].ItemLv);
+                status = equipments[5]?.Cal_LevelupPow(equipments[5].ItemLv) ?? 0;
                 break;
         }
 

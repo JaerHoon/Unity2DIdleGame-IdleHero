@@ -12,8 +12,8 @@ public class StatusManager : MonoBehaviour
     public const int playerDefence = 2;
     public const int playerCrtRate = 3;
 
-    int[] start_Staus = new int[4];
-    int[] status_Lv = new int[4];
+    int[] start_Staus = new int[4] {100, 10, 10, 5};
+    int[] status_Lv = new int[4] { 1, 1, 1, 1 };
 
     public int Hp_Lv
     {
@@ -65,10 +65,7 @@ public class StatusManager : MonoBehaviour
     {
         if (instance == null) instance = this;
 
-        for (int i = 0; i < status_Lv.Length; i++)
-        {
-            status_Lv[i] = 1;
-        }
+       
     }
 
 
