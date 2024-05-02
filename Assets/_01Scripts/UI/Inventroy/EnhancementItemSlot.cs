@@ -82,7 +82,8 @@ public class EnhancementItemSlot : Slots
             successLv. text = string.Format("Lv.{0}", item.ItemLv);
             successpow.text = string.Format("stat : + {0}", item.Cal_LevelupPow(item.ItemLv));
             successPanel.SetActive(true);
-            failPanel.SetActive(false); 
+            failPanel.SetActive(false);
+            ItemManager.instance.ChangeEqument?.Invoke();
         }
         else
         {

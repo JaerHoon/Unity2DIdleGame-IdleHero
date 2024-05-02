@@ -448,7 +448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1752712647, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  m_Sprite: {fileID: -974246594, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2027,7 +2027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 90243647}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -3653,6 +3653,7 @@ MonoBehaviour:
   - {fileID: 90243647}
   - {fileID: 675304239}
   - {fileID: 1109511825}
+  iteminfo: {fileID: 926539345}
 --- !u!1 &202069111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,6 +3692,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &202069113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5787,7 +5791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC11\uC637"
+  m_text: "\uD5EC\uBA67"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7fb35a1301445ff46aa2083d35e9ddd9, type: 2}
   m_sharedMaterial: {fileID: -1628937582335889581, guid: 7fb35a1301445ff46aa2083d35e9ddd9, type: 2}
@@ -7978,6 +7982,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &465663992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9400,6 +9407,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &580427358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9937,6 +9947,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &599555268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11367,7 +11380,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 675304239}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -11984,6 +11997,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &714521069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12356,7 +12372,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 737858257}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -14323,6 +14339,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &823684084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14688,6 +14707,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &827127051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15601,6 +15623,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &884587797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15717,7 +15742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD5EC\uBA67"
+  m_text: "\uAC11\uC637"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7fb35a1301445ff46aa2083d35e9ddd9, type: 2}
   m_sharedMaterial: {fileID: -1628937582335889581, guid: 7fb35a1301445ff46aa2083d35e9ddd9, type: 2}
@@ -16478,6 +16503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3dfed3757aa3e49ab897bf0cf35bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventroy: {fileID: 1651094346}
   infoPanel: {fileID: 1964938381}
   itemInfoSlot: {fileID: 1617884357}
   changeItempPanel: {fileID: 1217864915}
@@ -17056,6 +17082,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1001228488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18780,7 +18809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1109511825}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -21214,7 +21243,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1246548181}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -22097,7 +22126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -974246594, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  m_Sprite: {fileID: 499873371, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22379,6 +22408,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1313534843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22889,6 +22921,9 @@ MonoBehaviour:
   levelText: {fileID: 1858689754}
   itemGrade: {fileID: 755842312}
   itemPow: {fileID: 588285733}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!1 &1335644111
 GameObject:
   m_ObjectHideFlags: 0
@@ -23083,6 +23118,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1338763219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23427,6 +23465,9 @@ MonoBehaviour:
   levelText: {fileID: 1761430943}
   itemGrade: {fileID: 1971183387}
   itemPow: {fileID: 1490136605}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!114 &1357100153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25335,6 +25376,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1491857038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26057,7 +26101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1538903065}
         m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
         m_MethodName: Onclick
         m_Mode: 1
@@ -26792,6 +26836,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1574348263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27263,6 +27310,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1594091576
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27703,6 +27753,9 @@ MonoBehaviour:
   levelText: {fileID: 87304166}
   itemGrade: {fileID: 1700716409}
   itemPow: {fileID: 506070357}
+  slotStat: 0
+  runButtonText: {fileID: 1060263002}
+  iteminfo: {fileID: 926539345}
 --- !u!224 &1621600501 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
@@ -28010,7 +28063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1632453571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28106,7 +28159,7 @@ MonoBehaviour:
   successBack: {fileID: 737124732}
   successFrame: {fileID: 1944091485}
   successLv: {fileID: 869098320}
-  successpow: {fileID: 1892819493}
+  successpow: {fileID: 1322105353}
 --- !u!1 &1646758282
 GameObject:
   m_ObjectHideFlags: 0
@@ -29687,6 +29740,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1750941901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31011,6 +31067,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!1 &1817661306
 GameObject:
   m_ObjectHideFlags: 0
@@ -31818,6 +31877,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &1856550234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33747,7 +33809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1964938382
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34986,6 +35048,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &2063983264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35062,7 +35127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2081504099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35239,6 +35304,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &2086663139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35411,6 +35479,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   itemGrade: {fileID: 0}
   itemPow: {fileID: 0}
+  slotStat: 0
+  runButtonText: {fileID: 0}
+  iteminfo: {fileID: 0}
 --- !u!224 &2095687284
 RectTransform:
   m_ObjectHideFlags: 0

@@ -31,13 +31,6 @@ public class Inventroy : MonoBehaviour
         //ReSetting();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ReSetting(0);
-        }
-    }
 
     private void ReSetting(int num)
     {

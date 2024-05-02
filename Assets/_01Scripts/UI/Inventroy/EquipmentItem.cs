@@ -7,7 +7,8 @@ public class EquipmentItem : MonoBehaviour
 {
     [SerializeField]
     List<EquipmentSlot> equipmentSlots = new List<EquipmentSlot>();
-
+    [SerializeField]
+    Iteminfo iteminfo;
   
 
     private void OnEnable()
@@ -23,6 +24,12 @@ public class EquipmentItem : MonoBehaviour
         {
             equipmentSlots[i].EquipItem(ItemManager.instance?.equipments[i]);
         }
+    }
+
+    public void OnItemInfo(Item item)
+    {
+        iteminfo.gameObject.SetActive(true);
+        iteminfo.Setting(item);
     }
 
     private void OnDisable()
