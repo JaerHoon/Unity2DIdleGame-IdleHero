@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Skill_Meteor : MonoBehaviour
 {
+    public static Skill_Meteor instance;
+
+    private void Awake()
+    {
+        if (Skill_Meteor.instance == null)
+            Skill_Meteor.instance = this;
+    }
+
     [SerializeField]
     Skill_ScriptableObject meteor;
     float meteorSpeed = 3.0f;
@@ -18,7 +26,7 @@ public class Skill_Meteor : MonoBehaviour
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
 
-    float fixTime = 0f;
+    
     void Start()
     {
         skillimage.sprite = meteor.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
@@ -35,9 +43,11 @@ public class Skill_Meteor : MonoBehaviour
             return;
         }
         GameObject Meteor = Instantiate(meteor.skillPrefab);
-        int meteorPos = Random.Range(-7, 8);
-        Meteor.transform.position = new Vector2(meteorPos, 3.0f);
-        Meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
+        CoolTimeStart();
+        Meteor.transform.position = new Vector2(0, 9);
+        Meteor.transform.rotation = Quaternion.Euler(0, 0, -90.0f);
+
+
     }
 
     public void CoolTimeStart()
@@ -67,5 +77,7 @@ public class Skill_Meteor : MonoBehaviour
 
             }
         }
+
+        
     }
 }
