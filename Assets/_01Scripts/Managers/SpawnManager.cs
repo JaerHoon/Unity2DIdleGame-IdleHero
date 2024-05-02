@@ -32,10 +32,10 @@ public class SpawnManager : MonoBehaviour
     Bat batPrefab;
     [SerializeField]
     Spider spiderPrefab;
-    
 
+    //===============플레이어===================
 
-
+    PlayerDamaged playerDamaged;
     //===============팩토리 선언=======================
     MonsterFactory babyDragonFactory; 
     MonsterFactory slimeFactory; 
@@ -50,6 +50,8 @@ public class SpawnManager : MonoBehaviour
         spiderFactory = new MonsterFactory(spiderPrefab, 5);//몬스터 팩토리에 스파이더 인스턴스 생성
 
         StageManager.instance.StartWave += OnStartSpawn;//웨이브 시작과 스폰시작 이벤트 연결
+
+        playerDamaged = GameObject.FindWithTag("Player").GetComponent<PlayerDamaged>();
     }
     
     void OnMonsterDestroyed(RecyclableMonster usedMonster)
@@ -122,6 +124,7 @@ public class SpawnManager : MonoBehaviour
             monster.Activate(stageSpawnPoint[randomInt].position);//스폰 위치 설정
             monster.Destroyed += OnMonsterDestroyed;
             monster.ClearDestroyed += OnMonsterDestroyed;
+            monster.PlayerAttack += playerDamaged.OnPlayerDamaged;
             monsterStore.Add(monster);//몬스터 제거하기 위해 담아두는 리스트
 
 

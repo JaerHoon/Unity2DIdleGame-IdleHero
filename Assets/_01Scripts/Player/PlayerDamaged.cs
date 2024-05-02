@@ -10,9 +10,9 @@ public class PlayerDamaged : MonoBehaviour
         
     }
 
-    public void OnPlayerDamaged()
+    public void OnPlayerDamaged(int monDamage)
     {
-        print("플레이어가 공격 받았습니다!!");
+        print("플레이어가 공격 받았습니다!!" + monDamage +" : 데미지");
     }
     
     void Update()
