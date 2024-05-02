@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    StatusManager instance;
+    public static StatusManager instance;
 
     public const int playerHP= 0;
     public const int playerATkpow = 1;
@@ -61,6 +61,16 @@ public class StatusManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+
+        for (int i = 0; i < status_Lv.Length; i++)
+        {
+            status_Lv[i] = 1;
+        }
+    }
+
 
     public int GetStatus(int stat)
     {
@@ -75,12 +85,6 @@ public class StatusManager : MonoBehaviour
         return st;
     }
 
-    private void Awake()
-    {
-        for (int i = 0; i < status_Lv.Length; i++) 
-        {
-            status_Lv[i] = 1;
-        }
-    }
+   
 
 }
