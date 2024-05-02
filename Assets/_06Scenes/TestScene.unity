@@ -3263,6 +3263,7 @@ MonoBehaviour:
   slimePrefab: {fileID: 1939756771428218167, guid: 49a3f132ed958b44fbb201952e666ca7, type: 3}
   batPrefab: {fileID: 7153849464163997826, guid: de60c2f5e3865df4b9de11f2ad789909, type: 3}
   spiderPrefab: {fileID: 7762458086474623310, guid: 8635bb601d5a1a64f8dfce478af66e3b, type: 3}
+  coinPrefab: {fileID: 6699181149337336399, guid: 276c3cc370958d1458e5bce61d6912fa, type: 3}
 --- !u!1 &1689351823
 GameObject:
   m_ObjectHideFlags: 0
