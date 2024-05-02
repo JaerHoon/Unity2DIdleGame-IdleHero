@@ -46,5 +46,17 @@ public class EquipmentSlot : Slots
         }
     }
 
+    public void Onclick()
+    {
+       if(equitedItem!=null)
+        {
+            equipmentItem.OnItemInfo(item);
+        }
+        else
+        {
+            return;
+        }
+    }
+
     
 }
