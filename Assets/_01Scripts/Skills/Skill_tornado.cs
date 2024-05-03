@@ -32,7 +32,7 @@ public class Skill_tornado : MonoBehaviour
             return;
         }
 
-        SkillManager.instance.OnTornadoAttack();
+        SkillManager.instance.OnTornadoAttack(); // 스킬매니저에서 만든 토네이도 공격 함수를 가져온다.
         CoolTimeStart();
 
 

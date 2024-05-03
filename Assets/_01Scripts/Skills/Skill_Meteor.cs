@@ -4,17 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Skill_Meteor : MonoBehaviour
 {
-    public static Skill_Meteor instance;
-
-    private void Awake()
-    {
-        if (Skill_Meteor.instance == null)
-            Skill_Meteor.instance = this;
-    }
-
+    
     [SerializeField]
-    Skill_ScriptableObject meteor;
-    float meteorSpeed = 3.0f;
+    Skill_ScriptableObject meteor; 
 
     [SerializeField]
     Image skillimage; // 스킬 아이콘 이미지
@@ -44,7 +36,7 @@ public class Skill_Meteor : MonoBehaviour
         {
             return;
         }
-        SkillManager.instance.OnBigMeteorAttack();
+        SkillManager.instance.OnBigMeteorAttack(); // 스킬매니저에서 만든 함수를 불러온다.
         CoolTimeStart();
 
 
