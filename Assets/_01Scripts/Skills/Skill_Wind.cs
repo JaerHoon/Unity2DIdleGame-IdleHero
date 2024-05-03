@@ -55,8 +55,10 @@ public class Skill_Wind : MonoBehaviour
             return;
         }
 
-        
-        for (int i = 0; i < dir.Length; i++)
+        SkillManager.instance.OnWindAttack();
+        CoolTimeStart(); // 스킬 발동됬을 때 쿨타임이 돌아간다.
+
+        /*for (int i = 0; i < dir.Length; i++)
         {
             Vector2 pos = transform.position; // 스킬 발사되는 위치 => 플레이어 따라오게 하기 위함
             GameObject wind = Instantiate(Wind.skillPrefab, pos, Quaternion.identity);
@@ -70,9 +72,9 @@ public class Skill_Wind : MonoBehaviour
                                                                          
             
             
-        }
+        }*/
 
-        
+
 
 
     }

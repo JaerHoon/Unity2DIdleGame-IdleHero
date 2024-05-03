@@ -35,10 +35,11 @@ public class PlayerSkills : MonoBehaviour
         {
             return;
         }
-        
-        Instantiate(skills.skillPrefab, skilsPos.position, Quaternion.identity);
+
+        SkillManager.instance.OnEarthAttack();
         CoolTimeStart();
-        
+
+
     }
 
     

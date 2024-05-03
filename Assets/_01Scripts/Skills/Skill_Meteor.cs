@@ -26,29 +26,30 @@ public class Skill_Meteor : MonoBehaviour
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
 
-    
+    float meteorTime = 0;
+    float meteorDelay = 1.5f;
     void Start()
     {
         skillimage.sprite = meteor.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
         maxskillCool = meteor.coolTime; // 최대 쿨타임 = 스크립터블 오브젝트에서 작성한 쿨타임
         skillCoolTimeGauge.fillAmount = 0f;
-
-        
     }
 
     public void meteorShoot()
     {
+
         if (isCoolTime) // 쿨타임중일때는 공격X
         {
             return;
         }
-        GameObject Meteor = Instantiate(meteor.skillPrefab);
+        SkillManager.instance.OnMeteorAttack();
         CoolTimeStart();
-        Meteor.transform.position = new Vector2(0, 9);
-        Meteor.transform.rotation = Quaternion.Euler(0, 0, -90.0f);
+        
 
 
     }
+
+    
 
     public void CoolTimeStart()
     {
@@ -79,5 +80,6 @@ public class Skill_Meteor : MonoBehaviour
         }
 
         
+
     }
 }

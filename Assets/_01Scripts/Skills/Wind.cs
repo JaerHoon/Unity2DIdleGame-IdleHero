@@ -15,6 +15,6 @@ public class Wind : MonoBehaviour
     {
 
         transform.Translate(Vector2.right * 5.0f * Time.deltaTime);
-        //Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.5f);
     }
 }

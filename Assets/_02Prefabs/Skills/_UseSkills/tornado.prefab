@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 242243577910733397}
   - component: {fileID: 8615429065049313495}
   - component: {fileID: 2326764925283636593}
-  - component: {fileID: 2893774898492202830}
+  - component: {fileID: 5789071126739907146}
   m_Layer: 0
   m_Name: tornado
   m_TagString: Untagged
@@ -181,7 +181,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2893774898492202830
+--- !u!114 &5789071126739907146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +190,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8421651076618741459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9690716d6f86795468c81571e936a321, type: 3}
+  m_Script: {fileID: 11500000, guid: d029c146f05d9d240be3ac163c162e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroy: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
