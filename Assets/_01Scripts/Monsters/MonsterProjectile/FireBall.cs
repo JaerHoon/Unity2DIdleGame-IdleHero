@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FireBall : RecyclableMonster
 {
-    public Transform playerPosition;
+    public GameObject player;
     float angle;
+    int Damage = 0;
     bool isShoot = false;
     [SerializeField]
     float moveSpeed = 2.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +19,9 @@ public class FireBall : RecyclableMonster
     }
     private void OnEnable()
     {
-        playerPosition = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
         isShoot = false;
+        isDead = true;
 
     }
     private void OnDisable()
@@ -31,7 +34,13 @@ public class FireBall : RecyclableMonster
         if(collision.CompareTag("Player"))
         {
             FireBallDestroyed?.Invoke(this);
+            player.GetComponent<PlayerDamaged>().OnPlayerDamaged(Damage);
         }
+    }
+
+    public void SetDamage(int Damage)
+    {
+        this.Damage = Damage;
     }
 
     private void OnBecameInvisible()//화면 밖으로 나갈 시
@@ -45,7 +54,7 @@ public class FireBall : RecyclableMonster
     {
         if (!isShoot)//쏘지 않았을때
         {
-            angle = Mathf.Atan2(playerPosition.position.y - transform.position.y, playerPosition.position.x - transform.position.x) * Mathf.Rad2Deg;
+            angle = Mathf.Atan2(player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);//파이오 볼이 플레이어 바라보기
             isShoot = true;
         }

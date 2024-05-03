@@ -42,10 +42,10 @@ public class Spider : RecyclableMonster
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
-        collRange = 0.3f;
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
+        StartCoroutine(AttackPlayer());//공격 함수 업데이트 0.2초 마다
     }
 
     void Start()
@@ -55,6 +55,8 @@ public class Spider : RecyclableMonster
         MyRenderer = gameObject.GetComponent<Renderer>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
         DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
+        collRange = 0.3f;
+
     }
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
@@ -65,6 +67,7 @@ public class Spider : RecyclableMonster
         {
             Mycollider2D.enabled = false;
             isDead = true;
+            MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
             StartCoroutine(DelayDeath());
         }
         else
@@ -161,24 +164,27 @@ public class Spider : RecyclableMonster
         MyRenderer.material.color = ColorAlhpa;
     }
 
-    void AttackPlayer()//플레이어 공격 이벤트 발생 함수
+    IEnumerator AttackPlayer()//플레이어 공격 이벤트 발생 함수
     {
-        if(isAttacking)//몬스터가 공격 중
+        while (!isDead)
         {
-            Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.1f, 10f, layermask, -100.0f, 100.0f);
-            if (recognitionPlayer != null) print(recognitionPlayer);
-            if(recognitionPlayer != null)
+            if (isAttacking)//몬스터가 공격 중
             {
-                PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
-                print("거미가 플레이어 공격 중");
+                Collider2D recognitionPlayer = Physics2D.OverlapCircle(transform.position + Vector3.up * -0.1f, collRange, layermask, -100.0f, 100.0f);
+                if (recognitionPlayer != null)
+                {
+                    PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
+                }
             }
+            yield return new WaitForSeconds(0.2f);
         }
+        
     }
 
     private void OnDrawGizmos()//공갹 충돌 범위 기지모
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position +Vector3.up*-0.1f, 10f);
+        Gizmos.DrawWireSphere(transform.position +Vector3.up*-0.1f, collRange);
 
     }
 
@@ -188,7 +194,6 @@ public class Spider : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
         UpdateState(targetPosition.position, spiderData.moveSpeed);
-        AttackPlayer();
 
 
     }

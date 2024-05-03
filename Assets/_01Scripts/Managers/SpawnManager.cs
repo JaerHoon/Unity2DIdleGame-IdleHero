@@ -32,6 +32,8 @@ public class SpawnManager : MonoBehaviour
     Bat batPrefab;
     [SerializeField]
     Spider spiderPrefab;
+    [SerializeField]
+    Gold_Coin coinPrefab;
 
     //===============플레이어===================
 
@@ -40,7 +42,8 @@ public class SpawnManager : MonoBehaviour
     MonsterFactory babyDragonFactory; 
     MonsterFactory slimeFactory; 
     MonsterFactory batFactory; 
-    MonsterFactory spiderFactory; 
+    MonsterFactory spiderFactory;
+    CoinFactory coinFactory;
     
     void Start()
     {
@@ -48,6 +51,8 @@ public class SpawnManager : MonoBehaviour
         slimeFactory = new MonsterFactory(slimePrefab, 5);//몬스터 팩토리에 슬라임 인스턴스 생성
         batFactory = new MonsterFactory(batPrefab, 5);//몬스터 팩토리에 뱃 인스턴스 생성
         spiderFactory = new MonsterFactory(spiderPrefab, 5);//몬스터 팩토리에 스파이더 인스턴스 생성
+
+        coinFactory = new CoinFactory(coinPrefab, 5);// 코인 팩토리에 코인 인스턴스 생성
 
         StageManager.instance.StartWave += OnStartSpawn;//웨이브 시작과 스폰시작 이벤트 연결
 
@@ -59,6 +64,7 @@ public class SpawnManager : MonoBehaviour
         
         usedMonster.Destroyed -= OnMonsterDestroyed;
         usedMonster.ClearDestroyed -= OnMonsterDestroyed;
+        usedMonster.PlayerAttack -= playerDamaged.OnPlayerDamaged;
         int monsterIndex = monsterStore.IndexOf(usedMonster);//리스트의 인덱스 값 추출
         monsterStore.RemoveAt(monsterIndex);
         //monsterFactory.MonsterRestore(usedMonster);
@@ -125,6 +131,7 @@ public class SpawnManager : MonoBehaviour
             monster.Destroyed += OnMonsterDestroyed;
             monster.ClearDestroyed += OnMonsterDestroyed;
             monster.PlayerAttack += playerDamaged.OnPlayerDamaged;
+            monster.MonDeath += OnSpawnCoin;
             monsterStore.Add(monster);//몬스터 제거하기 위해 담아두는 리스트
 
 
@@ -134,6 +141,22 @@ public class SpawnManager : MonoBehaviour
             if (A > 1000)
                 break;
         }
+
+    }
+
+    public void OnSpawnCoin(RecyclableMonster UsedMonster)
+    {
+        UsedMonster.MonDeath -= OnSpawnCoin;
+        Gold_Coin coin = coinFactory.GetCoin();
+        coin.SetTransform(UsedMonster.transform);
+        coin.CoinDrop();
+        StartCoroutine(DelayRestoreCoin(coin));
+    }
+
+    IEnumerator DelayRestoreCoin(Gold_Coin UsedCoin)
+    {
+        yield return new WaitForSeconds(5.0f);
+        coinFactory.CoinRestore(UsedCoin);
 
     }
 
