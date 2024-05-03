@@ -6,8 +6,7 @@ public class Skill_tornado : MonoBehaviour
 {
     [SerializeField]
     Skill_ScriptableObject tornado;
-    float tornadoSpeed = 3.0f;
-
+    
     [SerializeField]
     Image skillimage; // 스킬 아이콘 이미지
 
@@ -18,8 +17,6 @@ public class Skill_tornado : MonoBehaviour
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
 
-    Vector2[] dir = { Vector2.up, Vector2.down, Vector2.right, Vector2.left, Vector2.down+Vector2.left,
-                      Vector2.up+Vector2.right, Vector2.up+Vector2.left, Vector2.down+Vector2.right};
     
     void Start()
     {
@@ -35,16 +32,10 @@ public class Skill_tornado : MonoBehaviour
             return;
         }
 
-        foreach (Vector2 direction in dir)
-        {
-            GameObject Tornado = Instantiate(tornado.skillPrefab, transform.position, Quaternion.identity);
-            CoolTimeStart();
-            Rigidbody2D rb = Tornado.GetComponent<Rigidbody2D>();
-            rb.velocity = direction.normalized* tornadoSpeed;
-            
-        }
-        
-        
+        SkillManager.instance.OnTornadoAttack();
+        CoolTimeStart();
+
+
     }
 
     public void CoolTimeStart()
@@ -59,9 +50,6 @@ public class Skill_tornado : MonoBehaviour
         float cooltime = skillCoolTime / maxskillCool; // 스킬 쿨타임 / 최대쿨타임
         skillCoolTimeGauge.fillAmount = cooltime;
     }
-
-
-    
 
     // Update is called once per frame
     void Update()

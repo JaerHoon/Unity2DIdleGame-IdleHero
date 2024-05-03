@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class tornado : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     void Start()
     {
         
@@ -14,9 +14,11 @@ public class tornado : MonoBehaviour
         Destroy(gameObject, 1.0f);
     }
 
+    
     // Update is called once per frame
     void Update()
     {
         Destroy();
+        
     }
 }
