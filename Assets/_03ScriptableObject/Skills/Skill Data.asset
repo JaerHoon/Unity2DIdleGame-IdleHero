@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
   m_Name: Skill Data
   m_EditorClassIdentifier: 
-  damage: 20
-  coolTime: 3
-  Destroyskill: 0.5
+  damage: 5
+  coolTime: 2
   skillname: "\uC5B4\uC2A4\uD018\uC774\uD06C"
   skillinfo: 
   skillPrefab: {fileID: 537165625556540832, guid: f4e2340f07a4729468bda3f423193b0a, type: 3}

@@ -55,7 +55,7 @@ public class Skill_Wind : MonoBehaviour
             return;
         }
 
-        SkillManager.instance.OnWindAttack();
+        SkillManager.instance.OnWindAttack(); // 스킬매니저에서 만든 윈드 공격함수를 가져온다.
         CoolTimeStart(); // 스킬 발동됬을 때 쿨타임이 돌아간다.
 
         /*for (int i = 0; i < dir.Length; i++)

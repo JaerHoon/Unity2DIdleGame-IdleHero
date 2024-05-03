@@ -14,18 +14,6 @@ public class SkillManager : MonoBehaviour
 
 
     [SerializeField]
-    Skill_ScriptableObject Earth;
-
-    [SerializeField]
-    Skill_ScriptableObject Wind;
-
-    [SerializeField]
-    Skill_ScriptableObject Tornado;
-
-    [SerializeField]
-    Skill_ScriptableObject Meteor;
-
-    [SerializeField]
     GameObject EarthPrefab;
 
     [SerializeField]
@@ -38,6 +26,15 @@ public class SkillManager : MonoBehaviour
     GameObject MeteorPrefab;
 
     [SerializeField]
+    GameObject BigMeteorPrefab;
+
+    [SerializeField]
+    GameObject BuffForthPrefab;
+
+    [SerializeField]
+    GameObject BuffBackPrefab;
+
+    [SerializeField]
     Transform playerTr;
 
     SkillFactory skillfactory;
@@ -45,8 +42,13 @@ public class SkillManager : MonoBehaviour
     SkillFactory windFactory;
     SkillFactory tornadoFactory;
     SkillFactory meteorFactory;
-
+    SkillFactory BigmeteorFactory;
+    //SkillFactory buffForthFactory;
+    //SkillFactory buffBackFactory;
     public Transform earthPos;
+    
+
+
 
     float tornadoSpeed = 5.0f;
     
@@ -57,33 +59,24 @@ public class SkillManager : MonoBehaviour
                       Vector2.up + Vector2.left, Vector2.down + Vector2.right }; // 각 대각선 방향으로 스킬이 나간다.
     float[] angles; // Wind의 회전값을 배열로 할당
 
-    int skillNumber = 3;
-    float nextSkillTime = 1.5f;
+    
     void Start()
     {
         earthFactory = new SkillFactory(EarthPrefab, 1);
         windFactory = new SkillFactory(WindPrefab, 4);
         tornadoFactory = new SkillFactory(TornadoPrefab, 8);
         meteorFactory = new SkillFactory(MeteorPrefab, 1);
-
+        BigmeteorFactory = new SkillFactory(BigMeteorPrefab, 1);
+        //buffForthFactory = new SkillFactory(BuffForthPrefab, 1);
+        //buffBackFactory = new SkillFactory(BuffBackPrefab, 1);
         angleWind();
-        StartCoroutine(MeteorCopy());
+
+        BuffForthPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
+        BuffBackPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
 
 
     }
 
-    IEnumerator MeteorCopy()
-    {
-        int usedMeteor = 0;
-        
-        while (usedMeteor < skillNumber)
-        {
-            OnMeteorAttack();
-            usedMeteor++;
-            yield return new WaitForSeconds(nextSkillTime);
-        }
-        
-    }
 
     void angleWind() // 각 배열에 Rotation값을 할당해 놓았다.
     {
@@ -132,12 +125,33 @@ public class SkillManager : MonoBehaviour
     public void OnMeteorAttack()
     {
         GameObject meteor = meteorFactory.GetSkill();
-        meteor.transform.position = new Vector2(7, 7);
+        float posX = Random.Range(-2, 13);
+        meteor.transform.position = new Vector2(posX, 7);
         meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
         
 
     }
 
+    public void OnBigMeteorAttack()
+    {
+        GameObject meteor = BigmeteorFactory.GetSkill();
+        meteor.transform.position = new Vector2(7, 7);
+        meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
+    }
+
+    public void OnActivatedBuff()
+    {
+        BuffForthPrefab.SetActive(true);
+        BuffBackPrefab.SetActive(true);
+        StartCoroutine(DestroyBuff());
+    }
+
+    IEnumerator DestroyBuff()
+    {
+        yield return new WaitForSeconds(20.0f);
+        BuffForthPrefab.SetActive(false);
+        BuffBackPrefab.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()

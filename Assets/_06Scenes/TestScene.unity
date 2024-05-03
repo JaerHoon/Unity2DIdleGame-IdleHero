@@ -1926,6 +1926,7 @@ RectTransform:
   - {fileID: 598138827}
   - {fileID: 1934871890}
   - {fileID: 890061256}
+  - {fileID: 775728242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2016,7 +2017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472442712}
+      - m_Target: {fileID: 1203621464}
         m_TargetAssemblyTypeName: Skill_Meteor, Assembly-CSharp
         m_MethodName: meteorShoot
         m_Mode: 1
@@ -2706,6 +2707,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1130619967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130619968}
+  - component: {fileID: 1130619970}
+  - component: {fileID: 1130619969}
+  m_Layer: 5
+  m_Name: CoolTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1130619968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130619967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 775728242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1130619969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130619967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.103773594, g: 0.10034711, b: 0.10034711, a: 0.7607843}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c7f12fa536c84384d936f16e1632342e, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1130619970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130619967}
+  m_CullTransparentMesh: 1
 --- !u!1 &1203621459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,6 +2794,9 @@ GameObject:
   - component: {fileID: 1203621460}
   - component: {fileID: 1203621462}
   - component: {fileID: 1203621463}
+  - component: {fileID: 1203621465}
+  - component: {fileID: 1203621464}
+  - component: {fileID: 1203621466}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -2793,6 +2872,53 @@ MonoBehaviour:
   tornado: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
   skillimage: {fileID: 598138830}
   skillCoolTimeGauge: {fileID: 1044127277}
+--- !u!114 &1203621464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203621459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b24ffa959837904f86c86792c2a96bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteor: {fileID: 11400000, guid: 31be760138f515d4cad2c7d9a921d049, type: 2}
+  skillimage: {fileID: 890061258}
+  skillCoolTimeGauge: {fileID: 64749689}
+--- !u!114 &1203621465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203621459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2500a8f1c56f5854fb76621748e3ecfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wind: {fileID: 11400000, guid: 4e52e1a9850676148823c2d5f27c9be0, type: 2}
+  skillimage: {fileID: 1934871892}
+  skillCoolTimeGauge: {fileID: 791608737}
+--- !u!114 &1203621466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203621459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701e9eac3b4c6914487c9d14523732d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffForth: {fileID: 11400000, guid: d9b3336ffb2df0a4aa77c993217f3acc, type: 2}
+  buffBack: {fileID: 11400000, guid: b724b06d76909844f8a62d1c70d2da4d, type: 2}
+  skillimage: {fileID: 775728244}
+  skillCoolTimeGauge: {fileID: 1130619969}
+  skillColor: {r: 1, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &1244787587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3304,28 +3430,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433494193}
   m_CullTransparentMesh: 1
---- !u!114 &1472442709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6424591343782408016, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-  m_PrefabInstance: {fileID: 1028695268161290661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2500a8f1c56f5854fb76621748e3ecfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1472442712 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5614724245516581150, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-  m_PrefabInstance: {fileID: 1028695268161290661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b24ffa959837904f86c86792c2a96bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1488114000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,6 +3595,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503656196}
   m_CullTransparentMesh: 1
+--- !u!4 &1564570070 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+  m_PrefabInstance: {fileID: 1028695268161290661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1583443891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +4138,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472442709}
+      - m_Target: {fileID: 1203621465}
         m_TargetAssemblyTypeName: Skill_Wind, Assembly-CSharp
         m_MethodName: WindShoot
         m_Mode: 1
@@ -4477,9 +4586,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1585577548835341368, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 1294922658019923796, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: m_Name
+      value: EarthPos
       objectReference: {fileID: 0}
     - target: {fileID: 1585577548835341368, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: skillimage
@@ -4503,7 +4612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99965733
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4515,7 +4624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.026176924
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4527,16 +4636,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471518395216972071, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4612551716319086873, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: joy
       value: 
       objectReference: {fileID: 2016715444}
-    - target: {fileID: 4995362144030847830, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4995362144030847830, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: skillimage
       value: 
@@ -4546,10 +4651,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1044127277}
     - target: {fileID: 5614724245516581150, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5614724245516581150, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: skillimage
       value: 
       objectReference: {fileID: 890061258}
@@ -4557,10 +4658,6 @@ PrefabInstance:
       propertyPath: skillCoolTimeGauge
       value: 
       objectReference: {fileID: 64749689}
-    - target: {fileID: 6424591343782408016, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6424591343782408016, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: skillimage
       value: 

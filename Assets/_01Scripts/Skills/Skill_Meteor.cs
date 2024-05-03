@@ -4,17 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Skill_Meteor : MonoBehaviour
 {
-    public static Skill_Meteor instance;
-
-    private void Awake()
-    {
-        if (Skill_Meteor.instance == null)
-            Skill_Meteor.instance = this;
-    }
-
+    
     [SerializeField]
-    Skill_ScriptableObject meteor;
-    float meteorSpeed = 3.0f;
+    Skill_ScriptableObject meteor; 
 
     [SerializeField]
     Image skillimage; // 스킬 아이콘 이미지
@@ -26,13 +18,15 @@ public class Skill_Meteor : MonoBehaviour
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
 
-    float meteorTime = 0;
-    float meteorDelay = 1.5f;
+    int skillNumber = 4;
+    float nextSkillTime = 0.5f;
     void Start()
     {
         skillimage.sprite = meteor.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
         maxskillCool = meteor.coolTime; // 최대 쿨타임 = 스크립터블 오브젝트에서 작성한 쿨타임
         skillCoolTimeGauge.fillAmount = 0f;
+
+        
     }
 
     public void meteorShoot()
@@ -42,14 +36,36 @@ public class Skill_Meteor : MonoBehaviour
         {
             return;
         }
-        SkillManager.instance.OnMeteorAttack();
+        SkillManager.instance.OnBigMeteorAttack(); // 스킬매니저에서 만든 함수를 불러온다.
         CoolTimeStart();
-        
+
 
 
     }
 
-    
+    IEnumerator MeteorCopy()
+    {
+        int usedMeteor = 0;
+
+        while (usedMeteor < skillNumber)
+        {
+            usedMeteor++;
+            yield return new WaitForSeconds(nextSkillTime);
+        }
+
+        CoolTimeStart();
+        for (int i = 0; i < skillNumber; i++)
+        {
+            SkillManager.instance.OnMeteorAttack();
+            yield return new WaitForSeconds(nextSkillTime);
+
+
+        }
+        yield return new WaitForSeconds(0.6f);
+        SkillManager.instance.OnBigMeteorAttack();
+
+
+    }
 
     public void CoolTimeStart()
     {

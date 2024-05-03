@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
   m_Name: Skill Data_Wind
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 8
   coolTime: 8
-  Destroyskill: 1.5
   skillname: Wind
   skillinfo: 
   skillPrefab: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}

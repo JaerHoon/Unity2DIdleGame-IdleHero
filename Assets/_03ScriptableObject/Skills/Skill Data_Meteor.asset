@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
   m_Name: Skill Data_Meteor
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 50
   coolTime: 10
-  Destroyskill: 4
   skillname: Meteor
   skillinfo: 
   skillPrefab: {fileID: 621059610374767611, guid: 11e2363d258f4114e88655f297922cb5, type: 3}
