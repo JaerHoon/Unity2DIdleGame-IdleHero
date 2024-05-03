@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
   m_Name: Skill Data_tornado
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
   coolTime: 5
-  Destroyskill: 1
   skillname: "\uD1A0\uB124\uC774\uB3C4"
   skillinfo: 
   skillPrefab: {fileID: 8421651076618741459, guid: bd3aed16ceabcb24b9db40e66890ce0b, type: 3}

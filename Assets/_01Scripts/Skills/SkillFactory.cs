@@ -14,7 +14,6 @@ public class SkillFactory
     public SkillFactory(GameObject skillPrefab, int defaultCoinNumber = 4)
     {
         this.skillPrefab = skillPrefab;//외부에서 받은 프리팹 정보 
-        Debug.Log(skillPrefab.name);
         this.defaultCoinNumber = defaultCoinNumber;//외부에서 받은 코인 수 설정
         Debug.Assert(this.skillPrefab != null, "몬스터 팩토리에 코인 프리팹 없음");
     }

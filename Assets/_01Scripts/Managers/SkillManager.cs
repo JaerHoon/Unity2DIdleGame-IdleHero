@@ -38,6 +38,9 @@ public class SkillManager : MonoBehaviour
     GameObject MeteorPrefab;
 
     [SerializeField]
+    GameObject BigMeteorPrefab;
+
+    [SerializeField]
     Transform playerTr;
 
     SkillFactory skillfactory;
@@ -45,6 +48,7 @@ public class SkillManager : MonoBehaviour
     SkillFactory windFactory;
     SkillFactory tornadoFactory;
     SkillFactory meteorFactory;
+    SkillFactory BigmeteorFactory;
 
     public Transform earthPos;
 
@@ -65,25 +69,13 @@ public class SkillManager : MonoBehaviour
         windFactory = new SkillFactory(WindPrefab, 4);
         tornadoFactory = new SkillFactory(TornadoPrefab, 8);
         meteorFactory = new SkillFactory(MeteorPrefab, 1);
-
+        BigmeteorFactory = new SkillFactory(BigMeteorPrefab, 1);
         angleWind();
-        StartCoroutine(MeteorCopy());
+        
 
 
     }
 
-    IEnumerator MeteorCopy()
-    {
-        int usedMeteor = 0;
-        
-        while (usedMeteor < skillNumber)
-        {
-            OnMeteorAttack();
-            usedMeteor++;
-            yield return new WaitForSeconds(nextSkillTime);
-        }
-        
-    }
 
     void angleWind() // 각 배열에 Rotation값을 할당해 놓았다.
     {
@@ -132,12 +124,19 @@ public class SkillManager : MonoBehaviour
     public void OnMeteorAttack()
     {
         GameObject meteor = meteorFactory.GetSkill();
-        meteor.transform.position = new Vector2(7, 7);
+        float posX = Random.Range(-2, 13);
+        meteor.transform.position = new Vector2(posX, 7);
         meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
         
 
     }
 
+    public void OnBigMeteorAttack()
+    {
+        GameObject meteor = BigmeteorFactory.GetSkill();
+        meteor.transform.position = new Vector2(7, 7);
+        meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
+    }
 
     // Update is called once per frame
     void Update()

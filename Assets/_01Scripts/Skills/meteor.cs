@@ -23,13 +23,13 @@ public class meteor : MonoBehaviour
 
     void MeteorDestroy()
     {
-        Destroy(gameObject, 2.0f);
+        Destroy(gameObject, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right * 4.0f * Time.deltaTime);
+        transform.Translate(Vector2.right * 10.0f * Time.deltaTime);
         MeteorDestroy();
     }
 }
