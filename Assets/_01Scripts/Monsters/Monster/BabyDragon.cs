@@ -25,11 +25,13 @@ public class BabyDragon : RecyclableMonster
     float attackSpeed;
     [SerializeField]
     float attackMotionSpeed;
-
+    const float cCtime = 1.8f;//군중제어 저항 시간
     
 
     [SerializeField]
     FireBall fireballPrefab;//파이어 볼 프리팹
+    [SerializeField]
+    GameObject DamageTextPreFab;//데미지 텍스트 프리팹
 
     MonsterFactory fireBallFactory; //파이어 볼 펙토리
 
@@ -43,6 +45,7 @@ public class BabyDragon : RecyclableMonster
         attackDistance = drangonData.attackDistance;
         attackSpeed = drangonData.attackSpeed;
         attackMotionSpeed = drangonData.attackMotionSpeed;
+        coinValue = drangonData.coinValue;
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0, -0.29f);
@@ -60,8 +63,10 @@ public class BabyDragon : RecyclableMonster
 
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
-        hp = MonDamaged(hp, defense, PlayerDamage);
-        if(hp <= 0)
+        hp = MonDamaged(hp, defense, PlayerDamage);//피격 시 몬스터 Hp 계산
+        GameObject damageText = Instantiate(DamageTextPreFab,transform.position + Vector3.up * 0.5f,Quaternion.identity);//피격 시 데미지 텍스트 생성
+        damageText.GetComponent<DamageText>().damage = MonDamagedTextCal(drangonData.defense,PlayerDamage);//데미지 값을 계산해서 넘겨줌
+        if (hp <= 0)
         {
             Mycollider2D.enabled = false;
             isDead = true;
@@ -70,9 +75,19 @@ public class BabyDragon : RecyclableMonster
         }
         else
         {
-            isDamaged = true;
-            StartCoroutine(DelayDamaged(0.25f));
+            if (!isCCTime)//군중제어 저항 시간이 지나면
+            {
+                isDamaged = true;
+                isCCTime = true;
+                StartCoroutine(DelayDamaged(0.25f));
+                Invoke("SetisCCtimeF", cCtime);
+            }
         }
+    }
+
+    void SetisCCtimeF()
+    {
+        isCCTime = false;
     }
 
     IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보

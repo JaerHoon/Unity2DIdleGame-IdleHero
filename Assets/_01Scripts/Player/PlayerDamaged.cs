@@ -12,7 +12,7 @@ public class PlayerDamaged : MonoBehaviour
 
     public void OnPlayerDamaged(int monDamage)
     {
-        print("플레이어가 공격 받았습니다!!" + monDamage +" : 데미지");
+        print("플레이어가 공격 받았습니다!! 데미지 : "+ monDamage);
     }
     
     void Update()

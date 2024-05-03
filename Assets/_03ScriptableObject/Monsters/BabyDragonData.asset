@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: BabyDragonData
   m_EditorClassIdentifier: 
   MonsterName: BabyDragon
-  Hp: 100
-  Damage: 5
-  Defense: 4
-  MoveSpeed: 1
+  Hp: 500
+  Damage: 7
+  Defense: 5
+  MoveSpeed: 0.9
   AttackDistance: 5
   AttackSpeed: 2
   AttackMotionSpeed: 0.55
+  CoinValue: 456

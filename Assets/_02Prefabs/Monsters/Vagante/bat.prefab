@@ -237,6 +237,7 @@ MonoBehaviour:
   attackDistance: 0
   attackSpeed: 0
   attackMotionSpeed: 0
+  DamageTextPreFab: {fileID: 6630066117901125282, guid: d9c32dd9e87c3da44a57d7f2ff9835b6, type: 3}
 --- !u!50 &4354347230654557925
 Rigidbody2D:
   serializedVersion: 4

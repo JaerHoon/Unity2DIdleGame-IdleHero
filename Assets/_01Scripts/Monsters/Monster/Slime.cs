@@ -25,6 +25,10 @@ public class Slime : RecyclableMonster
     [SerializeField]
     float attackMotionSpeed;
 
+    const float cCtime = 0.8f;//군중제어 저항 시간
+
+    [SerializeField]
+    GameObject DamageTextPreFab;//데미지 텍스트 프리팹
 
     private void OnEnable()//활성화 시 초기화
     {
@@ -36,7 +40,7 @@ public class Slime : RecyclableMonster
         attackDistance = slimeData.attackDistance;
         attackSpeed = slimeData.attackSpeed;
         attackMotionSpeed = slimeData.attackMotionSpeed;
-        
+        coinValue = slimeData.coinValue;
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
@@ -55,6 +59,8 @@ public class Slime : RecyclableMonster
     public override void OnMonDamaged(int PlayerDamage)//플레이어의 공격 이벤트를 받을 함수
     {
         hp = MonDamaged(hp, defense, PlayerDamage);
+        GameObject damageText = Instantiate(DamageTextPreFab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        damageText.GetComponent<DamageText>().damage = MonDamagedTextCal(slimeData.defense, PlayerDamage);
         if (hp <= 0)
         {
             Mycollider2D.enabled = false;
@@ -64,9 +70,19 @@ public class Slime : RecyclableMonster
         }
         else
         {
-            isDamaged = true;
-            StartCoroutine(DelayDamaged(0.7f));
+            if (!isCCTime)//군중제어 저항 시간이 지나면
+            {
+                isDamaged = true;
+                isCCTime = true;
+                StartCoroutine(DelayDamaged(0.25f));
+                Invoke("SetisCCtimeF", cCtime);
+            }
         }
+    }
+
+    void SetisCCtimeF()
+    {
+        isCCTime = false;
     }
 
     IEnumerator DelayDeath()//회수 전 죽는 애니메이션 재생 시간 확보

@@ -150,13 +150,15 @@ public class SpawnManager : MonoBehaviour
         Gold_Coin coin = coinFactory.GetCoin();
         coin.SetTransform(UsedMonster.transform);
         coin.CoinDrop();
-        StartCoroutine(DelayRestoreCoin(coin));
+        StartCoroutine(DelayRestoreCoin(coin, UsedMonster));
     }
 
-    IEnumerator DelayRestoreCoin(Gold_Coin UsedCoin)
+    IEnumerator DelayRestoreCoin(Gold_Coin UsedCoin, RecyclableMonster UsedMonster)
     {
-        yield return new WaitForSeconds(5.0f);
+        float randIndex = UnityEngine.Random.Range(3.2f, 3.5f);
+        yield return new WaitForSeconds(randIndex);
         coinFactory.CoinRestore(UsedCoin);
+        Resource.instance.GetResource(UsedMonster.coinValue, 0);
 
     }
 

@@ -29,7 +29,9 @@ public class StageManager : MonoBehaviour
 
     [SerializeField]
     StageData currentStageData;
-    
+    [SerializeField]
+    int buttonDamage;
+
     public StageData StageData1;
     public StageData StageData2;
     public StageData StageData3;
@@ -77,12 +79,12 @@ public class StageManager : MonoBehaviour
 
     public void OnStageMonsterDamaged()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
     {
-        SpawnManager.instance.OnDamagedAllMonster(1);
+        SpawnManager.instance.OnDamagedAllMonster(buttonDamage);
     }
 
     public void OnStageMonsterAllDie()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
     {
-        SpawnManager.instance.OnDamagedAllMonster(300);
+        SpawnManager.instance.OnDamagedAllMonster(9999);
     }
 
     public void OnChangeStage(int num)

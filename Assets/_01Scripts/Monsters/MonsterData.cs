@@ -37,4 +37,8 @@ public class MonsterData : ScriptableObject
     [SerializeField]
     private float AttackMotionSpeed;
     public float attackMotionSpeed { get { return AttackMotionSpeed; } }
+
+    [SerializeField]
+    private int CoinValue;
+    public int coinValue { get { return CoinValue; } }
 }

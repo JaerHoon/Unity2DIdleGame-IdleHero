@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SpiderDate
   m_EditorClassIdentifier: 
   MonsterName: Spider
-  Hp: 20
+  Hp: 65
   Damage: 5
-  Defense: 2
-  MoveSpeed: 1.7
+  Defense: 3
+  MoveSpeed: 1.4
   AttackDistance: 3.5
   AttackSpeed: 2
   AttackMotionSpeed: 0.395

@@ -17,9 +17,11 @@ public class RecyclableMonster : MonoBehaviour
     protected bool isTrace = true;
     protected bool isOnceDieState = false;
     protected bool isShake = false;
+    protected bool isCCTime = false;
     protected float lastAttackTime = 0;
     protected float DamagedTime = 0.3f;
     protected float collRange = 1f;
+    public int coinValue;
     protected STATE state { get; set; }
     protected LayerMask layermask;
     protected int playerLayer;
@@ -55,6 +57,7 @@ public class RecyclableMonster : MonoBehaviour
         isTrace = true;
         isOnceDieState = false;
         isShake = false;
+        isCCTime = false;
         lastAttackTime = 0;
         DamagedTime = 0.3f;
         targetPosition = GameObject.FindWithTag("PlayerFoot").transform;
@@ -160,6 +163,12 @@ public class RecyclableMonster : MonoBehaviour
     {
         
         return MonHp - (PlayerDamage >= MonDef ? PlayerDamage - MonDef : 0);
+    }
+
+    public virtual int MonDamagedTextCal(int MonDef, int PlayerDamage)//몬스터피격텍스트  함수 계산 후 배출
+    {
+
+        return PlayerDamage - MonDef;
     }
 
     public virtual IEnumerator DelayDamaged(float DamagedTime)

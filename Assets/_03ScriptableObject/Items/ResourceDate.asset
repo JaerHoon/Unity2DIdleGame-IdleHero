@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a4478b2b1f69e438b2c9d5123f5bd2, type: 3}
-  m_Name: BatDate
+  m_Script: {fileID: 11500000, guid: d84ef9e66d5502b49872eef4cdbff520, type: 3}
+  m_Name: ResourceDate
   m_EditorClassIdentifier: 
-  MonsterName: Bat
-  Hp: 35
-  Damage: 1
-  Defense: 0
-  MoveSpeed: 1.7
-  AttackDistance: 0.3
-  AttackSpeed: 1
-  AttackMotionSpeed: 1
+  Coin: 1234563629
+  Jem: 12345

@@ -15,6 +15,6 @@ MonoBehaviour:
   StageNum: 1
   SlimeNum: 0
   BatNum: 0
-  SpiderNum: 50
-  BabyDragonNum: 0
+  SpiderNum: 0
+  BabyDragonNum: 40
   CurrentStageNum: 0
