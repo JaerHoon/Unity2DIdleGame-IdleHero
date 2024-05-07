@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84ef9e66d5502b49872eef4cdbff520, type: 3}
   m_Name: ResourceDate
   m_EditorClassIdentifier: 
-  Coin: 1234563629
+  Coin: 0
   Jem: 12345

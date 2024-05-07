@@ -20,3 +20,4 @@ MonoBehaviour:
   AttackDistance: 3.5
   AttackSpeed: 2
   AttackMotionSpeed: 0.395
+  CoinValue: 130
