@@ -24,8 +24,8 @@ public class EquipmentItem : MonoBehaviour
     ItemManager itemManager;
     private void Start()
     {
-        if (StatusManager.instance != null && statusManager == null) statusManager = StatusManager.instance;
-        if (ItemManager.instance != null && itemManager == null) itemManager = ItemManager.instance;
+        statusManager = StatusManager.instance;
+        itemManager = ItemManager.instance;
     }
 
     private void OnEnable()

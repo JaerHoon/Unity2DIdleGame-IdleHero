@@ -17,7 +17,7 @@ public class Gold_Coin : MonoBehaviour
         //Invoke("A", 1.0f);
     }
 
-    private void OnEnable()//몬스터의 위치로 초기화
+    private void OnEnable()
     {
         transform.GetChild(0).localPosition = new Vector2(0, -0.379f);
         transform.rotation = Quaternion.identity;
@@ -26,22 +26,22 @@ public class Gold_Coin : MonoBehaviour
         //Invoke("A", 1.0f);
     }
 
-    public void SetTransform(Transform tr)//외부에서 코인 위치 설정
+    public void SetTransform(Transform tr)
     {
         transform.position = tr.position;
     }
-    void BounceMovement()//코인이 떨어지면 튕김
+    void BounceMovement()
     {
         transform.DOMoveY(transform.position.y - 1.8f, 2.0f).SetEase(Ease.OutBounce);
         transform.GetChild(0).DOMoveY(transform.position.y - 2.0f, 2.0f).SetEase(Ease.OutBounce);
         Invoke("CollectMovement", 1.5f);
     }
-    void CollectMovement()//코인마다 모이는 속도를 조정
+    void CollectMovement()
     {
         float randIndex = Random.Range(1.2f, 1.5f);
         transform.DOMove(collectCoinPos.position, randIndex).SetEase(Ease.InQuart);
     }
-    public void CoinDrop()//몬스터 사망 시 코인 위로 올라가기
+    public void CoinDrop()
     {
         
         transform.DOMoveY(transform.position.y + 1.0f, upCoinTime).SetEase(Ease.OutCubic);

@@ -8,7 +8,7 @@ using System;
 public class SkillSetting : MonoBehaviour
 {
     [SerializeField]
-    List<Skill_ScriptableObject> skillDatas= new List<Skill_ScriptableObject>();  
+    List<Skill_ScriptableObject> skillDatas = new List<Skill_ScriptableObject>();
     [SerializeField]
     List<Image> skillSets = new List<Image>();
     [SerializeField]
@@ -50,9 +50,9 @@ public class SkillSetting : MonoBehaviour
 
     public void Setting()
     {
-        for(int i=0; i < skillSetSlotNum.Length; i++)
+        for (int i = 0; i < skillSetSlotNum.Length; i++)
         {
-            if(skillSetSlotNum[i] != 0)
+            if (skillSetSlotNum[i] != 0)
             {
                 skillSets[i].sprite = skillDatas[skillSetSlotNum[i]].icon;
             }
@@ -60,23 +60,23 @@ public class SkillSetting : MonoBehaviour
             {
                 skillSets[i].sprite = defaultSprite;
             }
-          
+
         }
 
-        for (int i = 0; i < skillDatas.Count-1; i++)
+        for (int i = 0; i < skillDatas.Count - 1; i++)
         {
-            skillSlots[i].sprite = skillDatas[i+1].icon;
+            skillSlots[i].sprite = skillDatas[i + 1].icon;
         }
 
         NoticText.text = "슬롯에 장착할 스킬을 누르세요";
     }
 
-    public void OnClickSkillSlot(int num) 
+    public void OnClickSkillSlot(int num)
     {
         NoticText.text = "장착할 슬롯을 선택하세요.";
-        infoSkillnum = num+1;
+        infoSkillnum = num + 1;
         IsCanEquip = true;
-        info_skillName.text = String.Format("스킬이름 : {0}", skillDatas[infoSkillnum].skillname) ;
+        info_skillName.text = String.Format("스킬이름 : {0}", skillDatas[infoSkillnum].skillname);
         info_icon.sprite = skillDatas[infoSkillnum].icon;
         info_Explain.text = skillDatas[infoSkillnum].skillinfo;
         info_CoolTime.text = String.Format("쿨타임 : {0}초", skillDatas[infoSkillnum].coolTime);
@@ -86,7 +86,7 @@ public class SkillSetting : MonoBehaviour
 
     public void OnClickSkillSet(int num)
     {
-        if(IsCanEquip == true)
+        if (IsCanEquip == true)
         {
             for (int i = 0; i < skillSetSlotNum.Length; i++)
             {
@@ -96,15 +96,15 @@ public class SkillSetting : MonoBehaviour
                 }
             }
             skillSetSlotNum[num] = infoSkillnum;
-           
+
             Setting();
             IsCanEquip = false;
             Cancel();
         }
         else
         {
-            
-            if(skillSetSlotNum[num] != 0)
+
+            if (skillSetSlotNum[num] != 0)
             {
                 NoticText.text = "스킬을 해제하시겠습니까?";
                 infoSkillnum = skillSetSlotNum[num];
@@ -121,23 +121,22 @@ public class SkillSetting : MonoBehaviour
 
     public void EquipSkill()
     {
-       
-            for(int i = 0; i < skillSetSlotNum.Length; i++)
-            {
-                if(skillSetSlotNum[i] == infoSkillnum)
-                {
-                    skillSetSlotNum[i] = 0;
-                }
-            }
 
-            Setting();
-            Cancel();
-        
+        for (int i = 0; i < skillSetSlotNum.Length; i++)
+        {
+            if (skillSetSlotNum[i] == infoSkillnum)
+            {
+                skillSetSlotNum[i] = 0;
+            }
+        }
+
+        Setting();
+        Cancel();
+
     }
 
     public void Cancel()
     {
         skillinfi_Panel.SetActive(false);
     }
-
 }
