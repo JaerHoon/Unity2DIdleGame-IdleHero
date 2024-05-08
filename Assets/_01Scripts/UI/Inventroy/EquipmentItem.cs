@@ -30,26 +30,21 @@ public class EquipmentItem : MonoBehaviour
 
     private void OnEnable()
     {
-        itemManager.ChangeEqument.AddListener(ResetEquipSLot);
-        itemManager.ChangeEqument.AddListener(StatusSetting);
+       if(StatusManager.instance != null && statusManager ==null) statusManager = StatusManager.instance;
+       if (ItemManager.instance != null && itemManager == null) itemManager = ItemManager.instance;
+
+        itemManager?.ChangeEqument.AddListener(ResetEquipSLot);
+        itemManager?.ChangeEqument.AddListener(StatusSetting);
         ResetEquipSLot();
         StatusSetting();
     }
 
     public void StatusSetting()
     {
-        hP_Text.text = String.Format("{0} (+{1})", 
-            statusManager.GetStatus(StatusManager.playerHP),
-            itemManager.GetItemPow(StatusManager.playerHP));
-        aTK_Text.text = String.Format("{0} (+{1})",
-            statusManager.GetStatus(StatusManager.playerATkpow),
-            itemManager.GetItemPow(StatusManager.playerATkpow));
-        dFN_Text.text = String.Format("{0} (+{1})",
-            statusManager.GetStatus(StatusManager.playerDefence),
-            itemManager.GetItemPow(StatusManager.playerDefence));
-        crtRate_Text.text = String.Format("{0} (+{1})",
-            statusManager.GetStatus(StatusManager.playerCrtRate),
-            itemManager.GetItemPow(StatusManager.playerCrtRate));
+        hP_Text.text = statusManager.LastStatus_Text(StatusManager.playerHP);
+        aTK_Text.text = statusManager.LastStatus_Text(StatusManager.playerATkpow);
+        dFN_Text.text = statusManager.LastStatus_Text(StatusManager.playerDefence);
+        crtRate_Text.text = statusManager.LastStatus_Text(StatusManager.playerCrtRate);
     }
 
     public void ResetEquipSLot()
@@ -68,7 +63,7 @@ public class EquipmentItem : MonoBehaviour
 
     private void OnDisable()
     {
-        ItemManager.instance.ChangeEqument.RemoveListener(ResetEquipSLot);
+        itemManager?.ChangeEqument.RemoveListener(ResetEquipSLot);
     }
 
 
