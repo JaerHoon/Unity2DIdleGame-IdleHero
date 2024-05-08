@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f284a08affbf794458495a52ed69ee1b, type: 3}
   m_Name: Quest Data 6
   m_EditorClassIdentifier: 
+  quest_number: 6
   questName: "1-5\uC2A4\uD14C\uC774\uC9C0\uB97C \uD074\uB9AC\uC5B4\uD558\uC138\uC694."
+  questExplain: 
   numberOfGoal: 1
-  currentNumber: 0
   rewordAmount: 300
+  rewardType: 0
+  questType: 0

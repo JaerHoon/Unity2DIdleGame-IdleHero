@@ -10,6 +10,9 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField]
     List<Quest_ScriptableObject> questsData = new List<Quest_ScriptableObject>();
+    List<Quest> quests = new List<Quest>();
+    Quest ativeQuest;
+    
     [SerializeField]
     GameObject questPanel;//퀘스트 UI 페널
     Button questpanel_BTn;//퀘스트 버튼 컴포넌트
@@ -39,6 +42,53 @@ public class QuestManager : MonoBehaviour
         questpanel_BTn = questPanel.GetComponent<Button>();
     }
 
+    private void Start()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        for(int i=0; i < questsData.Count; i++)
+        {
+            Quest quest = new Quest(questsData[i]);
+            quests.Add(quest);
+        }
+
+        OnAtiveQuest(0);
+    }
+
+    public void OnAtiveQuest(int num)
+    {
+        ativeQuest = quests[num];
+        ativeQuest.ActiveQurst();
+    }
+
+    public void UpDateQuest(Quest_ScriptableObject.QuestType questType)
+    {
+        ativeQuest.UpdateQuest(questType);
+        //UPdate UI에도 카운트랑 상태도 전달
+    }
+
+    public void PaymentReward() // UI에서 받음
+    {
+        ativeQuest.questStat = Quest.QuestStat.RewardPaymented;
+        
+        //리워드 지급 실행
+        
+        if (ativeQuest.questdata.quest_number + 1 <= questsData.Count)
+        {
+            OnAtiveQuest(ativeQuest.questdata.quest_number + 1);
+        }
+        else
+        {
+            //모든 퀘스트 완료
+        }
+        
+    }
+    
+
+    
 
     public void StartQuest(int num)
     {
