@@ -24,8 +24,8 @@ public class EquipmentItem : MonoBehaviour
     ItemManager itemManager;
     private void Start()
     {
-        statusManager = StatusManager.instance;
-        itemManager = ItemManager.instance;
+        if (StatusManager.instance != null && statusManager == null) statusManager = StatusManager.instance;
+        if (ItemManager.instance != null && itemManager == null) itemManager = ItemManager.instance;
     }
 
     private void OnEnable()
@@ -41,10 +41,10 @@ public class EquipmentItem : MonoBehaviour
 
     public void StatusSetting()
     {
-        hP_Text.text = statusManager.LastStatus_Text(StatusManager.playerHP);
-        aTK_Text.text = statusManager.LastStatus_Text(StatusManager.playerATkpow);
-        dFN_Text.text = statusManager.LastStatus_Text(StatusManager.playerDefence);
-        crtRate_Text.text = statusManager.LastStatus_Text(StatusManager.playerCrtRate);
+        hP_Text.text = statusManager?.LastStatus_Text(StatusManager.playerHP) ?? null;
+        aTK_Text.text = statusManager?.LastStatus_Text(StatusManager.playerATkpow) ?? null;
+        dFN_Text.text = statusManager?.LastStatus_Text(StatusManager.playerDefence) ?? null;
+        crtRate_Text.text = statusManager?.LastStatus_Text(StatusManager.playerCrtRate) ?? null;
     }
 
     public void ResetEquipSLot()

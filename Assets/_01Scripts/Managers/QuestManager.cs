@@ -51,7 +51,7 @@ public class QuestManager : MonoBehaviour
         questCountText.text = string.Format("({0}/{1}", cur_num, goalNum);
     }
 
-    public void RunQuest()
+    public void UpdateQuest()
     {
         cur_num++;
         questName.text = questsData[ongoingQuest_num].name;
