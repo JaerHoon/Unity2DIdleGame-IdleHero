@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94e9478b024f17f4eb3fb50211403d84, type: 3}
-  m_Name: Skill Data_Meteor
+  m_Name: 04_Skill Data_Meteor
   m_EditorClassIdentifier: 
+  skillNumber: 4
   damage: 50
   coolTime: 10
   skillname: Meteor
