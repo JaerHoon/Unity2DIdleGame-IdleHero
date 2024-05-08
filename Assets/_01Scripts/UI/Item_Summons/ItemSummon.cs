@@ -19,7 +19,7 @@ public class ItemSummon : MonoBehaviour
     [SerializeField]
     List<ItemSlot> itemSlots = new List<ItemSlot>();
 
-    bool IsSummoning;
+    public bool IsSummoning;
 
     private void OnEnable()
     {
