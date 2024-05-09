@@ -899,11 +899,11 @@ RectTransform:
   - {fileID: 1689882668}
   - {fileID: 26200509}
   - {fileID: 100229807}
+  - {fileID: 1390328578}
+  - {fileID: 798600538}
   - {fileID: 2118085374}
   - {fileID: 6541071475185036636}
   - {fileID: 1937663016}
-  - {fileID: 1390328578}
-  - {fileID: 798600538}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
