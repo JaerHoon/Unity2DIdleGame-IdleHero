@@ -143,21 +143,6 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    void Oncooltime(int slotnum)
-    {
-        //Slot[slotnum]안에 들어있는 스킬 함수 실행
-        // 스타트 코루틴(Slot[sslotnum].스킬쿨타임을매개변수1, cooltimeOBJ[slotnum])
-        // button 을 꺼 
-    }
-
-    IEnumerator Startcooltimeg(float cooltime, int  slotnum)
-    {
-        yield return new WaitForSeconds(0.1f);
-        //cooltimeObject[slotnum]
-
-        button[slotnum].enabled = true;
-        //쿨타임 끝나면 다시 버튼을 켜.
-    }
 
     public void OnclickSkill(int slotNumber)
     {
@@ -165,13 +150,13 @@ public class SkillManager : MonoBehaviour
         {
             print("0번 슬롯 스킬 입니다");
             SkillUse(skillSlot[0]); // 0번 슬롯일때 1번 어스 스킬 발동
-            CoolTimeState(skillCoolTimeGauge, skillSlot[0], button[0]);
+            CoolTimeState(skillCoolTimeGauge, skillSlot[0], button[0]); // 쿨타임이 돌아갑니다(쿨타임 시각이미지, 0번 스킬슬롯, 0번 스킬버튼)
         }
         else if (slotNumber == 1)
         {
             print("1번 슬롯 스킬 입니다");
             SkillUse(skillSlot[1]); // 1번 슬롯일때 3번 윈드 스킬 발동
-            CoolTimeState(skillCoolTimeGauge2, skillSlot[1], button[1]);
+            CoolTimeState(skillCoolTimeGauge2, skillSlot[1], button[1]);// 쿨타임이 돌아갑니다(쿨타임 시각이미지, 1번 스킬슬롯, 1번 스킬버튼)
         }
         else
         {
@@ -189,19 +174,19 @@ public class SkillManager : MonoBehaviour
                 break;
             case 1:
                 print("어스 발동!!");
-                OnEarthAttack();
+                OnEarthAttack(); // Earth 스킬 발동 함수
                 break;
             case 2:
                 print("토네이도 발동!!");
-                OnTornadoAttack();
+                OnTornadoAttack(); // Tornado 스킬 발동 함수
                 break;
             case 3:
-                print("윈드 발동!!");
-                OnWindAttack();
+                print("윈드 발동!!"); 
+                OnWindAttack(); // Wind 스킬 발동 함수
                 break;
             case 4:
                 print("메테오 발동!!");
-                OnBigMeteorAttack();
+                OnBigMeteorAttack(); // Meteor 스킬 발동 함수
                 break;
             case 5:
                 print("버프 발동!!");
@@ -218,21 +203,21 @@ public class SkillManager : MonoBehaviour
     {
        
         float skillCool=0;
-        button.enabled = false;
-        if (skillNum == 1) skillCool = earth.coolTime;
-        else if (skillNum == 2) skillCool = tornado.coolTime;
-        else if (skillNum == 3) skillCool = wind.coolTime;
-        else if (skillNum == 4) skillCool = meteor.coolTime;
+        button.enabled = false; // 스킬 발동되었을때 버튼을 비활성화하여 쿨타임중일때 스킬 발동되지 않게 한다.
+        if (skillNum == 1) skillCool = earth.coolTime; // 1번스킬 Earth의 쿨타임 설정
+        else if (skillNum == 2) skillCool = tornado.coolTime; // 2번스킬 Tornado의 쿨타임 설정
+        else if (skillNum == 3) skillCool = wind.coolTime; // 3번스킬 wind의 쿨타임 설정
+        else if (skillNum == 4) skillCool = meteor.coolTime; // 4번스킬 meteor의 쿨타임 설정
 
-        StartCoroutine(startSkillCoolTime(skillcoolTime, skillCool, button));
+        StartCoroutine(startSkillCoolTime(skillcoolTime, skillCool, button)); // 쿨타임 이미지의 fillAmount 효과를 위한 코루틴
     }
 
     IEnumerator startSkillCoolTime(Image coolTimeimage, float coolTime, Button Getbutton)
     {   
-        float subCoolTime = 1 / coolTime;
+        float subCoolTime = 1 / coolTime; // fillAmount '1'값을 위에서 설정한 스킬의 쿨타임값 만큼 나눠준다.
         
-        int i = 0;
-        coolTimeimage.fillAmount = 1;
+        int i = 0; // while 오류 방지용 
+        coolTimeimage.fillAmount = 1; // fillAmount 값 설정
         while(coolTimeimage.fillAmount>=0.001f)
         {
 
@@ -243,7 +228,7 @@ public class SkillManager : MonoBehaviour
             if (i > 1000)
                 break;
         }
-        Getbutton.enabled = true;
+        Getbutton.enabled = true; // 쿨타임이 끝났을 때 스킬을 다시 사용하기 위해서 버튼 활성화
        
     }
 
