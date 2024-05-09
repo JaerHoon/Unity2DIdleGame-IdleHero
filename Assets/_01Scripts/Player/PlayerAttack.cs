@@ -26,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     Vector2 boxSize;
 
+
+
     public LayerMask layermask;
     int monsterLayer;
     int flymonsterLayer;
@@ -56,13 +58,21 @@ public class PlayerAttack : MonoBehaviour
         {
             if(colls.CompareTag("monster"))
             {
+                
                 isAttack = true;
                 attackAnim();
                 monattack?.Invoke(attackDamage);
             }
+           
             
         }
-      
+        if(AttackArea.Length ==1)
+        {
+            isAttack = false;
+            stopAttackAnim();
+
+        }
+        
     } 
 
     private void OnDrawGizmos()
@@ -120,7 +130,8 @@ public class PlayerAttack : MonoBehaviour
    
     void attackAnim()
     {
-        anim.SetInteger("attack", 1); // 공격 애니메이션 동작
+        if(isAttack==true)
+            anim.SetInteger("attack", 1); // 공격 애니메이션 동작
     }
 
     void stopAttackAnim()
