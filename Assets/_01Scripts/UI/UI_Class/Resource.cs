@@ -21,11 +21,15 @@ public class Resource : MonoBehaviour
 
     [SerializeField]
     Resource_ScriptableObject ResourceData;
+    [SerializeField]
+    AudioStorage soundStorage;//음향정보
 
     [SerializeField]
     TextMeshProUGUI coinText;
     [SerializeField]
     TextMeshProUGUI jemText;
+
+    AudioSource myAudioSource;
 
     public int coinNum;
     public int jemNum;
@@ -34,6 +38,7 @@ public class Resource : MonoBehaviour
 
     void Start()
     {
+        myAudioSource = gameObject.GetComponent<AudioSource>();
         coinNum = ResourceData.coin;//리소스 정보 불러오기
         jemNum = ResourceData.jem;
         if (coinNum != 0)
@@ -55,6 +60,9 @@ public class Resource : MonoBehaviour
 
     public void GetResource(int coinNum, int jemNum)
     {
+
+        int randInt = Random.Range(0, 2);
+        myAudioSource.PlayOneShot(soundStorage.SoundSrc[randInt].SoundFile);
         this.coinNum += coinNum;
         this.jemNum += jemNum;
 
