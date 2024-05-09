@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f0f62b27a7b234d85c2026e10ac57d, type: 3}
   m_Name: UIAudioData
   m_EditorClassIdentifier: 
-  soundSrc: []
+  soundSrc:
+  - id: 0
+    name: Coin1
+    audioClip: {fileID: 8300000, guid: 286e8ec60eaadd34e9a19b32f913e055, type: 3}
+  - id: 0
+    name: Coin2
+    audioClip: {fileID: 8300000, guid: d5b571fe41f383a4cb2aaa06b5d9ec70, type: 3}

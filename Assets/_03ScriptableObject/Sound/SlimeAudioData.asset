@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f0f62b27a7b234d85c2026e10ac57d, type: 3}
   m_Name: SlimeAudioData
   m_EditorClassIdentifier: 
-  soundSrc: []
+  soundSrc:
+  - id: 0
+    name: Hurt
+    audioClip: {fileID: 8300000, guid: 84e5ee18efd3fc8438b383ab7ed8e15c, type: 3}
+  - id: 0
+    name: Death
+    audioClip: {fileID: 8300000, guid: ccaeca94c33d7844485eaadf5ead7653, type: 3}

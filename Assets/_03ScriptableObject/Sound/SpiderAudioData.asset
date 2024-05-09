@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f0f62b27a7b234d85c2026e10ac57d, type: 3}
   m_Name: SpiderAudioData
   m_EditorClassIdentifier: 
-  soundSrc: []
+  soundSrc:
+  - id: 0
+    name: Hurt
+    audioClip: {fileID: 8300000, guid: 399d0bd32cb01a546ba5ed875b84ac63, type: 3}
+  - id: 0
+    name: Death
+    audioClip: {fileID: 8300000, guid: 8252ac7a635211147acfa0f74189de30, type: 3}

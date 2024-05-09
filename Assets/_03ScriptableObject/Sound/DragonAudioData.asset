@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f0f62b27a7b234d85c2026e10ac57d, type: 3}
   m_Name: DragonAudioData
   m_EditorClassIdentifier: 
-  soundSrc: []
+  soundSrc:
+  - id: 0
+    name: FireBall
+    audioClip: {fileID: 8300000, guid: c49657a859a77344b91541b956ccc203, type: 3}
+  - id: 0
+    name: Hurt
+    audioClip: {fileID: 8300000, guid: ea092dd7402dc244fb64b7e4ee30a153, type: 3}
+  - id: 0
+    name: Death
+    audioClip: {fileID: 8300000, guid: 4d8c1df7594d9b34eb4e5c6e3ec47e70, type: 3}
