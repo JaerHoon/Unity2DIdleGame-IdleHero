@@ -16,7 +16,7 @@ public class SkillSetting : MonoBehaviour
 
     SkillManager skillManager;
 
-    int[] skillSetSlotNum = new int[4];
+    int[] skillSetSlotNum = new int[3];
     [SerializeField]
     Sprite defaultSprite;
 
@@ -95,11 +95,40 @@ public class SkillSetting : MonoBehaviour
                     skillSetSlotNum[i] = 0;
                 }
             }
-            skillSetSlotNum[num] = infoSkillnum;
+            
+            if(num == 2)
+            {
+               if(infoSkillnum == 5)
+                {
+                    skillSetSlotNum[num] = infoSkillnum;
+                    Setting();
+                    IsCanEquip = false;
+                    Cancel();
+                }
+                else
+                {
+                    NoticText.text = "버프슬롯에는 장착할 수 없습니다.";
+                }
+            }
+            else
+            {
+                if(infoSkillnum == 5)
+                {
+                    NoticText.text = "액티브 슬롯에는 장착 할 수 없습니다.";
+                }
+                else
+                {
+                    skillSetSlotNum[num] = infoSkillnum;
+                    Setting();
+                    IsCanEquip = false;
+                    Cancel();
+                }
+            }
 
-            Setting();
-            IsCanEquip = false;
-            Cancel();
+            
+
+            
+          
         }
         else
         {
