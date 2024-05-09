@@ -5,18 +5,28 @@ using UnityEngine.UI;
 
 public class MainCanvas : MonoBehaviour
 {
+    public static MainCanvas instance;
+
     [Header("패널")]
     [SerializeField]
-    GameObject[] panels = new GameObject[4];
+    GameObject[] panels = new GameObject[5];
 
     [Header("버튼")]
     [SerializeField]
-    Button[] manuButtons = new Button[4];
+    Button[] manuButtons = new Button[5];
     [SerializeField]
     Button cancelButton;
+    [SerializeField]
+    Button cancelButton2;
 
     [SerializeField]
     ItemSummon itemSummon;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     private void OnEnable()
     {
@@ -30,7 +40,10 @@ public class MainCanvas : MonoBehaviour
 
     public void OnClick(int Btn_num)
     {
-        if(itemSummon.IsSummoning == false)
+        cancelButton.gameObject.SetActive(true);
+        cancelButton2.gameObject.SetActive(true);
+
+        if (itemSummon.IsSummoning == false)
         {
             for (int i = 0; i < panels.Length; i++)
             {
@@ -65,6 +78,9 @@ public class MainCanvas : MonoBehaviour
         {
             return;
         }
+
+        cancelButton.gameObject.SetActive(false);
+        cancelButton2.gameObject.SetActive(false);
 
        
     }

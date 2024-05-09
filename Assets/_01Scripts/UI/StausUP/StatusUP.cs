@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class StatusUP : MonoBehaviour
+public class StatusUP : MonoBehaviour, IQuestChecker
 {
     [Header("플레이어창")]
     [SerializeField]
@@ -63,6 +63,7 @@ public class StatusUP : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI crt_UPCostText;
 
+    public Quest_ScriptableObject.QuestType questType { get ; set ; }
 
     private void OnEnable()
     {
@@ -128,13 +129,27 @@ public class StatusUP : MonoBehaviour
 
         switch (num)
         {
-            case 0: statusManager.Hp_Lv++; break;
-            case 1: statusManager.ATkpow_Lv++; break;
-            case 2: statusManager.DFN_Lv++; break;
-            case 3: statusManager.CrtRate_Lv++; break;
+            case 0: 
+                statusManager.Hp_Lv++;
+                questType = Quest_ScriptableObject.QuestType.HP_Enhancement;
+                break;
+            case 1: statusManager.ATkpow_Lv++;
+                questType = Quest_ScriptableObject.QuestType.ATK_Enhancement; 
+                break;
+            case 2: statusManager.DFN_Lv++;
+                questType = Quest_ScriptableObject.QuestType.DFN_Enhancement;
+                break;
+            case 3: statusManager.CrtRate_Lv++;
+                questType = Quest_ScriptableObject.QuestType.CrtRate_Enhancement; 
+                break;
         }
-
+        UpdateQuestInfo();
         Setting();
 
+    }
+
+    public void UpdateQuestInfo()
+    {
+        QuestManager.instance.UpDateQuest(questType);
     }
 }
