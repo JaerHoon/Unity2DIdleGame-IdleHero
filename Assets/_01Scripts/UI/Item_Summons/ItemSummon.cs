@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemSummon : MonoBehaviour
+public class ItemSummon : MonoBehaviour, IQuestChecker
 {
     [SerializeField]
     GameObject boxPanel;
@@ -20,6 +20,8 @@ public class ItemSummon : MonoBehaviour
     List<ItemSlot> itemSlots = new List<ItemSlot>();
 
     public bool IsSummoning;
+
+    public Quest_ScriptableObject.QuestType questType { get ; set ; }
 
     private void OnEnable()
     {
@@ -91,11 +93,17 @@ public class ItemSummon : MonoBehaviour
             }
 
             itemSlots[i].gameObject.SetActive(true);
-
+            UpdateQuestInfo();
             yield return new WaitForSeconds(0.3f);
         }
 
         StopAllCoroutines();
         IsSummoning = false;
+    }
+
+    public void UpdateQuestInfo()
+    {
+        questType = Quest_ScriptableObject.QuestType.Summon;
+        QuestManager.instance.UpDateQuest(questType);
     }
 }

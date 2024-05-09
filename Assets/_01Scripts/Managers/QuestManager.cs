@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class QuestManager : MonoBehaviour
 {
@@ -10,23 +11,18 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField]
     List<Quest_ScriptableObject> questsData = new List<Quest_ScriptableObject>();
-    List<Quest> quests = new List<Quest>();
-    Quest ativeQuest;
-    
-    [SerializeField]
-    GameObject questPanel;//퀘스트 UI 페널
-    Button questpanel_BTn;//퀘스트 버튼 컴포넌트
+    public List<Quest> quests = new List<Quest>();
+    public Quest ativeQuest;
 
-    [SerializeField]
-    Image rewordImgae; //보석 이미지
-    [SerializeField]
-    TextMeshProUGUI questName;//퀘스트 네임 컴포넌트
-    [SerializeField]
-    TextMeshProUGUI questCountText;//퀘스트 실행 횟수 컴포넌트
+    public Sprite goldSprite;
+    public Sprite jewelSprite;
+
+    public UnityEvent OnChangeQuest;
 
     int cur_num;
     int goalNum;
-    public int ongoingQuest_num;
+
+    public SmallQuestUI smallQuestPanel;
     
     private void Awake()
     {
@@ -39,7 +35,7 @@ public class QuestManager : MonoBehaviour
             Destroy(this);
         }
 
-        questpanel_BTn = questPanel.GetComponent<Button>();
+       //questpanel_BTn = questPanel.GetComponent<Button>();
     }
 
     private void Start()
@@ -62,35 +58,47 @@ public class QuestManager : MonoBehaviour
     {
         ativeQuest = quests[num];
         ativeQuest.ActiveQurst();
+        smallQuestPanel.gameObject.SetActive(true);
+        smallQuestPanel.Setting(ativeQuest);
+        OnChangeQuest?.Invoke();
     }
 
     public void UpDateQuest(Quest_ScriptableObject.QuestType questType)
     {
         ativeQuest.UpdateQuest(questType);
         //UPdate UI에도 카운트랑 상태도 전달
+        OnChangeQuest?.Invoke();
+        smallQuestPanel.Setting(ativeQuest);
     }
 
     public void PaymentReward() // UI에서 받음
     {
         ativeQuest.questStat = Quest.QuestStat.RewardPaymented;
-        
+
         //리워드 지급 실행
-        
-        if (ativeQuest.questdata.quest_number + 1 <= questsData.Count)
+        print("리워드 지급!");
+       
+
+        if (ativeQuest.questdata.quest_number<= questsData.Count)
         {
             OnAtiveQuest(ativeQuest.questdata.quest_number + 1);
         }
         else
         {
-            //모든 퀘스트 완료
+            ativeQuest = null;
+
         }
-        
+
+        smallQuestPanel.Setting(ativeQuest);
+        OnChangeQuest?.Invoke();
+
+
     }
     
 
     
 
-    public void StartQuest(int num)
+    /*public void StartQuest(int num)
     {
         questpanel_BTn.enabled = false;
         ongoingQuest_num = num;
@@ -130,7 +138,7 @@ public class QuestManager : MonoBehaviour
         {
             questPanel.SetActive(false);
         }
-    }
+    }*/
 
 
 

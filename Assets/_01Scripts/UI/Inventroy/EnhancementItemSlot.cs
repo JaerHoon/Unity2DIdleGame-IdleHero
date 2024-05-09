@@ -5,7 +5,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 
-public class EnhancementItemSlot : Slots
+public class EnhancementItemSlot : Slots, IQuestChecker
 {
     int a;
     [SerializeField]
@@ -33,6 +33,8 @@ public class EnhancementItemSlot : Slots
     TextMeshProUGUI successLv;
     [SerializeField]
     TextMeshProUGUI successpow;
+
+    public Quest_ScriptableObject.QuestType questType { get ; set ; }
 
     private void OnEnable()
     {
@@ -84,11 +86,18 @@ public class EnhancementItemSlot : Slots
             successPanel.SetActive(true);
             failPanel.SetActive(false);
             ItemManager.instance.ChangeEqument?.Invoke();
+            UpdateQuestInfo();
         }
         else
         {
             successPanel.SetActive(false);
             failPanel.SetActive(true);
         }
+    }
+
+    public void UpdateQuestInfo()
+    {
+        questType = Quest_ScriptableObject.QuestType.Equipment_Enhancement;
+        QuestManager.instance.UpDateQuest(questType);
     }
 }
