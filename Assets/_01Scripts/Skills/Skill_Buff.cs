@@ -16,12 +16,17 @@ public class Skill_Buff : MonoBehaviour
     [SerializeField]
     Image skillCoolTimeGauge; // 스킬 쿨타임 게이지 표시 이미지
 
+    [SerializeField]
+    Image buffState;
+
     bool isCoolTime = false; // 쿨타임 플래그
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
+    bool isBuffRun = false;
 
     SpriteRenderer player; // 스프라이트렌더러 변수
     float changeColorTime = 20.0f; // 플레이어 색상을 20초간 변경한다.
+    float buffTime = 10.0f;
     public Color skillColor = new Color(1.0f, 0.5f, 0.5f, 1.0f); // 차례대로 R,G,B,알파값이며 red색상으로 변경한다.
     Color originColor; 
     void Start()
@@ -36,6 +41,8 @@ public class Skill_Buff : MonoBehaviour
 
         player = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         originColor = player.color; // 플레이어의 원래 색상을 originColor에 담는다.
+
+        buffState.enabled = false;
     }
 
     public void ActivatedBuff()
@@ -48,6 +55,11 @@ public class Skill_Buff : MonoBehaviour
         SkillManager.instance.OnActivatedBuff();
         CoolTimeStart();
         StartCoroutine(changeColor(skillColor, changeColorTime));
+        
+        buffState.enabled = true;
+        StartCoroutine(currentBuff());
+
+
     }
 
     IEnumerator changeColor(Color redColorChange, float changeTime)
@@ -56,8 +68,19 @@ public class Skill_Buff : MonoBehaviour
         yield return new WaitForSeconds(changeTime); // changeColorTime만큼 대기한다.
         player.color = originColor; // changeColorTime 이후에는 플레이어의 색상을 원래 색상으로 되돌린다.
 
+        
     }
 
+
+    IEnumerator currentBuff()
+    {
+        yield return new WaitForSeconds(0.5f);
+        buffState.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        buffState.enabled = true;
+        StartCoroutine(currentBuff());
+
+    }
 
     public void CoolTimeStart()
     {
@@ -69,8 +92,9 @@ public class Skill_Buff : MonoBehaviour
 
     public void CoolTimeState()
     {
-        float cooltime = skillCoolTime / maxskillCool; // 스킬 쿨타임 / 최대쿨타임
-        skillCoolTimeGauge.fillAmount = cooltime;
+        float distance = skillCoolTime / maxskillCool; // 스킬 쿨타임 / 최대쿨타임
+        skillCoolTimeGauge.fillAmount = distance;
+        //print(buffCoolTimeState);
     }
 
 
@@ -88,7 +112,6 @@ public class Skill_Buff : MonoBehaviour
             }
         }
 
-
-
+        
     }
 }
