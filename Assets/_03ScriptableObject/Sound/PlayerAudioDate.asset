@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f0f62b27a7b234d85c2026e10ac57d, type: 3}
+  m_Name: PlayerAudioDate
+  m_EditorClassIdentifier: 
+  soundSrc:
+  - id: 0
+    name: "\uAE30\uBCF8\uACF5\uACA9 \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: d5c3e0073447acf478e87d0b42fcd790, type: 3}
+  - id: 0
+    name: "Earth \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: d036f5c0f03af2f44824f749bc5d1743, type: 3}
+  - id: 0
+    name: "\uD1A0\uB124\uC774\uB3C4 \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: 7299018103695904d948d5e92f108c15, type: 3}
+  - id: 0
+    name: "\uC708\uB4DC \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: 63b4155ef41540f4685302a83db73e5e, type: 3}
+  - id: 0
+    name: "\uBA54\uD14C\uC624 \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: f01daddfae3e8ae439416cc2766ed0d5, type: 3}
+  - id: 0
+    name: "\uBA54\uD14C\uC624 \uD3ED\uBC1C \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: ed710877a92862f4898adeb1fe3c0c89, type: 3}
+  - id: 0
+    name: "\uBC84\uD504 \uC0AC\uC6B4\uB4DC"
+    audioClip: {fileID: 8300000, guid: bf5164f7838077c4cb4829d1e4df5387, type: 3}

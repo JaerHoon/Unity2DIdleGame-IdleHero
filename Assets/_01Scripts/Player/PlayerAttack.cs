@@ -137,6 +137,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if(isAttack==true)
             anim.SetInteger("attack", 1); // 공격 애니메이션 동작
+
+        
     }
 
     void stopAttackAnim()
