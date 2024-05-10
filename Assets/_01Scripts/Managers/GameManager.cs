@@ -23,12 +23,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public PlayerAttack playerAttack;
+    //public PlayerAttack playerAttack;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
+        //playerAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
     }
 
     public void OnSetPausePanel()
