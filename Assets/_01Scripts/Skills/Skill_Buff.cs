@@ -23,6 +23,9 @@ public class Skill_Buff : MonoBehaviour
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
     bool isBuffRun = false;
+    bool isCoroutineRun = false;
+    float time = 20.0f;
+
 
     SpriteRenderer player; // 스프라이트렌더러 변수
     float changeColorTime = 20.0f; // 플레이어 색상을 20초간 변경한다.
@@ -47,6 +50,7 @@ public class Skill_Buff : MonoBehaviour
 
     public void ActivatedBuff()
     {
+        Invoke("blinkBuff", time - 5);
         if (isCoolTime) // 쿨타임중일때는 공격X
         {
             return;
@@ -57,10 +61,16 @@ public class Skill_Buff : MonoBehaviour
         StartCoroutine(changeColor(skillColor, changeColorTime));
         
         buffState.enabled = true;
-        StartCoroutine(currentBuff());
 
+        
 
     }
+
+    void blinkBuff()
+    {
+        StartCoroutine(currentBuff());
+    }
+    
 
     IEnumerator changeColor(Color redColorChange, float changeTime)
     {
@@ -74,13 +84,25 @@ public class Skill_Buff : MonoBehaviour
 
     IEnumerator currentBuff()
     {
-        yield return new WaitForSeconds(0.5f);
-        buffState.enabled = false;
-        yield return new WaitForSeconds(0.5f);
-        buffState.enabled = true;
-        StartCoroutine(currentBuff());
+
+        while (true)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                buffState.enabled = false;
+                yield return new WaitForSeconds(0.25f);
+                buffState.enabled = true;
+                yield return new WaitForSeconds(0.25f);
+            }
+            buffState.enabled = false;
+            yield break;
+        }
+        
+       
 
     }
+
+
 
     public void CoolTimeStart()
     {
@@ -105,6 +127,7 @@ public class Skill_Buff : MonoBehaviour
         {
             skillCoolTime -= Time.deltaTime; // Time값 만큼 쿨타임 조금씩 감소한다.
             CoolTimeState();
+            print(skillCoolTime);
             if (skillCoolTime <= 0f)
             {
                 isCoolTime = false;
@@ -113,5 +136,8 @@ public class Skill_Buff : MonoBehaviour
         }
 
         
+        
+
+
     }
 }
