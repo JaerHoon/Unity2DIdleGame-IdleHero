@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillNumber: 3
   damage: 8
-  coolTime: 8
-  skillname: Wind
+  coolTime: 3
+  skillname: "\uCE7C\uB0A0\uBC14\uB78C"
   skillinfo: 
   skillPrefab: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
   icon: {fileID: 21300000, guid: 0baec4da0dbc2b34890084ac36fa1d5e, type: 3}

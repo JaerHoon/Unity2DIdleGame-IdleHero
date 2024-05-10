@@ -47,6 +47,11 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
+    public void GetAttackBox()
+    {
+        GetComponentInChildren<PlayerAttackBox>().OnColliderBox();
+        //print("inGetAttackBox");
+    }
 
     public void IsMonsterAttack()
     {

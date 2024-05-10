@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-[RequireComponent(typeof(Rigidbody2D),typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMoving : MonoBehaviour
 {
     public VariableJoystick joy;
