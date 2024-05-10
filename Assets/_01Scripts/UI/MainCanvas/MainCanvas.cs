@@ -41,7 +41,17 @@ public class MainCanvas : MonoBehaviour
     public void OnClick(int Btn_num)
     {
         cancelButton.gameObject.SetActive(true);
-        cancelButton2.gameObject.SetActive(true);
+       
+        if(Btn_num == 3)
+        {
+            cancelButton2.gameObject.SetActive(false);
+        }
+        else
+        {
+            cancelButton2.gameObject.SetActive(true);
+        }
+    
+
 
         if (itemSummon.IsSummoning == false)
         {
