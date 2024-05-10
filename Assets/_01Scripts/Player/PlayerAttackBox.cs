@@ -34,7 +34,7 @@ public class PlayerAttackBox : MonoBehaviour
     public void OnColliderBox()
     {
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        //print("inOncollbox");
+        PlayerSound.instance.OnwpaponSound();
         Invoke("offCollider", 0.2f);
     }
 

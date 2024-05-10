@@ -57,6 +57,7 @@ public class Skill_Buff : MonoBehaviour
         }
 
         SkillManager.instance.OnActivatedBuff();
+        PlayerSound.instance.OnBuffSound();
         CoolTimeStart();
         StartCoroutine(changeColor(skillColor, changeColorTime));
         
