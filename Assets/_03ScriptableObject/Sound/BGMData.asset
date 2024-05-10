@@ -17,5 +17,11 @@ MonoBehaviour:
     name: 
     audioClip: {fileID: 8300000, guid: b0402506a57b18d408c6d3e580a2fe90, type: 3}
   - id: 0
-    name: 
+    name: main
     audioClip: {fileID: 8300000, guid: 98ebeb6946f5e93429fa08ea60dcd04b, type: 3}
+  - id: 0
+    name: boss
+    audioClip: {fileID: 8300000, guid: 2f6c4cffe7ca99747ab5ee85a9265e48, type: 3}
+  - id: 0
+    name: intro
+    audioClip: {fileID: 8300000, guid: 228acae320b8d314ebe08b028963a249, type: 3}
