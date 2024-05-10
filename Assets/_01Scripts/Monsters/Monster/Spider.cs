@@ -31,6 +31,8 @@ public class Spider : RecyclableMonster
 
     [SerializeField]
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
+    [SerializeField]
+    AudioStorage soundStorage;//음향정보
 
 
     public float spiderAttackMovementSpeed = 5.0f;
@@ -57,6 +59,7 @@ public class Spider : RecyclableMonster
         gameObject.tag = "monster";
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
+        MyAudioSource = gameObject.GetComponent<AudioSource>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
         DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
         collRange = 0.3f;
@@ -71,6 +74,7 @@ public class Spider : RecyclableMonster
         damageText.GetComponent<DamageText>().damage = MonDamagedTextCal(spiderData.defense, PlayerDamage);
         if (hp <= 0)
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[1].SoundFile, 0.4f);
             Mycollider2D.enabled = false;
             isDead = true;
             MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
@@ -78,6 +82,7 @@ public class Spider : RecyclableMonster
         }
         else
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[0].SoundFile, 0.4f);
             if (!isCCTime)//군중제어 저항 시간이 지나면
             {
                 isDamaged = true;

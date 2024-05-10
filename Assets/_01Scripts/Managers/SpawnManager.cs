@@ -201,7 +201,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-
+        Time.timeScale = 5.0f;
 
 
         //=======================테스트용 소환======================================
