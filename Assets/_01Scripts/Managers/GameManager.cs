@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;//일시정지 패널 프리팹
     private bool isPause = false;
+    public bool pressStartButton;
 
     private static GameManager _instance;
     // 인스턴스에 접근하기 위한 프로퍼티
@@ -62,7 +63,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene()
     {
-
+        pressStartButton = true;
+        SceneManager.LoadScene(1);
     }
     
 }
