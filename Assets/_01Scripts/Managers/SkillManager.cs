@@ -144,7 +144,14 @@ public class SkillManager : MonoBehaviour
         
     }
 
-   
+    
+    public void ChangeSlot(int[] skillNum)
+    {
+        skillSlot = skillNum;
+        OnClickchangedskill();
+
+
+    }
     
 
     public void OnclickSkill(int slotNumber)
@@ -250,7 +257,7 @@ public class SkillManager : MonoBehaviour
             slot1skillimages[i].SetActive(false);
         }
         slot1skillimages[skillSlot[1]].SetActive(true);
-        
+        // 버프 아이콘 장착
     }
 
     void angleWind() // 각 배열에 Rotation값을 할당해 놓았다.

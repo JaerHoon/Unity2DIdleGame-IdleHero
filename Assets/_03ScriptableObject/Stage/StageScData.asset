@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d525c31478114404799ce8703d61217b, type: 3}
   m_Name: StageScData
   m_EditorClassIdentifier: 
-  CurrentStageNum: 0
+  CurrentStageNum: 1
   stages:
   - StageNum: 0
     SlimeNum: 20

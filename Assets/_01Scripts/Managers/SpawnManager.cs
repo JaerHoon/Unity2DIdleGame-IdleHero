@@ -167,7 +167,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator DelayRestoreCoin(Gold_Coin UsedCoin, RecyclableMonster UsedMonster)
     {
-        float randIndex = UnityEngine.Random.Range(3.2f, 3.5f);
+        float randIndex = UnityEngine.Random.Range(3.5f, 3.7f);
         yield return new WaitForSeconds(randIndex);
         coinFactory.CoinRestore(UsedCoin);
         Resource.instance.GetResource(UsedMonster.coinValue, 0);

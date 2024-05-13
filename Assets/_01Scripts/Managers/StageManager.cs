@@ -48,14 +48,16 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     private void Start()
     {
+        stageText.text = "";
         gameOverPanel.SetActive(false);
         GOPalpha = gameOverPanel.GetComponent<Image>().color;
+        Invoke("OnStartWave", 1.5f);
     }
 
 
     public void OnStartWave()//버튼으로 스테이지 시작 이벤트 연결 
     {
-
+        
         SpawnManager.instance.RestoreNum = 0;//스테이지 초기화 시 죽은 몬스터 수 초기화
         SpawnManager.instance.allSpawnNum = 0;//스테이지 초기화 시 스폰 몬스터 수 초기화
         stageStartButton.interactable = false;
@@ -66,7 +68,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     void ChangeStageText()
     {
-        string stageTx = "Stage 1-" + (StageData.currentStageNum + 1).ToString();
+        stageText.enabled = true;
+        string stageTx = "STAGE 1-" + (StageData.currentStageNum + 1).ToString();
         stageText.text = stageTx;
         textSequence = DOTween.Sequence();
         stageText.transform.position = Vector3.zero;
@@ -75,8 +78,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
         stageText.color = color;
         StartCoroutine(DelayStageAlhpa());
         textSequence.Append(stageText.transform.DOScale(new Vector3(2, 2, 1), 1.5f));
-        textSequence.Append(stageText.transform.DOMove(new Vector3(1.8f, 4.2f, 0), 0.7f).SetEase(Ease.OutCubic));
-        textSequence.Join(stageText.transform.DOScale(new Vector3(1, 1, 1), 0.7f));
+        textSequence.Append(stageText.transform.DOMove(new Vector3(-0.2f, 3.7f, 0), 0.7f).SetEase(Ease.OutCubic));
+        textSequence.Join(stageText.transform.DOScale(new Vector3(0.68f, 0.68f, 1), 0.7f));
 
     }
 
