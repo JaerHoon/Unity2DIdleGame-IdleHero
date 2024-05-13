@@ -39,6 +39,27 @@ public class Quest
      public void ActiveQurst()
     {
         questStat = QuestStat.Ative;
+
+        switch ((int)questdata.questType)
+        {
+            case 0:
+                quest_Count = StatusManager.instance.Hp_Lv-1;
+                break;
+            case 1:
+                quest_Count = StatusManager.instance.ATkpow_Lv-1;
+                break;
+            case 2:
+                quest_Count = StatusManager.instance.DFN_Lv-1;
+                break;
+            case 3:
+                quest_Count = StatusManager.instance.CrtRate_Lv-1;
+                break;
+        }
+
+        if (quest_Count >= questdata.numberOfGoal)
+        {
+            CompleteQuest();
+        }
     }
 
     public void UpdateQuest(Quest_ScriptableObject.QuestType questType)

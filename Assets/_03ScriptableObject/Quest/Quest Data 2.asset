@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Quest Data 2
   m_EditorClassIdentifier: 
   quest_number: 2
-  questName: "\uBC29\uC5B4\uB825\uC6B8 Lv.5\uAE4C\uC9C0 \uAC15\uD654\uD558\uC138\uC694."
+  questName: "\uBC29\uC5B4\uB825\uC744 Lv.5\uAE4C\uC9C0 \uAC15\uD654\uD558\uC138\uC694."
   questExplain: 
-  numberOfGoal: 5
+  numberOfGoal: 4
   rewordAmount: 300
   rewardType: 0
   questType: 2

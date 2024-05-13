@@ -6,7 +6,8 @@ using TMPro;
 using DG.Tweening;
 using System;
 
-public class StageManager : MonoBehaviour
+public class StageManager : MonoBehaviour,IQuestChecker
+
 {
 
     public static StageManager instance;//스폰 매니저 싱글톤 생성
@@ -42,6 +43,8 @@ public class StageManager : MonoBehaviour
     
 
     bool isStartStage = false;
+
+    public Quest_ScriptableObject.QuestType questType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public void OnStartWave()//버튼으로 스테이지 시작 이벤트 연결 
     {
@@ -93,6 +96,10 @@ public class StageManager : MonoBehaviour
     {
 
         StageData.currentStageNum++;//현재 스테이지 상승
+        if(StageData.currentStageNum > 5)
+        {
+            UpdateQuestInfo();
+        }
         if (StageData.currentStageNum >= StageData.Stages.Length)//마지막 스테이지 클리어 시 처음 스테이지로 돌아옴
             StageData.currentStageNum = 0;
         OnStartWave();
@@ -121,5 +128,10 @@ public class StageManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateQuestInfo()
+    {
+        QuestManager.instance.UpDateQuest(Quest_ScriptableObject.QuestType.StageClear);
     }
 }
