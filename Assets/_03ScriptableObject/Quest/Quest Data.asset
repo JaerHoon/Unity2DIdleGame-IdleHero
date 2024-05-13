@@ -15,7 +15,7 @@ MonoBehaviour:
   quest_number: 0
   questName: "\uACF5\uACA9\uB825\uC744 Lv.5\uAE4C\uC9C0 \uAC15\uD654\uC138\uC694."
   questExplain: 
-  numberOfGoal: 5
+  numberOfGoal: 4
   rewordAmount: 300
   rewardType: 0
   questType: 1

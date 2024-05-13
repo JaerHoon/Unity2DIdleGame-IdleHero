@@ -26,6 +26,7 @@ public class RecyclableMonster : MonoBehaviour
     protected LayerMask layermask;
     protected int playerLayer;
 
+    protected AudioSource MyAudioSource;
     protected Animator anim;
     protected Renderer MyRenderer;
     protected Collider2D Mycollider2D;

@@ -32,6 +32,8 @@ public class BabyDragon : RecyclableMonster
     FireBall fireballPrefab;//파이어 볼 프리팹
     [SerializeField]
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
+    [SerializeField]
+    AudioStorage soundStorage;//음향정보
 
     MonsterFactory fireBallFactory; //파이어 볼 펙토리
 
@@ -57,6 +59,7 @@ public class BabyDragon : RecyclableMonster
         fireBallFactory = new MonsterFactory(fireballPrefab, 2);
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
+        MyAudioSource = gameObject.GetComponent<AudioSource>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
         DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(200, 50);
     }
@@ -68,6 +71,7 @@ public class BabyDragon : RecyclableMonster
         damageText.GetComponent<DamageText>().damage = MonDamagedTextCal(drangonData.defense,PlayerDamage);//데미지 값을 계산해서 넘겨줌
         if (hp <= 0)
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[2].SoundFile);
             Mycollider2D.enabled = false;
             isDead = true;
             MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
@@ -75,6 +79,7 @@ public class BabyDragon : RecyclableMonster
         }
         else
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[1].SoundFile);
             if (!isCCTime)//군중제어 저항 시간이 지나면
             {
                 isDamaged = true;
@@ -175,6 +180,7 @@ public class BabyDragon : RecyclableMonster
 
     public void OnFireBallLaunched()
     {
+        MyAudioSource.PlayOneShot(soundStorage.SoundSrc[0].SoundFile);
         RecyclableMonster fireBall = fireBallFactory.GetMonster();
         fireBall.Activate(GetComponentsInChildren<Transform>()[2].transform.position);
         fireBall.FireBallDestroyed += OnFireBallDestoryed;

@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3956700164082527123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011801641133427538}
+  - component: {fileID: 8968673896277757837}
+  - component: {fileID: 4326075771176978166}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011801641133427538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956700164082527123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8968673896277757837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956700164082527123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9690716d6f86795468c81571e936a321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earth: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
+  tornado: {fileID: 11400000, guid: 1a73c5df13c6f3b419d95cd9844c9aa5, type: 2}
+  wind: {fileID: 11400000, guid: 4e52e1a9850676148823c2d5f27c9be0, type: 2}
+  meteor: {fileID: 11400000, guid: 31be760138f515d4cad2c7d9a921d049, type: 2}
+  EarthPrefab: {fileID: 537165625556540832, guid: f4e2340f07a4729468bda3f423193b0a, type: 3}
+  WindPrefab: {fileID: 3022699436227741213, guid: 60614218f03b0c64da614f730adac9a1, type: 3}
+  TornadoPrefab: {fileID: 8421651076618741459, guid: bd3aed16ceabcb24b9db40e66890ce0b, type: 3}
+  MeteorPrefab: {fileID: 621059610374767611, guid: 11e2363d258f4114e88655f297922cb5, type: 3}
+  BigMeteorPrefab: {fileID: 3012051180939848206, guid: b84848893992eca41b18bd4d443e01a4, type: 3}
+  BuffForthPrefab: {fileID: 0}
+  BuffBackPrefab: {fileID: 0}
+  playerTr: {fileID: 0}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+  skillCoolTimeGauge2: {fileID: 0}
+  earthPos: {fileID: 0}
+  Slot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cooltimeObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  button:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  equipskills: {fileID: 0}
+  skillslot1: {fileID: 4292369591270514734, guid: 52b880dc6e279a449a1283c7539613ed, type: 3}
+  slot0skillimages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slot1skillimages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+--- !u!114 &4326075771176978166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956700164082527123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701e9eac3b4c6914487c9d14523732d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffForth: {fileID: 11400000, guid: d9b3336ffb2df0a4aa77c993217f3acc, type: 2}
+  buffBack: {fileID: 11400000, guid: b724b06d76909844f8a62d1c70d2da4d, type: 2}
+  skillimage: {fileID: 0}
+  skillCoolTimeGauge: {fileID: 0}
+  buffState: {fileID: 0}
+  playerScr: {fileID: 11400000, guid: cf4499fd856bd2645ad0e93fc8e97bbd, type: 2}
+  buff: {fileID: 11400000, guid: d9b3336ffb2df0a4aa77c993217f3acc, type: 2}
+  buffAttack: 0
+  buffDefence: 0
+  isCoolTime: 0
+  skillColor: {r: 1, g: 0.5, b: 0.5, a: 1}

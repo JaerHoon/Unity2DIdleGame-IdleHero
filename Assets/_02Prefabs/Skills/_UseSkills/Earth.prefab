@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3501874267194984377}
   - component: {fileID: 8829372247541692675}
   - component: {fileID: 4151238450470372624}
+  - component: {fileID: 8341086766029701478}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -119,3 +120,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d408439ec615349bc5d6aced3031f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EarthDamage: 0
+  player: {fileID: 11400000, guid: cf4499fd856bd2645ad0e93fc8e97bbd, type: 2}
+  earth: {fileID: 11400000, guid: 9d26461add66f3346acfedfc7152d85c, type: 2}
+--- !u!61 &8341086766029701478
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537165625556540832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008601278, y: -0.14407207}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7088106, y: 0.45507166}
+  m_EdgeRadius: 0

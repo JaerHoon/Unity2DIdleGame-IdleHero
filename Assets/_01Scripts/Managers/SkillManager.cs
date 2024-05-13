@@ -101,10 +101,10 @@ public class SkillManager : MonoBehaviour
     GameObject[] slot0skillimages;
     [SerializeField]
     GameObject[] slot1skillimages;
-    /*********************쿨타임 관련 변수****************************/
-    bool isCoolTime = false; // 쿨타임 플래그
-    float skillCoolTime = 0f; // 초기 쿨타임값
-    float maxskillCool; // 최대 쿨타임값
+
+    PlayerMoving playermove;
+    public Button button1; // 인스펙터에 스킬 버튼 넣기 위한 변수
+    public Button button2; // 인스펙터에 스킬 버튼 넣기 위한 변수
     void Start()
     {
         earthFactory = new SkillFactory(EarthPrefab, 1); // Earth관련 팩토리 가져오기
@@ -120,8 +120,8 @@ public class SkillManager : MonoBehaviour
 
         BuffForthPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
         BuffBackPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
-        skillSlot[0] = 1; // 0번 스킬 슬롯에 1번 스킬 발동
-        skillSlot[1] = 3; // 1번 스킬 슬롯에 3번 스킬 발동
+        skillSlot[0] = 2; // 0번 스킬 슬롯에 1번 스킬 발동
+        skillSlot[1] = 4; // 1번 스킬 슬롯에 3번 스킬 발동
         skillSlot[2] = 5; // 2번 스킬 슬롯에 5번 스킬 발동
         
         skillCoolTimeGauge.fillAmount = 0f;
@@ -140,12 +140,16 @@ public class SkillManager : MonoBehaviour
             //skillimage.sprite = earth.icon;
         }
 
-
+        playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
+        
     }
 
+   
+    
 
     public void OnclickSkill(int slotNumber)
     {
+   
         if (slotNumber == 0)
         {
             print("0번 슬롯 스킬 입니다");
@@ -229,7 +233,7 @@ public class SkillManager : MonoBehaviour
                 break;
         }
         Getbutton.enabled = true; // 쿨타임이 끝났을 때 스킬을 다시 사용하기 위해서 버튼 활성화
-       
+
     }
 
     public void OnClickchangedskill()
@@ -263,90 +267,44 @@ public class SkillManager : MonoBehaviour
 
     public void OnEarthAttack()
     {
-
-       
         GameObject earth = earthFactory.GetSkill();
+        PlayerSound.instance.OnEarthSound();
         earth.transform.position = earthPos.position;
-
-        //isCoolTime = true;
-       // skillCoolTime = this.earth.coolTime;
-        //maxskillCool = this.earth.coolTime;
-
-    
-
     }
 
 
     public void OnTornadoAttack()
     {
-        if (isCoolTime) // 쿨타임일때 스킬버튼 눌러도 공격 안나감
-        {
-            return;
-        }
-
-
+        
         foreach (Vector2 direction in Tornadodir)
         {
             GameObject tornado = tornadoFactory.GetSkill();
+            PlayerSound.instance.OnTornadoSound();
             tornado.transform.position = playerTr.position;
             Rigidbody2D rb = tornado.GetComponent<Rigidbody2D>();
             rb.velocity = direction.normalized * tornadoSpeed;
 
         }
 
-        isCoolTime = true;
-        skillCoolTime = tornado.coolTime;
-        maxskillCool = tornado.coolTime;
-
     }
 
     public void OnWindAttack()
     {
-        
-
         for (int i = 0; i < Winddir.Length; i++)
         {
             GameObject wind = windFactory.GetSkill();
+            PlayerSound.instance.OnWindSound();
             wind.transform.position = playerTr.position;
             wind.transform.rotation = Quaternion.Euler(0, 0, angles[i]);
         }
-
-        //isCoolTime = true;
-        //skillCoolTime = wind.coolTime;
-        //maxskillCool = wind.coolTime;
-    }
-
-    public void OnMeteorAttack()
-    {
-        if (isCoolTime) // 쿨타임일때 스킬버튼 눌러도 공격 안나감
-        {
-            return;
-        }
-
-        GameObject meteor = meteorFactory.GetSkill();
-        float posX = Random.Range(-2, 13);
-        meteor.transform.position = new Vector2(posX, 7);
-        meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
-
-        isCoolTime = true;
-        skillCoolTime = this.meteor.coolTime;
-        maxskillCool = this.meteor.coolTime;
     }
 
     public void OnBigMeteorAttack()
     {
-        if (isCoolTime) // 쿨타임일때 스킬버튼 눌러도 공격 안나감
-        {
-            return;
-        }
-
         GameObject meteor = BigmeteorFactory.GetSkill();
+        PlayerSound.instance.OnMeteorSound();
         meteor.transform.position = new Vector2(7, 7);
         meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
-
-        isCoolTime = true;
-        skillCoolTime = this.meteor.coolTime;
-        maxskillCool = this.meteor.coolTime;
     }
 
     public void OnActivatedBuff()
@@ -363,9 +321,20 @@ public class SkillManager : MonoBehaviour
         BuffBackPrefab.SetActive(false);
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-
+        if(playermove.isButtonPressed==true && button1.enabled==true)
+        {
+            OnclickSkill(0);
+            
+        }
+        else if(playermove.isButtonPressed == true && button2.enabled == true)
+        {
+            OnclickSkill(1);
+        }
+        
     }
 }

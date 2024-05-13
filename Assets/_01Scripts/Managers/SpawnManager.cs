@@ -38,13 +38,18 @@ public class SpawnManager : MonoBehaviour
     //===============플레이어===================
 
     PlayerDamaged playerDamaged;
+    public bool PlayerDeath = false;
     //===============팩토리 선언=======================
     MonsterFactory babyDragonFactory; 
     MonsterFactory slimeFactory; 
     MonsterFactory batFactory; 
     MonsterFactory spiderFactory;
     CoinFactory coinFactory;
-    
+
+    public int allSpawnNum = 0;
+
+    public int RestoreNum = 0;
+
     void Start()
     {
         babyDragonFactory = new MonsterFactory(babyDragonPrefab,5);//몬스터 팩토리에 드래곤 인스턴스 생성
@@ -75,6 +80,12 @@ public class SpawnManager : MonoBehaviour
         else if (usedMonster.name == "bat(Clone)") batFactory.MonsterRestore(usedMonster);
         else if (usedMonster.name == "spider(Clone)") spiderFactory.MonsterRestore(usedMonster);
         else if (usedMonster.name == "baby_dragon(Clone)") babyDragonFactory.MonsterRestore(usedMonster);
+        RestoreNum++;
+        if (RestoreNum == allSpawnNum)
+        {
+
+            StageManager.instance.OnStageWin();
+        }
     }
     //void OnSlimeDestroyed(RecyclableMonster usedBabyDragon)
     //{
@@ -89,23 +100,24 @@ public class SpawnManager : MonoBehaviour
     //    usedBabyDragon.Destroyed -= OnSpiderDestroyed;
     //}
 
-    public void OnStartSpawn(StageData stageData)
+    public void OnStartSpawn(StageScData stageData, int stageNum)
     {
-        if (stageData.slimeNum > 0)
+        allSpawnNum = stageData.Stages[stageNum].slimeNum + stageData.Stages[stageNum].batNum + stageData.Stages[stageNum].spiderNum + stageData.Stages[stageNum].babyDragonNum;
+        if (stageData.Stages[stageNum].slimeNum > 0)
         {
-            StartCoroutine(SpawnDelay(stageData.slimeNum,  slimeFactory));
+            StartCoroutine(SpawnDelay(stageData.Stages[stageNum].slimeNum, slimeFactory));
         }
-        if (stageData.batNum > 0)
+        if (stageData.Stages[stageNum].batNum > 0)
         {
-            StartCoroutine(SpawnDelay(stageData.batNum, batFactory));
+            StartCoroutine(SpawnDelay(stageData.Stages[stageNum].batNum, batFactory));
         }
-        if (stageData.spiderNum > 0)
+        if (stageData.Stages[stageNum].spiderNum > 0)
         {
-            StartCoroutine(SpawnDelay(stageData.spiderNum, spiderFactory));
+            StartCoroutine(SpawnDelay(stageData.Stages[stageNum].spiderNum, spiderFactory));
         }
-        if (stageData.babyDragonNum > 0)
+        if (stageData.Stages[stageNum].babyDragonNum > 0)
         {
-            StartCoroutine(SpawnDelay(stageData.babyDragonNum, babyDragonFactory));
+            StartCoroutine(SpawnDelay(stageData.Stages[stageNum].babyDragonNum, babyDragonFactory));
         }
 
 
@@ -189,7 +201,6 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-
 
 
         //=======================테스트용 소환======================================

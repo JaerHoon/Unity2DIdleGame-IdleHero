@@ -29,6 +29,8 @@ public class Slime : RecyclableMonster
 
     [SerializeField]
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
+    [SerializeField]
+    AudioStorage soundStorage;//음향정보
 
     private void OnEnable()//활성화 시 초기화
     {
@@ -52,6 +54,7 @@ public class Slime : RecyclableMonster
         gameObject.tag = "monster";
         anim = GetComponent<Animator>();
         MyRenderer = gameObject.GetComponent<Renderer>();
+        MyAudioSource = gameObject.GetComponent<AudioSource>();
         Mycollider2D = gameObject.GetComponent<CircleCollider2D>();
         collRange = 0.35f;
     }
@@ -63,6 +66,7 @@ public class Slime : RecyclableMonster
         damageText.GetComponent<DamageText>().damage = MonDamagedTextCal(slimeData.defense, PlayerDamage);
         if (hp <= 0)
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[1].SoundFile, 0.5f);
             Mycollider2D.enabled = false;
             isDead = true;
             MonDeath?.Invoke(this);//코인생성, 죽었을때 즉각 이벤트
@@ -70,6 +74,7 @@ public class Slime : RecyclableMonster
         }
         else
         {
+            MyAudioSource.PlayOneShot(soundStorage.SoundSrc[0].SoundFile, 0.5f);
             if (!isCCTime)//군중제어 저항 시간이 지나면
             {
                 isDamaged = true;
@@ -149,7 +154,7 @@ public class Slime : RecyclableMonster
             {
                 PlayerAttack?.Invoke(damage);//몬스터->플레이어 공격 이벤트
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1.5f);
         }
     }
 
