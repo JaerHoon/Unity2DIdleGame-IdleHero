@@ -27,6 +27,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public Button stageStartButton;
     public TextMeshProUGUI stageText;
 
+    public GameObject stageRestartBt;
+    public GameObject gameOverPanel;
 
     [SerializeField]
     StageScData StageData;
@@ -39,12 +41,17 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public Action<StageScData, int> StartWave;
 
 
-
-    
-
     bool isStartStage = false;
 
-    public Quest_ScriptableObject.QuestType questType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    public Quest_ScriptableObject.QuestType questType { get; set; }
+
+    private void Start()
+    {
+        gameOverPanel.SetActive(false);
+        GOPalpha = gameOverPanel.GetComponent<Image>().color;
+    }
+
 
     public void OnStartWave()//버튼으로 스테이지 시작 이벤트 연결 
     {
@@ -72,6 +79,47 @@ public class StageManager : MonoBehaviour,IQuestChecker
         textSequence.Join(stageText.transform.DOScale(new Vector3(1, 1, 1), 0.7f));
 
     }
+
+    public void OnPlayerDie()
+    {
+        gameOverPanel.SetActive(true);
+        stageRestartBt.SetActive(false);
+        StartCoroutine(FadeOutGameOverPanel());
+    }
+
+    Color GOPalpha;
+
+    IEnumerator FadeOutGameOverPanel()
+    {
+        while (GOPalpha.a <= 0.98)
+        {
+            GOPalpha.a = Mathf.Lerp(GOPalpha.a, 1, Time.deltaTime * 2);
+            yield return new WaitForFixedUpdate();
+            gameOverPanel.GetComponent<Image>().color = GOPalpha;
+            if (GOPalpha.a > 0.9f && GOPalpha.a < 0.95f)
+            {
+                stageRestartBt.SetActive(true);
+                yield break;
+            }
+        }
+    }
+
+    IEnumerator FadeInGameOverPanel()
+    {
+        while (GOPalpha.a >= 0.02)
+        {
+            GOPalpha.a = Mathf.Lerp(GOPalpha.a, 0, Time.deltaTime * 2);
+            yield return new WaitForFixedUpdate();
+            gameOverPanel.GetComponent<Image>().color = GOPalpha;
+            if (GOPalpha.a <= 0.1f)
+            {
+                gameOverPanel.SetActive(false);
+                yield break;
+            }
+        }
+       
+    }
+
 
     IEnumerator DelayStageAlhpa()
     {
@@ -109,7 +157,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public void OnStageMonsterClear()//스테이지 클리어 이벤트 수신 함수
     {
         SpawnManager.instance.OnDestroyAllMonster();
-        OnStartWave();
+        StartCoroutine(FadeInGameOverPanel());
+        Invoke("OnStartWave", 3.0f);
     }
 
     public void OnStageMonsterDamaged()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
