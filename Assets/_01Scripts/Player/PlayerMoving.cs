@@ -7,7 +7,7 @@ public class PlayerMoving : MonoBehaviour
 {
     public VariableJoystick joy;
     Animator anim;
-    
+
 
     float scaleX;
     float scaleY;
@@ -57,12 +57,15 @@ public class PlayerMoving : MonoBehaviour
     public void OnButtonClick()
     {
         isButtonPressed = !isButtonPressed;
-
-        if(isButtonPressed)
+        
+        if (isButtonPressed)
         {
             monsterTrace();
+            
         }
     }
+
+    
 
     public void monsterTrace()
     {
@@ -154,10 +157,12 @@ public class PlayerMoving : MonoBehaviour
         if (isButtonPressed && (joy.Horizontal == 0 && joy.Vertical == 0)) //자동전투가 켜져 있는데 조이스틱이 안움직이는 경우
         {
             monsterTrace();
+            
         }
         else if(isButtonPressed && (joy.Horizontal != 0 || joy.Vertical != 0)) //자동전투가 켜져 있는데 조이스틱이 움직이는 경우
         {
             PlayerControll();
+            
         }
         else //자동전투가 꺼져 있는데 조이스틱이 움직이는 경우
         {

@@ -7,6 +7,8 @@ public class Buff : MonoBehaviour
     public Transform playerTr;
     void Start()
     {
+
+        
         
     }
 
