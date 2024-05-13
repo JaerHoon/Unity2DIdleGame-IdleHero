@@ -22,14 +22,14 @@ public class PlayerAttackBox : MonoBehaviour
             damage = (player.playerDamage + atkpow) * player.playerCriticalPower;
             
         }
-        else if(skillBuff.isCoolTime != false && Rnum < CrtRate)
-        {
-            damage = (player.playerDamage + atkpow) * player.playerCriticalPower + skillBuff.buffAttack;
-        }
-        else if(skillBuff.isCoolTime != false)
-        {
-            damage = player.playerDamage + atkpow + skillBuff.buffAttack;
-        }
+        //else if(skillBuff.isCoolTime != false && Rnum < CrtRate)
+        //{
+        //    damage = (player.playerDamage + atkpow) * player.playerCriticalPower + skillBuff.buffAttack;
+        //}
+        //else if(skillBuff.isCoolTime != false)
+        //{
+        //    damage = player.playerDamage + atkpow + skillBuff.buffAttack;
+        //}
         else
         {
             damage = player.playerDamage + atkpow;
