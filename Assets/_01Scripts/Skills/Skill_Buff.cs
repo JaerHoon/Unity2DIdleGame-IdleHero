@@ -19,7 +19,15 @@ public class Skill_Buff : MonoBehaviour
     [SerializeField]
     Image buffState;
 
-    bool isCoolTime = false; // 쿨타임 플래그
+    [SerializeField]
+    Player_ScriptableObject playerScr;
+    [SerializeField]
+    Skill_ScriptableObject buff;
+    
+    public int buffAttack;
+    public int buffDefence;
+
+    public bool isCoolTime = false; // 쿨타임 플래그
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
     bool isBuffRun = false;
@@ -31,7 +39,8 @@ public class Skill_Buff : MonoBehaviour
     float changeColorTime = 20.0f; // 플레이어 색상을 20초간 변경한다.
     float buffTime = 10.0f;
     public Color skillColor = new Color(1.0f, 0.5f, 0.5f, 1.0f); // 차례대로 R,G,B,알파값이며 red색상으로 변경한다.
-    Color originColor; 
+    Color originColor;
+    PlayerMoving playermove;
     void Start()
     {
         skillimage.sprite = buffForth.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
@@ -46,6 +55,10 @@ public class Skill_Buff : MonoBehaviour
         originColor = player.color; // 플레이어의 원래 색상을 originColor에 담는다.
 
         buffState.enabled = false;
+
+        playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
+
+        
     }
 
     public void ActivatedBuff()
@@ -62,9 +75,10 @@ public class Skill_Buff : MonoBehaviour
         StartCoroutine(changeColor(skillColor, changeColorTime));
         
         buffState.enabled = true;
+        buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) + playerScr.playerDamage;
+        buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) + playerScr.playerDefence;
 
         
-
     }
 
     void blinkBuff()
@@ -78,8 +92,9 @@ public class Skill_Buff : MonoBehaviour
         player.color = redColorChange; // 버프 눌렀을 때 플레이어 색상을 위에서 선언한 skillColor로 변경한다.
         yield return new WaitForSeconds(changeTime); // changeColorTime만큼 대기한다.
         player.color = originColor; // changeColorTime 이후에는 플레이어의 색상을 원래 색상으로 되돌린다.
+        buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) - playerScr.playerDamage;
+        buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) - playerScr.playerDefence;
 
-        
     }
 
 
@@ -128,7 +143,7 @@ public class Skill_Buff : MonoBehaviour
         {
             skillCoolTime -= Time.deltaTime; // Time값 만큼 쿨타임 조금씩 감소한다.
             CoolTimeState();
-            print(skillCoolTime);
+            //print(skillCoolTime);
             if (skillCoolTime <= 0f)
             {
                 isCoolTime = false;
@@ -136,6 +151,10 @@ public class Skill_Buff : MonoBehaviour
             }
         }
 
+        if(playermove.isButtonPressed==true && !isCoolTime) // 자동사냥 버튼 눌렀을 때 버프스킬 쿨타임 돌때마다 자동으로 사용
+        {
+            ActivatedBuff();
+        }
         
         
 

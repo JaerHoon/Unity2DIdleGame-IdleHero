@@ -56,7 +56,7 @@ public class Skill_Meteor : MonoBehaviour
         CoolTimeStart();
         for (int i = 0; i < skillNumber; i++)
         {
-            SkillManager.instance.OnMeteorAttack();
+            SkillManager.instance.OnBigMeteorAttack();
             yield return new WaitForSeconds(nextSkillTime);
 
 

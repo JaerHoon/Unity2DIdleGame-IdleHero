@@ -14,12 +14,10 @@ public class PlayerDamaged : MonoBehaviour
     GameObject dieEffect;
     [SerializeField]
     Image hpImage;
-  
 
-    int playerhp;
-    bool isPlayerDamage = false;
+    Skill_Buff skillBuff;
+    public int playerhp;
     bool isBlood = false;
-    int playerDefence;
     int maxHP;
     
     float time;
@@ -28,12 +26,22 @@ public class PlayerDamaged : MonoBehaviour
     {
         playerhp = player.playerHP;
         maxHP = playerhp;
+        skillBuff = GetComponent<Skill_Buff>();
     }
 
-    public void DefenceCaculate()
+    public int DefenceCaculate()
     {
-        playerDefence = StatusManager.instance.GetStatus(StatusManager.playerDefence);
+        int defence = 0;
+
+        int def = StatusManager.instance.GetStatus(StatusManager.playerDefence);
+        defence = player.playerDefence + def;
         
+        if(skillBuff.isCoolTime !=false)
+        {
+            defence = player.playerDefence + def + skillBuff.buffDefence;
+        }
+        
+        return defence;
     }
 
     public void HpCaculate()
@@ -47,10 +55,10 @@ public class PlayerDamaged : MonoBehaviour
     public void OnPlayerDamaged(int monDamage)
     {
         
-        if(monDamage-playerDefence >0)
+        if(monDamage- DefenceCaculate() > 0)
         {
             //isPlayerDamage = true;
-            playerhp -= (int)monDamage - playerDefence;
+            playerhp -= (int)monDamage - DefenceCaculate();
             print("HP : " + playerhp);
             
             
@@ -70,6 +78,7 @@ public class PlayerDamaged : MonoBehaviour
 
         if(playerhp <=0 && !isBlood)
         {
+            //StageManager.instance.OnPlayerDie();
             GameObject blood = Instantiate(dieEffect);
             blood.transform.position = transform.position + Vector3.up * 0.5f;
             isBlood = true;

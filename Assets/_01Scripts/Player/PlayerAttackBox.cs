@@ -8,27 +8,42 @@ public class PlayerAttackBox : MonoBehaviour
     Player_ScriptableObject player;
     
     public int PlayerDamage;
-    
-    public void playerAttackDamage()
+    Skill_Buff skillBuff;
+    public int playerAttackDamage()
     {
+        int damage = 0;
+
         int atkpow = StatusManager.instance.GetStatus(StatusManager.playerATkpow);
         int CrtRate = StatusManager.instance.GetStatus(StatusManager.playerCrtRate) /10;
         int Rnum = Random.Range(1, 101);
         
         if(Rnum < CrtRate)
         {
-            PlayerDamage = player.playerDamage + (int)(player.playerDamage * player.playerCriticalPower);
+            damage = (player.playerDamage + atkpow) * player.playerCriticalPower;
             
+        }
+        else if(skillBuff.isCoolTime != false && Rnum < CrtRate)
+        {
+            damage = (player.playerDamage + atkpow) * player.playerCriticalPower + skillBuff.buffAttack;
+        }
+        else if(skillBuff.isCoolTime != false)
+        {
+            damage = player.playerDamage + atkpow + skillBuff.buffAttack;
         }
         else
         {
-            PlayerDamage = player.playerDamage + atkpow;
+            damage = player.playerDamage + atkpow;
         }
+
+        return damage;
     }
+
+   
 
     private void Start()
     {
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        skillBuff = GetComponent<Skill_Buff>();
     }
 
     public void OnColliderBox()
@@ -47,16 +62,8 @@ public class PlayerAttackBox : MonoBehaviour
     {
         if (collision.CompareTag("monster"))
         {
-            if (collision.gameObject.GetComponent<Slime>() != null)
-                collision.gameObject.GetComponent<Slime>().OnMonDamaged(PlayerDamage);
-            else if (collision.gameObject.GetComponent<Spider>() != null)
-                collision.gameObject.GetComponent<Spider>().OnMonDamaged(PlayerDamage);
-            else if (collision.gameObject.GetComponent<Bat>() != null)
-                collision.gameObject.GetComponent<Bat>().OnMonDamaged(PlayerDamage);
-            else if (collision.gameObject.GetComponent<BabyDragon>() != null)
-                collision.gameObject.GetComponent<BabyDragon>().OnMonDamaged(PlayerDamage);
 
-            
+            collision.gameObject.GetComponent<RecyclableMonster>().OnMonDamaged(playerAttackDamage());
         }
 
     }
