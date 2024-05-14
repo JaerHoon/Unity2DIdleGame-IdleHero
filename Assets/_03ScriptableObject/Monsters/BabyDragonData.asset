@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: BabyDragon
   Hp: 500
-  Damage: 7
+  Damage: 30
   Defense: 5
   MoveSpeed: 0.9
   AttackDistance: 5

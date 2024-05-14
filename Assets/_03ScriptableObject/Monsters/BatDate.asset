@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: Bat
   Hp: 35
-  Damage: 1
+  Damage: 10
   Defense: 0
   MoveSpeed: 1.7
   AttackDistance: 0.3

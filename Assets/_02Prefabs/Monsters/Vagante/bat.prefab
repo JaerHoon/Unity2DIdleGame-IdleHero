@@ -241,6 +241,7 @@ MonoBehaviour:
   attackMotionSpeed: 0
   DamageTextPreFab: {fileID: 6630066117901125282, guid: d9c32dd9e87c3da44a57d7f2ff9835b6, type: 3}
   soundStorage: {fileID: 11400000, guid: 4ac4ce2e922e0ce4f8446b5eda4aed2f, type: 2}
+  stageData: {fileID: 11400000, guid: a04a9f848841396408464761c7919d16, type: 2}
 --- !u!50 &4354347230654557925
 Rigidbody2D:
   serializedVersion: 4

@@ -137,6 +137,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 3503920774529069254, guid: a48eb88346ea0ef4a8ea6cc90dac481c, type: 3}
   DamageTextPreFab: {fileID: 6630066117901125282, guid: d9c32dd9e87c3da44a57d7f2ff9835b6, type: 3}
   soundStorage: {fileID: 11400000, guid: 96f1d0cef800f6745b14f3474ed78311, type: 2}
+  stageData: {fileID: 11400000, guid: a04a9f848841396408464761c7919d16, type: 2}
 --- !u!58 &7295543275768236646
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -61,8 +61,9 @@ public class StatusManager : MonoBehaviour
             status_Lv[3] = value;
         }
     }
+    [SerializeField]
+    PlayerDamaged player;
 
-    
 
     private void Awake()
     {
@@ -71,7 +72,7 @@ public class StatusManager : MonoBehaviour
 
     private void Start()
     {
-       
+      
     }
 
     public int GetStatus(int stat) //각 스텟을 계산해서 반환하는 함수
@@ -91,7 +92,9 @@ public class StatusManager : MonoBehaviour
 
         switch (stat)
         {
-            case 0: st = start_Staus[stat] + (5 * (LvValue-1)); break; // 레벨당 생명력 5
+            case 0: st = start_Staus[stat] + (5 * (LvValue-1));
+               
+                break; // 레벨당 생명력 5
             case 1: st = start_Staus[stat] + (1 * (LvValue-1)); break; // 레벨당 공격력 1
             case 2: st = start_Staus[stat] + (1 * (LvValue-1)); break; // 레벨당 방어력 1
             case 3: st = start_Staus[stat] + (1 * (LvValue-1)); break; // 레벨당 확률 0.1;
