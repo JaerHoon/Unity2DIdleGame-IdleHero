@@ -5,6 +5,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMoving : MonoBehaviour
 {
+    [SerializeField]
+    float distance;
     public VariableJoystick joy;
     Animator anim;
 
@@ -25,7 +27,7 @@ public class PlayerMoving : MonoBehaviour
 
     int monsterLayer;
     int flymonsterLayer;
-    public float range = 5.0f;
+    public float range;
     Rigidbody2D rb;
     Transform monsterPos;
     public bool isButtonPressed = false;
@@ -91,13 +93,14 @@ public class PlayerMoving : MonoBehaviour
         }
 
         
-        if(Vector3.Distance(closeMonsterPos,transform.position) <4 && Vector3.Distance(closeMonsterPos, transform.position) >1 && monsters.Length != 0)
+        if(Vector3.Distance(closeMonsterPos,transform.position) <range && Vector3.Distance(closeMonsterPos, transform.position) > distance && monsters.Length != 0)
         {
+            
             transform.Translate((closeMonsterPos-transform.position).normalized * speed * Time.deltaTime);
             playerattack.isMove = true;
             anim.SetTrigger("run");
         }
-        else if(Vector3.Distance(closeMonsterPos, transform.position) < 1)
+        else if(Vector3.Distance(closeMonsterPos, transform.position) < distance)
         {
             
             playerattack.isMove = false;
@@ -171,23 +174,23 @@ public class PlayerMoving : MonoBehaviour
 
         }
 
-        if (transform.position.x > 7)
+        if (transform.position.x > 8)
         {
-            transform.position = new Vector3(7, transform.position.y, 0);
+            transform.position = new Vector3(8, transform.position.y, 0);
         }
-        if (transform.position.x < -7)
+        if (transform.position.x < -8)
         {
             transform.position = new Vector3(-7, transform.position.y, 0);
         }
 
-        if (transform.position.y > 3)
+        if (transform.position.y > 4)
         {
-            transform.position = new Vector3(transform.position.x, 3, 0);
+            transform.position = new Vector3(transform.position.x, 4, 0);
         }
 
-        if (transform.position.y < -3)
+        if (transform.position.y < -4)
         {
-            transform.position = new Vector3(transform.position.x, -3, 0);
+            transform.position = new Vector3(transform.position.x, -4, 0);
         }
 
 

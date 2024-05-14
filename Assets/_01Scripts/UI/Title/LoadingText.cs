@@ -25,7 +25,7 @@ public class LoadingText : MonoBehaviour
         {
             
             A++;
-            print(A);
+           
             if (A == 1000) StopAllCoroutines();
             // 알파 값을 조절하여 텍스트를 깜빡이게 합니다.
             textMesh.color = new Color(textMesh.color.r, textMesh.color.g, textMesh.color.b, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));

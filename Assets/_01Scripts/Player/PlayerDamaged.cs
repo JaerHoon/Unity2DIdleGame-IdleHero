@@ -62,26 +62,27 @@ public class PlayerDamaged : MonoBehaviour
     public void OnPlayerDamaged(int monDamage)
     {
 
+        GameObject Text = Instantiate(DamageText);
+        Text.transform.position = TextPos.position;
         
         if(monDamage- DefenceCaculate() > 0)
         {
             //isPlayerDamage = true;
             playerhp -= (int)monDamage - DefenceCaculate();
-           
-            
-            
+
+
+            Text.GetComponent<PlayerDamageText>().Damage = monDamage - DefenceCaculate();
 
 
         }
         else
         {
             monDamage = 0;
+            Text.GetComponent<PlayerDamageText>().Damage = 0;
         }
         
         hpImage.fillAmount = (float)playerhp / (float)maxHP;
-        GameObject Text = Instantiate(DamageText);
-        Text.transform.position = TextPos.position;
-        Text.GetComponent<PlayerDamageText>().Damage = monDamage - DefenceCaculate();
+        
         //print("플레이어가 공격 받았습니다!! 데미지 : "+ monDamage);
 
         if(playerhp <=0 && !isBlood)
@@ -91,7 +92,7 @@ public class PlayerDamaged : MonoBehaviour
             GameObject blood = Instantiate(dieEffect);
             blood.transform.position = transform.position + Vector3.up * 0.5f;
             isBlood = true;
-            this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+           // this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(blood, 0.5f);
 
             playerfadeTime();

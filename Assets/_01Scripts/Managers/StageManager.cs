@@ -35,6 +35,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     [SerializeField]
     int buttonDamage;
+    [SerializeField]
+    GameObject stageClearPanel;
 
     Sequence textSequence;
 
@@ -50,6 +52,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     {
         stageText.text = "";
         gameOverPanel.SetActive(false);
+        stageClearPanel.SetActive(false);
         GOPalpha = gameOverPanel.GetComponent<Image>().color;
         Invoke("OnStartWave", 1.5f);
     }
@@ -57,7 +60,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     public void OnStartWave()//버튼으로 스테이지 시작 이벤트 연결 
     {
-        
+        MainCanvas.instance.Cancel();
         SpawnManager.instance.RestoreNum = 0;//스테이지 초기화 시 죽은 몬스터 수 초기화
         SpawnManager.instance.allSpawnNum = 0;//스테이지 초기화 시 스폰 몬스터 수 초기화
         stageStartButton.interactable = false;
@@ -85,6 +88,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     public void OnPlayerDie()
     {
+        MainCanvas.instance.Cancel();
         gameOverPanel.SetActive(true);
         stageRestartBt.SetActive(false);
         StartCoroutine(FadeOutGameOverPanel());
@@ -149,16 +153,29 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public void OnStageWin()//스테이지 클리어 이벤트 수신 함수
     {
 
+        StartCoroutine(StageWin());
+
+    }
+
+
+    IEnumerator StageWin()
+    {
+        stageClearPanel.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        stageClearPanel.SetActive(false);
+
         StageData.currentStageNum++;//현재 스테이지 상승
-        if(StageData.currentStageNum > 5)
+        if (StageData.currentStageNum > 5)
         {
             UpdateQuestInfo();
         }
         if (StageData.currentStageNum >= StageData.Stages.Length)//마지막 스테이지 클리어 시 처음 스테이지로 돌아옴
             StageData.currentStageNum = 0;
         OnStartWave();
-
     }
+
 
     public void OnStageMonsterClear()//스테이지 클리어 이벤트 수신 함수//리스타트 버튼 누름
     {
@@ -187,7 +204,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = 3.0f;
+        Time.timeScale = 1.5f;
     }
 
     public void UpdateQuestInfo()

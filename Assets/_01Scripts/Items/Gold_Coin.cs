@@ -12,6 +12,7 @@ public class Gold_Coin : MonoBehaviour
     void Start()
     {
         collectCoinPos = GameObject.Find("CoinCollect").GetComponent<Transform>();
+        DOTween.Init(false, true, LogBehaviour.Verbose).SetCapacity(300,100);
         transform.DORotate(Vector3.up * 180, 0.5f).SetEase(Ease.OutCubic).SetLoops(-1, LoopType.Restart);
         //transform.DOMoveY(transform.position.y + 1.0f, 1.0f).SetEase(Ease.OutCubic);
         //Invoke("A", 1.0f);

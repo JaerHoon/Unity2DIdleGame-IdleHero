@@ -134,7 +134,7 @@ public class SpawnManager : MonoBehaviour
         {
             int randomInt = UnityEngine.Random.Range(0, 8);
      
-            yield return new WaitForSeconds(60/MaxMonsterTypeNum);//소환될 몬스터의 수 분에 30 초 마다 소환/60->1초에 한마리 20->3초애 한마리
+            yield return new WaitForSeconds(60f/(float)MaxMonsterTypeNum);//소환될 몬스터의 수 분에 30 초 마다 소환/60->1초에 한마리 20->3초애 한마리
         
             
             RecyclableMonster monster = monsterFactory.GetMonster();//몬스터 활성화

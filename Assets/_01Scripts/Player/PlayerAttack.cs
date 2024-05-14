@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     float scaleZ;
 
     [SerializeField]
-    Vector2 boxSize;
+    float boxSize;
 
 
 
@@ -57,29 +57,33 @@ public class PlayerAttack : MonoBehaviour
     {
         //Vector2 plusPos = new Vector2(pos.position.x + 1.3f, pos.position.y + 1.3f);
         //Vector2 size = new Vector2(1.2f, 2.0f);
-        Collider2D[] AttackArea = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
+        Collider2D[] AttackArea = Physics2D.OverlapCircleAll(pos.position, boxSize, layermask);
 
-        foreach (Collider2D colls in AttackArea)
+        /*foreach (Collider2D colls in AttackArea)
         {
             if(colls.CompareTag("monster"))
             {
-                
+                print("ATK");
                 isAttack = true;
                 attackAnim();
                 monattack?.Invoke(attackDamage);
             }
-            else
-            {
-                stopAttackAnim();
-            }
-            
-        }
-        /*if(AttackArea.Length ==1)
+           
+        }*/
+        if(AttackArea.Length ==0)
         {
             isAttack = false;
             stopAttackAnim();
 
-        }*/
+        }
+        else if(AttackArea.Length > 0)
+        {
+            print("ATK");
+            isAttack = true;
+            attackAnim();
+            monattack?.Invoke(attackDamage);
+        }
+        
         
     } 
 
@@ -90,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
 
         
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(pos.position, boxSize);
+        Gizmos.DrawWireSphere(pos.position, boxSize);
     }
 
  
@@ -162,10 +166,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if (isMove == true) // 움직일 때 공격모션 멈추고 run 애니메이션으로 돌아가기
         {
+           
             stopAttackAnim();
             return;
         }
-        IsMonsterAttack();
+        else
+        {
+            IsMonsterAttack();
+        }
+        
     }
 
 }

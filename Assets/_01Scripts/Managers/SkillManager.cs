@@ -166,19 +166,19 @@ public class SkillManager : MonoBehaviour
        
         if (slotNumber == 0)
         {
-            print("0번 슬롯 스킬 입니다");
+          
             SkillUse(skillSlot[0]); // 0번 슬롯일때 1번 어스 스킬 발동
             CoolTimeState(skillCoolTimeGauge, skillSlot[0], button[0]); // 쿨타임이 돌아갑니다(쿨타임 시각이미지, 0번 스킬슬롯, 0번 스킬버튼)
         }
         else if (slotNumber == 1)
         {
-            print("1번 슬롯 스킬 입니다");
+            
             SkillUse(skillSlot[1]); // 1번 슬롯일때 3번 윈드 스킬 발동
             CoolTimeState(skillCoolTimeGauge2, skillSlot[1], button[1]);// 쿨타임이 돌아갑니다(쿨타임 시각이미지, 1번 스킬슬롯, 1번 스킬버튼)
         }
         else
         {
-            print("2번 슬롯 스킬 입니다");
+           
             SkillUse(skillSlot[2]); // 2번 슬롯일때 5번 버프 스킬 발동
         }
     }
@@ -188,26 +188,26 @@ public class SkillManager : MonoBehaviour
         switch (skilNum)
         {
             case 0:
-                print("스킬이 존재하지 않습니다!!");
+              
                 break;
             case 1:
-                print("어스 발동!!");
+               
                 OnEarthAttack(); // Earth 스킬 발동 함수
                 break;
             case 2:
-                print("토네이도 발동!!");
+               
                 OnTornadoAttack(); // Tornado 스킬 발동 함수
                 break;
             case 3:
-                print("윈드 발동!!"); 
+              
                 OnWindAttack(); // Wind 스킬 발동 함수
                 break;
             case 4:
-                print("메테오 발동!!");
+                
                 OnBigMeteorAttack(); // Meteor 스킬 발동 함수
                 break;
             case 5:
-                print("버프 발동!!");
+              
                 buffskill.ActivatedBuff();
                 break;
             default:
