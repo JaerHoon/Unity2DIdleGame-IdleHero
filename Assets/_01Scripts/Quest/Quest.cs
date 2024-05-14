@@ -44,10 +44,10 @@ public class Quest
         switch ((int)questdata.questType)
         {
             case 0:
-                quest_Count = StatusManager.instance.ATkpow_Lv-1;
+                quest_Count = StatusManager.instance.Hp_Lv - 1;
                 break;
             case 1:
-                quest_Count = StatusManager.instance.Hp_Lv-1;
+                quest_Count = StatusManager.instance.ATkpow_Lv-1;
                 break;
             case 2:
                 quest_Count = StatusManager.instance.DFN_Lv-1;
@@ -67,17 +67,21 @@ public class Quest
 
     public void UpdateQuest(Quest_ScriptableObject.QuestType questType)
     {
+        if(questdata.questType == questType)
+        {
             quest_Count++;
 
             if (quest_Count >= questdata.numberOfGoal)
             {
                 CompleteQuest();
             }
-        
-             else
+
+            else
             {
-               return;
+                return;
             }
+        }
+            
         
     }
 

@@ -245,6 +245,7 @@ public class SkillManager : MonoBehaviour
 
     public void OnClickchangedskill()
     {
+
         for (int i = 1; i < slot0skillimages.Length; i++)
         {
             slot0skillimages[i].SetActive(false);

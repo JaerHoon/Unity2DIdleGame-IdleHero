@@ -81,8 +81,17 @@ public class Iteminfo : MonoBehaviour
 
     public void OnEnhancement()
     {
-        //금화가 있다면 충분하다면 추가요
-        enhancementSlot.Onenhancement(item);
+        if(Resource.instance.coinNum >= enhancementSlot.Cal_Cost(item))
+        {
+            Resource.instance.SubResource(enhancementSlot.Cal_Cost(item), 0);
+            enhancementSlot.Onenhancement(item);
+           
+        }
+        else
+        {
+            return;
+        }
+        
        
     }
 

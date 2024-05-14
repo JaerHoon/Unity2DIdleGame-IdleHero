@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+   
     [SerializeField] GameObject pausePanel;//일시정지 패널 프리팹
     private bool isPause = false;
     public bool pressStartButton;

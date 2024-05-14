@@ -16,25 +16,8 @@ public class PlayerAttackBox : MonoBehaviour
         int atkpow = StatusManager.instance.GetStatus(StatusManager.playerATkpow);
         int CrtRate = StatusManager.instance.GetStatus(StatusManager.playerCrtRate) /10;
         int Rnum = Random.Range(1, 101);
+        damage = player.playerDamage + atkpow + skillBuff.buffAttackCal();
         
-        if(Rnum < CrtRate)
-        {
-            damage = (player.playerDamage + atkpow) * player.playerCriticalPower;
-            
-        }
-        //else if(skillBuff.isCoolTime != false && Rnum < CrtRate)
-        //{
-        //    damage = (player.playerDamage + atkpow) * player.playerCriticalPower + skillBuff.buffAttack;
-        //}
-        //else if(skillBuff.isCoolTime != false)
-        //{
-        //    damage = player.playerDamage + atkpow + skillBuff.buffAttack;
-        //}
-        else
-        {
-            damage = player.playerDamage + atkpow;
-        }
-
         return damage;
     }
 
@@ -43,7 +26,7 @@ public class PlayerAttackBox : MonoBehaviour
     private void Start()
     {
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        skillBuff = GetComponent<Skill_Buff>();
+        skillBuff = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
     }
 
     public void OnColliderBox()

@@ -124,27 +124,41 @@ public class StatusUP : MonoBehaviour, IQuestChecker
     public void OnClick(int num)
     {
         StatusManager statusManager = StatusManager.instance;
-
         if (statusManager == null) return;
-
-        switch (num)
+        if (Resource.instance == null) return;
+        
+        if(Resource.instance.coinNum >= statusManager.Cal_StatUPCost(num))
         {
-            case 0: 
-                statusManager.Hp_Lv++;
-                questType = Quest_ScriptableObject.QuestType.HP_Enhancement;
-                break;
-            case 1: statusManager.ATkpow_Lv++;
-                questType = Quest_ScriptableObject.QuestType.ATK_Enhancement; 
-                break;
-            case 2: statusManager.DFN_Lv++;
-                questType = Quest_ScriptableObject.QuestType.DFN_Enhancement;
-                break;
-            case 3: statusManager.CrtRate_Lv++;
-                questType = Quest_ScriptableObject.QuestType.CrtRate_Enhancement; 
-                break;
+            switch (num)
+            {
+                case 0:
+                    statusManager.Hp_Lv++;
+                    questType = Quest_ScriptableObject.QuestType.HP_Enhancement;
+                    break;
+                case 1:
+                    statusManager.ATkpow_Lv++;
+                    questType = Quest_ScriptableObject.QuestType.ATK_Enhancement;
+                    break;
+                case 2:
+                    statusManager.DFN_Lv++;
+                    questType = Quest_ScriptableObject.QuestType.DFN_Enhancement;
+                    break;
+                case 3:
+                    statusManager.CrtRate_Lv++;
+                    questType = Quest_ScriptableObject.QuestType.CrtRate_Enhancement;
+                    break;
+            }
+
+            Resource.instance.SubResource(statusManager.Cal_StatUPCost(num),0);
+
+            UpdateQuestInfo();
+            Setting();
         }
-        UpdateQuestInfo();
-        Setting();
+        else
+        {
+            return;
+        }
+
 
     }
 

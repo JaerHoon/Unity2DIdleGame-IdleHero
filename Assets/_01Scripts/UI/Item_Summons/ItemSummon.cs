@@ -50,11 +50,18 @@ public class ItemSummon : MonoBehaviour, IQuestChecker
 
     public void OnClick(int num)
     {
-        if (!IsSummoning)
+        if(Resource.instance.jemNum*num >= 100*num)
         {
-            IsSummoning = true;
-            ReSetting();
-            StartCoroutine(SummonsItem(num));
+            if (!IsSummoning)
+            {
+                IsSummoning = true;
+                ReSetting();
+                StartCoroutine(SummonsItem(num));
+            }
+            else
+            {
+                return;
+            }
         }
         else
         {
@@ -93,6 +100,7 @@ public class ItemSummon : MonoBehaviour, IQuestChecker
             }
 
             itemSlots[i].gameObject.SetActive(true);
+            Resource.instance.SubResource(0, 100);
             UpdateQuestInfo();
             yield return new WaitForSeconds(0.3f);
         }

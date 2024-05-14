@@ -17,5 +17,5 @@ MonoBehaviour:
   questExplain: 
   numberOfGoal: 10
   rewordAmount: 300
-  rewardType: 0
+  rewardType: 1
   questType: 4

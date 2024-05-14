@@ -66,18 +66,17 @@ public class QuestManager : MonoBehaviour
     public void UpDateQuest(Quest_ScriptableObject.QuestType questType)
     {
         ativeQuest.UpdateQuest(questType);
-        //UPdate UI에도 카운트랑 상태도 전달
         OnChangeQuest?.Invoke();
         smallQuestPanel.Setting(ativeQuest);
+
     }
 
     public void PaymentReward() // UI에서 받음
     {
         ativeQuest.questStat = Quest.QuestStat.RewardPaymented;
 
-        //리워드 지급 실행
-        print("리워드 지급!");
-       
+        Resource.instance.GetResource(0, ativeQuest.questdata.rewordAmount);
+      
 
         if (ativeQuest.questdata.quest_number<= questsData.Count)
         {
@@ -94,51 +93,12 @@ public class QuestManager : MonoBehaviour
 
 
     }
-    
 
-    
+   
 
-    /*public void StartQuest(int num)
-    {
-        questpanel_BTn.enabled = false;
-        ongoingQuest_num = num;
-        cur_num = 0;
-        goalNum = questsData[num].numberOfGoal;
-        questPanel.SetActive(true);
-        questName.text = questsData[num].name;
-        questCountText.text = string.Format("({0}/{1}", cur_num, goalNum);
-    }
 
-    public void UpdateQuest()
-    {
-        cur_num++;
-        questName.text = questsData[ongoingQuest_num].name;
-        questCountText.text = string.Format("({0}/{1}", cur_num, goalNum);
 
-        if(cur_num == goalNum)
-        {
-            EndQuest();
-        }
-    }
 
-    void EndQuest()
-    {
-        questpanel_BTn.enabled = true;
-        questCountText.text = "완료";
-    }
-
-    public void Onclick()
-    {
-        //리워드 주기 그리고 효과?
-        if(ongoingQuest_num <= questsData.Count)
-        {
-            StartQuest(ongoingQuest_num + 1);
-        }
-        else
-        {
-            questPanel.SetActive(false);
-        }
-    }*/
 
 
 

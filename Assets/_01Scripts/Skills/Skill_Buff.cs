@@ -30,7 +30,7 @@ public class Skill_Buff : MonoBehaviour
     public bool isCoolTime = false; // 쿨타임 플래그
     float skillCoolTime = 0f; // 초기 쿨타임값
     float maxskillCool; // 최대 쿨타임값
-    bool isBuffRun = false;
+    public bool isBuffRun = false;
     bool isCoroutineRun = false;
     float time = 20.0f;
 
@@ -75,10 +75,25 @@ public class Skill_Buff : MonoBehaviour
         StartCoroutine(changeColor(skillColor, changeColorTime));
         
         buffState.enabled = true;
-        buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) + playerScr.playerDamage;
+        isBuffRun = true;
+        
         buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) + playerScr.playerDefence;
 
         
+    }
+
+    public int buffAttackCal()
+    {
+        if(isBuffRun== true)
+        {
+            buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) + playerScr.playerDamage;
+        }
+        else
+        {
+            buffAttack = 0;
+        }
+       
+        return buffAttack;
     }
 
     void blinkBuff()
@@ -92,8 +107,9 @@ public class Skill_Buff : MonoBehaviour
         player.color = redColorChange; // 버프 눌렀을 때 플레이어 색상을 위에서 선언한 skillColor로 변경한다.
         yield return new WaitForSeconds(changeTime); // changeColorTime만큼 대기한다.
         player.color = originColor; // changeColorTime 이후에는 플레이어의 색상을 원래 색상으로 되돌린다.
-        buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) - playerScr.playerDamage;
-        buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) - playerScr.playerDefence;
+        isBuffRun = false;
+
+
 
     }
 

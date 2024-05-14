@@ -56,7 +56,7 @@ public class EnhancementItemSlot : Slots, IQuestChecker
         return rate;
     }
 
-    int Cal_Cost(Item item)
+    public int Cal_Cost(Item item)
     {
         int cost = item.ItemLv * 200 * ((int)item.itemGrade+1);
         return cost;
@@ -73,6 +73,8 @@ public class EnhancementItemSlot : Slots, IQuestChecker
 
     public void Onenhancement(Item item)
     {
+       
+
         OnEnhancementPanel.SetActive(true);
         
         if (Cal_enhancement(item))

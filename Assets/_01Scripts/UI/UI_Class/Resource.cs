@@ -70,6 +70,15 @@ public class Resource : MonoBehaviour
         jemText.text = string.Format("{0:#,###}", this.jemNum);
     }
 
+    public void SubResource(int coinNum, int jemNum)
+    {
+        this.coinNum -= coinNum;
+        this.jemNum -= jemNum;
+
+        coinText.text = string.Format("{0:#,###}", this.coinNum);
+        jemText.text = string.Format("{0:#,###}", this.jemNum);
+    }
+
     // Update is called once per frame
     void Update()
     {
