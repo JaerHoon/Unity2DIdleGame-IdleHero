@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: Slime
   Hp: 20
-  Damage: 2
+  Damage: 20
   Defense: 1
   MoveSpeed: 1.3
   AttackDistance: 0.3

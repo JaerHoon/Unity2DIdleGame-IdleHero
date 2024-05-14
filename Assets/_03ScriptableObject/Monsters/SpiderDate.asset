@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterName: Spider
   Hp: 65
-  Damage: 5
+  Damage: 25
   Defense: 3
   MoveSpeed: 1.4
   AttackDistance: 3.5

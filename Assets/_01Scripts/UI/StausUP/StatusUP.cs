@@ -7,6 +7,9 @@ using System;
 
 public class StatusUP : MonoBehaviour, IQuestChecker
 {
+    [SerializeField]
+    PlayerDamaged player;
+
     [Header("플레이어창")]
     [SerializeField]
     TextMeshProUGUI playerNickNameText;
@@ -133,6 +136,7 @@ public class StatusUP : MonoBehaviour, IQuestChecker
             {
                 case 0:
                     statusManager.Hp_Lv++;
+                    player.HpCaculate(5);
                     questType = Quest_ScriptableObject.QuestType.HP_Enhancement;
                     break;
                 case 1:
