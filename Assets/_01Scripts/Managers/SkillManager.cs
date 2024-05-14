@@ -95,7 +95,7 @@ public class SkillManager : MonoBehaviour
     public Skill_ScriptableObject equipskills;
     public GameObject skillslot1;
 
-    bool isEarthCoolTime = true;
+   
     
     [SerializeField]
     GameObject[] slot0skillimages;

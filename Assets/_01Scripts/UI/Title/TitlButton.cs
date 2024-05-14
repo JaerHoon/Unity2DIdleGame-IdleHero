@@ -9,7 +9,7 @@ public class TitlButton : MonoBehaviour
     public float blinkSpeed = 1.0f; // 깜빡이는 속도 조절을 위한 변수
 
     private TextMeshProUGUI textMesh;
-    private bool isBlinking = true;
+ 
 
     private void Start()
     {
@@ -26,12 +26,6 @@ public class TitlButton : MonoBehaviour
             textMesh.color = new Color(textMesh.color.r, textMesh.color.g, textMesh.color.b, Mathf.PingPong(Time.time * blinkSpeed, 1.0f));
             yield return null;
         }
-    }
-
-    // 깜빡이는 것을 멈추기 위한 메소드
-    public void StopBlinking()
-    {
-        isBlinking = false;
     }
 
 }

@@ -41,7 +41,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public Action<StageScData, int> StartWave;
 
 
-    bool isStartStage = false;
+  
 
 
     public Quest_ScriptableObject.QuestType questType { get; set; }

@@ -21,8 +21,7 @@ public class PlayerMoving : MonoBehaviour
 
     [SerializeField]
     Image Autoimage;
-    [SerializeField]
-    float rotSpeed = 50.0f;
+   
 
     int monsterLayer;
     int flymonsterLayer;
