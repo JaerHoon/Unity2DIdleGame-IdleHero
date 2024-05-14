@@ -68,15 +68,18 @@ public class PlayerAttack : MonoBehaviour
                 attackAnim();
                 monattack?.Invoke(attackDamage);
             }
-           
+            else
+            {
+                stopAttackAnim();
+            }
             
         }
-        if(AttackArea.Length ==1)
+        /*if(AttackArea.Length ==1)
         {
             isAttack = false;
             stopAttackAnim();
 
-        }
+        }*/
         
     } 
 
@@ -141,7 +144,7 @@ public class PlayerAttack : MonoBehaviour
         
     }
 
-    void stopAttackAnim()
+    public void stopAttackAnim()
     {
         anim.SetInteger("attack", 0); // ∞¯∞› æ÷¥œ∏ﬁ¿Ãº« ∏ÿ√„
     }

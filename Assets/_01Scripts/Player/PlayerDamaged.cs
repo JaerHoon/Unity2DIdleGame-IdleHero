@@ -22,17 +22,19 @@ public class PlayerDamaged : MonoBehaviour
     
     float time;
     public float fadeTime = 1f;
-    
+    PlayerAttack stopAttack;
 
     private void Start()
     {
         skillBuff = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
+        stopAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
         Init();
     }
 
     public void Init()
     {
         isBlood = false;
+        stopAttack.isAttack = true;
         maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
         playerhp = maxHP;
         print(playerhp);
@@ -84,6 +86,7 @@ public class PlayerDamaged : MonoBehaviour
 
         if(playerhp <=0 && !isBlood)
         {
+            stopAttack.stopAttackAnim();
             StageManager.instance.OnPlayerDie();
             GameObject blood = Instantiate(dieEffect);
             blood.transform.position = transform.position + Vector3.up * 0.5f;
