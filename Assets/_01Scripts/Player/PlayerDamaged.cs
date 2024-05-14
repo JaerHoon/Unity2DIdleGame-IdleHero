@@ -26,7 +26,7 @@ public class PlayerDamaged : MonoBehaviour
     {
         playerhp = player.playerHP;
         maxHP = playerhp;
-        skillBuff = GetComponent<Skill_Buff>();
+        skillBuff = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
     }
 
     public int DefenceCaculate()
@@ -34,13 +34,8 @@ public class PlayerDamaged : MonoBehaviour
         int defence = 0;
 
         int def = StatusManager.instance.GetStatus(StatusManager.playerDefence);
-        defence = player.playerDefence + def;
-        
-        if(skillBuff.isCoolTime !=false)
-        {
-            defence = player.playerDefence + def + skillBuff.buffDefence;
-        }
-        
+        defence = player.playerDefence + def + skillBuff._buffAttackCal();
+
         return defence;
     }
 
@@ -73,7 +68,7 @@ public class PlayerDamaged : MonoBehaviour
         hpImage.fillAmount = (float)playerhp / (float)maxHP;
         GameObject Text = Instantiate(DamageText);
         Text.transform.position = TextPos.position;
-        Text.GetComponent<PlayerDamageText>().Damage = monDamage;
+        Text.GetComponent<PlayerDamageText>().Damage = monDamage - DefenceCaculate();
         //print("플레이어가 공격 받았습니다!! 데미지 : "+ monDamage);
 
         if(playerhp <=0 && !isBlood)

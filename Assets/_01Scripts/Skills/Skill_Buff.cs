@@ -43,11 +43,11 @@ public class Skill_Buff : MonoBehaviour
     PlayerMoving playermove;
     void Start()
     {
-        skillimage.sprite = buffForth.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
+        //skillimage.sprite = buffForth.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
         maxskillCool = buffForth.coolTime; // 최대 쿨타임 = 스크립터블 오브젝트에서 작성한 쿨타임
         skillCoolTimeGauge.fillAmount = 0f;
 
-        skillimage.sprite = buffBack.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
+        //skillimage.sprite = buffBack.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
         maxskillCool = buffBack.coolTime; // 최대 쿨타임 = 스크립터블 오브젝트에서 작성한 쿨타임
         skillCoolTimeGauge.fillAmount = 0f;
 
@@ -76,13 +76,38 @@ public class Skill_Buff : MonoBehaviour
         
         buffState.enabled = true;
         isBuffRun = true;
-        
-        buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) + playerScr.playerDefence;
+
 
         
     }
-
+    
     public int buffAttackCal()
+    {
+        if(isBuffRun==true)
+        {
+            buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) + playerScr.playerDamage;
+        }
+        else
+        {
+            buffAttack = 0;
+        }
+        return buffAttack;
+    }
+
+    public int _buffDefecneCal()
+    {
+        if(isBuffRun==true)
+        {
+            buffDefence = playerScr.playerDefence + StatusManager.instance.GetStatus(StatusManager.playerDefence) + playerScr.playerDefence;
+        }
+        else
+        {
+            buffDefence = 0;
+        }
+        return buffDefence;
+    }
+
+    public int _buffAttackCal()
     {
         if(isBuffRun== true)
         {
@@ -108,7 +133,6 @@ public class Skill_Buff : MonoBehaviour
         yield return new WaitForSeconds(changeTime); // changeColorTime만큼 대기한다.
         player.color = originColor; // changeColorTime 이후에는 플레이어의 색상을 원래 색상으로 되돌린다.
         isBuffRun = false;
-
 
 
     }
