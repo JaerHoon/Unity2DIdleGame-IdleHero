@@ -219,6 +219,7 @@ MonoBehaviour:
   attackMotionSpeed: 0
   DamageTextPreFab: {fileID: 6630066117901125282, guid: d9c32dd9e87c3da44a57d7f2ff9835b6, type: 3}
   soundStorage: {fileID: 11400000, guid: 478a778313f4d4540b9a3643b562840b, type: 2}
+  stageData: {fileID: 11400000, guid: a04a9f848841396408464761c7919d16, type: 2}
   spiderAttackMovementSpeed: 1.7
 --- !u!58 &1318033744238233926
 CircleCollider2D:

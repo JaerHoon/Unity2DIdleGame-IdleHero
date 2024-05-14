@@ -17,7 +17,7 @@ public class PlayerAttackBox : MonoBehaviour
         int CrtRate = StatusManager.instance.GetStatus(StatusManager.playerCrtRate) /10;
         int Rnum = Random.Range(1, 101);
 
-        damage = player.playerDamage + atkpow + skillBuff._buffAttackCal();
+        damage =  atkpow + skillBuff._buffAttackCal();
         
         return damage;
     }

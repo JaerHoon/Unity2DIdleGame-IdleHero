@@ -22,39 +22,50 @@ public class PlayerDamaged : MonoBehaviour
     
     float time;
     public float fadeTime = 1f;
-    void Start()
+    
+
+    private void Start()
     {
-        playerhp = player.playerHP;
-        maxHP = playerhp;
         skillBuff = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
+        Init();
     }
+
+    public void Init()
+    {
+        isBlood = false;
+        maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
+        playerhp = maxHP;
+        print(playerhp);
+        hpImage.fillAmount = (float)playerhp / (float)maxHP;
+    }
+
 
     public int DefenceCaculate()
     {
         int defence = 0;
 
         int def = StatusManager.instance.GetStatus(StatusManager.playerDefence);
-        defence = player.playerDefence + def + skillBuff._buffAttackCal();
+        defence = def + skillBuff._buffDefecneCal();
 
         return defence;
     }
 
-    public void HpCaculate()
-    {
-        int hp = StatusManager.instance.GetStatus(StatusManager.playerHP);
-        playerhp += hp;
-        maxHP = player.playerHP + hp;
-        
+    public void HpCaculate(int UPAmount)
+    {  
+        maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
+        playerhp += UPAmount;
+        hpImage.fillAmount = (float)playerhp / (float)maxHP;
     }
 
     public void OnPlayerDamaged(int monDamage)
     {
+
         
         if(monDamage- DefenceCaculate() > 0)
         {
             //isPlayerDamage = true;
             playerhp -= (int)monDamage - DefenceCaculate();
-            print("HP : " + playerhp);
+           
             
             
 
@@ -73,13 +84,14 @@ public class PlayerDamaged : MonoBehaviour
 
         if(playerhp <=0 && !isBlood)
         {
-            //StageManager.instance.OnPlayerDie();
+            StageManager.instance.OnPlayerDie();
             GameObject blood = Instantiate(dieEffect);
             blood.transform.position = transform.position + Vector3.up * 0.5f;
             isBlood = true;
             this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             Destroy(blood, 0.5f);
-            
+
+            playerfadeTime();
         }
 
 
@@ -96,16 +108,17 @@ public class PlayerDamaged : MonoBehaviour
         else
         {
             time = 0;
-            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            
         }
     }
     void Update()
     {
-        if(playerhp <= 0)
-        {
-            time += Time.deltaTime;
-            Invoke("playerfadeTime", 0.6f);
-        }
+        //if(playerhp <= 0)
+        //{
+        //    time += Time.deltaTime;
+        //    Invoke("playerfadeTime", 0.6f);
+        //}
     }
     
 }

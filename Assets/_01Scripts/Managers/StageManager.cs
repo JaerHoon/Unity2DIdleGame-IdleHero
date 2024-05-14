@@ -88,14 +88,17 @@ public class StageManager : MonoBehaviour,IQuestChecker
         gameOverPanel.SetActive(true);
         stageRestartBt.SetActive(false);
         StartCoroutine(FadeOutGameOverPanel());
+
     }
 
     Color GOPalpha;
 
     IEnumerator FadeOutGameOverPanel()
     {
+        
         while (GOPalpha.a <= 0.98)
         {
+            
             GOPalpha.a = Mathf.Lerp(GOPalpha.a, 1, Time.deltaTime * 2);
             yield return new WaitForFixedUpdate();
             gameOverPanel.GetComponent<Image>().color = GOPalpha;
@@ -157,12 +160,16 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     }
 
-    public void OnStageMonsterClear()//스테이지 클리어 이벤트 수신 함수
+    public void OnStageMonsterClear()//스테이지 클리어 이벤트 수신 함수//리스타트 버튼 누름
     {
-        print("AAA");
         SpawnManager.instance.OnDestroyAllMonster();
         StartCoroutine(FadeInGameOverPanel());
         Invoke("OnStartWave", 3.0f);
+        GameObject player = GameObject.Find("Player");
+        player.transform.position = Vector3.zero;
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        player.GetComponent<PlayerDamaged>().Init();
     }
 
     public void OnStageMonsterDamaged()//스테이지 위 모든 몬스터 피격 이벤트 수신 함수
@@ -180,7 +187,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     // Update is called once per frame
     void Update()
     {
-        
+        Time.timeScale = 3.0f;
     }
 
     public void UpdateQuestInfo()

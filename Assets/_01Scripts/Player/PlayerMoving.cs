@@ -94,7 +94,6 @@ public class PlayerMoving : MonoBehaviour
         if(Vector3.Distance(closeMonsterPos,transform.position) <4 && Vector3.Distance(closeMonsterPos, transform.position) >1 && monsters.Length != 0)
         {
             transform.Translate((closeMonsterPos-transform.position).normalized * speed * Time.deltaTime);
-            print(transform.position);
             playerattack.isMove = true;
             anim.SetTrigger("run");
         }
@@ -129,7 +128,7 @@ public class PlayerMoving : MonoBehaviour
         pos.Normalize(); // 벡터 크기 정규화해서 일정한 속도를 나타낼 수 있음
 
         transform.position += pos * speed * Time.deltaTime;
-
+        
         if (joy.Horizontal > 0)
         {
             playerattack.isMove = true;
@@ -172,7 +171,24 @@ public class PlayerMoving : MonoBehaviour
 
         }
 
+        if (transform.position.x > 7)
+        {
+            transform.position = new Vector3(7, transform.position.y, 0);
+        }
+        if (transform.position.x < -7)
+        {
+            transform.position = new Vector3(-7, transform.position.y, 0);
+        }
 
+        if (transform.position.y > 3)
+        {
+            transform.position = new Vector3(transform.position.x, 3, 0);
+        }
+
+        if (transform.position.y < -3)
+        {
+            transform.position = new Vector3(transform.position.x, -3, 0);
+        }
 
 
     }

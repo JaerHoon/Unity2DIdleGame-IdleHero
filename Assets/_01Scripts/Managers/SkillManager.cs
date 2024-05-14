@@ -108,6 +108,8 @@ public class SkillManager : MonoBehaviour
     PlayerMoving playermove;
     public Button button1; // 인스펙터에 스킬 버튼 넣기 위한 변수
     public Button button2; // 인스펙터에 스킬 버튼 넣기 위한 변수
+
+    Skill_Buff buffskill;
     void Start()
     {
         earthFactory = new SkillFactory(EarthPrefab, 1); // Earth관련 팩토리 가져오기
@@ -123,9 +125,6 @@ public class SkillManager : MonoBehaviour
 
         BuffForthPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
         BuffBackPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
-        skillSlot[0] = 2; // 0번 스킬 슬롯에 1번 스킬 발동
-        skillSlot[1] = 4; // 1번 스킬 슬롯에 3번 스킬 발동
-        skillSlot[2] = 5; // 2번 스킬 슬롯에 5번 스킬 발동
         
         skillCoolTimeGauge.fillAmount = 0f;
         skillCoolTimeGauge2.fillAmount = 0f;
@@ -146,8 +145,10 @@ public class SkillManager : MonoBehaviour
         playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
         buffIcon.SetActive(false);
 
-        
-        
+        buffskill = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
+
+
+
 
     }
 
@@ -156,7 +157,6 @@ public class SkillManager : MonoBehaviour
     {
         skillSlot = skillNum;
         OnClickchangedskill();
-
 
     }
     
@@ -208,6 +208,7 @@ public class SkillManager : MonoBehaviour
                 break;
             case 5:
                 print("버프 발동!!");
+                buffskill.ActivatedBuff();
                 break;
             default:
                 break;
@@ -252,6 +253,10 @@ public class SkillManager : MonoBehaviour
 
     public void OnClickchangedskill()
     {
+        for(int i = 0; i < 3; i++)
+        {
+            print(i +":" + skillSlot[i]);
+        }
 
         for (int i = 0; i < slot0skillimages.Length; i++)
         {
