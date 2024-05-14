@@ -34,20 +34,22 @@ public class BabyDragon : RecyclableMonster
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
     [SerializeField]
     AudioStorage soundStorage;//음향정보
+    [SerializeField]
+    StageScData stageData;
 
     MonsterFactory fireBallFactory; //파이어 볼 펙토리
 
     private void OnEnable()//활성화 시 초기화
     {
         monName = drangonData.monsterName;
-        hp = drangonData.hp;
-        damage = drangonData.damage;
-        defense = drangonData.defense;
+        hp = drangonData.hp + stageData.currentStageNum * drangonData.hp;
+        damage = drangonData.damage + (int)(stageData.currentStageNum * drangonData.damage * 0.5f);
+        defense = drangonData.defense + (int)(stageData.currentStageNum * drangonData.defense * 0.2f);
         moveSpeed = drangonData.moveSpeed;
         attackDistance = drangonData.attackDistance;
         attackSpeed = drangonData.attackSpeed;
         attackMotionSpeed = drangonData.attackMotionSpeed;
-        coinValue = drangonData.coinValue;
+        coinValue = drangonData.coinValue + (int)(stageData.currentStageNum * drangonData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0, -0.29f);
