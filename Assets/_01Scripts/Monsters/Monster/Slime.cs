@@ -31,18 +31,20 @@ public class Slime : RecyclableMonster
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
     [SerializeField]
     AudioStorage soundStorage;//음향정보
+    [SerializeField]
+    StageScData stageData;
 
     private void OnEnable()//활성화 시 초기화
     {
         monName = slimeData.monsterName;
-        hp = slimeData.hp;
-        damage = slimeData.damage;
-        defense = slimeData.defense;
+        hp = slimeData.hp + stageData.currentStageNum * slimeData.hp;
+        damage = slimeData.damage + (int)(stageData.currentStageNum * slimeData.damage*0.5f);
+        defense = slimeData.defense + (int)(stageData.currentStageNum * slimeData.defense * 0.2f);
         moveSpeed = slimeData.moveSpeed;
         attackDistance = slimeData.attackDistance;
         attackSpeed = slimeData.attackSpeed;
         attackMotionSpeed = slimeData.attackMotionSpeed;
-        coinValue = slimeData.coinValue;
+        coinValue = slimeData.coinValue + (int)(stageData.currentStageNum * slimeData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화

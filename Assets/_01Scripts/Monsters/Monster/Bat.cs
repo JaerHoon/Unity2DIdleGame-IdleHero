@@ -31,18 +31,20 @@ public class Bat : RecyclableMonster
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
     [SerializeField]
     AudioStorage soundStorage;//음향정보
+    [SerializeField]
+    StageScData stageData;
 
     private void OnEnable()//활성화 시 초기화
     {
         monName = batData.monsterName;
-        hp = batData.hp;
-        damage = batData.damage;
-        defense = batData.defense;
+        hp = batData.hp + stageData.currentStageNum * batData.hp;
+        damage = batData.damage + (int)(stageData.currentStageNum * batData.damage * 0.5f);
+        defense = batData.defense + (int)(stageData.currentStageNum * batData.defense * 0.2f);
         moveSpeed = batData.moveSpeed;
         attackDistance = batData.attackDistance;
         attackSpeed = batData.attackSpeed;
         attackMotionSpeed = batData.attackMotionSpeed;
-        coinValue = batData.coinValue;
+        coinValue = batData.coinValue + (int)(stageData.currentStageNum * batData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0,- 0.16f);

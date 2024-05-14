@@ -95,12 +95,15 @@ public class SkillManager : MonoBehaviour
     public Skill_ScriptableObject equipskills;
     public GameObject skillslot1;
 
-   
     
     [SerializeField]
     GameObject[] slot0skillimages;
     [SerializeField]
     GameObject[] slot1skillimages;
+    [SerializeField]
+    GameObject skillNull;
+    [SerializeField]
+    GameObject buffIcon;
 
     PlayerMoving playermove;
     public Button button1; // 인스펙터에 스킬 버튼 넣기 위한 변수
@@ -141,7 +144,11 @@ public class SkillManager : MonoBehaviour
         }
 
         playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
+        buffIcon.SetActive(false);
+
         
+        
+
     }
 
     
@@ -156,7 +163,7 @@ public class SkillManager : MonoBehaviour
 
     public void OnclickSkill(int slotNumber)
     {
-   
+       
         if (slotNumber == 0)
         {
             print("0번 슬롯 스킬 입니다");
@@ -246,19 +253,24 @@ public class SkillManager : MonoBehaviour
     public void OnClickchangedskill()
     {
 
-        for (int i = 1; i < slot0skillimages.Length; i++)
+        for (int i = 0; i < slot0skillimages.Length; i++)
         {
             slot0skillimages[i].SetActive(false);
         }
         slot0skillimages[skillSlot[0]].SetActive(true);
 
-
-        for (int i = 1; i < slot1skillimages.Length; i++)
+        for (int i = 0; i < slot1skillimages.Length; i++)
         {
             slot1skillimages[i].SetActive(false);
         }
         slot1skillimages[skillSlot[1]].SetActive(true);
-        // 버프 아이콘 장착
+
+
+        skillNull.SetActive(false);
+        buffIcon.SetActive(true);
+
+        
+
     }
 
     void angleWind() // 각 배열에 Rotation값을 할당해 놓았다.
