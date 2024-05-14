@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     public void ChangeScene()
     {
         pressStartButton = true;
-        SceneManager.LoadScene(1);
+        LoadingSceneManager.LoadScene(2);
     }
     
 }
