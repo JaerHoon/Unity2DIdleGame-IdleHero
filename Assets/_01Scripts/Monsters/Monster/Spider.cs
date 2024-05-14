@@ -33,6 +33,8 @@ public class Spider : RecyclableMonster
     GameObject DamageTextPreFab;//데미지 텍스트 프리팹
     [SerializeField]
     AudioStorage soundStorage;//음향정보
+    [SerializeField]
+    StageScData stageData;
 
 
     public float spiderAttackMovementSpeed = 5.0f;
@@ -40,14 +42,14 @@ public class Spider : RecyclableMonster
     private void OnEnable()//활성화 시 초기화
     {
         monName = spiderData.monsterName;
-        hp = spiderData.hp;
-        damage = spiderData.damage;
-        defense = spiderData.defense;
+        hp = spiderData.hp + stageData.currentStageNum * spiderData.hp;
+        damage = spiderData.damage + (int)(stageData.currentStageNum * spiderData.damage * 0.5f);
+        defense = spiderData.defense + (int)(stageData.currentStageNum * spiderData.defense * 0.2f);
         moveSpeed = spiderData.moveSpeed;
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
-        coinValue = spiderData.coinValue;
+        coinValue = spiderData.coinValue + (int)(stageData.currentStageNum * spiderData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
