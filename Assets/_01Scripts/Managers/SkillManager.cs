@@ -94,13 +94,17 @@ public class SkillManager : MonoBehaviour
     int[] skillSlot = new int[3];//스킬 슬롯에 장착된 스킬 번호를 표시
     public Skill_ScriptableObject equipskills;
     public GameObject skillslot1;
-
-    bool isEarthCoolTime = true;
+    
+    bool isSkillNull = false;
     
     [SerializeField]
     GameObject[] slot0skillimages;
     [SerializeField]
     GameObject[] slot1skillimages;
+    [SerializeField]
+    GameObject skillNull;
+    [SerializeField]
+    GameObject buffIcon;
 
     PlayerMoving playermove;
     public Button button1; // 인스펙터에 스킬 버튼 넣기 위한 변수
@@ -141,7 +145,11 @@ public class SkillManager : MonoBehaviour
         }
 
         playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
+        buffIcon.SetActive(false);
+
         
+        
+
     }
 
    
@@ -149,7 +157,7 @@ public class SkillManager : MonoBehaviour
 
     public void OnclickSkill(int slotNumber)
     {
-   
+       
         if (slotNumber == 0)
         {
             print("0번 슬롯 스킬 입니다");
@@ -238,18 +246,22 @@ public class SkillManager : MonoBehaviour
 
     public void OnClickchangedskill()
     {
-        for (int i = 1; i < slot0skillimages.Length; i++)
+        
+        for (int i = 0; i < slot0skillimages.Length; i++)
         {
             slot0skillimages[i].SetActive(false);
         }
         slot0skillimages[skillSlot[0]].SetActive(true);
 
-
-        for (int i = 1; i < slot1skillimages.Length; i++)
+        for (int i = 0; i < slot1skillimages.Length; i++)
         {
             slot1skillimages[i].SetActive(false);
         }
         slot1skillimages[skillSlot[1]].SetActive(true);
+
+        skillNull.SetActive(false);
+        buffIcon.SetActive(true);
+
         
     }
 
