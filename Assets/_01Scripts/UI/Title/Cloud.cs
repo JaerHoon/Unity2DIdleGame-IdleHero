@@ -16,7 +16,7 @@ public class Cloud : MonoBehaviour
     void Update()
     {
 
-        float newOffSetX = cloud.mainTextureOffset.x + -0.1f * Time.deltaTime;
+        float newOffSetX = cloud.mainTextureOffset.x + -0.05f * Time.deltaTime;
         Vector2 newOffset = new Vector2(newOffSetX, 0);
         cloud.mainTextureOffset = newOffset;
 
