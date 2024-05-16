@@ -31,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask layermask;
     int monsterLayer;
     int flymonsterLayer;
+    PlayerDamaged currentHP;
     void Start()
     {
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -45,6 +46,7 @@ public class PlayerAttack : MonoBehaviour
         scaleY = transform.localScale.y;
         scaleZ = transform.localScale.z;
 
+        currentHP = GameObject.FindWithTag("Player").GetComponent<PlayerDamaged>();
     }
 
     public void GetAttackBox()
@@ -70,13 +72,13 @@ public class PlayerAttack : MonoBehaviour
             }
            
         }*/
-        if(AttackArea.Length ==0)
+        if (AttackArea.Length == 0 || currentHP.playerhp <= 0)
         {
             isAttack = false;
             stopAttackAnim();
 
         }
-        else if(AttackArea.Length > 0)
+        else if(AttackArea.Length > 0 || currentHP.playerhp > 0)
         {
             print("ATK");
             isAttack = true;
@@ -142,15 +144,18 @@ public class PlayerAttack : MonoBehaviour
    
     void attackAnim()
     {
-        if(isAttack==true)
+        if (isAttack == true)
+        {
             anim.SetInteger("attack", 1); // 공격 애니메이션 동작
+        }
+        
 
         
     }
 
     public void stopAttackAnim()
     {
-        anim.SetInteger("attack", 0); // 공격 애니메이션 멈춤
+        anim.SetInteger("attack", 0);// 공격 애니메이션 멈춤
     }
    
     void Update()

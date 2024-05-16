@@ -5,6 +5,12 @@ using UnityEngine.UI;
 public class Skill_Buff : MonoBehaviour
 {
     [SerializeField]
+    GameObject BuffForthPrefab;
+
+    [SerializeField]
+    GameObject BuffBackPrefab;
+
+    [SerializeField]
     Skill_ScriptableObject buffForth;
 
     [SerializeField]
@@ -17,13 +23,13 @@ public class Skill_Buff : MonoBehaviour
     Image skillCoolTimeGauge; // 스킬 쿨타임 게이지 표시 이미지
 
     [SerializeField]
-    Image buffState;
+    Image buffState; // 버프스킬 켰을 때 이미지 활성화
 
     [SerializeField]
     Player_ScriptableObject playerScr;
     [SerializeField]
     Skill_ScriptableObject buff;
-    
+  
     public int buffAttack;
     public int buffDefence;
 
@@ -41,6 +47,7 @@ public class Skill_Buff : MonoBehaviour
     public Color skillColor = new Color(1.0f, 0.5f, 0.5f, 1.0f); // 차례대로 R,G,B,알파값이며 red색상으로 변경한다.
     Color originColor;
     PlayerMoving playermove;
+    
     void Start()
     {
         //skillimage.sprite = buffForth.icon; // 스킬이미지 스프라이트를 스크립터블 오브젝트에 넣은 아이콘 스프라이트로 표시
@@ -55,6 +62,9 @@ public class Skill_Buff : MonoBehaviour
         originColor = player.color; // 플레이어의 원래 색상을 originColor에 담는다.
 
         buffState.enabled = false;
+        
+        BuffForthPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
+        BuffBackPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
 
         playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
 
@@ -69,29 +79,26 @@ public class Skill_Buff : MonoBehaviour
             return;
         }
 
-        SkillManager.instance.OnActivatedBuff();
+        
+        BuffForthPrefab.SetActive(true);
+        BuffBackPrefab.SetActive(true);
+        StartCoroutine(DestroyBuff());
         PlayerSound.instance.OnBuffSound();
         CoolTimeStart();
         StartCoroutine(changeColor(skillColor, changeColorTime));
-        
+
         buffState.enabled = true;
         isBuffRun = true;
 
 
         
     }
-    
-    public int buffAttackCal()
+
+    IEnumerator DestroyBuff()
     {
-        if(isBuffRun==true)
-        {
-            buffAttack = playerScr.playerDamage + StatusManager.instance.GetStatus(StatusManager.playerATkpow) + playerScr.playerDamage;
-        }
-        else
-        {
-            buffAttack = 0;
-        }
-        return buffAttack;
+        yield return new WaitForSeconds(20.0f);
+        BuffForthPrefab.SetActive(false);
+        BuffBackPrefab.SetActive(false);
     }
 
     public int _buffDefecneCal()
@@ -175,6 +182,7 @@ public class Skill_Buff : MonoBehaviour
         //print(buffCoolTimeState);
     }
 
+   
 
     // Update is called once per frame
     void Update()
@@ -187,16 +195,13 @@ public class Skill_Buff : MonoBehaviour
             if (skillCoolTime <= 0f)
             {
                 isCoolTime = false;
+                
 
             }
         }
 
-        if(playermove.isButtonPressed==true && !isCoolTime) // 자동사냥 버튼 눌렀을 때 버프스킬 쿨타임 돌때마다 자동으로 사용
-        {
-            ActivatedBuff();
-        }
-        
-        
+       
+
 
 
     }

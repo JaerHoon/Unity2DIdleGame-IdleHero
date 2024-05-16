@@ -54,8 +54,6 @@ MonoBehaviour:
   TornadoPrefab: {fileID: 8421651076618741459, guid: bd3aed16ceabcb24b9db40e66890ce0b, type: 3}
   MeteorPrefab: {fileID: 621059610374767611, guid: 11e2363d258f4114e88655f297922cb5, type: 3}
   BigMeteorPrefab: {fileID: 3012051180939848206, guid: b84848893992eca41b18bd4d443e01a4, type: 3}
-  BuffForthPrefab: {fileID: 0}
-  BuffBackPrefab: {fileID: 0}
   playerTr: {fileID: 0}
   skillimage: {fileID: 0}
   skillCoolTimeGauge: {fileID: 0}
@@ -87,8 +85,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  slot2skillimages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillNull: {fileID: 0}
+  buffIcon: {fileID: 0}
   button1: {fileID: 0}
   button2: {fileID: 0}
+  button3: {fileID: 0}
 --- !u!114 &4326075771176978166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701e9eac3b4c6914487c9d14523732d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuffForthPrefab: {fileID: 0}
+  BuffBackPrefab: {fileID: 0}
   buffForth: {fileID: 11400000, guid: d9b3336ffb2df0a4aa77c993217f3acc, type: 2}
   buffBack: {fileID: 11400000, guid: b724b06d76909844f8a62d1c70d2da4d, type: 2}
   skillimage: {fileID: 0}
@@ -111,4 +121,5 @@ MonoBehaviour:
   buffAttack: 0
   buffDefence: 0
   isCoolTime: 0
+  isBuffRun: 0
   skillColor: {r: 1, g: 0.5, b: 0.5, a: 1}

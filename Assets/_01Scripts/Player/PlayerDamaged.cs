@@ -34,7 +34,6 @@ public class PlayerDamaged : MonoBehaviour
     public void Init()
     {
         isBlood = false;
-        stopAttack.isAttack = true;
         maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
         playerhp = maxHP;
         print(playerhp);
@@ -87,7 +86,6 @@ public class PlayerDamaged : MonoBehaviour
 
         if(playerhp <=0 && !isBlood)
         {
-            stopAttack.stopAttackAnim();
             StageManager.instance.OnPlayerDie();
             GameObject blood = Instantiate(dieEffect);
             blood.transform.position = transform.position + Vector3.up * 0.5f;
@@ -123,6 +121,8 @@ public class PlayerDamaged : MonoBehaviour
         //    time += Time.deltaTime;
         //    Invoke("playerfadeTime", 0.6f);
         //}
+
+       
     }
     
 }

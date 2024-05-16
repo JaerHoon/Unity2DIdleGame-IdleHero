@@ -17,20 +17,15 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField]
     Skill_ScriptableObject earth;
-
-
     [SerializeField]
     Skill_ScriptableObject tornado;
-
-
     [SerializeField]
     Skill_ScriptableObject wind;
-
-
     [SerializeField]
     Skill_ScriptableObject meteor;
-
-
+    [SerializeField]
+    Skill_ScriptableObject buff;
+    
     [SerializeField]
     GameObject EarthPrefab;
 
@@ -45,12 +40,6 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField]
     GameObject BigMeteorPrefab;
-
-    [SerializeField]
-    GameObject BuffForthPrefab;
-
-    [SerializeField]
-    GameObject BuffBackPrefab;
 
     [SerializeField]
     Transform playerTr;
@@ -73,7 +62,7 @@ public class SkillManager : MonoBehaviour
     //SkillFactory buffForthFactory;
     //SkillFactory buffBackFactory;
     public Transform earthPos;
-    
+    PlayerDamaged curHp;
 
 
 
@@ -95,11 +84,14 @@ public class SkillManager : MonoBehaviour
     public Skill_ScriptableObject equipskills;
     public GameObject skillslot1;
 
+    bool isEarthCoolTime = true;
     
     [SerializeField]
     GameObject[] slot0skillimages;
     [SerializeField]
     GameObject[] slot1skillimages;
+  
+    public GameObject[] slot2skillimages;
     [SerializeField]
     GameObject skillNull;
     [SerializeField]
@@ -108,8 +100,8 @@ public class SkillManager : MonoBehaviour
     PlayerMoving playermove;
     public Button button1; // 인스펙터에 스킬 버튼 넣기 위한 변수
     public Button button2; // 인스펙터에 스킬 버튼 넣기 위한 변수
-
-    Skill_Buff buffskill;
+    public Button button3;
+    Skill_Buff usedBuff;
     void Start()
     {
         earthFactory = new SkillFactory(EarthPrefab, 1); // Earth관련 팩토리 가져오기
@@ -121,10 +113,6 @@ public class SkillManager : MonoBehaviour
         //buffBackFactory = new SkillFactory(BuffBackPrefab, 1);
         angleWind();
 
-        
-
-        BuffForthPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
-        BuffBackPrefab.SetActive(false); // 버프활성화 프리팹 시작할때 비활성화
         
         skillCoolTimeGauge.fillAmount = 0f;
         skillCoolTimeGauge2.fillAmount = 0f;
@@ -145,10 +133,9 @@ public class SkillManager : MonoBehaviour
         playermove = GameObject.FindWithTag("Player").GetComponent<PlayerMoving>();
         buffIcon.SetActive(false);
 
-        buffskill = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
+        curHp = GameObject.FindWithTag("Player").GetComponent<PlayerDamaged>();
 
-
-
+        usedBuff = GameObject.Find("SkillManager").GetComponent<Skill_Buff>();
 
     }
 
@@ -158,28 +145,34 @@ public class SkillManager : MonoBehaviour
         skillSlot = skillNum;
         OnClickchangedskill();
 
+
     }
     
 
     public void OnclickSkill(int slotNumber)
     {
-       
+        if(curHp.playerhp <=0) // 플레이어의 HP가 0이 되었을 때 스킬을 사용하지 않습니다.
+        {
+            return;
+        }
+        
         if (slotNumber == 0)
         {
-          
-            SkillUse(skillSlot[0]); // 0번 슬롯일때 1번 어스 스킬 발동
+           
+            SkillUse(skillSlot[0]); // 0번 슬롯
             CoolTimeState(skillCoolTimeGauge, skillSlot[0], button[0]); // 쿨타임이 돌아갑니다(쿨타임 시각이미지, 0번 스킬슬롯, 0번 스킬버튼)
         }
         else if (slotNumber == 1)
         {
             
-            SkillUse(skillSlot[1]); // 1번 슬롯일때 3번 윈드 스킬 발동
+            SkillUse(skillSlot[1]); // 1번 슬롯
             CoolTimeState(skillCoolTimeGauge2, skillSlot[1], button[1]);// 쿨타임이 돌아갑니다(쿨타임 시각이미지, 1번 스킬슬롯, 1번 스킬버튼)
         }
-        else
+        else if (slotNumber == 2)
         {
-           
-            SkillUse(skillSlot[2]); // 2번 슬롯일때 5번 버프 스킬 발동
+            
+            SkillUse(skillSlot[2]); // 2번 슬롯 => 버프 스킬만 장착할 수 있는 슬롯입니다.
+            
         }
     }
 
@@ -188,27 +181,21 @@ public class SkillManager : MonoBehaviour
         switch (skilNum)
         {
             case 0:
-              
                 break;
             case 1:
-               
                 OnEarthAttack(); // Earth 스킬 발동 함수
                 break;
             case 2:
-               
                 OnTornadoAttack(); // Tornado 스킬 발동 함수
                 break;
             case 3:
-              
                 OnWindAttack(); // Wind 스킬 발동 함수
                 break;
             case 4:
-                
                 OnBigMeteorAttack(); // Meteor 스킬 발동 함수
                 break;
             case 5:
-              
-                buffskill.ActivatedBuff();
+                usedBuff.ActivatedBuff(); // buff 스킬 발동 함수
                 break;
             default:
                 break;
@@ -227,7 +214,7 @@ public class SkillManager : MonoBehaviour
         else if (skillNum == 2) skillCool = tornado.coolTime; // 2번스킬 Tornado의 쿨타임 설정
         else if (skillNum == 3) skillCool = wind.coolTime; // 3번스킬 wind의 쿨타임 설정
         else if (skillNum == 4) skillCool = meteor.coolTime; // 4번스킬 meteor의 쿨타임 설정
-
+        else if (skillNum == 5) skillCool = buff.coolTime; // 5번스킬 buff의 쿨타임 설정
         StartCoroutine(startSkillCoolTime(skillcoolTime, skillCool, button)); // 쿨타임 이미지의 fillAmount 효과를 위한 코루틴
     }
 
@@ -253,28 +240,32 @@ public class SkillManager : MonoBehaviour
 
     public void OnClickchangedskill()
     {
-        for(int i = 0; i < 3; i++)
-        {
-            print(i +":" + skillSlot[i]);
-        }
 
         for (int i = 0; i < slot0skillimages.Length; i++)
         {
-            slot0skillimages[i].SetActive(false);
+            slot0skillimages[i].SetActive(false); // 스킬을 장착하지 않았을 때는 이미지가 표시되지 않습니다.
         }
-        slot0skillimages[skillSlot[0]].SetActive(true);
+        slot0skillimages[skillSlot[0]].SetActive(true); // 스킬을 장착했을 때 0번스킬 슬롯에 장착한 스킬 이미지를 활성화 합니다.
 
         for (int i = 0; i < slot1skillimages.Length; i++)
         {
-            slot1skillimages[i].SetActive(false);
+            slot1skillimages[i].SetActive(false); // 스킬을 장착하지 않았을 때는 이미지가 표시되지 않습니다.
         }
-        slot1skillimages[skillSlot[1]].SetActive(true);
+        slot1skillimages[skillSlot[1]].SetActive(true); // 스킬을 장착했을 때 1번스킬 슬롯에 장착한 스킬 이미지를 활성화 합니다.
+
+        for (int i = 0; i < slot2skillimages.Length; i++)
+        {
+            slot2skillimages[i].SetActive(false); // 스킬을 장착하지 않았을 때는 이미지가 표시되지 않습니다.
+        }
+        slot2skillimages[skillSlot[2]].SetActive(true); // 스킬을 장착했을 때 버프스킬 이미지를 활성화 합니다.
 
 
-        skillNull.SetActive(false);
-        buffIcon.SetActive(true);
 
-        
+
+        //skillNull.SetActive(false);
+        //buffIcon.SetActive(true);
+
+
 
     }
 
@@ -332,34 +323,24 @@ public class SkillManager : MonoBehaviour
         meteor.transform.rotation = Quaternion.Euler(0, 0, -130.0f);
     }
 
-    public void OnActivatedBuff()
-    {
-        BuffForthPrefab.SetActive(true);
-        BuffBackPrefab.SetActive(true);
-        StartCoroutine(DestroyBuff());
-    }
-
-    IEnumerator DestroyBuff()
-    {
-        yield return new WaitForSeconds(20.0f);
-        BuffForthPrefab.SetActive(false);
-        BuffBackPrefab.SetActive(false);
-    }
-
-    
-
     // Update is called once per frame
     void Update()
     {
+        
         if(playermove.isButtonPressed==true && button1.enabled==true)
         {
-            OnclickSkill(0);
+            OnclickSkill(0); // 자동사냥 버튼을 눌렀을 때 0번스킬 버튼이 활성화 될때마다 장착한 스킬을 자동으로 사용함
             
         }
         else if(playermove.isButtonPressed == true && button2.enabled == true)
         {
-            OnclickSkill(1);
+            OnclickSkill(1); // 자동사냥 버튼을 눌렀을 때 1번스킬 버튼이 활성화 될때마다 장착한 스킬을 자동으로 사용함
         }
-        
+        if(playermove.isButtonPressed == true && button3.enabled == true)
+        {
+            OnclickSkill(2); // 자동사냥 버튼을 눌렀을 때 버튼이 활성화 될때마다 버프스킬을 자동으로 사용함
+        }
+
+
     }
 }
