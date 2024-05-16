@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[System.Serializable]
 public class Item 
 {
     public Item_ScriptableObject itemData;
+    [SerializeField]
     int itemLV;
     int MaxLv=10;
 

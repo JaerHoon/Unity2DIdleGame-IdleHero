@@ -37,14 +37,14 @@ public class Bat : RecyclableMonster
     private void OnEnable()//활성화 시 초기화
     {
         monName = batData.monsterName;
-        hp = batData.hp + stageData.currentStageNum * batData.hp;
-        damage = batData.damage + (int)(stageData.currentStageNum * batData.damage * 0.5f);
-        defense = batData.defense + (int)(stageData.currentStageNum * batData.defense * 0.2f);
+        hp = batData.hp + StageManager.instance.StageNum * batData.hp;
+        damage = batData.damage + (int)(StageManager.instance.StageNum * batData.damage * 0.5f);
+        defense = batData.defense + (int)(StageManager.instance.StageNum * batData.defense * 0.2f);
         moveSpeed = batData.moveSpeed;
         attackDistance = batData.attackDistance;
         attackSpeed = batData.attackSpeed;
         attackMotionSpeed = batData.attackMotionSpeed;
-        coinValue = batData.coinValue + (int)(stageData.currentStageNum * batData.coinValue * 0.5f);
+        coinValue = batData.coinValue + (int)(StageManager.instance.StageNum * batData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0,- 0.16f);
@@ -193,5 +193,6 @@ public class Bat : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, batData.attackDistance, batData.attackSpeed, batData.attackMotionSpeed);
         UpdateState(targetPosition.position, batData.moveSpeed);
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }

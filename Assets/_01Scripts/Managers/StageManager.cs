@@ -73,7 +73,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     void ChangeStageText()
     {
         stageText.enabled = true;
-        string stageTx = "STAGE 1-" + (StageData.currentStageNum + 1).ToString();
+        string stageTx = "STAGE 1-" + (StageNum + 1).ToString();
         stageText.text = stageTx;
         textSequence = DOTween.Sequence();
         stageText.transform.position = Vector3.zero;
@@ -148,7 +148,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     IEnumerator DelayStageStart()
     {
         yield return new WaitForSeconds(2.5f);
-        StartWave?.Invoke(StageData, StageData.currentStageNum);//스테이지 시작 이벤트 발생
+        StartWave?.Invoke(StageData, StageNum);//스테이지 시작 이벤트 발생
     }
 
     public void OnStageWin()//스테이지 클리어 이벤트 수신 함수
@@ -167,13 +167,13 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
         stageClearPanel.SetActive(false);
 
-        StageData.currentStageNum++;//현재 스테이지 상승
-        if (StageData.currentStageNum > 5)
+        StageNum++;//현재 스테이지 상승
+        if (StageNum > 5)
         {
             UpdateQuestInfo();
         }
-        if (StageData.currentStageNum >= StageData.Stages.Length)//마지막 스테이지 클리어 시 처음 스테이지로 돌아옴
-            StageData.currentStageNum = 0;
+        if (StageNum >= StageData.Stages.Length)//마지막 스테이지 클리어 시 처음 스테이지로 돌아옴
+            StageNum = 0;
         OnStartWave();
     }
 

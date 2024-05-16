@@ -39,8 +39,6 @@ public class Resource : MonoBehaviour
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
-        coinNum = ResourceData.coin;//리소스 정보 불러오기
-        jemNum = ResourceData.jem;
         if (coinNum != 0)
             coinText.text = string.Format("{0:#,###}", coinNum);
         else
@@ -51,12 +49,6 @@ public class Resource : MonoBehaviour
             jemText.text = "0";
     }
 
-    private void OnDisable()
-    {
-        ResourceData.coin = coinNum;//게임 종료 시 현재 정보 저장
-        ResourceData.jem = jemNum;
-
-    }
 
     public void GetResource(int coinNum, int jemNum)
     {

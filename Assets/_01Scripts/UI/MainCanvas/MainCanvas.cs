@@ -78,7 +78,7 @@ public class MainCanvas : MonoBehaviour
 
     public void Cancel()
     {
-        UISound.instance.PlayerSound(UISound.pressButton);
+        if(UISound.instance !=null) UISound.instance.PlayerSound(UISound.pressButton);
         if (itemSummon.IsSummoning == false)
         {
             for (int i = 0; i < panels.Length; i++)

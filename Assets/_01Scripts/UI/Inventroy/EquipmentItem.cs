@@ -49,9 +49,11 @@ public class EquipmentItem : MonoBehaviour
 
     public void ResetEquipSLot()
     {
+        if (itemManager == null) return;
+
         for (int i = 0; i < equipmentSlots.Count; i++)
         {
-            equipmentSlots[i].EquipItem(itemManager?.equipments[i]);
+            equipmentSlots[i].EquipItem((itemManager.equipments[i].statUPType == "" ? null : itemManager.equipments[i]));
         }
     }
 

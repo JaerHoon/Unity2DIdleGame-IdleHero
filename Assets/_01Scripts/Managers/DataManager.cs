@@ -5,8 +5,11 @@ using System.IO;
 
 public class DataManager : MonoBehaviour
 {
-    public DataManager instance;
+    public static DataManager instance;
     string path;
+    
+    [SerializeField]
+    List<Item> itemdatas = new List<Item>();
    
 
     private void Awake()
@@ -42,8 +45,9 @@ public class DataManager : MonoBehaviour
         }
         else
         {
+            print("새로생성");
             ItemManager.instance.CreatItem();
-            StageManager.instance.StageNum = 1;
+            StageManager.instance.StageNum = 0;
             StatusManager.instance.Hp_Lv = 1;
             StatusManager.instance.ATkpow_Lv = 1;
             StatusManager.instance.DFN_Lv = 1;

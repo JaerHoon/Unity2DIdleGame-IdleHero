@@ -26,6 +26,7 @@ public class tornado : MonoBehaviour
             collision.gameObject.GetComponent<RecyclableMonster>().OnMonDamaged(TornadoDamage);
         }
     }
+
     public void OnTornadoColl()
     {
         box.enabled = true;

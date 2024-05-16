@@ -36,7 +36,7 @@ public class PlayerDamaged : MonoBehaviour
         isBlood = false;
         maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
         playerhp = maxHP;
-        print(playerhp);
+       
         hpImage.fillAmount = (float)playerhp / (float)maxHP;
     }
 

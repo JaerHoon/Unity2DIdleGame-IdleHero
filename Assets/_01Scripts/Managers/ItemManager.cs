@@ -40,13 +40,9 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        CreatItem();
-    }
 
     public void CreatItem()
-    {
+    {  
         int eVaues = Enum.GetValues(typeof(Item.ItemGrade)).Length;
 
         List<Item> itemdatas = new List<Item>();
@@ -73,6 +69,7 @@ public class ItemManager : MonoBehaviour
                 .ThenBy(data => data.itemData.itemPow)
                 .ThenBy(data =>data.itemGrade)
                 .ToList();
+
     }
 
     public void LoadItem(SaveData data)
@@ -99,22 +96,23 @@ public class ItemManager : MonoBehaviour
     {
         int status = 0;
 
+      
         switch (stat)
         {
             case 0://HP Çï¸ä, ½Å¹ß
-                status = equipments[2]?.Cal_LevelupPow(equipments[2].ItemLv) ?? 0
-                    + equipments[4]?.Cal_LevelupPow(equipments[4].ItemLv) ?? 0;
+                status = (equipments[2].statUPType != "" ? equipments[2].Cal_LevelupPow(equipments[2].ItemLv) : 0) +
+                    (equipments[4].statUPType != "" ? equipments[4].Cal_LevelupPow(equipments[4].ItemLv) : 0);
                 break;
             case 1://¹«±â
-                status = equipments[0]?.Cal_LevelupPow(equipments[0].ItemLv) ?? 0;
+                status = (equipments[0].statUPType != "" ? equipments[0].Cal_LevelupPow(equipments[0].ItemLv) : 0);
                 break;
             case 2://¹æÆÐ, °©¿Ê
-                status = equipments[1]?.Cal_LevelupPow(equipments[1].ItemLv) ?? 0
-                        + equipments[3]?.Cal_LevelupPow(equipments[3].ItemLv) ?? 0;
+                status = (equipments[1].statUPType != "" ? equipments[1].Cal_LevelupPow(equipments[1].ItemLv) : 0)
+                        +(equipments[3].statUPType != "" ? equipments[3].Cal_LevelupPow(equipments[3].ItemLv) : 0);
                 break;
 
             case 3://¾Ç¼¼¼­¸®
-                status = equipments[5]?.Cal_LevelupPow(equipments[5].ItemLv) ?? 0;
+                status = (equipments[5].statUPType != "" ? equipments[5].Cal_LevelupPow(equipments[5].ItemLv) : 0);
                 break;
         }
 

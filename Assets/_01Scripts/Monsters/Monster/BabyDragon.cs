@@ -42,14 +42,14 @@ public class BabyDragon : RecyclableMonster
     private void OnEnable()//활성화 시 초기화
     {
         monName = drangonData.monsterName;
-        hp = drangonData.hp + stageData.currentStageNum * drangonData.hp;
-        damage = drangonData.damage + (int)(stageData.currentStageNum * drangonData.damage * 0.5f);
-        defense = drangonData.defense + (int)(stageData.currentStageNum * drangonData.defense * 0.2f);
+        hp = drangonData.hp + StageManager.instance.StageNum * drangonData.hp;
+        damage = drangonData.damage + (int)(StageManager.instance.StageNum * drangonData.damage * 0.5f);
+        defense = drangonData.defense + (int)(StageManager.instance.StageNum * drangonData.defense * 0.2f);
         moveSpeed = drangonData.moveSpeed;
         attackDistance = drangonData.attackDistance;
         attackSpeed = drangonData.attackSpeed;
         attackMotionSpeed = drangonData.attackMotionSpeed;
-        coinValue = drangonData.coinValue + (int)(stageData.currentStageNum * drangonData.coinValue * 0.5f);
+        coinValue = drangonData.coinValue + (int)(StageManager.instance.StageNum * drangonData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         transform.GetChild(0).localPosition = new Vector2(0, -0.29f);
@@ -205,5 +205,6 @@ public class BabyDragon : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, drangonData.attackDistance ,drangonData.attackSpeed, drangonData.attackMotionSpeed);
         UpdateState(targetPosition.position, drangonData.moveSpeed);
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }

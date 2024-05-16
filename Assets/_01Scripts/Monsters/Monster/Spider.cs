@@ -42,14 +42,14 @@ public class Spider : RecyclableMonster
     private void OnEnable()//활성화 시 초기화
     {
         monName = spiderData.monsterName;
-        hp = spiderData.hp + stageData.currentStageNum * spiderData.hp;
-        damage = spiderData.damage + (int)(stageData.currentStageNum * spiderData.damage * 0.5f);
-        defense = spiderData.defense + (int)(stageData.currentStageNum * spiderData.defense * 0.2f);
+        hp = spiderData.hp + StageManager.instance.StageNum * spiderData.hp;
+        damage = spiderData.damage + (int)(StageManager.instance.StageNum * spiderData.damage * 0.5f);
+        defense = spiderData.defense + (int)(StageManager.instance.StageNum * spiderData.defense * 0.2f);
         moveSpeed = spiderData.moveSpeed;
         attackDistance = spiderData.attackDistance;
         attackSpeed = spiderData.attackSpeed;
         attackMotionSpeed = spiderData.attackMotionSpeed;
-        coinValue = spiderData.coinValue + (int)(stageData.currentStageNum * spiderData.coinValue * 0.5f);
+        coinValue = spiderData.coinValue + (int)(StageManager.instance.StageNum * spiderData.coinValue * 0.5f);
         if (MyRenderer != null) SetAlpa();
         if (Mycollider2D != null) Mycollider2D.enabled = true;
         Init();//부모에서 초기화
@@ -217,7 +217,7 @@ public class Spider : RecyclableMonster
         LookPlayer(targetPosition.position);
         MonsterState(targetPosition.position, spiderData.attackDistance, spiderData.attackSpeed, spiderData.attackMotionSpeed);
         UpdateState(targetPosition.position, spiderData.moveSpeed);
-
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
     }
 }

@@ -80,7 +80,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else if(AttackArea.Length > 0 || currentHP.playerhp > 0)
         {
-            print("ATK");
             isAttack = true;
             attackAnim();
             monattack?.Invoke(attackDamage);

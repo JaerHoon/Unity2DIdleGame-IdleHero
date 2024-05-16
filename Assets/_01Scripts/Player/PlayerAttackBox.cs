@@ -19,6 +19,10 @@ public class PlayerAttackBox : MonoBehaviour
 
         damage =  atkpow + skillBuff._buffAttackCal();
         
+        if(Rnum < CrtRate)
+        {
+            damage *= player.playerCriticalPower;
+        }
         return damage;
     }
 

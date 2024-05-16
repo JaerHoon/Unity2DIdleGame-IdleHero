@@ -11967,6 +11967,10 @@ PrefabInstance:
       value: 487
       objectReference: {fileID: 0}
     - target: {fileID: 1463421739935882142, guid: 63ee3624a54a83441adf930b5bea75fb, type: 3}
+      propertyPath: m_Volume
+      value: 0.315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463421739935882142, guid: 63ee3624a54a83441adf930b5bea75fb, type: 3}
       propertyPath: MinDistance
       value: 1.6661701
       objectReference: {fileID: 0}
@@ -34129,6 +34133,7 @@ Transform:
   - {fileID: 159323268}
   - {fileID: 1753615810}
   - {fileID: 1886941512}
+  - {fileID: 1795984774}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024674046
@@ -58733,6 +58738,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1795984773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795984774}
+  - component: {fileID: 1795984775}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795984774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795984773}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1024161046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795984775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795984773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0c037525bcbfa4b8105d098a9c6e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798420534
 GameObject:
   m_ObjectHideFlags: 0
@@ -71590,6 +71639,10 @@ PrefabInstance:
       propertyPath: hpImage
       value: 
       objectReference: {fileID: 1758091537}
+    - target: {fileID: 6547658329872280737, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
+      propertyPath: m_Volume
+      value: 0.333
+      objectReference: {fileID: 0}
     - target: {fileID: 7550005842485323589, guid: d504a5f1f160bef45b18d96ff8c03edc, type: 3}
       propertyPath: joy
       value: 

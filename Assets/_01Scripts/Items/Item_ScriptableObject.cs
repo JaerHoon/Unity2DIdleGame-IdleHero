@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Item Data", menuName = "Scriptable Object/Item Data")]
 
+[System.Serializable]
+[CreateAssetMenu(fileName = "Item Data", menuName = "Scriptable Object/Item Data")]
 public class Item_ScriptableObject : ScriptableObject
 {
     public enum ItemType { Weapon, Shield, Helmet, Armor, Shoes, Accessories }
