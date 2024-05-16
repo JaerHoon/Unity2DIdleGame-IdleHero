@@ -1,9 +1,9 @@
 {
     "stat_Lv": [
         26,
-        1,
-        32,
-        80
+        43,
+        55,
+        16
     ],
     "equiped_Item": [
         {
@@ -36,59 +36,59 @@
         },
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 25168
             },
-            "itemLV": 0,
+            "itemLV": 2,
             "backGround": {
-                "instanceID": 0
+                "instanceID": 31974
             },
             "slot": {
-                "instanceID": 0
+                "instanceID": 31982
             },
             "statUPType": "",
-            "itemGrade": 0
+            "itemGrade": 2
         },
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 25614
             },
-            "itemLV": 0,
+            "itemLV": 2,
             "backGround": {
-                "instanceID": 0
+                "instanceID": 31924
             },
             "slot": {
-                "instanceID": 0
+                "instanceID": 31986
             },
             "statUPType": "",
-            "itemGrade": 0
+            "itemGrade": 4
         },
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 25464
             },
-            "itemLV": 0,
+            "itemLV": 2,
             "backGround": {
-                "instanceID": 0
+                "instanceID": 31976
             },
             "slot": {
-                "instanceID": 0
+                "instanceID": 31984
             },
-            "statUPType": "",
-            "itemGrade": 0
+            "statUPType": "생명력",
+            "itemGrade": 3
         },
         {
             "itemData": {
-                "instanceID": 0
+                "instanceID": 25190
             },
-            "itemLV": 0,
+            "itemLV": 2,
             "backGround": {
-                "instanceID": 0
+                "instanceID": 31974
             },
             "slot": {
-                "instanceID": 0
+                "instanceID": 31982
             },
-            "statUPType": "",
-            "itemGrade": 0
+            "statUPType": "치명타확률",
+            "itemGrade": 2
         }
     ],
     "items": [
@@ -126,20 +126,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "공격력",
-            "itemGrade": 2
-        },
-        {
-            "itemData": {
-                "instanceID": 25660
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31976
             },
             "slot": {
@@ -308,20 +294,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31970
-            },
-            "slot": {
-                "instanceID": 31978
-            },
-            "statUPType": "방어력",
-            "itemGrade": 0
-        },
-        {
-            "itemData": {
-                "instanceID": 25742
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31972
             },
             "slot": {
@@ -546,20 +518,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "생명력",
-            "itemGrade": 2
-        },
-        {
-            "itemData": {
-                "instanceID": 25168
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31976
             },
             "slot": {
@@ -602,20 +560,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31972
-            },
-            "slot": {
-                "instanceID": 31980
-            },
-            "statUPType": "생명력",
-            "itemGrade": 1
-        },
-        {
-            "itemData": {
-                "instanceID": 25288
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31974
             },
             "slot": {
@@ -826,20 +770,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "방어력",
-            "itemGrade": 2
-        },
-        {
-            "itemData": {
-                "instanceID": 25364
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31976
             },
             "slot": {
@@ -896,20 +826,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "방어력",
-            "itemGrade": 2
-        },
-        {
-            "itemData": {
-                "instanceID": 25614
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31976
             },
             "slot": {
@@ -917,20 +833,6 @@
             },
             "statUPType": "방어력",
             "itemGrade": 3
-        },
-        {
-            "itemData": {
-                "instanceID": 25614
-            },
-            "itemLV": 1,
-            "backGround": {
-                "instanceID": 31924
-            },
-            "slot": {
-                "instanceID": 31986
-            },
-            "statUPType": "방어력",
-            "itemGrade": 4
         },
         {
             "itemData": {
@@ -973,20 +875,6 @@
             },
             "statUPType": "생명력",
             "itemGrade": 2
-        },
-        {
-            "itemData": {
-                "instanceID": 25464
-            },
-            "itemLV": 1,
-            "backGround": {
-                "instanceID": 31976
-            },
-            "slot": {
-                "instanceID": 31984
-            },
-            "statUPType": "생명력",
-            "itemGrade": 3
         },
         {
             "itemData": {
@@ -1029,20 +917,6 @@
             },
             "statUPType": "생명력",
             "itemGrade": 1
-        },
-        {
-            "itemData": {
-                "instanceID": 25674
-            },
-            "itemLV": 1,
-            "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "생명력",
-            "itemGrade": 2
         },
         {
             "itemData": {
@@ -1085,20 +959,6 @@
             },
             "statUPType": "생명력",
             "itemGrade": 0
-        },
-        {
-            "itemData": {
-                "instanceID": 25690
-            },
-            "itemLV": 1,
-            "backGround": {
-                "instanceID": 31972
-            },
-            "slot": {
-                "instanceID": 31980
-            },
-            "statUPType": "생명력",
-            "itemGrade": 1
         },
         {
             "itemData": {
@@ -1288,20 +1148,6 @@
             },
             "itemLV": 1,
             "backGround": {
-                "instanceID": 31970
-            },
-            "slot": {
-                "instanceID": 31978
-            },
-            "statUPType": "치명타확률",
-            "itemGrade": 0
-        },
-        {
-            "itemData": {
-                "instanceID": 25190
-            },
-            "itemLV": 1,
-            "backGround": {
                 "instanceID": 31972
             },
             "slot": {
@@ -1309,20 +1155,6 @@
             },
             "statUPType": "치명타확률",
             "itemGrade": 1
-        },
-        {
-            "itemData": {
-                "instanceID": 25190
-            },
-            "itemLV": 1,
-            "backGround": {
-                "instanceID": 31974
-            },
-            "slot": {
-                "instanceID": 31982
-            },
-            "statUPType": "치명타확률",
-            "itemGrade": 2
         },
         {
             "itemData": {
@@ -1353,8 +1185,177 @@
             "itemGrade": 4
         }
     ],
-    "gained_Items": [],
-    "gold": 745,
+    "gained_Items": [
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력",
+            "itemGrade": 2
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력",
+            "itemGrade": 1
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 2,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "",
+            "itemGrade": 2
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 2,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력",
+            "itemGrade": 0
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "치명타확률",
+            "itemGrade": 0
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 2,
+            "backGround": {
+                "instanceID": 31924
+            },
+            "slot": {
+                "instanceID": 31986
+            },
+            "statUPType": "",
+            "itemGrade": 4
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력",
+            "itemGrade": 2
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 2,
+            "backGround": {
+                "instanceID": 31976
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력",
+            "itemGrade": 3
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력",
+            "itemGrade": 1
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력",
+            "itemGrade": 2
+        },
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 6,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "공격력",
+            "itemGrade": 2
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 2,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "치명타확률",
+            "itemGrade": 2
+        }
+    ],
+    "gold": 8787,
     "jewel": 0,
-    "stage": 1
+    "stage": 3
 }

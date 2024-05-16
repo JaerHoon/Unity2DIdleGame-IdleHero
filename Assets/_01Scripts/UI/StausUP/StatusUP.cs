@@ -82,7 +82,8 @@ public class StatusUP : MonoBehaviour, IQuestChecker
 
     void ChangeStage()
     {
-        stageText.text = "1-1";
+        if (StageManager.instance == null) return;
+        stageText.text = "1-"+ StageManager.instance.StageNum.ToString();
     }
 
     void ChangeLastStat()
@@ -132,6 +133,12 @@ public class StatusUP : MonoBehaviour, IQuestChecker
         
         if(Resource.instance.coinNum >= statusManager.Cal_StatUPCost(num))
         {
+            if(Resource.instance.coinNum < 0)
+            {
+                print(Resource.instance.coinNum);
+                print(statusManager.Cal_StatUPCost(num));
+            }
+            Resource.instance.SubResource(statusManager.Cal_StatUPCost(num), 0);
             switch (num)
             {
                 case 0:
@@ -153,7 +160,7 @@ public class StatusUP : MonoBehaviour, IQuestChecker
                     break;
             }
 
-            Resource.instance.SubResource(statusManager.Cal_StatUPCost(num),0);
+          
 
             UpdateQuestInfo();
             Setting();

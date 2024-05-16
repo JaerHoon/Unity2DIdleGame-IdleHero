@@ -13,7 +13,7 @@ public class StatusManager : MonoBehaviour
     public const int playerDefence = 2;
     public const int playerCrtRate = 3;
 
-    int[] start_Staus = new int[4] {100, 10, 10, 50};
+    int[] start_Staus = new int[4] {100, 10, 5, 50};
     int[] status_Lv = new int[4] { 1, 1, 1, 1 };
 
     public int Hp_Lv

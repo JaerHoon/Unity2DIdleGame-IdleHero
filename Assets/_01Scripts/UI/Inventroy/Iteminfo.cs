@@ -55,7 +55,7 @@ public class Iteminfo : MonoBehaviour
         }
         else
         {
-            ItemManager.instance.equipments[(int)item.itemData.itemType] = null;
+            ItemManager.instance.equipments[(int)item.itemData.itemType].statUPType = "";
             ItemManager.instance.ChangeEqument?.Invoke();
             this.gameObject.SetActive(false);
         }

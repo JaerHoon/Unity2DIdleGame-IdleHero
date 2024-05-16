@@ -58782,6 +58782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0c037525bcbfa4b8105d098a9c6e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemdatas: []
 --- !u!1 &1798420534
 GameObject:
   m_ObjectHideFlags: 0
@@ -66198,6 +66199,45 @@ MonoBehaviour:
   - {fileID: -974246594, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
   - {fileID: 923883566, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
   - {fileID: -354314792, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}
+  items: []
+  gainedItems: []
+  equipments:
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
+  - itemData: {fileID: 0}
+    itemLV: 0
+    backGround: {fileID: 0}
+    slot: {fileID: 0}
+    statUPType: 
+    itemGrade: 0
   ChangeEqument:
     m_PersistentCalls:
       m_Calls: []

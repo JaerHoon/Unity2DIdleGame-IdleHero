@@ -73,11 +73,11 @@ public class Skill_Buff : MonoBehaviour
 
     public void ActivatedBuff()
     {
-        Invoke("blinkBuff", time - 5);
         if (isCoolTime) // 쿨타임중일때는 공격X
         {
             return;
         }
+        Invoke("blinkBuff", time - 5);
 
         
         BuffForthPrefab.SetActive(true);

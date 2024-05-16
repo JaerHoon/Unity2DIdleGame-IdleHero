@@ -39,6 +39,13 @@ public class Resource : MonoBehaviour
     void Start()
     {
         myAudioSource = gameObject.GetComponent<AudioSource>();
+        
+        
+
+    }
+
+    public void UpdateText()
+    {
         if (coinNum != 0)
             coinText.text = string.Format("{0:#,###}", coinNum);
         else
@@ -49,7 +56,6 @@ public class Resource : MonoBehaviour
             jemText.text = "0";
     }
 
-
     public void GetResource(int coinNum, int jemNum)
     {
 
@@ -58,8 +64,7 @@ public class Resource : MonoBehaviour
         this.coinNum += coinNum;
         this.jemNum += jemNum;
 
-        coinText.text = string.Format("{0:#,###}", this.coinNum);
-        jemText.text = string.Format("{0:#,###}", this.jemNum);
+        UpdateText();
     }
 
     public void SubResource(int coinNum, int jemNum)
@@ -67,8 +72,7 @@ public class Resource : MonoBehaviour
         this.coinNum -= coinNum;
         this.jemNum -= jemNum;
 
-        coinText.text = string.Format("{0:#,###}", this.coinNum);
-        jemText.text = string.Format("{0:#,###}", this.jemNum);
+        UpdateText();
     }
 
     // Update is called once per frame

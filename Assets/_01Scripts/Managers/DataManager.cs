@@ -21,6 +21,7 @@ public class DataManager : MonoBehaviour
     private void Start()
     {
         LoadData();
+        Resource.instance.UpdateText();
     }
 
     void LoadData()
