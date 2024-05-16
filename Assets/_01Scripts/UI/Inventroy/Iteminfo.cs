@@ -22,7 +22,6 @@ public class Iteminfo : MonoBehaviour
     [SerializeField]
     EnhancementItemSlot enhancementSlot;
 
-   
     Item item;
 
     public void Setting(Item item)

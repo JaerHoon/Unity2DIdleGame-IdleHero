@@ -45,7 +45,7 @@ public class Slots : MonoBehaviour
             if (itemName != null) itemName.text = item.itemData.itemname;
             if (levelText != null) levelText.text = string.Format("Lv.{0}", item.ItemLv);
             if (itemGrade != null) itemGrade.text = item.itemGrade.ToString();
-            if (itemPow != null) itemPow.text = string.Format("stat : + {0 }", item.Cal_LevelupPow(item.ItemLv));
+            if (itemPow != null) itemPow.text = string.Format("{0} : + {1}", item.statUPType,item.Cal_LevelupPow(item.ItemLv));
         }
     }
 }

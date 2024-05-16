@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 17
   m_EditorClassIdentifier: 
   itemType: 5
+  statUPType: 3
   itemname: Raven Frost
   koreanName: "\uB808\uC774\uBE10 \uD504\uB85C\uC2A4\uD2B8"
   icon: {fileID: -1834147123, guid: 5f35396a081e211408f559fda716b99b, type: 3}

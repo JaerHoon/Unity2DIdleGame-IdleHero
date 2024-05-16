@@ -59,11 +59,10 @@ public class ItemManager : MonoBehaviour
                 {
                     itemData = item_ScriptableObject[i],
                     itemGrade = (Item.ItemGrade)a,
-                    backGround = backgrounds[a],
-                    slot = slots[a],
-                    ItemLv = 1
-
+                    ItemLv = 1,
                 };
+
+                item.Setting(backgrounds[a], slots[a]);
 
                 itemdatas.Add(item);
             }
@@ -99,15 +98,15 @@ public class ItemManager : MonoBehaviour
                 status = equipments[2]?.Cal_LevelupPow(equipments[2].ItemLv) ?? 0
                     + equipments[4]?.Cal_LevelupPow(equipments[4].ItemLv) ?? 0;
                 break;
-            case 1:
+            case 1://公扁
                 status = equipments[0]?.Cal_LevelupPow(equipments[0].ItemLv) ?? 0;
                 break;
-            case 2:
+            case 2://规菩, 癌渴
                 status = equipments[1]?.Cal_LevelupPow(equipments[1].ItemLv) ?? 0
                         + equipments[3]?.Cal_LevelupPow(equipments[3].ItemLv) ?? 0;
                 break;
 
-            case 3:
+            case 3://厩技辑府
                 status = equipments[5]?.Cal_LevelupPow(equipments[5].ItemLv) ?? 0;
                 break;
         }

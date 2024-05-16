@@ -50,7 +50,7 @@ public class ItemSummon : MonoBehaviour, IQuestChecker
 
     public void OnClick(int num)
     {
-        if(Resource.instance.jemNum*num >= 100*num)
+        if(Resource.instance.jemNum >= 100*num)
         {
             if (!IsSummoning)
             {

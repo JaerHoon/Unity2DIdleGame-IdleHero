@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 1
   m_EditorClassIdentifier: 
   itemType: 0
+  statUPType: 1
   itemname: Iron Sword
   koreanName: "\uC544\uC774\uC5B8\uC18C\uB4DC"
   icon: {fileID: 682164209, guid: 39992bd4c91ffd148ba30c57e5e5ea0f, type: 3}

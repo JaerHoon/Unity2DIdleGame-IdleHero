@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 15
   m_EditorClassIdentifier: 
   itemType: 5
+  statUPType: 3
   itemname: 'Nagelring '
   koreanName: "\uB098\uAC94\uB9C1"
   icon: {fileID: 121293637, guid: 5f35396a081e211408f559fda716b99b, type: 3}
