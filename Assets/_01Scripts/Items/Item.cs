@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Item 
 {
@@ -84,6 +85,23 @@ public class Item
         }
        
         return pow;
+    }
+
+    public string Cal_Text(int Lv)
+    {
+        string st;
+
+        if(itemData.itemType == Item_ScriptableObject.ItemType.Accessories)
+        {
+            st = String.Format("{0}%", Cal_LevelupPow(Lv)/10);
+        }
+        else
+        {
+            st = Cal_LevelupPow(Lv).ToString();
+        }
+
+
+        return st;
     }
 
 

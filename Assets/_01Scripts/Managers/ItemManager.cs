@@ -39,7 +39,11 @@ public class ItemManager : MonoBehaviour
             Destroy(this);
         }
     }
-    
+
+    private void Start()
+    {
+        CreatItem();
+    }
 
     public void CreatItem()
     {
