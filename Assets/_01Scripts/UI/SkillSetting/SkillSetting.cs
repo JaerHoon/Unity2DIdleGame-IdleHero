@@ -104,6 +104,7 @@ public class SkillSetting : MonoBehaviour
             {
                if(infoSkillnum == 5)
                 {
+                    UISound.instance.PlayerSound(UISound.pressEquipSkill);
                     skillSetSlotNum[num] = infoSkillnum;
                     Setting();
                     IsCanEquip = false;
@@ -122,6 +123,7 @@ public class SkillSetting : MonoBehaviour
                 }
                 else
                 {
+                    UISound.instance.PlayerSound(UISound.pressEquipSkill);
                     skillSetSlotNum[num] = infoSkillnum;
                     Setting();
                     IsCanEquip = false;
@@ -170,6 +172,7 @@ public class SkillSetting : MonoBehaviour
 
     public void Cancel()
     {
+        UISound.instance.PlayerSound(UISound.pressButton);
         skillinfi_Panel.SetActive(false);
     }
 }

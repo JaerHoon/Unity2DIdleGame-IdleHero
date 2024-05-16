@@ -10,6 +10,7 @@ public class InventoryItemSlot : Slots
 
     public void OnClick()
     {
+        UISound.instance.PlayerSound(UISound.pressButton);
         inventroy.OninfoPanel(item);
     }
 }

@@ -79,6 +79,7 @@ public class EnhancementItemSlot : Slots, IQuestChecker
         
         if (Cal_enhancement(item))
         {
+            UISound.instance.PlayerSound(UISound.pressQuestReward);
             item.ItemLv ++;
             successBack.sprite = item.backGround;
             successFrame.sprite = item.slot;

@@ -50,6 +50,7 @@ public class ItemSummon : MonoBehaviour, IQuestChecker
 
     public void OnClick(int num)
     {
+        UISound.instance.PlayerSound(UISound.pressSummons);
         if(Resource.instance.jemNum >= 100*num)
         {
             if (!IsSummoning)

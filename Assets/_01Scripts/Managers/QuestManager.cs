@@ -73,6 +73,7 @@ public class QuestManager : MonoBehaviour
 
     public void PaymentReward() // UI에서 받음
     {
+        UISound.instance.PlayerSound(UISound.pressQuestReward);
         ativeQuest.questStat = Quest.QuestStat.RewardPaymented;
 
         Resource.instance.GetResource(0, ativeQuest.questdata.rewordAmount);
