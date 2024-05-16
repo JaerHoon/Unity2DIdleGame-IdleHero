@@ -30,6 +30,7 @@ public class Item
 
     public Sprite backGround;
     public Sprite slot;
+    public string statUPType;
     public enum ItemGrade { Nomal, Rare, Unique, Epic, Legend }
     public ItemGrade itemGrade;
     
@@ -40,6 +41,23 @@ public class Item
     {
         this.backGround = background;
         this.slot = slot;
+        if (itemData == null) return;
+        switch (itemData.statUPType)
+        {
+            case Item_ScriptableObject.StatUPType.Health:
+                statUPType = "생명력";
+                break;
+            case Item_ScriptableObject.StatUPType.Attack:
+                statUPType = "공격력";
+                break;
+            case Item_ScriptableObject.StatUPType.Defence:
+                statUPType = "방어력";
+                break;
+            case Item_ScriptableObject.StatUPType.CrtRate:
+                statUPType = "치명타확률";
+                break;
+
+        }
     }
 
 

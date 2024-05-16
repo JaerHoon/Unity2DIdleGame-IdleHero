@@ -40,6 +40,7 @@ public class MainCanvas : MonoBehaviour
 
     public void OnClick(int Btn_num)
     {
+        UISound.instance.PlayerSound(UISound.pressButton);
         cancelButton.gameObject.SetActive(true);
        
         if(Btn_num == 3)
@@ -77,7 +78,8 @@ public class MainCanvas : MonoBehaviour
 
     public void Cancel()
     {
-        if(itemSummon.IsSummoning == false)
+        UISound.instance.PlayerSound(UISound.pressButton);
+        if (itemSummon.IsSummoning == false)
         {
             for (int i = 0; i < panels.Length; i++)
             {

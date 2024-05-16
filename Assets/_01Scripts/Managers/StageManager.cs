@@ -43,7 +43,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public Action<StageScData, int> StartWave;
     public Action StageClear;
 
-
+    public int StageNum;
   
 
 

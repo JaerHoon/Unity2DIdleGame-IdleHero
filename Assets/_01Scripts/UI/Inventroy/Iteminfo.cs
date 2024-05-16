@@ -22,7 +22,6 @@ public class Iteminfo : MonoBehaviour
     [SerializeField]
     EnhancementItemSlot enhancementSlot;
 
-   
     Item item;
 
     public void Setting(Item item)
@@ -37,7 +36,8 @@ public class Iteminfo : MonoBehaviour
 
     public void EquipButton()
     {
-        if(itemInfoSlot.slotStat == ItemSlot.SlotStat.BeforEquip)
+        UISound.instance.PlayerSound(UISound.pressButton);
+        if (itemInfoSlot.slotStat == ItemSlot.SlotStat.BeforEquip)
         {   
             Item equipment = ItemManager.instance.equipments[(int)item.itemData.itemType];
             if(equipment != null)
@@ -64,6 +64,7 @@ public class Iteminfo : MonoBehaviour
 
     public void OnEquip()
     {
+        UISound.instance.PlayerSound(UISound.pressEquipItem);
         ItemManager.instance.OnEquipItem(item);
         changeItempPanel.SetActive(false);
         this.gameObject.SetActive(false);
@@ -73,6 +74,7 @@ public class Iteminfo : MonoBehaviour
 
     public void EnhancementButton()
     {
+        UISound.instance.PlayerSound(UISound.pressButton);
         enhancementSlot.Setting(item);
         enhancementSlot.Settingother(item);
         enhancementPanel.SetActive(true);
@@ -97,6 +99,7 @@ public class Iteminfo : MonoBehaviour
 
     public void Cancel()
     {
+        UISound.instance.PlayerSound(UISound.pressButton);
         this.gameObject.SetActive(false);
         inventroy.OnClick((int)item.itemData.itemType);
     }

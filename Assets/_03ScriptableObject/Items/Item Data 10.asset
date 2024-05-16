@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 10
   m_EditorClassIdentifier: 
   itemType: 3
+  statUPType: 2
   itemname: Brigandine Armor
   koreanName: "\uBE0C\uB9AC\uAC04\uB518 \uC544\uBA38"
   icon: {fileID: -1063970102, guid: 5f35396a081e211408f559fda716b99b, type: 3}

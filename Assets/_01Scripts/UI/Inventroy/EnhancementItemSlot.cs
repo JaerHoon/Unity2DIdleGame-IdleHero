@@ -45,7 +45,7 @@ public class EnhancementItemSlot : Slots, IQuestChecker
     {
         this.item = item;
         afterItemLV.text = string.Format("Lv.{0}", item.ItemLv + 1);
-        afterItemPow.text = string.Format("stat : + {0}", item.Cal_LevelupPow(item.ItemLv + 1));
+        afterItemPow.text = string.Format("{0} : + {1}", item.statUPType,item.Cal_LevelupPow(item.ItemLv + 1));
         enhancementRate.text = String.Format("°­È­È®·ü : {0}%", Cal_Rate(item));
         enhancementCost.text = String.Format("{0}", Cal_Cost(item));
     }
@@ -79,12 +79,13 @@ public class EnhancementItemSlot : Slots, IQuestChecker
         
         if (Cal_enhancement(item))
         {
+            UISound.instance.PlayerSound(UISound.pressQuestReward);
             item.ItemLv ++;
             successBack.sprite = item.backGround;
             successFrame.sprite = item.slot;
             successIcon.sprite = item.itemData.icon;
             successLv. text = string.Format("Lv.{0}", item.ItemLv);
-            successpow.text = string.Format("stat : + {0}", item.Cal_LevelupPow(item.ItemLv));
+            successpow.text = string.Format("{0} : + {1}", item.statUPType,item.Cal_LevelupPow(item.ItemLv));
             successPanel.SetActive(true);
             failPanel.SetActive(false);
             ItemManager.instance.ChangeEqument?.Invoke();

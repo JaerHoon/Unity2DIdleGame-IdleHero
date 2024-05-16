@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data
   m_EditorClassIdentifier: 
   itemType: 0
+  statUPType: 1
   itemname: Wood Sword
   koreanName: "\uC6B0\uB4DC\uC18C\uB4DC"
   icon: {fileID: 601041673, guid: 39992bd4c91ffd148ba30c57e5e5ea0f, type: 3}

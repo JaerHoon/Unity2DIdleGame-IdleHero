@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 3
   m_EditorClassIdentifier: 
   itemType: 1
+  statUPType: 2
   itemname: Round Shield
   koreanName: "\uB77C\uC6B4\uB4DC\uC2E4\uB4DC"
   icon: {fileID: -1112182027, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}

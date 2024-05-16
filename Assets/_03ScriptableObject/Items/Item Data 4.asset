@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 4
   m_EditorClassIdentifier: 
   itemType: 1
+  statUPType: 2
   itemname: Kite Shield
   koreanName: "\uCE74\uC774\uD2B8\uC2E4\uB4DC"
   icon: {fileID: 104283731, guid: 8f81774e95410eb4bac5345e2501ce2f, type: 3}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Item Data 16
   m_EditorClassIdentifier: 
   itemType: 5
+  statUPType: 3
   itemname: Dwarf Star
   koreanName: "\uB4DC\uC6CC\uD504\uC2A4\uD0C0"
   icon: {fileID: -773001172, guid: 5f35396a081e211408f559fda716b99b, type: 3}
