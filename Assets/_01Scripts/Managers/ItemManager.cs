@@ -39,12 +39,9 @@ public class ItemManager : MonoBehaviour
             Destroy(this);
         }
     }
-    void Start()
-    {
-        CreatItem();
-    }
+    
 
-    void CreatItem()
+    public void CreatItem()
     {
         int eVaues = Enum.GetValues(typeof(Item.ItemGrade)).Length;
 
@@ -72,7 +69,13 @@ public class ItemManager : MonoBehaviour
                 .ThenBy(data => data.itemData.itemPow)
                 .ThenBy(data =>data.itemGrade)
                 .ToList();
-    
+    }
+
+    public void LoadItem(SaveData data)
+    {
+        this.items = data.items;
+        this.gainedItems = data.gained_Items;
+        this.equipments = data.equiped_Item;
     }
 
     

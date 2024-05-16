@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,16 +44,10 @@ public class GameManager : MonoBehaviour
         // 아래의 함수를 사용하여 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않는다.
         DontDestroyOnLoad(gameObject);
     }
-    
 
-
-
-    //public PlayerAttack playerAttack;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        //playerAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
+        
     }
 
     public void OnSetPausePanel()

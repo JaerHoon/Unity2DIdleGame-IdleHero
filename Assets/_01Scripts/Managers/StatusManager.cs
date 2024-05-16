@@ -68,10 +68,6 @@ public class StatusManager : MonoBehaviour
         if (instance == null) instance = this; 
     }
 
-    private void Start()
-    {
-      
-    }
 
     public int GetStatus(int stat) //각 스텟을 계산해서 반환하는 함수
     {
