@@ -19,6 +19,7 @@ public class FireBall : RecyclableMonster
     }
     private void OnEnable()
     {
+        StageManager.instance.StageClear += OnListenStageClear;
         player = GameObject.FindWithTag("Player");
         isShoot = false;
         isDead = true;
@@ -26,7 +27,13 @@ public class FireBall : RecyclableMonster
     }
     private void OnDisable()
     {
+        StageManager.instance.StageClear -= OnListenStageClear;
         isShoot = false;
+    }
+
+    void OnListenStageClear()
+    {
+        FireBallDestroyed?.Invoke(this);//비활성화 이벤트 발생
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

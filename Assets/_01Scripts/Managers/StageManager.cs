@@ -41,6 +41,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     Sequence textSequence;
 
     public Action<StageScData, int> StartWave;
+    public Action StageClear;
 
 
   
@@ -179,6 +180,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
 
     public void OnStageMonsterClear()//스테이지 클리어 이벤트 수신 함수//리스타트 버튼 누름
     {
+        StageClear?.Invoke();
         SpawnManager.instance.OnDestroyAllMonster();
         StartCoroutine(FadeInGameOverPanel());
         Invoke("OnStartWave", 3.0f);

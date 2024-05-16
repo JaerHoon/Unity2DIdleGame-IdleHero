@@ -121,18 +121,25 @@ public class RecyclableMonster : MonoBehaviour
                 {
                     if (distance <= attackDistance)//사정거리보다 가깝다면
                     {
-                        if (isCanAttack)//공격 가능 상태라면
+                        if (Mathf.Abs(transform.position.x) < 8.5f && Mathf.Abs(transform.position.y) < 4.5f)//화면 밖에 있을 때
                         {
-                            state = STATE.ATTACK;//공격 상태
-                            StartCoroutine(DelayAttack(attackSpeed));//공격속도 시간 후 공격가능
-                            StartCoroutine(DelayAttackMotion(motionSpeed));//공격속도 시간 후 공격가능
-                            isTrace = false;//공격후 움직임 제한
-                            isAttacking = true;//공격중
-                            isCanAttack = false;//이미 공격 중이므로 공격 불가
+                            if (isCanAttack)//공격 가능 상태라면
+                            {
+                                state = STATE.ATTACK;//공격 상태
+                                StartCoroutine(DelayAttack(attackSpeed));//공격속도 시간 후 공격가능
+                                StartCoroutine(DelayAttackMotion(motionSpeed));//공격속도 시간 후 공격가능
+                                isTrace = false;//공격후 움직임 제한
+                                isAttacking = true;//공격중
+                                isCanAttack = false;//이미 공격 중이므로 공격 불가
+                            }
+                            else//공격 가능 상태가 아니라면
+                            {
+                                state = STATE.IDEL;
+                            }
                         }
-                        else//공격 가능 상태가 아니라면
+                        else
                         {
-                            state = STATE.IDEL;
+                            state = STATE.TRACE;
                         }
                     }
                     else if (distance > attackDistance && isTrace)
