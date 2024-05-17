@@ -8,8 +8,7 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
    
-    [SerializeField] GameObject pausePanel;//일시정지 패널 프리팹
-    private bool isPause = false;
+    
     public bool pressStartButton;
 
     private static GameManager _instance;
@@ -50,11 +49,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void OnSetPausePanel()
-    {
-        isPause = !isPause;
-        pausePanel.SetActive(isPause);
-    }
+    
 
     public void ChangeScene()
     {

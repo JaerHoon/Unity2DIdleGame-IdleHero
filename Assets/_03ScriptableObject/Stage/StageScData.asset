@@ -16,19 +16,19 @@ MonoBehaviour:
   stages:
   - StageNum: 0
     SlimeNum: 30
-    BatNum: 0
+    BatNum: 10
     SpiderNum: 0
     BabyDragonNum: 0
   - StageNum: 0
     SlimeNum: 40
     BatNum: 20
-    SpiderNum: 0
-    BabyDragonNum: 0
+    SpiderNum: 5
+    BabyDragonNum: 2
   - StageNum: 0
     SlimeNum: 60
     BatNum: 40
     SpiderNum: 20
-    BabyDragonNum: 0
+    BabyDragonNum: 5
   - StageNum: 0
     SlimeNum: 80
     BatNum: 60

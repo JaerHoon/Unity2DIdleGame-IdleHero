@@ -24,6 +24,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    [SerializeField] GameObject pausePanel;//일시정지 패널 프리팹
+    private bool isPause = false;
+
     AudioSource myAudioSource;
     public AudioMixer audioMixer;
     //public AudioMixer audioMixer_BGM;
@@ -50,6 +53,11 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    public void OnSetPausePanel()
+    {
+        isPause = !isPause;
+        pausePanel.SetActive(isPause);
+    }
 
     public void AudioMasterControl()
     {

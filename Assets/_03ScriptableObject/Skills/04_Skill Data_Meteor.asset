@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 04_Skill Data_Meteor
   m_EditorClassIdentifier: 
   skillNumber: 4
-  damage: 50
+  damage: 100
   coolTime: 10
   skillname: "\uBA54\uD14C\uC624"
-  skillinfo: 
+  skillinfo: "\uAC15\uB825\uD55C \uC6B4\uC11D\uC744 \uB5A8\uC5B4\uB728\uB824 \uB300\uC0C1\uC5D0\uAC8C
+    100\uC758 \uB370\uBBF8\uC9C0\uB97C \uAC00\uD55C\uB2E4."
   skillPrefab: {fileID: 621059610374767611, guid: 11e2363d258f4114e88655f297922cb5, type: 3}
   icon: {fileID: 21300000, guid: 6a3eddad52bde0647892fe1fd97220c9, type: 3}
