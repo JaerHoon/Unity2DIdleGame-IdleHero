@@ -44,8 +44,8 @@ public class StageManager : MonoBehaviour,IQuestChecker
     public Action StageClear;
 
     public int StageNum;
-  
 
+    PlayerDamaged playerhp;
 
     public Quest_ScriptableObject.QuestType questType { get; set; }
 
@@ -55,6 +55,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
         gameOverPanel.SetActive(false);
         stageClearPanel.SetActive(false);
         GOPalpha = gameOverPanel.GetComponent<Image>().color;
+        playerhp = GameObject.Find("Player").GetComponent<PlayerDamaged>();
         Invoke("OnStartWave", 1.5f);
     }
 
@@ -155,7 +156,7 @@ public class StageManager : MonoBehaviour,IQuestChecker
     {
 
         StartCoroutine(StageWin());
-
+        playerhp.Init();
     }
 
 

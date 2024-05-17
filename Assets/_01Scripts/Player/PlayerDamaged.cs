@@ -36,7 +36,6 @@ public class PlayerDamaged : MonoBehaviour
         isBlood = false;
         maxHP = StatusManager.instance.GetStatus(StatusManager.playerHP);
         playerhp = maxHP;
-       
         hpImage.fillAmount = (float)playerhp / (float)maxHP;
     }
 
@@ -64,11 +63,10 @@ public class PlayerDamaged : MonoBehaviour
         GameObject Text = Instantiate(DamageText);
         Text.transform.position = TextPos.position;
         
-        if(monDamage- DefenceCaculate() > 0)
+        if (monDamage- DefenceCaculate() > 0)
         {
             //isPlayerDamage = true;
             playerhp -= (int)monDamage - DefenceCaculate();
-
 
             Text.GetComponent<PlayerDamageText>().Damage = monDamage - DefenceCaculate();
 
@@ -76,8 +74,9 @@ public class PlayerDamaged : MonoBehaviour
         }
         else
         {
-            monDamage = 0;
-            Text.GetComponent<PlayerDamageText>().Damage = 0;
+            monDamage = 1;
+            playerhp -= monDamage;
+            Text.GetComponent<PlayerDamageText>().Damage = 1;
         }
         
         hpImage.fillAmount = (float)playerhp / (float)maxHP;
