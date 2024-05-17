@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344c71672784b4b48bdd7b28d18ac08e, type: 3}
   m_Name: Item Data 14
   m_EditorClassIdentifier: 
+  ItemDataNum: 14
   itemType: 4
+  statUPType: 0
   itemname: Light Plate Boots
   koreanName: "\uB77C\uC774\uD2B8\uD50C\uB808\uC774\uD2B8\uBD80\uCE20"
   icon: {fileID: -394996760, guid: 5f35396a081e211408f559fda716b99b, type: 3}

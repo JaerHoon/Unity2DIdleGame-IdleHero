@@ -26,6 +26,7 @@ public class QuestUI : MonoBehaviour
     {
         if (questManager == null) return;
         if (questManager.quests.Count == 0) return;
+
        for(int i=0; i<questSlots.Count; i++)
         {
             Sprite sprite = 
@@ -33,14 +34,25 @@ public class QuestUI : MonoBehaviour
                 == Quest_ScriptableObject.RewardType.Gold ? goldIcon : jewel;
             questSlots[i].Setting(sprite, questManager?.quests[i]);
             questSlots[i].ChangeAtiveQuest(false);
-            
-        }
+           
 
-       if(questManager?.ativeQuest != null)
-        {
-            questSlots[questManager?.ativeQuest.questdata.quest_number ?? 0].ChangeAtiveQuest(true);
         }
         
+        questSlots[questManager.ativeQuest.questdata.quest_number].ChangeAtiveQuest(true);
+
+        for (int i = 0; i < questSlots.Count; i++)
+        {
+          
+            Sprite sprite =
+              questManager?.quests[i]?.questdata.rewardType
+              == Quest_ScriptableObject.RewardType.Gold ? goldIcon : jewel;
+            questSlots[i].Setting(sprite, questManager?.quests[i]);
+          
+        }
+
+
+
+
     }
 
     public void OnClick(int num)

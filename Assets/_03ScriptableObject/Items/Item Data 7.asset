@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344c71672784b4b48bdd7b28d18ac08e, type: 3}
   m_Name: Item Data 7
   m_EditorClassIdentifier: 
+  ItemDataNum: 7
   itemType: 2
+  statUPType: 0
   itemname: Bascinet
   koreanName: "\uBC30\uC11C\uB2DB"
   icon: {fileID: 1227706992, guid: 5f35396a081e211408f559fda716b99b, type: 3}

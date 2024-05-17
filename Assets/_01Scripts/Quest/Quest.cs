@@ -87,6 +87,7 @@ public class Quest
 
     public void CompleteQuest()
     {
+  
         questStat = QuestStat.Complete;
     }
 

@@ -139,12 +139,15 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    public int[] OutSlotnum()
+    {
+        return skillSlot;
+    }
     
     public void ChangeSlot(int[] skillNum)
     {
         skillSlot = skillNum;
         OnClickchangedskill();
-
 
     }
     
@@ -240,7 +243,6 @@ public class SkillManager : MonoBehaviour
 
     public void OnClickchangedskill()
     {
-
         for (int i = 0; i < slot0skillimages.Length; i++)
         {
             slot0skillimages[i].SetActive(false); // 스킬을 장착하지 않았을 때는 이미지가 표시되지 않습니다.

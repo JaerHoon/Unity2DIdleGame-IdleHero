@@ -70,7 +70,7 @@ public class Inventroy : MonoBehaviour
 
     public void OnClick(int num)
     {
-        UISound.instance.PlayerSound(UISound.pressButton);
+        UISound.instance?.PlayerSound(UISound.pressButton);
         for (int i=0; i < 6; i++)
         {
             if (i == num)

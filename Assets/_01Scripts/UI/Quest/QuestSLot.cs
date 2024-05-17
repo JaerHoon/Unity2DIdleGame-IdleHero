@@ -37,6 +37,7 @@ public class QuestSLot : MonoBehaviour
             questslider.maxValue = quests.questdata.numberOfGoal;
             questslider.value = quests.quest_Count;
 
+           
             if (quests.questStat == Quest.QuestStat.RewardPaymented)
             {
                 completeQuest.SetActive(true);

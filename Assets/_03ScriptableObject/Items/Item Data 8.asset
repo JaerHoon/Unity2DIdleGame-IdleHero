@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344c71672784b4b48bdd7b28d18ac08e, type: 3}
   m_Name: Item Data 8
   m_EditorClassIdentifier: 
+  ItemDataNum: 8
   itemType: 2
+  statUPType: 0
   itemname: Great Helm
   koreanName: "\uADF8\uB808\uC774\uD2B8\uD5EC\uB984"
   icon: {fileID: -850069092, guid: 5f35396a081e211408f559fda716b99b, type: 3}

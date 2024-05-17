@@ -44,15 +44,20 @@ public class SkillSetting : MonoBehaviour
 
     private void OnEnable()
     {
+        if (SkillManager.instance != null) skillManager = SkillManager.instance;
+
+        skillSetSlotNum = skillManager?.OutSlotnum() ?? new int[] {0,0,0} ;
+        
         Setting();
         skillinfi_Panel.SetActive(false);
-        if(SkillManager.instance !=null) skillManager = SkillManager.instance;
-
+       
     }
 
     public void Setting()
     {
+      
        skillManager?.ChangeSlot(skillSetSlotNum);
+       
 
         for (int i = 0; i < skillSetSlotNum.Length; i++)
         {

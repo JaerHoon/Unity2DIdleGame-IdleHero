@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344c71672784b4b48bdd7b28d18ac08e, type: 3}
   m_Name: Item Data 12
   m_EditorClassIdentifier: 
+  ItemDataNum: 12
   itemType: 4
+  statUPType: 0
   itemname: Leather Shoes
   koreanName: "\uB808\uB354\uC288\uC988"
   icon: {fileID: 1755529781, guid: 5f35396a081e211408f559fda716b99b, type: 3}

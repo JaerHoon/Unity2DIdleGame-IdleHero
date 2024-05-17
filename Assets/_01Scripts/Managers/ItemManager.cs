@@ -74,9 +74,35 @@ public class ItemManager : MonoBehaviour
 
     public void LoadItem(SaveData data)
     {
-        this.items = data.items;
-        this.gainedItems = data.gained_Items;
-        this.equipments = data.equiped_Item;
+        for (int i = 0; i < data.items.Count; i++)
+        {
+            Item item = new Item();
+            item = data.items[i].OutData();
+            items.Add(item);
+        }
+
+        for (int i = 0; i < data.gained_Items.Count; i++)
+        {
+            Item gainitem = new Item();
+            gainitem = data.gained_Items[i].OutData();
+            gainedItems.Add(gainitem);
+        }
+
+        for (int i = 0; i < data.equiped_Item.Length; i++)
+        {
+           
+
+            if(data.equiped_Item[i].statUPType != "")
+            {
+                equipments[i] = data.equiped_Item[i].OutData();
+             
+            }
+            else
+            {
+                equipments[i] = null;
+            }
+        }
+        
     }
 
     
@@ -100,19 +126,19 @@ public class ItemManager : MonoBehaviour
         switch (stat)
         {
             case 0://HP Çï¸ä, ½Å¹ß
-                status = (equipments[2].statUPType != "" ? equipments[2].Cal_LevelupPow(equipments[2].ItemLv) : 0) +
-                    (equipments[4].statUPType != "" ? equipments[4].Cal_LevelupPow(equipments[4].ItemLv) : 0);
+                status = equipments[2]?.Cal_LevelupPow(equipments[2].ItemLv) ?? 0
+                    + equipments[4]?.Cal_LevelupPow(equipments[4].ItemLv) ?? 0; 
                 break;
             case 1://¹«±â
-                status = (equipments[0].statUPType != "" ? equipments[0].Cal_LevelupPow(equipments[0].ItemLv) : 0);
+                status = equipments[0]?.Cal_LevelupPow(equipments[0].ItemLv) ?? 0;
                 break;
             case 2://¹æÆÐ, °©¿Ê
-                status = (equipments[1].statUPType != "" ? equipments[1].Cal_LevelupPow(equipments[1].ItemLv) : 0)
-                        +(equipments[3].statUPType != "" ? equipments[3].Cal_LevelupPow(equipments[3].ItemLv) : 0);
+                status = equipments[1]?.Cal_LevelupPow(equipments[1].ItemLv) ?? 0
+                    + equipments[3]?.Cal_LevelupPow(equipments[3].ItemLv) ?? 0;
                 break;
 
             case 3://¾Ç¼¼¼­¸®
-                status = (equipments[5].statUPType != "" ? equipments[5].Cal_LevelupPow(equipments[5].ItemLv) : 0);
+                status = equipments[2]?.Cal_LevelupPow(equipments[2].ItemLv) ?? 0;
                 break;
         }
 

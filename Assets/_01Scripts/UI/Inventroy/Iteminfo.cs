@@ -38,8 +38,8 @@ public class Iteminfo : MonoBehaviour
     {
         UISound.instance.PlayerSound(UISound.pressButton);
         if (itemInfoSlot.slotStat == ItemSlot.SlotStat.BeforEquip)
-        {   
-            Item equipment = ItemManager.instance.equipments[(int)item.itemData.itemType].statUPType == "" ? null : ItemManager.instance.equipments[(int)item.itemData.itemType];
+        {
+            Item equipment = ItemManager.instance.equipments[(int)item.itemData.itemType];
             if(equipment != null)
             {
                 equiopedItemSlot.Setting(equipment);
@@ -55,7 +55,7 @@ public class Iteminfo : MonoBehaviour
         }
         else
         {
-            ItemManager.instance.equipments[(int)item.itemData.itemType].statUPType = "";
+            ItemManager.instance.equipments[(int)item.itemData.itemType] = null;
             ItemManager.instance.ChangeEqument?.Invoke();
             this.gameObject.SetActive(false);
         }

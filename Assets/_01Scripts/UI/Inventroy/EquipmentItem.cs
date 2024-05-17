@@ -53,7 +53,7 @@ public class EquipmentItem : MonoBehaviour
 
         for (int i = 0; i < equipmentSlots.Count; i++)
         {
-            equipmentSlots[i].EquipItem((itemManager.equipments[i].statUPType == "" ? null : itemManager.equipments[i]));
+            equipmentSlots[i].EquipItem(itemManager.equipments[i]);
         }
     }
 

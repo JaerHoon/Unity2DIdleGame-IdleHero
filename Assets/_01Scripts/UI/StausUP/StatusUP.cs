@@ -83,7 +83,7 @@ public class StatusUP : MonoBehaviour, IQuestChecker
     void ChangeStage()
     {
         if (StageManager.instance == null) return;
-        stageText.text = "1-"+ StageManager.instance.StageNum.ToString();
+        stageText.text = String.Format("1-{0}", StageManager.instance.StageNum + 1);
     }
 
     void ChangeLastStat()

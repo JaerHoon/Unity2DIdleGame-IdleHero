@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item Data", menuName = "Scriptable Object/Item Data")]
 public class Item_ScriptableObject : ScriptableObject
 {
+    public int ItemDataNum;
     public enum ItemType { Weapon, Shield, Helmet, Armor, Shoes, Accessories }
     public ItemType itemType;
     public enum StatUPType{ Health, Attack, Defence, CrtRate }

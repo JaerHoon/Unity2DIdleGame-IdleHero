@@ -40,18 +40,24 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        Init();
-    }
-
-    void Init()
-    {
-        for(int i=0; i < questsData.Count; i++)
+        for (int i = 0; i < questsData.Count; i++)
         {
             Quest quest = new Quest(questsData[i]);
             quests.Add(quest);
         }
 
-        OnAtiveQuest(0);
+       
+    }
+
+
+    public void SettingQuest(int num)
+    {
+       for(int i=0; i < num; i++)
+        {
+            quests[i].questStat = Quest.QuestStat.RewardPaymented;
+        }
+        OnAtiveQuest(num);
+       
     }
 
     public void OnAtiveQuest(int num)
