@@ -16,4 +16,8 @@ public class Quest_ScriptableObject : ScriptableObject
 
     public enum QuestType { HP_Enhancement, ATK_Enhancement, DFN_Enhancement, CrtRate_Enhancement, Summon, Equipment_Enhancement, StageClear }
     public QuestType questType;
+
+    [TextArea(2,2)]
+    public string af;
+
     }
