@@ -1,0 +1,1366 @@
+{
+    "stat_Lv": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "equiped_Item": [
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        },
+        {
+            "itemData": {
+                "instanceID": 0
+            },
+            "itemLV": 0,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 0
+            },
+            "slot": {
+                "instanceID": 0
+            },
+            "statUPType": ""
+        }
+    ],
+    "items": [
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25660
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25232
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25232
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25232
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25232
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25232
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25426
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25426
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25426
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25426
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25426
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "공격력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25742
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25628
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25628
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25628
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25628
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25628
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25512
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25512
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25512
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25512
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25512
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25168
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25288
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25318
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25318
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25318
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25318
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25318
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25358
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25358
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25358
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25358
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25358
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25364
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25614
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "방어력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25464
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25674
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25690
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "생명력"
+        },
+        {
+            "itemData": {
+                "instanceID": 25570
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25570
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25570
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25570
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25570
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25320
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25320
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25320
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25320
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25320
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "itemGrade": 0,
+            "backGround": {
+                "instanceID": 31968
+            },
+            "slot": {
+                "instanceID": 31976
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "itemGrade": 1,
+            "backGround": {
+                "instanceID": 31970
+            },
+            "slot": {
+                "instanceID": 31978
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "itemGrade": 2,
+            "backGround": {
+                "instanceID": 31972
+            },
+            "slot": {
+                "instanceID": 31980
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "itemGrade": 3,
+            "backGround": {
+                "instanceID": 31974
+            },
+            "slot": {
+                "instanceID": 31982
+            },
+            "statUPType": "치명타확률"
+        },
+        {
+            "itemData": {
+                "instanceID": 25190
+            },
+            "itemLV": 1,
+            "itemGrade": 4,
+            "backGround": {
+                "instanceID": 31922
+            },
+            "slot": {
+                "instanceID": 31984
+            },
+            "statUPType": "치명타확률"
+        }
+    ],
+    "gained_Items": [],
+    "gold": 10,
+    "jewel": 0,
+    "stage": 0,
+    "skillSlot": [
+        0,
+        0,
+        0
+    ],
+    "ActiveQuestNum": 0
+}
