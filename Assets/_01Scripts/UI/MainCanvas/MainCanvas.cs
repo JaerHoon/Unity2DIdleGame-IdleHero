@@ -97,6 +97,10 @@ public class MainCanvas : MonoBehaviour
        
     }
     
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 
 }

@@ -44,17 +44,23 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-    
+  
 
     public void ChangeScene()
     {
         pressStartButton = true;
         LoadingSceneManager.LoadScene(2);
     }
-    
+
+
+    public void GameQuit()
+    {
+        // 유니티 에디터에서는 종료되지 않지만, 빌드된 게임에서는 정상적으로 종료됩니다.
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
+            Application.Quit();
+            #endif
+    }
+
 }
