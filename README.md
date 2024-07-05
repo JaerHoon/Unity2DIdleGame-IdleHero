@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # [Unity Portfolio] 2D Idle Game
 
 =======
