@@ -11,5 +11,6 @@
 - 모든 PopUp UI 시스템 기획 및 구현
 - 퀘스트 시스템 기획 및 구현
 - 저장 및 불러오기 시스템 기획 및 구현
-
+# 프로젝트 기술서
+https://drive.google.com/file/d/1J9yOzYF0ECb9ZXdGtHokopmRIHcFzxkh/view
                
