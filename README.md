@@ -13,4 +13,5 @@
 - 저장 및 불러오기 시스템 기획 및 구현
 # 프로젝트 기술서
 https://drive.google.com/file/d/1J9yOzYF0ECb9ZXdGtHokopmRIHcFzxkh/view
-               
+# 게임 플레이 영상
+https://youtu.be/SlIqJkm0K8k
